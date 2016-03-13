@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		650835C21C95779600C6C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835C11C95779600C6C280 /* AppDelegate.swift */; };
+		650835C41C95779600C6C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835C31C95779600C6C280 /* ViewController.swift */; };
+		650835C71C95779600C6C280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650835C51C95779600C6C280 /* Main.storyboard */; };
+		650835C91C95779600C6C280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650835C81C95779600C6C280 /* Assets.xcassets */; };
+		650835CC1C95779600C6C280 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650835CA1C95779600C6C280 /* LaunchScreen.storyboard */; };
+		650835D71C95779600C6C280 /* MobinionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835D61C95779600C6C280 /* MobinionTests.swift */; };
+		650835E21C95779600C6C280 /* MobinionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835E11C95779600C6C280 /* MobinionUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		650835D31C95779600C6C280 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 650835B61C95779600C6C280 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 650835BD1C95779600C6C280;
+			remoteInfo = Mobinion;
+		};
+		650835DE1C95779600C6C280 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 650835B61C95779600C6C280 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 650835BD1C95779600C6C280;
+			remoteInfo = Mobinion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		650835BE1C95779600C6C280 /* Mobinion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobinion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		650835C11C95779600C6C280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		650835C31C95779600C6C280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		650835C61C95779600C6C280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		650835C81C95779600C6C280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		650835CB1C95779600C6C280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		650835CD1C95779600C6C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650835D21C95779600C6C280 /* MobinionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobinionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		650835D61C95779600C6C280 /* MobinionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobinionTests.swift; sourceTree = "<group>"; };
+		650835D81C95779600C6C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650835DD1C95779600C6C280 /* MobinionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobinionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		650835E11C95779600C6C280 /* MobinionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobinionUITests.swift; sourceTree = "<group>"; };
+		650835E31C95779600C6C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		650835BB1C95779600C6C280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		650835CF1C95779600C6C280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		650835DA1C95779600C6C280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		650835B51C95779600C6C280 = {
+			isa = PBXGroup;
+			children = (
+				650835C01C95779600C6C280 /* Mobinion */,
+				650835D51C95779600C6C280 /* MobinionTests */,
+				650835E01C95779600C6C280 /* MobinionUITests */,
+				650835BF1C95779600C6C280 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		650835BF1C95779600C6C280 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				650835BE1C95779600C6C280 /* Mobinion.app */,
+				650835D21C95779600C6C280 /* MobinionTests.xctest */,
+				650835DD1C95779600C6C280 /* MobinionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		650835C01C95779600C6C280 /* Mobinion */ = {
+			isa = PBXGroup;
+			children = (
+				650835C11C95779600C6C280 /* AppDelegate.swift */,
+				650835C31C95779600C6C280 /* ViewController.swift */,
+				650835C51C95779600C6C280 /* Main.storyboard */,
+				650835C81C95779600C6C280 /* Assets.xcassets */,
+				650835CA1C95779600C6C280 /* LaunchScreen.storyboard */,
+				650835CD1C95779600C6C280 /* Info.plist */,
+			);
+			path = Mobinion;
+			sourceTree = "<group>";
+		};
+		650835D51C95779600C6C280 /* MobinionTests */ = {
+			isa = PBXGroup;
+			children = (
+				650835D61C95779600C6C280 /* MobinionTests.swift */,
+				650835D81C95779600C6C280 /* Info.plist */,
+			);
+			path = MobinionTests;
+			sourceTree = "<group>";
+		};
+		650835E01C95779600C6C280 /* MobinionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				650835E11C95779600C6C280 /* MobinionUITests.swift */,
+				650835E31C95779600C6C280 /* Info.plist */,
+			);
+			path = MobinionUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		650835BD1C95779600C6C280 /* Mobinion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 650835E61C95779600C6C280 /* Build configuration list for PBXNativeTarget "Mobinion" */;
+			buildPhases = (
+				650835BA1C95779600C6C280 /* Sources */,
+				650835BB1C95779600C6C280 /* Frameworks */,
+				650835BC1C95779600C6C280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mobinion;
+			productName = Mobinion;
+			productReference = 650835BE1C95779600C6C280 /* Mobinion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		650835D11C95779600C6C280 /* MobinionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 650835E91C95779600C6C280 /* Build configuration list for PBXNativeTarget "MobinionTests" */;
+			buildPhases = (
+				650835CE1C95779600C6C280 /* Sources */,
+				650835CF1C95779600C6C280 /* Frameworks */,
+				650835D01C95779600C6C280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				650835D41C95779600C6C280 /* PBXTargetDependency */,
+			);
+			name = MobinionTests;
+			productName = MobinionTests;
+			productReference = 650835D21C95779600C6C280 /* MobinionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		650835DC1C95779600C6C280 /* MobinionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 650835EC1C95779600C6C280 /* Build configuration list for PBXNativeTarget "MobinionUITests" */;
+			buildPhases = (
+				650835D91C95779600C6C280 /* Sources */,
+				650835DA1C95779600C6C280 /* Frameworks */,
+				650835DB1C95779600C6C280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				650835DF1C95779600C6C280 /* PBXTargetDependency */,
+			);
+			name = MobinionUITests;
+			productName = MobinionUITests;
+			productReference = 650835DD1C95779600C6C280 /* MobinionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		650835B61C95779600C6C280 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Novateurglow;
+				TargetAttributes = {
+					650835BD1C95779600C6C280 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 82NH72EESN;
+					};
+					650835D11C95779600C6C280 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 82NH72EESN;
+						TestTargetID = 650835BD1C95779600C6C280;
+					};
+					650835DC1C95779600C6C280 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 82NH72EESN;
+						TestTargetID = 650835BD1C95779600C6C280;
+					};
+				};
+			};
+			buildConfigurationList = 650835B91C95779600C6C280 /* Build configuration list for PBXProject "Mobinion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 650835B51C95779600C6C280;
+			productRefGroup = 650835BF1C95779600C6C280 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				650835BD1C95779600C6C280 /* Mobinion */,
+				650835D11C95779600C6C280 /* MobinionTests */,
+				650835DC1C95779600C6C280 /* MobinionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		650835BC1C95779600C6C280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				650835CC1C95779600C6C280 /* LaunchScreen.storyboard in Resources */,
+				650835C91C95779600C6C280 /* Assets.xcassets in Resources */,
+				650835C71C95779600C6C280 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		650835D01C95779600C6C280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		650835DB1C95779600C6C280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		650835BA1C95779600C6C280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				650835C41C95779600C6C280 /* ViewController.swift in Sources */,
+				650835C21C95779600C6C280 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		650835CE1C95779600C6C280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				650835D71C95779600C6C280 /* MobinionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		650835D91C95779600C6C280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				650835E21C95779600C6C280 /* MobinionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		650835D41C95779600C6C280 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 650835BD1C95779600C6C280 /* Mobinion */;
+			targetProxy = 650835D31C95779600C6C280 /* PBXContainerItemProxy */;
+		};
+		650835DF1C95779600C6C280 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 650835BD1C95779600C6C280 /* Mobinion */;
+			targetProxy = 650835DE1C95779600C6C280 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		650835C51C95779600C6C280 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650835C61C95779600C6C280 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		650835CA1C95779600C6C280 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650835CB1C95779600C6C280 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		650835E41C95779600C6C280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		650835E51C95779600C6C280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		650835E71C95779600C6C280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mobinion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.Mobinion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		650835E81C95779600C6C280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mobinion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.Mobinion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		650835EA1C95779600C6C280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MobinionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobinion.app/Mobinion";
+			};
+			name = Debug;
+		};
+		650835EB1C95779600C6C280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MobinionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobinion.app/Mobinion";
+			};
+			name = Release;
+		};
+		650835ED1C95779600C6C280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MobinionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Mobinion;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		650835EE1C95779600C6C280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MobinionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Mobinion;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		650835B91C95779600C6C280 /* Build configuration list for PBXProject "Mobinion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				650835E41C95779600C6C280 /* Debug */,
+				650835E51C95779600C6C280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		650835E61C95779600C6C280 /* Build configuration list for PBXNativeTarget "Mobinion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				650835E71C95779600C6C280 /* Debug */,
+				650835E81C95779600C6C280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		650835E91C95779600C6C280 /* Build configuration list for PBXNativeTarget "MobinionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				650835EA1C95779600C6C280 /* Debug */,
+				650835EB1C95779600C6C280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		650835EC1C95779600C6C280 /* Build configuration list for PBXNativeTarget "MobinionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				650835ED1C95779600C6C280 /* Debug */,
+				650835EE1C95779600C6C280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 650835B61C95779600C6C280 /* Project object */;
+}
