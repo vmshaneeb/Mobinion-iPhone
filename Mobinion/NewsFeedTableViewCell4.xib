@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Follow" id="KGk-i7-Jjw" customClass="NewsFeedTableViewCell4" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="569" height="561"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="569" height="560"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add followers" translatesAutoresizingMaskIntoConstraints="NO" id="0BS-po-NfP">
+                        <rect key="frame" x="164" y="35" width="232" height="212"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="212" id="fyX-1c-qWh"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Follow your Favourite Stars and Celebereties &amp; Make your wall Selective!!!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-pJ-1le">
+                        <rect key="frame" x="45" y="282" width="471" height="128"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-hY-Nod">
+                        <rect key="frame" x="20" y="418" width="81" height="82"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="82" id="uyE-st-d41"/>
+                            <constraint firstAttribute="width" constant="81" id="wer-J2-Lsu"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shreya Goshal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-Zp-K6Y">
+                        <rect key="frame" x="109" y="434" width="111" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Singer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c85-aR-fGk">
+                        <rect key="frame" x="109" y="458" width="50" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Lht-eu-1re"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-3m-QI6">
+                        <rect key="frame" x="467" y="444" width="79" height="30"/>
+                        <state key="normal" title="Follow">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKL-7M-lj9">
+                        <rect key="frame" x="429" y="516" width="117" height="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <state key="normal" title="DISCARD CARD">
+                            <color key="titleColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cMc-pJ-1le" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="37" id="0ce-iI-Gru"/>
+                    <constraint firstItem="gfR-Zp-K6Y" firstAttribute="top" secondItem="cMc-pJ-1le" secondAttribute="bottom" constant="24" id="0wt-Pc-DdU"/>
+                    <constraint firstItem="bCn-hY-Nod" firstAttribute="top" secondItem="cMc-pJ-1le" secondAttribute="bottom" constant="8" id="1Zd-MO-oDb"/>
+                    <constraint firstItem="cMc-pJ-1le" firstAttribute="top" secondItem="0BS-po-NfP" secondAttribute="bottom" constant="35" id="3eg-mi-qQJ"/>
+                    <constraint firstItem="bCn-hY-Nod" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="B1e-iI-zxJ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pKL-7M-lj9" secondAttribute="bottom" constant="6" id="BYZ-GP-fTV"/>
+                    <constraint firstItem="1uG-3m-QI6" firstAttribute="leading" secondItem="c85-aR-fGk" secondAttribute="trailing" constant="308" id="Fy8-OD-6yx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bCn-hY-Nod" secondAttribute="bottom" constant="52" id="Jvk-dT-znj"/>
+                    <constraint firstItem="bCn-hY-Nod" firstAttribute="top" secondItem="cMc-pJ-1le" secondAttribute="bottom" constant="8" id="MKD-zW-ptH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="c85-aR-fGk" secondAttribute="bottom" constant="73" id="SIg-cb-55S"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cMc-pJ-1le" secondAttribute="trailing" constant="45" id="T00-uf-1EL"/>
+                    <constraint firstItem="0BS-po-NfP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="156" id="U2D-k9-dRH"/>
+                    <constraint firstItem="1uG-3m-QI6" firstAttribute="top" secondItem="cMc-pJ-1le" secondAttribute="bottom" constant="34" id="VdX-bl-qLC"/>
+                    <constraint firstItem="1uG-3m-QI6" firstAttribute="centerY" secondItem="bCn-hY-Nod" secondAttribute="centerY" id="Yhd-CT-FGL"/>
+                    <constraint firstItem="c85-aR-fGk" firstAttribute="top" secondItem="gfR-Zp-K6Y" secondAttribute="bottom" constant="3" id="Zsg-RK-ATt"/>
+                    <constraint firstItem="1uG-3m-QI6" firstAttribute="leading" secondItem="gfR-Zp-K6Y" secondAttribute="trailing" constant="247" id="b4a-Ln-juK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0BS-po-NfP" secondAttribute="trailing" constant="165" id="cB0-7g-twz"/>
+                    <constraint firstItem="pKL-7M-lj9" firstAttribute="top" secondItem="1uG-3m-QI6" secondAttribute="bottom" constant="42" id="eAP-q4-hg8"/>
+                    <constraint firstItem="cMc-pJ-1le" firstAttribute="top" secondItem="0BS-po-NfP" secondAttribute="bottom" constant="35" id="fDM-oX-oeY"/>
+                    <constraint firstItem="0BS-po-NfP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="g72-HQ-0mO"/>
+                    <constraint firstItem="c85-aR-fGk" firstAttribute="top" secondItem="gfR-Zp-K6Y" secondAttribute="bottom" constant="3" id="hal-93-2HP"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1uG-3m-QI6" secondAttribute="trailing" constant="15" id="jrd-gD-cBA"/>
+                    <constraint firstItem="c85-aR-fGk" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="8" id="kdQ-Oo-8h8"/>
+                    <constraint firstItem="gfR-Zp-K6Y" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="8" id="kwT-5H-22w"/>
+                    <constraint firstItem="1uG-3m-QI6" firstAttribute="leading" secondItem="gfR-Zp-K6Y" secondAttribute="trailing" constant="247" id="lyA-tU-4TW"/>
+                    <constraint firstItem="pKL-7M-lj9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="421" id="siD-NV-3Ya"/>
+                    <constraint firstItem="c85-aR-fGk" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="8" id="u9z-9k-gU7"/>
+                    <constraint firstItem="pKL-7M-lj9" firstAttribute="top" secondItem="1uG-3m-QI6" secondAttribute="bottom" constant="42" id="yNa-hb-lV2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pKL-7M-lj9" secondAttribute="trailing" constant="15" id="zx8-5s-CDJ"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="50"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="discardBtn" destination="pKL-7M-lj9" id="8eX-dc-lkv"/>
+                <outlet property="followBtn" destination="1uG-3m-QI6" id="pY7-go-Evu"/>
+                <outlet property="followPic" destination="0BS-po-NfP" id="DMI-7o-BUG"/>
+                <outlet property="profJob" destination="c85-aR-fGk" id="n3O-E0-aUJ"/>
+                <outlet property="profName" destination="gfR-Zp-K6Y" id="zEm-3C-agW"/>
+                <outlet property="profilePic" destination="bCn-hY-Nod" id="kKD-R0-Xfu"/>
+                <outlet property="textBox" destination="cMc-pJ-1le" id="p7c-Ws-Iaw"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Add followers" width="512" height="512"/>
+    </resources>
+</document>

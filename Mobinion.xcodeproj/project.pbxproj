@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469563212743E8BFE481F42B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4DD1FE8D8243636602741F /* Pods.framework */; };
 		650835C21C95779600C6C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835C11C95779600C6C280 /* AppDelegate.swift */; };
 		650835C41C95779600C6C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835C31C95779600C6C280 /* ViewController.swift */; };
 		650835C71C95779600C6C280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650835C51C95779600C6C280 /* Main.storyboard */; };
@@ -14,6 +15,59 @@
 		650835CC1C95779600C6C280 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650835CA1C95779600C6C280 /* LaunchScreen.storyboard */; };
 		650835D71C95779600C6C280 /* MobinionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835D61C95779600C6C280 /* MobinionTests.swift */; };
 		650835E21C95779600C6C280 /* MobinionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835E11C95779600C6C280 /* MobinionUITests.swift */; };
+		652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */; };
+		652EF1931CA98C1C0048F33D /* InterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */; };
+		652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */; };
+		652EF1971CA9DA530048F33D /* InterestsCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EF1951CA9DA530048F33D /* InterestsCollectionReusableView.xib */; };
+		653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F524C1CB1A982001B494C /* CountryPicker.swift */; };
+		653F524F1CB1A982001B494C /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F524D1CB1A982001B494C /* CountryView.swift */; };
+		653F52511CB1A997001B494C /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653F52501CB1A997001B494C /* Flags.xcassets */; };
+		653F52531CB1A9F0001B494C /* CountryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653F52521CB1A9F0001B494C /* CountryView.xib */; };
+		653F527C1CB1B013001B494C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 653F52571CB1B013001B494C /* Default-568h@2x.png */; };
+		653F527D1CB1B013001B494C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 653F52581CB1B013001B494C /* Default.png */; };
+		653F527E1CB1B013001B494C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 653F52591CB1B013001B494C /* Default@2x.png */; };
+		653F527F1CB1B013001B494C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 653F525A1CB1B013001B494C /* InfoPlist.strings */; };
+		653F52801CB1B013001B494C /* libPhoneNumber-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653F525C1CB1B013001B494C /* libPhoneNumber-Info.plist */; };
+		653F52821CB1B013001B494C /* NBAsYouTypeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52601CB1B013001B494C /* NBAsYouTypeFormatter.m */; };
+		653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52621CB1B013001B494C /* NBMetadataCore.m */; };
+		653F52841CB1B013001B494C /* NBMetadataCoreMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52641CB1B013001B494C /* NBMetadataCoreMapper.m */; };
+		653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52661CB1B013001B494C /* NBMetadataCoreTest.m */; };
+		653F52861CB1B013001B494C /* NBMetadataCoreTestMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52681CB1B013001B494C /* NBMetadataCoreTestMapper.m */; };
+		653F52871CB1B013001B494C /* NBMetadataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F526A1CB1B013001B494C /* NBMetadataHelper.m */; };
+		653F52881CB1B013001B494C /* NBNumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F526C1CB1B013001B494C /* NBNumberFormat.m */; };
+		653F52891CB1B013001B494C /* NBPhoneMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F526E1CB1B013001B494C /* NBPhoneMetaData.m */; };
+		653F528A1CB1B013001B494C /* NBPhoneMetaDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52701CB1B013001B494C /* NBPhoneMetaDataGenerator.m */; };
+		653F528B1CB1B013001B494C /* NBPhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52721CB1B013001B494C /* NBPhoneNumber.m */; };
+		653F528C1CB1B013001B494C /* NBPhoneNumberDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52741CB1B013001B494C /* NBPhoneNumberDefines.m */; };
+		653F528D1CB1B013001B494C /* NBPhoneNumberDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52761CB1B013001B494C /* NBPhoneNumberDesc.m */; };
+		653F528E1CB1B013001B494C /* NBPhoneNumberMetadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653F52771CB1B013001B494C /* NBPhoneNumberMetadata.plist */; };
+		653F528F1CB1B013001B494C /* NBPhoneNumberUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */; };
+		653F52921CB1B08E001B494C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653F52911CB1B08E001B494C /* CoreTelephony.framework */; };
+		65D01D711CA2AA4F00A8A478 /* UpdateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D701CA2AA4F00A8A478 /* UpdateProfile.swift */; };
+		65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D721CA2AACB00A8A478 /* ChooseInterests.swift */; };
+		65D01D751CA2AAF800A8A478 /* FollowFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D741CA2AAF800A8A478 /* FollowFriends.swift */; };
+		65D01D771CA2AB4100A8A478 /* InviteFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D761CA2AB4100A8A478 /* InviteFriends.swift */; };
+		65D01D791CA2ABAE00A8A478 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D781CA2ABAE00A8A478 /* NewsFeed.swift */; };
+		65D01D7C1CA2AD6600A8A478 /* FollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D7A1CA2AD6600A8A478 /* FollowTableViewCell.swift */; };
+		65D01D7D1CA2AD6600A8A478 /* FollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D7B1CA2AD6600A8A478 /* FollowTableViewCell.xib */; };
+		65D01D801CA2B39300A8A478 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D7E1CA2B39300A8A478 /* NewsFeedTableViewCell.swift */; };
+		65D01D811CA2B39300A8A478 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D7F1CA2B39300A8A478 /* NewsFeedTableViewCell.xib */; };
+		65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D821CA32BC900A8A478 /* CreateInitial.swift */; };
+		65D01D861CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D841CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift */; };
+		65D01D871CA3F71E00A8A478 /* NewsFeedTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D851CA3F71E00A8A478 /* NewsFeedTableViewCell2.xib */; };
+		65D01D8A1CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D881CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift */; };
+		65D01D8B1CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D891CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib */; };
+		65D01D8E1CA428E700A8A478 /* NewsFeedTableViewCell4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D8C1CA428E700A8A478 /* NewsFeedTableViewCell4.swift */; };
+		65D01D8F1CA428E700A8A478 /* NewsFeedTableViewCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D8D1CA428E700A8A478 /* NewsFeedTableViewCell4.xib */; };
+		65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D901CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift */; };
+		65D01D931CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D911CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib */; };
+		65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D941CA431EB00A8A478 /* NewsFeedTableViewCell6.swift */; };
+		65D01D971CA431EB00A8A478 /* NewsFeedTableViewCell6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D01D951CA431EB00A8A478 /* NewsFeedTableViewCell6.xib */; };
+		65DD84DE1CB3D756006B6655 /* Verify Mobile2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD84DD1CB3D756006B6655 /* Verify Mobile2.swift */; };
+		65E1FD131C9C0D8700BA74E1 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1FD121C9C0D8700BA74E1 /* CreateAccount.swift */; };
+		65E1FD151C9C130D00BA74E1 /* VerifyMobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1FD141C9C130D00BA74E1 /* VerifyMobile.swift */; };
+		AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2BD2631CAC2B51009C24CD /* ServerRequests.m */; };
+		AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +101,80 @@
 		650835DD1C95779600C6C280 /* MobinionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobinionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		650835E11C95779600C6C280 /* MobinionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobinionUITests.swift; sourceTree = "<group>"; };
 		650835E31C95779600C6C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
+		652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCollectionViewCell.xib; sourceTree = "<group>"; };
+		652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionReusableView.swift; sourceTree = "<group>"; };
+		652EF1951CA9DA530048F33D /* InterestsCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCollectionReusableView.xib; sourceTree = "<group>"; };
+		653F524C1CB1A982001B494C /* CountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
+		653F524D1CB1A982001B494C /* CountryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
+		653F52501CB1A997001B494C /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Flags.xcassets; path = ../Flags.xcassets; sourceTree = "<group>"; };
+		653F52521CB1A9F0001B494C /* CountryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryView.xib; sourceTree = "<group>"; };
+		653F52571CB1B013001B494C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		653F52581CB1B013001B494C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		653F52591CB1B013001B494C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		653F525B1CB1B013001B494C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		653F525C1CB1B013001B494C /* libPhoneNumber-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "libPhoneNumber-Info.plist"; sourceTree = "<group>"; };
+		653F525D1CB1B013001B494C /* libPhoneNumber-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libPhoneNumber-Prefix.pch"; sourceTree = "<group>"; };
+		653F525F1CB1B013001B494C /* NBAsYouTypeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBAsYouTypeFormatter.h; sourceTree = "<group>"; };
+		653F52601CB1B013001B494C /* NBAsYouTypeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBAsYouTypeFormatter.m; sourceTree = "<group>"; };
+		653F52611CB1B013001B494C /* NBMetadataCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCore.h; sourceTree = "<group>"; };
+		653F52621CB1B013001B494C /* NBMetadataCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCore.m; sourceTree = "<group>"; };
+		653F52631CB1B013001B494C /* NBMetadataCoreMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCoreMapper.h; sourceTree = "<group>"; };
+		653F52641CB1B013001B494C /* NBMetadataCoreMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCoreMapper.m; sourceTree = "<group>"; };
+		653F52651CB1B013001B494C /* NBMetadataCoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCoreTest.h; sourceTree = "<group>"; };
+		653F52661CB1B013001B494C /* NBMetadataCoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCoreTest.m; sourceTree = "<group>"; };
+		653F52671CB1B013001B494C /* NBMetadataCoreTestMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCoreTestMapper.h; sourceTree = "<group>"; };
+		653F52681CB1B013001B494C /* NBMetadataCoreTestMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCoreTestMapper.m; sourceTree = "<group>"; };
+		653F52691CB1B013001B494C /* NBMetadataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataHelper.h; sourceTree = "<group>"; };
+		653F526A1CB1B013001B494C /* NBMetadataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataHelper.m; sourceTree = "<group>"; };
+		653F526B1CB1B013001B494C /* NBNumberFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNumberFormat.h; sourceTree = "<group>"; };
+		653F526C1CB1B013001B494C /* NBNumberFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNumberFormat.m; sourceTree = "<group>"; };
+		653F526D1CB1B013001B494C /* NBPhoneMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneMetaData.h; sourceTree = "<group>"; };
+		653F526E1CB1B013001B494C /* NBPhoneMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneMetaData.m; sourceTree = "<group>"; };
+		653F526F1CB1B013001B494C /* NBPhoneMetaDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneMetaDataGenerator.h; sourceTree = "<group>"; };
+		653F52701CB1B013001B494C /* NBPhoneMetaDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneMetaDataGenerator.m; sourceTree = "<group>"; };
+		653F52711CB1B013001B494C /* NBPhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumber.h; sourceTree = "<group>"; };
+		653F52721CB1B013001B494C /* NBPhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumber.m; sourceTree = "<group>"; };
+		653F52731CB1B013001B494C /* NBPhoneNumberDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberDefines.h; sourceTree = "<group>"; };
+		653F52741CB1B013001B494C /* NBPhoneNumberDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberDefines.m; sourceTree = "<group>"; };
+		653F52751CB1B013001B494C /* NBPhoneNumberDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberDesc.h; sourceTree = "<group>"; };
+		653F52761CB1B013001B494C /* NBPhoneNumberDesc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberDesc.m; sourceTree = "<group>"; };
+		653F52771CB1B013001B494C /* NBPhoneNumberMetadata.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = NBPhoneNumberMetadata.plist; sourceTree = "<group>"; };
+		653F52781CB1B013001B494C /* NBPhoneNumberUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberUtil.h; sourceTree = "<group>"; };
+		653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberUtil.m; sourceTree = "<group>"; };
+		653F52911CB1B08E001B494C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		65D01D701CA2AA4F00A8A478 /* UpdateProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfile.swift; sourceTree = "<group>"; };
+		65D01D721CA2AACB00A8A478 /* ChooseInterests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseInterests.swift; sourceTree = "<group>"; };
+		65D01D741CA2AAF800A8A478 /* FollowFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowFriends.swift; sourceTree = "<group>"; };
+		65D01D761CA2AB4100A8A478 /* InviteFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriends.swift; sourceTree = "<group>"; };
+		65D01D781CA2ABAE00A8A478 /* NewsFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
+		65D01D7A1CA2AD6600A8A478 /* FollowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowTableViewCell.swift; sourceTree = "<group>"; };
+		65D01D7B1CA2AD6600A8A478 /* FollowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowTableViewCell.xib; sourceTree = "<group>"; };
+		65D01D7E1CA2B39300A8A478 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
+		65D01D7F1CA2B39300A8A478 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
+		65D01D821CA32BC900A8A478 /* CreateInitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateInitial.swift; sourceTree = "<group>"; };
+		65D01D841CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell2.swift; sourceTree = "<group>"; };
+		65D01D851CA3F71E00A8A478 /* NewsFeedTableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell2.xib; sourceTree = "<group>"; };
+		65D01D881CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell3.swift; sourceTree = "<group>"; };
+		65D01D891CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell3.xib; sourceTree = "<group>"; };
+		65D01D8C1CA428E700A8A478 /* NewsFeedTableViewCell4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell4.swift; sourceTree = "<group>"; };
+		65D01D8D1CA428E700A8A478 /* NewsFeedTableViewCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell4.xib; sourceTree = "<group>"; };
+		65D01D901CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell5.swift; sourceTree = "<group>"; };
+		65D01D911CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell5.xib; sourceTree = "<group>"; };
+		65D01D941CA431EB00A8A478 /* NewsFeedTableViewCell6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell6.swift; sourceTree = "<group>"; };
+		65D01D951CA431EB00A8A478 /* NewsFeedTableViewCell6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell6.xib; sourceTree = "<group>"; };
+		65DD84DD1CB3D756006B6655 /* Verify Mobile2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Verify Mobile2.swift"; sourceTree = "<group>"; };
+		65E1FD121C9C0D8700BA74E1 /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		65E1FD141C9C130D00BA74E1 /* VerifyMobile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyMobile.swift; sourceTree = "<group>"; };
+		AC2BD2621CAC2B51009C24CD /* ServerRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequests.h; sourceTree = "<group>"; };
+		AC2BD2631CAC2B51009C24CD /* ServerRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequests.m; sourceTree = "<group>"; };
+		AC2BD2651CAC2FAA009C24CD /* Mobinion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobinion-Prefix.pch"; sourceTree = "<group>"; };
+		AC978CC71CABB65C001E1D7D /* MobinionBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobinionBridging-Header.h"; sourceTree = "<group>"; };
+		AC978CC91CABB756001E1D7D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB4DD1FE8D8243636602741F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653F52921CB1B08E001B494C /* CoreTelephony.framework in Frameworks */,
+				469563212743E8BFE481F42B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +207,14 @@
 		650835B51C95779600C6C280 = {
 			isa = PBXGroup;
 			children = (
+				AC2BD2651CAC2FAA009C24CD /* Mobinion-Prefix.pch */,
+				AC2BD2611CAC2B51009C24CD /* ServerPostRequest */,
 				650835C01C95779600C6C280 /* Mobinion */,
 				650835D51C95779600C6C280 /* MobinionTests */,
 				650835E01C95779600C6C280 /* MobinionUITests */,
 				650835BF1C95779600C6C280 /* Products */,
+				ABD439F543C014DBE00B8E26 /* Pods */,
+				844541A685AFEB62EF11AEF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +231,42 @@
 		650835C01C95779600C6C280 /* Mobinion */ = {
 			isa = PBXGroup;
 			children = (
+				653F52541CB1AA27001B494C /* CountryPicker */,
+				AC978CC81CABB756001E1D7D /* Loader */,
 				650835C11C95779600C6C280 /* AppDelegate.swift */,
 				650835C31C95779600C6C280 /* ViewController.swift */,
+				65E1FD141C9C130D00BA74E1 /* VerifyMobile.swift */,
+				65DD84DD1CB3D756006B6655 /* Verify Mobile2.swift */,
+				65D01D821CA32BC900A8A478 /* CreateInitial.swift */,
+				65E1FD121C9C0D8700BA74E1 /* CreateAccount.swift */,
+				65D01D701CA2AA4F00A8A478 /* UpdateProfile.swift */,
+				65D01D721CA2AACB00A8A478 /* ChooseInterests.swift */,
+				652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */,
+				652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */,
+				652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */,
+				652EF1951CA9DA530048F33D /* InterestsCollectionReusableView.xib */,
+				65D01D741CA2AAF800A8A478 /* FollowFriends.swift */,
+				65D01D7A1CA2AD6600A8A478 /* FollowTableViewCell.swift */,
+				65D01D7B1CA2AD6600A8A478 /* FollowTableViewCell.xib */,
+				65D01D761CA2AB4100A8A478 /* InviteFriends.swift */,
+				65D01D781CA2ABAE00A8A478 /* NewsFeed.swift */,
+				65D01D7E1CA2B39300A8A478 /* NewsFeedTableViewCell.swift */,
+				65D01D7F1CA2B39300A8A478 /* NewsFeedTableViewCell.xib */,
+				65D01D841CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift */,
+				65D01D851CA3F71E00A8A478 /* NewsFeedTableViewCell2.xib */,
+				65D01D881CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift */,
+				65D01D891CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib */,
+				65D01D8C1CA428E700A8A478 /* NewsFeedTableViewCell4.swift */,
+				65D01D8D1CA428E700A8A478 /* NewsFeedTableViewCell4.xib */,
+				65D01D901CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift */,
+				65D01D911CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib */,
+				65D01D941CA431EB00A8A478 /* NewsFeedTableViewCell6.swift */,
+				65D01D951CA431EB00A8A478 /* NewsFeedTableViewCell6.xib */,
 				650835C51C95779600C6C280 /* Main.storyboard */,
 				650835C81C95779600C6C280 /* Assets.xcassets */,
 				650835CA1C95779600C6C280 /* LaunchScreen.storyboard */,
 				650835CD1C95779600C6C280 /* Info.plist */,
+				AC978CC71CABB65C001E1D7D /* MobinionBridging-Header.h */,
 			);
 			path = Mobinion;
 			sourceTree = "<group>";
@@ -125,6 +289,97 @@
 			path = MobinionUITests;
 			sourceTree = "<group>";
 		};
+		653F52541CB1AA27001B494C /* CountryPicker */ = {
+			isa = PBXGroup;
+			children = (
+				653F52561CB1B013001B494C /* libPhoneNumber */,
+				653F52521CB1A9F0001B494C /* CountryView.xib */,
+				653F52501CB1A997001B494C /* Flags.xcassets */,
+				653F524C1CB1A982001B494C /* CountryPicker.swift */,
+				653F524D1CB1A982001B494C /* CountryView.swift */,
+			);
+			name = CountryPicker;
+			path = "CountryPicker-iOS-Swift-master/CountryPicker";
+			sourceTree = "<group>";
+		};
+		653F52561CB1B013001B494C /* libPhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				653F52911CB1B08E001B494C /* CoreTelephony.framework */,
+				653F52571CB1B013001B494C /* Default-568h@2x.png */,
+				653F52581CB1B013001B494C /* Default.png */,
+				653F52591CB1B013001B494C /* Default@2x.png */,
+				653F525A1CB1B013001B494C /* InfoPlist.strings */,
+				653F525C1CB1B013001B494C /* libPhoneNumber-Info.plist */,
+				653F525D1CB1B013001B494C /* libPhoneNumber-Prefix.pch */,
+				653F525F1CB1B013001B494C /* NBAsYouTypeFormatter.h */,
+				653F52601CB1B013001B494C /* NBAsYouTypeFormatter.m */,
+				653F52611CB1B013001B494C /* NBMetadataCore.h */,
+				653F52621CB1B013001B494C /* NBMetadataCore.m */,
+				653F52631CB1B013001B494C /* NBMetadataCoreMapper.h */,
+				653F52641CB1B013001B494C /* NBMetadataCoreMapper.m */,
+				653F52651CB1B013001B494C /* NBMetadataCoreTest.h */,
+				653F52661CB1B013001B494C /* NBMetadataCoreTest.m */,
+				653F52671CB1B013001B494C /* NBMetadataCoreTestMapper.h */,
+				653F52681CB1B013001B494C /* NBMetadataCoreTestMapper.m */,
+				653F52691CB1B013001B494C /* NBMetadataHelper.h */,
+				653F526A1CB1B013001B494C /* NBMetadataHelper.m */,
+				653F526B1CB1B013001B494C /* NBNumberFormat.h */,
+				653F526C1CB1B013001B494C /* NBNumberFormat.m */,
+				653F526D1CB1B013001B494C /* NBPhoneMetaData.h */,
+				653F526E1CB1B013001B494C /* NBPhoneMetaData.m */,
+				653F526F1CB1B013001B494C /* NBPhoneMetaDataGenerator.h */,
+				653F52701CB1B013001B494C /* NBPhoneMetaDataGenerator.m */,
+				653F52711CB1B013001B494C /* NBPhoneNumber.h */,
+				653F52721CB1B013001B494C /* NBPhoneNumber.m */,
+				653F52731CB1B013001B494C /* NBPhoneNumberDefines.h */,
+				653F52741CB1B013001B494C /* NBPhoneNumberDefines.m */,
+				653F52751CB1B013001B494C /* NBPhoneNumberDesc.h */,
+				653F52761CB1B013001B494C /* NBPhoneNumberDesc.m */,
+				653F52771CB1B013001B494C /* NBPhoneNumberMetadata.plist */,
+				653F52781CB1B013001B494C /* NBPhoneNumberUtil.h */,
+				653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */,
+			);
+			name = libPhoneNumber;
+			path = "../../libPhoneNumber-iOS-master/libPhoneNumber";
+			sourceTree = "<group>";
+		};
+		844541A685AFEB62EF11AEF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB4DD1FE8D8243636602741F /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABD439F543C014DBE00B8E26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */,
+				AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC2BD2611CAC2B51009C24CD /* ServerPostRequest */ = {
+			isa = PBXGroup;
+			children = (
+				AC2BD2621CAC2B51009C24CD /* ServerRequests.h */,
+				AC2BD2631CAC2B51009C24CD /* ServerRequests.m */,
+			);
+			name = ServerPostRequest;
+			path = Mobinion/ServerPostRequest;
+			sourceTree = "<group>";
+		};
+		AC978CC81CABB756001E1D7D /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				AC978CC91CABB756001E1D7D /* MBProgressHUD.h */,
+				AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +387,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 650835E61C95779600C6C280 /* Build configuration list for PBXNativeTarget "Mobinion" */;
 			buildPhases = (
+				AF8532D2D2F2731FFC4B8F6D /* Check Pods Manifest.lock */,
 				650835BA1C95779600C6C280 /* Sources */,
 				650835BB1C95779600C6C280 /* Frameworks */,
 				650835BC1C95779600C6C280 /* Resources */,
+				F2F868EDBC7F7E082E8EB528 /* Embed Pods Frameworks */,
+				B3E3E2E1CC474548AA12D991 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,7 +451,7 @@
 				TargetAttributes = {
 					650835BD1C95779600C6C280 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 82NH72EESN;
+						DevelopmentTeam = V9WENA23JC;
 					};
 					650835D11C95779600C6C280 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -232,9 +490,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D01D8B1CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib in Resources */,
+				653F52801CB1B013001B494C /* libPhoneNumber-Info.plist in Resources */,
 				650835CC1C95779600C6C280 /* LaunchScreen.storyboard in Resources */,
+				65D01D871CA3F71E00A8A478 /* NewsFeedTableViewCell2.xib in Resources */,
+				653F527D1CB1B013001B494C /* Default.png in Resources */,
+				653F52531CB1A9F0001B494C /* CountryView.xib in Resources */,
+				653F52511CB1A997001B494C /* Flags.xcassets in Resources */,
+				65D01D971CA431EB00A8A478 /* NewsFeedTableViewCell6.xib in Resources */,
+				653F527F1CB1B013001B494C /* InfoPlist.strings in Resources */,
+				65D01D8F1CA428E700A8A478 /* NewsFeedTableViewCell4.xib in Resources */,
+				65D01D931CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib in Resources */,
+				653F527E1CB1B013001B494C /* Default@2x.png in Resources */,
+				653F527C1CB1B013001B494C /* Default-568h@2x.png in Resources */,
+				653F528E1CB1B013001B494C /* NBPhoneNumberMetadata.plist in Resources */,
+				65D01D811CA2B39300A8A478 /* NewsFeedTableViewCell.xib in Resources */,
 				650835C91C95779600C6C280 /* Assets.xcassets in Resources */,
+				65D01D7D1CA2AD6600A8A478 /* FollowTableViewCell.xib in Resources */,
+				652EF1931CA98C1C0048F33D /* InterestsCollectionViewCell.xib in Resources */,
 				650835C71C95779600C6C280 /* Main.storyboard in Resources */,
+				652EF1971CA9DA530048F33D /* InterestsCollectionReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,12 +529,95 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF8532D2D2F2731FFC4B8F6D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B3E3E2E1CC474548AA12D991 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2F868EDBC7F7E082E8EB528 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		650835BA1C95779600C6C280 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653F528D1CB1B013001B494C /* NBPhoneNumberDesc.m in Sources */,
+				653F52871CB1B013001B494C /* NBMetadataHelper.m in Sources */,
+				65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */,
+				65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */,
+				653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */,
+				653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */,
+				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
+				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
+				652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */,
+				65D01D8E1CA428E700A8A478 /* NewsFeedTableViewCell4.swift in Sources */,
+				653F528B1CB1B013001B494C /* NBPhoneNumber.m in Sources */,
+				653F52861CB1B013001B494C /* NBMetadataCoreTestMapper.m in Sources */,
+				65DD84DE1CB3D756006B6655 /* Verify Mobile2.swift in Sources */,
+				653F52821CB1B013001B494C /* NBAsYouTypeFormatter.m in Sources */,
+				65D01D771CA2AB4100A8A478 /* InviteFriends.swift in Sources */,
+				65D01D8A1CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift in Sources */,
+				65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */,
 				650835C41C95779600C6C280 /* ViewController.swift in Sources */,
+				652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */,
+				65E1FD131C9C0D8700BA74E1 /* CreateAccount.swift in Sources */,
+				65D01D801CA2B39300A8A478 /* NewsFeedTableViewCell.swift in Sources */,
+				65E1FD151C9C130D00BA74E1 /* VerifyMobile.swift in Sources */,
+				AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */,
+				65D01D751CA2AAF800A8A478 /* FollowFriends.swift in Sources */,
+				653F52881CB1B013001B494C /* NBNumberFormat.m in Sources */,
+				65D01D791CA2ABAE00A8A478 /* NewsFeed.swift in Sources */,
+				653F52891CB1B013001B494C /* NBPhoneMetaData.m in Sources */,
+				653F52841CB1B013001B494C /* NBMetadataCoreMapper.m in Sources */,
+				65D01D711CA2AA4F00A8A478 /* UpdateProfile.swift in Sources */,
+				65D01D861CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift in Sources */,
+				653F524F1CB1A982001B494C /* CountryView.swift in Sources */,
+				AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */,
+				653F528A1CB1B013001B494C /* NBPhoneMetaDataGenerator.m in Sources */,
+				65D01D7C1CA2AD6600A8A478 /* FollowTableViewCell.swift in Sources */,
+				653F528C1CB1B013001B494C /* NBPhoneNumberDefines.m in Sources */,
+				653F528F1CB1B013001B494C /* NBPhoneNumberUtil.m in Sources */,
 				650835C21C95779600C6C280 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +670,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		653F525A1CB1B013001B494C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				653F525B1CB1B013001B494C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -351,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -389,7 +755,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -398,23 +764,41 @@
 		};
 		650835E71C95779600C6C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Mobinion-Prefix.pch";
+				HEADER_SEARCH_PATHS = Pods;
 				INFOPLIST_FILE = Mobinion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.Mobinion;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Novag.ServBot;
+				PRODUCT_NAME = Mobinion;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";
 			};
 			name = Debug;
 		};
 		650835E81C95779600C6C280 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Mobinion-Prefix.pch";
+				HEADER_SEARCH_PATHS = Pods;
 				INFOPLIST_FILE = Mobinion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.Mobinion;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Novag.ServBot;
+				PRODUCT_NAME = Mobinion;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";
 			};
 			name = Release;
 		};
@@ -485,6 +869,7 @@
 				650835E81C95779600C6C280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		650835E91C95779600C6C280 /* Build configuration list for PBXNativeTarget "MobinionTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +878,7 @@
 				650835EB1C95779600C6C280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		650835EC1C95779600C6C280 /* Build configuration list for PBXNativeTarget "MobinionUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +887,7 @@
 				650835EE1C95779600C6C280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

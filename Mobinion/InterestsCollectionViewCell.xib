@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="InterestsCollectionViewCell" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-9b-SLt">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Kfp-Np-LJq"/>
+                            <constraint firstAttribute="height" constant="100" id="PsH-c8-chx"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="BYd-9b-SLt" secondAttribute="bottom" id="4gf-Rh-L8V"/>
+                <constraint firstItem="BYd-9b-SLt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QE1-Tr-PrT"/>
+                <constraint firstItem="BYd-9b-SLt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QwX-nR-3q4"/>
+                <constraint firstAttribute="trailing" secondItem="BYd-9b-SLt" secondAttribute="trailing" id="zOZ-c2-Dln"/>
+            </constraints>
+            <size key="customSize" width="129" height="121"/>
+            <connections>
+                <outlet property="intImg" destination="BYd-9b-SLt" id="FWd-7k-BBi"/>
+            </connections>
+            <point key="canvasLocation" x="207" y="309"/>
+        </collectionViewCell>
+    </objects>
+</document>

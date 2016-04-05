@@ -1,0 +1,17 @@
+//
+//  Mobinion-Prefix.pch
+//  Mobinion
+//
+//  Created by Hamdan on 3/30/16.
+//  Copyright © 2016 Novateurglow. All rights reserved.
+//
+
+#ifndef Mobinion_Prefix_pch
+#define Mobinion_Prefix_pch
+
+#import "ServerRequests.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Mobinion_Prefix_pch */

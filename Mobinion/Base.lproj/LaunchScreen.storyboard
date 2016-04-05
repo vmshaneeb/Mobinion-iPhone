@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,13 +17,72 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOBINION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOj-ac-eyv">
+                                <rect key="frame" x="20" y="108" width="560" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="xir-Jl-uq8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <color key="textColor" red="0.22745098039215686" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUR MISSION IS TO CREATE AN INTERFACE " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7DT-g7-ZH6">
+                                <rect key="frame" x="20" y="260" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THAT WOULD BE EASY TO USE AND " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lkW-kW-oGX">
+                                <rect key="frame" x="20" y="289" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONVEY A SENSE OF PURPOSE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ruG-Zx-c17">
+                                <rect key="frame" x="20" y="318" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @2016, Lorem Ipsum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64F-Sc-53X">
+                                <rect key="frame" x="180" y="559" width="241" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.35294117647058826" green="0.83137254901960789" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176470588237" green="0.54509803921568623" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gOj-ac-eyv" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="3Oh-UB-HbD"/>
+                            <constraint firstItem="ruG-Zx-c17" firstAttribute="leading" secondItem="lkW-kW-oGX" secondAttribute="leading" id="4jw-lH-LQl"/>
+                            <constraint firstItem="7DT-g7-ZH6" firstAttribute="top" secondItem="gOj-ac-eyv" secondAttribute="bottom" constant="60" id="DaZ-1i-iAl"/>
+                            <constraint firstAttribute="bottom" secondItem="64F-Sc-53X" secondAttribute="bottom" constant="20" symbolic="YES" id="HYE-CO-JWL"/>
+                            <constraint firstItem="gOj-ac-eyv" firstAttribute="leading" secondItem="7DT-g7-ZH6" secondAttribute="leading" id="L5c-X1-rnv"/>
+                            <constraint firstItem="lkW-kW-oGX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Oly-8c-7hg"/>
+                            <constraint firstItem="ruG-Zx-c17" firstAttribute="centerX" secondItem="64F-Sc-53X" secondAttribute="centerX" id="Pz2-Fz-g63"/>
+                            <constraint firstItem="ruG-Zx-c17" firstAttribute="trailing" secondItem="lkW-kW-oGX" secondAttribute="trailing" id="RLC-7K-JmR"/>
+                            <constraint firstItem="7DT-g7-ZH6" firstAttribute="leading" secondItem="lkW-kW-oGX" secondAttribute="leading" id="VGV-gQ-CNM"/>
+                            <constraint firstItem="gOj-ac-eyv" firstAttribute="trailing" secondItem="7DT-g7-ZH6" secondAttribute="trailing" id="X99-fY-iD9"/>
+                            <constraint firstItem="lkW-kW-oGX" firstAttribute="top" secondItem="7DT-g7-ZH6" secondAttribute="bottom" constant="8" symbolic="YES" id="Z85-Ze-rf9"/>
+                            <constraint firstItem="lkW-kW-oGX" firstAttribute="trailing" secondItem="7DT-g7-ZH6" secondAttribute="trailing" id="ZM9-IA-fpa"/>
+                            <constraint firstItem="gOj-ac-eyv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="h7R-U1-4nC"/>
+                            <constraint firstItem="ruG-Zx-c17" firstAttribute="top" secondItem="lkW-kW-oGX" secondAttribute="bottom" constant="8" symbolic="YES" id="q4q-Gj-rso"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="49" y="311"/>
         </scene>
     </scenes>
 </document>

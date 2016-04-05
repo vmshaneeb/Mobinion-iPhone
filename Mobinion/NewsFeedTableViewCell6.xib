@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Winner" id="KGk-i7-Jjw" customClass="NewsFeedTableViewCell6" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="569" height="561"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="569" height="560"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Winners card" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-T4-j8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="569" height="244"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="244" id="2gG-xN-cbr"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="winner 2" translatesAutoresizingMaskIntoConstraints="NO" id="QQ6-Tc-UOs">
+                        <rect key="frame" x="164" y="110" width="240" height="210"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="210" id="0WZ-vS-NsL"/>
+                            <constraint firstAttribute="width" constant="240" id="0jY-iX-4OU"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="You have won the second prize for the photo uploading contest conducted by " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6sJ-Ul-bCq">
+                        <rect key="frame" x="104" y="400" width="361" height="62"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="62" id="C3t-Dq-Vx3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio Mango 91.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmR-D1-7MZ">
+                        <rect key="frame" x="206" y="462" width="156" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="S4Q-Ba-IVn"/>
+                            <constraint firstAttribute="width" constant="156" id="Yuq-jC-HeF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vu3-qM-XVX">
+                        <rect key="frame" x="447" y="522" width="114" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="114" id="PNI-4m-vfe"/>
+                        </constraints>
+                        <state key="normal" title="DISCARD CARD">
+                            <color key="titleColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiO-Hf-R3N">
+                        <rect key="frame" x="204" y="363" width="160" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="160" id="7pB-wT-bIY"/>
+                            <constraint firstAttribute="height" constant="21" id="llH-LT-WgL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="v7w-T4-j8Y" firstAttribute="centerX" secondItem="QQ6-Tc-UOs" secondAttribute="centerX" id="2Pe-Gd-R6K"/>
+                    <constraint firstItem="v7w-T4-j8Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3N6-SD-NGI"/>
+                    <constraint firstItem="vu3-qM-XVX" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="8fh-nR-kxL"/>
+                    <constraint firstItem="vu3-qM-XVX" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="AjE-gZ-kCK"/>
+                    <constraint firstItem="eiO-Hf-R3N" firstAttribute="top" secondItem="QQ6-Tc-UOs" secondAttribute="bottom" constant="43" id="IdV-XA-Ncr"/>
+                    <constraint firstItem="vu3-qM-XVX" firstAttribute="top" secondItem="6sJ-Ul-bCq" secondAttribute="bottom" constant="60" id="KtJ-cf-R1O"/>
+                    <constraint firstItem="fmR-D1-7MZ" firstAttribute="top" secondItem="6sJ-Ul-bCq" secondAttribute="bottom" id="Lnd-bX-Qc0"/>
+                    <constraint firstItem="eiO-Hf-R3N" firstAttribute="centerX" secondItem="6sJ-Ul-bCq" secondAttribute="centerX" id="QMf-1p-1ho"/>
+                    <constraint firstItem="6sJ-Ul-bCq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="96" id="QTf-8R-4lH"/>
+                    <constraint firstAttribute="trailing" secondItem="v7w-T4-j8Y" secondAttribute="trailing" id="ccD-9f-j00"/>
+                    <constraint firstItem="6sJ-Ul-bCq" firstAttribute="top" secondItem="eiO-Hf-R3N" secondAttribute="bottom" constant="16" id="i1d-S7-FZf"/>
+                    <constraint firstItem="v7w-T4-j8Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="n4O-cS-WA3"/>
+                    <constraint firstItem="QQ6-Tc-UOs" firstAttribute="centerX" secondItem="eiO-Hf-R3N" secondAttribute="centerX" id="w0d-hj-pTj"/>
+                    <constraint firstItem="6sJ-Ul-bCq" firstAttribute="centerX" secondItem="fmR-D1-7MZ" secondAttribute="centerX" id="zOT-Jb-gfz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="discardBtn" destination="vu3-qM-XVX" id="3i9-Lh-1Nr"/>
+                <outlet property="text1" destination="eiO-Hf-R3N" id="0jb-Nq-Xe8"/>
+                <outlet property="text2" destination="6sJ-Ul-bCq" id="yCg-ou-X5J"/>
+                <outlet property="text3" destination="fmR-D1-7MZ" id="wj4-tV-ESR"/>
+                <outlet property="winnerBanner" destination="v7w-T4-j8Y" id="qmo-YV-9t5"/>
+                <outlet property="winnerNo" destination="QQ6-Tc-UOs" id="VhO-WG-9ET"/>
+            </connections>
+            <point key="canvasLocation" x="230.5" y="356.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Winners card" width="512" height="256"/>
+        <image name="winner 2" width="256" height="256"/>
+    </resources>
+</document>
