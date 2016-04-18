@@ -7,19 +7,19 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
-class NewsFeed: UIViewController
+class NewsFeed: UIViewController, UITabBarDelegate
 {
-    @IBOutlet weak var showLists: UIBarButtonItem!
+
     @IBOutlet weak var navTitle: UINavigationBar!
-    @IBOutlet weak var notify: UIBarButtonItem!
-    @IBOutlet weak var search: UIBarButtonItem!
     
-    @IBOutlet weak var nearbyFeed: UITabBar!
-    @IBOutlet weak var scanBarcode: UITabBar!
-    @IBOutlet weak var myWall: UITabBar!
-    @IBOutlet weak var create_Poll: UITabBar!
-    @IBOutlet weak var viewProfile: UITabBar!
+    @IBOutlet weak var nearbyFeed: UITabBarItem!
+    @IBOutlet weak var scanBarcode: UITabBarItem!
+    @IBOutlet weak var myWall: UITabBarItem!
+    @IBOutlet weak var create_Poll: UITabBarItem!
+    @IBOutlet weak var viewProfile: UITabBarItem!
     
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -29,6 +29,33 @@ class NewsFeed: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        
+        var toks:String = "JWT "
+        
+        toks.appendContentsOf(tok as! String)
+        
+        let header = ["Authorization": toks ]
+        
+        let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
+        
+        Alamofire.request(.GET, URL,headers: header ,encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        let json = JSON(value)
+                        print(json)
+                        
+                    }
+                case .Failure(let error):
+                    print("Request Failed with Error!!! \(error)")
+                }
+        }
+
     }
     
     override func didReceiveMemoryWarning()
@@ -37,6 +64,27 @@ class NewsFeed: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- UITabBarDelegates
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem)
+    {
+        
+    }
+    
+    //MARK:- Actions
+    @IBAction func showLists(sender: AnyObject)
+    {
+        
+    }
+    
+    @IBAction func notify(sender: AnyObject)
+    {
+        
+    }
+    
+    @IBAction func search(sender: AnyObject)
+    {
+        
+    }
     
 }
 

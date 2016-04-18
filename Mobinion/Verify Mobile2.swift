@@ -19,7 +19,7 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
     @IBOutlet weak var verifyCode: UITextField!
     
     var num: NSString!
-    var vcode: String = ""
+//    var vcode: String = ""
     
     override func viewDidLoad()
     {
@@ -37,18 +37,42 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
         
     }
     
-    func textFieldDidBeginEditing(textField: UITextField)
-    {
-//        verifyCode.userInteractionEnabled = false
-    }
+//    func textFieldDidBeginEditing(textField: UITextField)
+//    {
+////        verifyCode.userInteractionEnabled = false
+//    }
+    
+//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+//    {
+//        // Create a button bar for the number pad
+//        let keyboardDoneButtonView = UIToolbar()
+//        keyboardDoneButtonView.sizeToFit()
+//        
+//        // Setup the buttons to be put in the system.
+//        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(CreateAccount.doneButton))
+//        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+//        
+//        let toolbarButtons = [flexibleSpaceButton, doneButton]
+//        
+//        //Put the buttons into the ToolBar and display the tool bar
+//        keyboardDoneButtonView.setItems(toolbarButtons, animated: false)
+//        textField.inputAccessoryView = keyboardDoneButtonView
+//        
+//        return true
+//    }
+//    
+//    func doneButton()
+//    {
+//        self.view.endEditing(true)
+//    }
 
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
-        vcode = verifyCode.text!
-    
-    return true
-    }
+//    func textFieldShouldReturn(textField: UITextField) -> Bool
+//    {
+//        self.view.endEditing(true)
+//        
+//        return false
+//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
@@ -63,8 +87,8 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
 //        print(cntry)
         print(num)
         
-        vcode = verifyCode.text!
-        print(vcode)
+//        vcode = verifyCode.text!
+//        print(vcode)
         
         
         let URL = "http://vyooha.cloudapp.net:1337/verifyMobileNumber"
@@ -77,10 +101,14 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
                     if let value = response.result.value
                     {
                         let json = JSON(value)
-                        print(json)
+//                        print(json)
                         
                         let token = json["data"]["token"].stringValue
+                        
                         print(token)
+                        
+                        NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
+                        NSUserDefaults.standardUserDefaults().synchronize()
                     }
                  case .Failure(let error):
                     print("Request Failed with Error!!! \(error)")
@@ -88,13 +116,41 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
         }
         
         
-//        NSUserDefaults.standardUserDefaults().setObject(json["data"]["token"].stringValue, forKey: "tocken")
-//        NSUserDefaults.standardUserDefaults().synchronize()
-//        NSUserDefaults.standardUserDefaults().objectForKey("token")
+
+//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+//        print(tok)
         
-        self.performSegueWithIdentifier("verifySecondSegue", sender: sender)
-        
+//        if tok != nil
+//        {
+            self.performSegueWithIdentifier("verifySecondSegue", sender: sender)
+//        }
     }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+    {
+        if identifier == "verifySecondSegue"
+        {
+            if ((verifyCode.text?.isEmpty) != nil)
+            {
+                let titles = "No Verification Code Entered!!!"
+                let messages = "Pls enter the verification code in the field"
+                let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                return false
+            }
+            else
+            {
+                return true
+            }
+        }
+        return true
+    }
+
 
     // MARK: - Loader
     func StartLoader()

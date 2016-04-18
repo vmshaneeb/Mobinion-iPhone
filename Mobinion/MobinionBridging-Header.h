@@ -8,11 +8,14 @@
 
 #ifndef MobinionBridging_Header_h
 #define MobinionBridging_Header_h
+
 #import "MBProgressHUD.h"
 #import "ServerRequests.h"
 //#import <ServerPostRequest/ServerRequests.h>
 
 #import "NBPhoneNumberUtil.h"
 #import "NBPhoneNumber.h"
+
+//#import "Cloudinary.h"
 
 #endif /* MobinionBridging_Header_h */

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -20,20 +21,42 @@
                             <constraint firstAttribute="height" constant="100" id="PsH-c8-chx"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2P-u3-z6z">
+                        <rect key="frame" x="8" y="71" width="84" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Interest selected" translatesAutoresizingMaskIntoConstraints="NO" id="mD7-ut-GU6">
+                        <rect key="frame" x="73" y="8" width="20" height="20"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="mD7-ut-GU6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="3pS-dh-jdB"/>
                 <constraint firstAttribute="bottom" secondItem="BYd-9b-SLt" secondAttribute="bottom" id="4gf-Rh-L8V"/>
+                <constraint firstItem="g2P-u3-z6z" firstAttribute="centerX" secondItem="BYd-9b-SLt" secondAttribute="centerX" id="97d-xM-t70"/>
+                <constraint firstAttribute="trailing" secondItem="mD7-ut-GU6" secondAttribute="trailing" constant="7" id="BiW-Xo-pvJ"/>
+                <constraint firstItem="g2P-u3-z6z" firstAttribute="top" secondItem="mD7-ut-GU6" secondAttribute="bottom" constant="43" id="PTa-y7-1fh"/>
                 <constraint firstItem="BYd-9b-SLt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QE1-Tr-PrT"/>
                 <constraint firstItem="BYd-9b-SLt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QwX-nR-3q4"/>
+                <constraint firstItem="mD7-ut-GU6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="73" id="dZr-hM-POl"/>
+                <constraint firstItem="g2P-u3-z6z" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" id="eO7-Fd-tkY"/>
+                <constraint firstItem="g2P-u3-z6z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="ilw-H0-CKQ"/>
+                <constraint firstItem="g2P-u3-z6z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="71" id="vtc-Wp-pI0"/>
                 <constraint firstAttribute="trailing" secondItem="BYd-9b-SLt" secondAttribute="trailing" id="zOZ-c2-Dln"/>
             </constraints>
             <size key="customSize" width="129" height="121"/>
             <connections>
                 <outlet property="intImg" destination="BYd-9b-SLt" id="FWd-7k-BBi"/>
+                <outlet property="intLabel" destination="g2P-u3-z6z" id="uxF-Rm-Vsb"/>
+                <outlet property="intSeleted" destination="mD7-ut-GU6" id="9IF-F0-4IQ"/>
             </connections>
             <point key="canvasLocation" x="207" y="309"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Interest selected" width="32" height="32"/>
+    </resources>
 </document>

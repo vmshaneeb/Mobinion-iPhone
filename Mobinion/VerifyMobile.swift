@@ -20,9 +20,10 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     @IBOutlet weak var number: UITextField!
     @IBOutlet weak var picker: CountryPicker!
     
-    var cntry:String = ""
-    var num:String = ""
-    var vcode: String = ""
+    @IBOutlet var allTextFields: [UITextField]!
+//    var cntry:String = ""
+//    var num:String = ""
+//    var vcode: String = ""
 
     
     override func viewDidLoad()
@@ -61,20 +62,22 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     {
         //MARK: - Alamofire
         
+        
+        
         self.StartLoader()
         
 //        print(country?.text, number?.text)
         
-        cntry = country.text!
-        num = number.text!
-
-        
-        print(cntry)
-        print(num)
+//        cntry = country.text!
+//        num = number.text!
+//
+//        
+//        print(cntry)
+//        print(num)
         
         let URL = "http://vyooha.cloudapp.net:1337/generateOtp"
         
-        Alamofire.request(.POST, URL, parameters: ["mobile": num], encoding: .JSON)
+        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
@@ -84,6 +87,8 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
                         let json = JSON(value)
                         print(json)
                     }
+
+                    
                   case .Failure(let error):
                     print("Request Failed with Error!!! \(error)")
                 }
@@ -148,23 +153,37 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
         }
     }
     
-//    func textFieldDidEndEditing(textField: UITextField)
+//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
 //    {
-//        cntry = country.text!
-//        num = number.text!
+//        // Create a button bar for the number pad
+//        let keyboardDoneButtonView = UIToolbar()
+//        keyboardDoneButtonView.sizeToFit()
 //        
-////        print(cntry)
-////        print(num)
+//        // Setup the buttons to be put in the system.
+//        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(CreateAccount.doneButton))
+//        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+//        
+//        let toolbarButtons = [flexibleSpaceButton, doneButton]
+//        
+//        //Put the buttons into the ToolBar and display the tool bar
+//        keyboardDoneButtonView.setItems(toolbarButtons, animated: false)
+//        textField.inputAccessoryView = keyboardDoneButtonView
+//        
+//        return true
+//    }
+    
+//    func doneButton()
+//    {
+//        self.view.endEditing(true)
 //    }
     
 
-    func  textFieldShouldReturn(textField: UITextField) -> Bool
-    {
-        cntry = country.text!
-        num = number.text!
-        
-        return true
-    }
+//    func  textFieldShouldReturn(textField: UITextField) -> Bool
+//    {
+//        self.view.endEditing(true)
+//        
+//        return false
+//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
@@ -172,10 +191,37 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
         self.view.endEditing(true)
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+    {
+        if identifier == "verifyFirstSegue"
+        {
+            if ((number.text?.isEmpty) != nil)
+            {
+                let titles = "No Phone# Entered!!!"
+                let messages = "Pls enter a phone number in the field"
+                let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                return false
+            }
+            else
+            {
+                return true
+            }
+        }
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         let secondVC = segue.destinationViewController as! VerifyMobile2
-        secondVC.num = num
+        secondVC.num = number.text!
+        
+//        print(secondVC.num)
     }
     
     // MARK: - Loader

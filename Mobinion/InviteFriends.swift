@@ -11,14 +11,7 @@ import UIKit
 class InviteFriends: UIViewController
 {
     
-//    @IBOutlet weak var shareBtn: UIButton!
-    
-    
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var skipButton: UIBarButtonItem!
     @IBOutlet weak var navTitle: UINavigationBar!
-    
-    @IBOutlet weak var shareBtn: UIButton!
     
     override func viewDidLoad()
     {
@@ -32,9 +25,21 @@ class InviteFriends: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- Actions
+    @IBAction func backBtn(sender: AnyObject)
+    {
+        let view = self.storyboard!.instantiateViewControllerWithIdentifier("NewsFeed") as! NewsFeed
+        self.presentViewController(view, animated: true, completion: nil)
+    }
+    
+    @IBAction func skipBtn(sender: AnyObject)
+    {
+        performSegueWithIdentifier("inviteFriendsSegue", sender: sender)
+    }
+    
+    
     @IBAction func shareButtonClicked(sender: UIButton)
     {
-        
         let textToShare: String = "Welcome to MOBINION, a simple easy to use interface and convey messages"
         let myWebsite = NSURL(string: "http://www.mobinion.com")
         let objectsToShare = [textToShare, myWebsite!]

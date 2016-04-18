@@ -12,6 +12,8 @@ class InterestsCollectionViewCell: UICollectionViewCell
 {
 
     @IBOutlet weak var intImg: UIImageView!
+    @IBOutlet weak var intLabel: UILabel!
+    @IBOutlet weak var intSeleted: UIImageView!
     
     override func awakeFromNib()
     {
