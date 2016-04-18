@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class NewsFeed: UIViewController, UITabBarDelegate
+class NewsFeed: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate
 {
 
     @IBOutlet weak var navTitle: UINavigationBar!
@@ -25,10 +25,41 @@ class NewsFeed: UIViewController, UITabBarDelegate
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
+//    let reuseIdentifier = ""
+    
+    var array = [String]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        array = ["hello"]
+        
+        [tableView.registerClass(NewsFeedTableViewCell.self, forCellReuseIdentifier: "Polls")]
+        var nib:UINib = UINib(nibName: "NewsFeedTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Polls")
+        
+        [tableView.registerClass(NewsFeedTableViewCell2.self, forCellReuseIdentifier: "Voting")]
+        nib = UINib(nibName: "NewsFeedTableViewCell2", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Voting")
+        
+        [tableView.registerClass(NewsFeedTableViewCell3.self, forCellReuseIdentifier: "ChooseTopics")]
+        nib = UINib(nibName: "NewsFeedTableViewCell3", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "ChooseTopics")
+        
+        [tableView.registerClass(NewsFeedTableViewCell4.self, forCellReuseIdentifier: "Follow")]
+        nib = UINib(nibName: "NewsFeedTableViewCell4", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Follow")
+
+        [tableView.registerClass(NewsFeedTableViewCell5.self, forCellReuseIdentifier: "Shared")]
+        nib = UINib(nibName: "NewsFeedTableViewCell5", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Shared")
+        
+        [tableView.registerClass(NewsFeedTableViewCell6.self, forCellReuseIdentifier: "Winner")]
+        nib = UINib(nibName: "NewsFeedTableViewCell6", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "Winner")
+
         
         let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
         
@@ -68,6 +99,50 @@ class NewsFeed: UIViewController, UITabBarDelegate
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem)
     {
         
+    }
+    
+    //MARK:UITableViewDelegate
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+//        let count = array.count
+//        return (count == 0) ? 1: count
+        return array.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        var cell :UITableViewCell!
+
+        switch indexPath.row
+        {
+            case 0:
+                cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
+                
+            case 1:
+                cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
+                
+            case 2:
+                cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
+                
+            case 3:
+                cell = tableView.dequeueReusableCellWithIdentifier("Follow") as! NewsFeedTableViewCell4
+                
+            case 4:
+                cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
+                
+            case 5:
+                cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
+                
+            default:
+                break
+        }
+        
+        return cell
     }
     
     //MARK:- Actions

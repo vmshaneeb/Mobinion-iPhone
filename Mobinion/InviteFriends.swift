@@ -28,7 +28,7 @@ class InviteFriends: UIViewController
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("NewsFeed") as! NewsFeed
+        let view = self.storyboard!.instantiateViewControllerWithIdentifier("FollowFriends") as! FollowFriends
         self.presentViewController(view, animated: true, completion: nil)
     }
     

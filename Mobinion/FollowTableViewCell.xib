@@ -20,8 +20,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FYH-79-fn2">
                         <rect key="frame" x="8" y="25" width="81" height="82"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="82" id="dYy-No-RkO"/>
-                            <constraint firstAttribute="width" constant="81" id="woq-rz-B3v"/>
+                            <constraint firstAttribute="height" constant="82" id="NNX-rJ-kDz"/>
+                            <constraint firstAttribute="width" constant="81" id="z2M-ez-7lG"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -32,7 +32,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sachin Tendulkar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOl-R2-8Ow">
                         <rect key="frame" x="97" y="35" width="139" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="139" id="ja0-Pf-agu"/>
+                            <constraint firstAttribute="width" constant="139" id="WiJ-TP-LtB"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,17 +41,18 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cricket Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjk-gl-lC8">
                         <rect key="frame" x="97" y="73" width="113" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="113" id="AcE-qP-gzi"/>
+                            <constraint firstAttribute="width" constant="113" id="STz-9S-lt3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIg-Lp-Rkg">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIg-Lp-Rkg">
                         <rect key="frame" x="416" y="43" width="136" height="43"/>
                         <color key="backgroundColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="136" id="UYS-bA-1NJ"/>
+                            <constraint firstAttribute="height" constant="43" id="V3e-pY-fgO"/>
+                            <constraint firstAttribute="width" constant="136" id="rY0-UY-gaL"/>
                         </constraints>
                         <state key="normal" title="Follow">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,18 +65,20 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="vjk-gl-lC8" secondAttribute="bottom" constant="32" id="0yO-22-tMn"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="BIg-Lp-Rkg" secondAttribute="bottom" constant="37" id="BBh-Iu-zia"/>
-                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="ELh-8h-fCD"/>
-                    <constraint firstItem="vjk-gl-lC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="65" id="IFH-gK-Iru"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="FYH-79-fn2" secondAttribute="bottom" constant="16" id="NGY-6o-Toj"/>
-                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="baseline" secondItem="BIg-Lp-Rkg" secondAttribute="firstBaseline" id="S5n-n2-p8Q"/>
-                    <constraint firstItem="FYH-79-fn2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="V4P-vs-he1"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="UOl-R2-8Ow" secondAttribute="bottom" constant="48" id="YfH-3Y-Wl6"/>
-                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="kv9-Cz-tc6"/>
-                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="baseline" secondItem="BIg-Lp-Rkg" secondAttribute="baseline" id="oTm-4o-rEC"/>
-                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="leading" secondItem="vjk-gl-lC8" secondAttribute="leading" id="s1s-BL-FiT"/>
-                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="leading" secondItem="FYH-79-fn2" secondAttribute="trailing" constant="8" symbolic="YES" id="tdz-mk-Ri9"/>
+                    <constraint firstItem="FYH-79-fn2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3py-rY-7wL"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="DpS-D7-ga4"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vjk-gl-lC8" secondAttribute="bottom" constant="32" id="EGl-tZ-aZD"/>
+                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="leading" secondItem="FYH-79-fn2" secondAttribute="trailing" constant="8" symbolic="YES" id="HM4-Rx-yis"/>
+                    <constraint firstItem="vjk-gl-lC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="65" id="Hxf-gl-Yg6"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="baseline" secondItem="UOl-R2-8Ow" secondAttribute="baseline" id="LBF-cO-ELw"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="firstBaseline" secondItem="UOl-R2-8Ow" secondAttribute="baseline" id="Ydc-ib-hO6"/>
+                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="leading" secondItem="vjk-gl-lC8" secondAttribute="leading" id="a4l-Pe-egf"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="UOl-R2-8Ow" secondAttribute="bottom" constant="48" id="dBB-br-NDc"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="35" id="fWK-qC-jYM"/>
+                    <constraint firstItem="UOl-R2-8Ow" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="ghU-ZU-cDF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BIg-Lp-Rkg" secondAttribute="bottom" constant="37" id="isi-hn-Rpt"/>
+                    <constraint firstItem="FYH-79-fn2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="ljS-4B-EXb"/>
+                    <constraint firstItem="FYH-79-fn2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zMj-0B-gNz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

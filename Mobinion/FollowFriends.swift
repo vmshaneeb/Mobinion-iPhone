@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Contacts
 
 class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
@@ -16,8 +17,8 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
-    
-    var fruits = [String]()
+
+    var contacts = [CNContact]()
     
     let reuseIdentifier = "FollowCell"
     
@@ -26,12 +27,19 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+//        self.definesPresentationContext = true
+        
         [tableView.registerClass(FollowTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)]
         let nib:UINib = UINib(nibName: "FollowTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
-        fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut", "Apricot", "Tomato", "Almond", "Date", "Melon", "Water Melon", "Lemon", "Coconut", "Fig", "Passionfruit", "Star Fruit", "Clementin", "Citron", "Cherry", "Cranberry"]
-        
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
+//        {
+        self.StartLoader()
+            self.getContacts()
+        self.HideLoader()
+//        }
+    
         let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
         
         var toks:String = "JWT "
@@ -52,11 +60,17 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                             let json = JSON(value)
                             print(json)
                             
+                            self.tableView.reloadData()
                         }
                     case .Failure(let error):
                         print("Request Failed with Error!!! \(error)")
                 }
         }
+        
+//        dispatch_async(dispatch_get_main_queue())
+//        {
+//            self.tableView!.reloadData()
+//        }
     }
     
     override func didReceiveMemoryWarning()
@@ -73,15 +87,38 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return fruits.count
+            return contacts.count
+//        let count = contacts.count
+//        
+//        return (count == 0) ? 1: count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FollowTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! FollowTableViewCell
+//        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FollowTableViewCell
         
+        let contact = contacts[indexPath.row] as CNContact
+//        let formatter = CNContactFormatter()
+        
+        cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
+        cell.profileProfession.text = contact.jobTitle
+        
+        if contact.imageData != nil
+        {
+            cell.profileImage.image = UIImage(data: contact.imageData!)
+        }
+        else
+        {
+            cell.profileImage.image = nil
+        }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 132.0
     }
     
     //MARK:- Actions
@@ -96,6 +133,84 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBAction func skipBtn(sender: AnyObject)
     {
         performSegueWithIdentifier("followFriendsSegue", sender: sender)
+    }
+    
+    //MARK:- Custom Functions
+    func getContacts()
+    {
+        let store = CNContactStore()
+        
+        if CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined
+        {
+            store.requestAccessForEntityType(.Contacts, completionHandler:
+            { (authorized: Bool, error: NSError?) -> Void in
+                if authorized
+                {
+                    self.retrieveContactsWithStore(store)
+                }
+            })
+        } else if CNContactStore.authorizationStatusForEntityType(.Contacts) == .Authorized
+        {
+            self.retrieveContactsWithStore(store)
+        }
+    }
+    
+    func retrieveContactsWithStore(store: CNContactStore)
+    {
+        do
+        {
+//            let groups = try store.groupsMatchingPredicate(nil)
+//            let predicate = CNContact.predicateForContactsInGroupWithIdentifier(groups[0].identifier)
+            //let predicate = CNContact.predicateForContactsMatchingName("John")
+            let keysToFetch = [CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
+                               CNContactPhoneNumbersKey,
+                               CNContactJobTitleKey,
+                               CNContactImageDataKey]
+            
+            let fetchRequest = CNContactFetchRequest(keysToFetch: keysToFetch)
+            
+//            let contacts = try store.unifiedContactsMatchingPredicate(predicate, keysToFetch: keysToFetch)
+            
+//            self.contacts = contacts
+            
+            do
+            {
+                try store.enumerateContactsWithFetchRequest(fetchRequest, usingBlock:
+                { (let contact, let stop) -> Void in
+                    self.contacts.append(contact)
+                })
+            }
+            catch let error as NSError
+            {
+                print(error.localizedDescription)
+            }
+            
+            dispatch_async(dispatch_get_main_queue(),
+            { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+//        catch let error as NSError
+//        {
+//            print(error.localizedDescription)
+//        }
+    }
+    
+    // MARK: - Loader
+    func StartLoader()
+    {
+        let objOfHUD:MBProgressHUD=MBProgressHUD .showHUDAddedTo(self.view, animated: true)
+        objOfHUD.labelText="Loading.."
+    }
+    
+    func stopLoader()
+    {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+    }
+    
+    func HideLoader()
+    {
+        self.stopLoader()
     }
     
 }
