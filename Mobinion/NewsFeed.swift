@@ -109,8 +109,6 @@ class NewsFeed: UIViewController, UITabBarDelegate, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-//        let count = array.count
-//        return (count == 0) ? 1: count
         return array.count
     }
     
