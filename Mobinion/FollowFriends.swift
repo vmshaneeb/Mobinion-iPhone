@@ -27,19 +27,14 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        self.definesPresentationContext = true
-        
         [tableView.registerClass(FollowTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)]
         let nib:UINib = UINib(nibName: "FollowTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
-//        {
         self.StartLoader()
-            self.getContacts()
+        self.getContacts()
         self.HideLoader()
-//        }
-    
+        
         let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
         
         var toks:String = "JWT "
@@ -67,10 +62,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 }
         }
         
-//        dispatch_async(dispatch_get_main_queue())
-//        {
-//            self.tableView!.reloadData()
-//        }
     }
     
     override func didReceiveMemoryWarning()
