@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NPH-WO-y62">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1588,14 +1589,49 @@
                                 </connections>
                             </navigationBar>
                             <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="wyK-HN-9qJ">
-                                <rect key="frame" x="0.0" y="543" width="600" height="49"/>
+                                <rect key="frame" x="0.0" y="553" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem image="Things arround me normal" selectedImage="Things arround me selected" id="fgn-sB-RZC"/>
-                                    <tabBarItem image="qr code scanner normal" selectedImage="qr code scanner selected" id="dMo-W2-4WU"/>
-                                    <tabBarItem title="" image="my wall normal" selectedImage="my wall selected" id="e6u-Nf-Mqa"/>
-                                    <tabBarItem title="" image="Create pole normal" selectedImage="Create pole selected" id="oir-vp-BxS"/>
-                                    <tabBarItem title="" image="Profile normal" selectedImage="Profile selected" id="9jv-J1-cOe"/>
+                                    <tabBarItem tag="1" image="Things arround me normal" selectedImage="Things arround me selected" id="fgn-sB-RZC">
+                                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-6"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem tag="2" image="qr code scanner normal" selectedImage="qr code scanner selected" id="dMo-W2-4WU">
+                                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-6"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem tag="3" title="" image="my wall normal" selectedImage="my wall selected" id="e6u-Nf-Mqa">
+                                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-6"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem tag="4" title="" image="Create pole normal" selectedImage="Create pole selected" id="oir-vp-BxS">
+                                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-6"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem tag="5" title="" image="Profile normal" selectedImage="Profile selected" id="9jv-J1-cOe">
+                                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-6"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="NPH-WO-y62" id="SPB-Bb-0Yl"/>
@@ -1628,18 +1664,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="top" secondItem="4Ks-lS-vIh" secondAttribute="bottom" id="2W2-Vy-mE2"/>
                             <constraint firstItem="Vl1-5t-nKO" firstAttribute="trailing" secondItem="fjY-yA-at8" secondAttribute="trailingMargin" id="2rQ-eU-1ky"/>
+                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="top" secondItem="Vl1-5t-nKO" secondAttribute="bottom" constant="10" id="4yE-cs-kRq"/>
                             <constraint firstItem="4Ks-lS-vIh" firstAttribute="top" secondItem="8qL-dt-yMT" secondAttribute="bottom" id="Hdy-5g-jMw"/>
                             <constraint firstAttribute="trailing" secondItem="8qL-dt-yMT" secondAttribute="trailing" id="J7P-Id-0PU"/>
+                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="centerX" secondItem="Vl1-5t-nKO" secondAttribute="centerX" id="X1i-pZ-YbM"/>
                             <constraint firstItem="Vl1-5t-nKO" firstAttribute="leading" secondItem="fjY-yA-at8" secondAttribute="leadingMargin" id="a5h-pF-xR7"/>
-                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="top" secondItem="Vl1-5t-nKO" secondAttribute="bottom" id="eB9-nu-9KY"/>
-                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="leading" secondItem="8qL-dt-yMT" secondAttribute="leading" id="fBI-Wm-usm"/>
-                            <constraint firstItem="acf-Yb-KV4" firstAttribute="top" secondItem="wyK-HN-9qJ" secondAttribute="bottom" constant="8" id="jld-4C-24n"/>
+                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="leading" secondItem="8qL-dt-yMT" secondAttribute="leading" id="b9A-7d-Fbk"/>
+                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="trailing" secondItem="8qL-dt-yMT" secondAttribute="trailing" id="j8J-id-V3W"/>
                             <constraint firstItem="8qL-dt-yMT" firstAttribute="top" secondItem="FXe-mT-5vY" secondAttribute="bottom" id="kYO-pq-f47"/>
-                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="leading" secondItem="fjY-yA-at8" secondAttribute="leading" id="mae-Rb-FeJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="wyK-HN-9qJ" secondAttribute="bottom" constant="-2" id="l4W-Uu-sBh"/>
                             <constraint firstItem="Vl1-5t-nKO" firstAttribute="top" secondItem="8qL-dt-yMT" secondAttribute="bottom" id="nFb-6t-qP4"/>
-                            <constraint firstItem="wyK-HN-9qJ" firstAttribute="trailing" secondItem="8qL-dt-yMT" secondAttribute="trailing" id="r5Z-e9-F5w"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
