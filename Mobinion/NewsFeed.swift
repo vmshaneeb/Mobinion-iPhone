@@ -312,11 +312,11 @@ class NewsFeed: UIViewController, UITabBarDelegate, UITableViewDataSource, UITab
     
     func domyWall()
     {
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
         
-        var toks:String = "JWT "
+        var toks:String = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiNTcxNjdmZjM0ZWM4MDNlZGU0MjlhYzg0IiwibW9iaWxlIjoiOTAzNzQyNDI0MyIsInVzZXJUeXBlIjoiY3VzdG9tZXIifSwiaWF0IjoxNDYxMDkyMzM5LCJleHAiOjE0OTI2MjgzMzksImF1ZCI6Im1vYmluaW9uLmNvbSIsImlzcyI6Im1vYmlvbmlvbi5jb20ifQ.EZqW-ZVydbxxCMOm7OX0jRANbpM7sxSI5KgR_Hks00I"
         
-        toks.appendContentsOf(tok as! String)
+//        toks.appendContentsOf(tok as! String)
         
         let header = ["Authorization": toks ]
         
