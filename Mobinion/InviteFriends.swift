@@ -34,7 +34,7 @@ class InviteFriends: UIViewController
     
     @IBAction func skipBtn(sender: AnyObject)
     {
-        performSegueWithIdentifier("inviteFriendsSegue", sender: sender)
+        performSegueWithIdentifier("seguetoNewsFeed", sender: sender)
     }
     
     

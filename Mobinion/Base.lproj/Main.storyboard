@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NPH-WO-y62">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hu0-Xc-Vos">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1308,6 +1308,7 @@
                     <connections>
                         <outlet property="navTitle" destination="Hby-mB-mYB" id="BTO-zW-8We"/>
                         <segue destination="NPH-WO-y62" kind="show" identifier="inviteFriendsSegue" id="7wI-n1-PrX"/>
+                        <segue destination="hu0-Xc-Vos" kind="show" identifier="seguetoNewsFeed" id="CUD-YG-SMp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLn-9R-JNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1526,7 +1527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t9R-4W-B7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5276" y="1030"/>
+            <point key="canvasLocation" x="3969" y="1422"/>
         </scene>
         <!--News Feed-->
         <scene sceneID="Z3d-Sw-UGj">
@@ -1695,7 +1696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEB-0h-ZTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5923" y="352"/>
+            <point key="canvasLocation" x="4616" y="1422"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yRe-Jw-UVN">
@@ -1749,7 +1750,7 @@
                                 </connections>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-sC-ee6">
-                                <rect key="frame" x="20" y="64" width="560" height="516"/>
+                                <rect key="frame" x="20" y="64" width="560" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -1757,7 +1758,7 @@
                         <constraints>
                             <constraint firstItem="bpA-sC-ee6" firstAttribute="centerX" secondItem="aCz-R3-n3X" secondAttribute="centerX" id="TOJ-Xu-cHc"/>
                             <constraint firstItem="bpA-sC-ee6" firstAttribute="leading" secondItem="7S4-xi-6gP" secondAttribute="leadingMargin" id="V5p-qP-aHj"/>
-                            <constraint firstAttribute="bottom" secondItem="bpA-sC-ee6" secondAttribute="bottom" constant="20" symbolic="YES" id="XY5-JG-WXh"/>
+                            <constraint firstAttribute="bottom" secondItem="bpA-sC-ee6" secondAttribute="bottom" constant="53" id="XY5-JG-WXh"/>
                             <constraint firstAttribute="trailing" secondItem="aCz-R3-n3X" secondAttribute="trailing" id="a26-tc-bBe"/>
                             <constraint firstItem="bpA-sC-ee6" firstAttribute="top" secondItem="aCz-R3-n3X" secondAttribute="bottom" id="j1o-Ei-s16"/>
                             <constraint firstItem="aCz-R3-n3X" firstAttribute="top" secondItem="Ae0-C6-O7R" secondAttribute="bottom" id="qhB-gB-pxb"/>
@@ -1771,7 +1772,474 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="6568" y="352"/>
+            <point key="canvasLocation" x="5301" y="1456"/>
+        </scene>
+        <!--News FeedQR-->
+        <scene sceneID="fVU-1p-F3m">
+            <objects>
+                <viewController id="QFw-rT-C8d" customClass="NewsFeedQR" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Chf-j7-vFg"/>
+                        <viewControllerLayoutGuide type="bottom" id="QQA-l5-uSq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CHG-GW-85U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1z-oy-unu">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="QR CODE SCANNER" id="74r-XM-I4I">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="8AU-J6-GGW">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d9L-AY-O6b">
+                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="back arrow"/>
+                                            </button>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="Search white" style="plain" id="HmD-sf-AdD">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfW-IC-tQV">
+                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Search white">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="b8x-Zp-NXq">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FdJ-C1-KCs">
+                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Notification"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="MKT-cq-2D5"/>
+                                </connections>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhM-PC-Kxw">
+                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrL-XE-7Zf">
+                                        <rect key="frame" x="120" y="420" width="320" height="59"/>
+                                        <color key="backgroundColor" red="0.20784313730000001" green="0.63921568630000003" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="59" id="4PA-EN-yvC"/>
+                                            <constraint firstAttribute="width" constant="238" id="66y-3q-Xtf"/>
+                                            <constraint firstAttribute="width" secondItem="PrL-XE-7Zf" secondAttribute="height" multiplier="157:30" id="BNC-lO-d0U"/>
+                                            <constraint firstAttribute="width" constant="320" id="GpU-aR-k4G"/>
+                                            <constraint firstAttribute="width" constant="238" id="rRo-Zq-xGO"/>
+                                        </constraints>
+                                        <state key="normal" title="ENTER CODE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="BNC-lO-d0U"/>
+                                                <exclude reference="66y-3q-Xtf"/>
+                                                <exclude reference="rRo-Zq-xGO"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="enterCode:" destination="QFw-rT-C8d" eventType="touchUpInside" id="4em-ZX-0af"/>
+                                            <action selector="updateBtn:" destination="mcj-Uc-roK" eventType="touchUpInside" id="EC1-xv-FWX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PrL-XE-7Zf" firstAttribute="centerX" secondItem="JhM-PC-Kxw" secondAttribute="centerX" id="4h6-wX-DOT"/>
+                                    <constraint firstAttribute="bottom" secondItem="PrL-XE-7Zf" secondAttribute="bottom" constant="8" id="On5-SX-WwQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JhM-PC-Kxw" firstAttribute="centerX" secondItem="D1z-oy-unu" secondAttribute="centerX" id="7Hh-FI-W7b"/>
+                            <constraint firstItem="JhM-PC-Kxw" firstAttribute="leading" secondItem="CHG-GW-85U" secondAttribute="leadingMargin" id="FKe-Lg-FgW"/>
+                            <constraint firstItem="JhM-PC-Kxw" firstAttribute="top" secondItem="D1z-oy-unu" secondAttribute="bottom" id="XCN-qb-McK"/>
+                            <constraint firstAttribute="trailing" secondItem="D1z-oy-unu" secondAttribute="trailing" id="nkw-XI-maH"/>
+                            <constraint firstItem="D1z-oy-unu" firstAttribute="leading" secondItem="CHG-GW-85U" secondAttribute="leading" id="qxs-Fs-THv"/>
+                            <constraint firstItem="JhM-PC-Kxw" firstAttribute="bottom" secondItem="QQA-l5-uSq" secondAttribute="top" id="rgp-3f-zBx"/>
+                            <constraint firstItem="D1z-oy-unu" firstAttribute="top" secondItem="Chf-j7-vFg" secondAttribute="bottom" id="sSs-el-bMq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="qr code scanner normal" selectedImage="qr code scanner selected" id="TID-yN-9ca">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="QRView" destination="JhM-PC-Kxw" id="cXX-Zk-emV"/>
+                        <outlet property="navBar" destination="D1z-oy-unu" id="Gcl-uQ-qSJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Uk-LMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6768" y="888"/>
+        </scene>
+        <!--News Feed Create Poll-->
+        <scene sceneID="8Gc-jV-FPT">
+            <objects>
+                <viewController id="LY8-x9-gp8" customClass="NewsFeedCreatePoll" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EUZ-iZ-k7L"/>
+                        <viewControllerLayoutGuide type="bottom" id="mRt-yS-pvd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DA6-87-Wgc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2E-Ip-wPU">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="MOBINION" id="uQC-Hl-oOl">
+                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="Jby-7q-N92">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yPn-ry-8q0">
+                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="down arrow white"/>
+                                            </button>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="Search white" style="plain" id="fNC-1J-DSW">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MdR-gP-bEf">
+                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Search white">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="yW6-Ao-hWS">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZx-HV-H9A">
+                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Notification"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="KS8-0T-upM"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="g2E-Ip-wPU" secondAttribute="trailing" id="ZMh-dx-axW"/>
+                            <constraint firstItem="g2E-Ip-wPU" firstAttribute="leading" secondItem="DA6-87-Wgc" secondAttribute="leading" id="h3F-nG-WTN"/>
+                            <constraint firstItem="g2E-Ip-wPU" firstAttribute="top" secondItem="EUZ-iZ-k7L" secondAttribute="bottom" id="lir-hh-P1z"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Create pole normal" selectedImage="Create pole selected" id="ksE-yu-Ar1">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSB-im-Txo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5936" y="1165"/>
+        </scene>
+        <!--News Feed Around Me-->
+        <scene sceneID="62j-YM-jwS">
+            <objects>
+                <viewController id="cDL-lY-mU8" customClass="NewsFeedAroundMe" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="67Q-oo-aaP"/>
+                        <viewControllerLayoutGuide type="bottom" id="LL5-Ra-kT6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7cK-bd-DUj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnk-75-DXn">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="MOBINION" id="CUw-mx-4Ru">
+                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="myp-U0-gsw">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mta-Vw-Fpy">
+                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="down arrow white"/>
+                                            </button>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="Search white" style="plain" id="TCq-Jo-Bsw">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bze-YA-N60">
+                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Search white">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="uLn-EB-DJi">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RoM-gb-01v">
+                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Notification"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="4ns-SZ-CHI"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mnk-75-DXn" firstAttribute="top" secondItem="67Q-oo-aaP" secondAttribute="bottom" id="0xL-ie-b0F"/>
+                            <constraint firstItem="Mnk-75-DXn" firstAttribute="leading" secondItem="7cK-bd-DUj" secondAttribute="leading" id="IjJ-JX-Q5p"/>
+                            <constraint firstAttribute="trailing" secondItem="Mnk-75-DXn" secondAttribute="trailing" id="fpP-zE-ffp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Things arround me normal" selectedImage="Things arround me selected" id="eRh-rs-UyY">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQH-Xr-57h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6768" y="227"/>
+        </scene>
+        <!--News Feed My Wall-->
+        <scene sceneID="WSN-0B-WOk">
+            <objects>
+                <viewController id="zMC-dI-42f" customClass="NewsFeedMyWall" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CGy-3a-lKH"/>
+                        <viewControllerLayoutGuide type="bottom" id="njo-Vx-eyQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Ug-UK-r7E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPT-se-1cD">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="MOBINION" id="J20-Tb-7m6">
+                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="GwP-IF-KGR">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r5i-6Z-Mrh">
+                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="down arrow white"/>
+                                                <connections>
+                                                    <action selector="showLists:" destination="zMC-dI-42f" eventType="touchUpInside" id="8ly-za-j1l"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="Search white" style="plain" id="eIw-wE-ASd">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qce-ft-Bq4">
+                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Search white">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="ejP-MY-OeU"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="yr8-bD-HzE">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7bz-xt-KVy">
+                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Notification"/>
+                                                    <connections>
+                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="Cj5-ym-Sxt"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="gIA-30-CKo"/>
+                                </connections>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgM-ag-DDW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-4v-Hu8">
+                                        <rect key="frame" x="20" y="0.0" width="560" height="487"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="zMC-dI-42f" id="KEi-C0-5Bn"/>
+                                            <outlet property="delegate" destination="zMC-dI-42f" id="q91-Qj-bm9"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hOb-4v-Hu8" secondAttribute="bottom" id="IHN-LH-yZs"/>
+                                    <constraint firstAttribute="trailing" secondItem="hOb-4v-Hu8" secondAttribute="trailing" constant="20" id="Ime-IT-BJ9"/>
+                                    <constraint firstItem="hOb-4v-Hu8" firstAttribute="centerX" secondItem="tgM-ag-DDW" secondAttribute="centerX" id="Yfy-xH-rsf"/>
+                                    <constraint firstItem="hOb-4v-Hu8" firstAttribute="leading" secondItem="tgM-ag-DDW" secondAttribute="leading" constant="20" id="dXQ-UL-hut"/>
+                                    <constraint firstItem="hOb-4v-Hu8" firstAttribute="top" secondItem="tgM-ag-DDW" secondAttribute="top" id="iEd-YF-Qv4"/>
+                                    <constraint firstItem="hOb-4v-Hu8" firstAttribute="centerY" secondItem="tgM-ag-DDW" secondAttribute="centerY" id="rv4-B7-LCy"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tgM-ag-DDW" firstAttribute="leading" secondItem="VPT-se-1cD" secondAttribute="leading" id="7nl-Eb-cSy"/>
+                            <constraint firstItem="tgM-ag-DDW" firstAttribute="top" secondItem="VPT-se-1cD" secondAttribute="bottom" id="8JY-un-Lzj"/>
+                            <constraint firstAttribute="trailing" secondItem="VPT-se-1cD" secondAttribute="trailing" id="BqV-Ya-DxS"/>
+                            <constraint firstItem="VPT-se-1cD" firstAttribute="leading" secondItem="5Ug-UK-r7E" secondAttribute="leading" id="Qoc-zj-aDF"/>
+                            <constraint firstItem="VPT-se-1cD" firstAttribute="top" secondItem="CGy-3a-lKH" secondAttribute="bottom" id="Yve-ZG-OcF"/>
+                            <constraint firstItem="tgM-ag-DDW" firstAttribute="trailing" secondItem="VPT-se-1cD" secondAttribute="trailing" id="dqK-yB-oAO"/>
+                            <constraint firstItem="tgM-ag-DDW" firstAttribute="bottom" secondItem="njo-Vx-eyQ" secondAttribute="top" id="hg8-fh-Wzi"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="my wall normal" selectedImage="my wall selected" id="F92-FH-naN">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="scrollView" destination="tgM-ag-DDW" id="8Xl-VI-aTt"/>
+                        <outlet property="tableView" destination="hOb-4v-Hu8" id="xAW-fe-bl7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zn6-pk-XMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6768" y="-442"/>
+        </scene>
+        <!--News Feed My Profile-->
+        <scene sceneID="jVZ-OZ-pk0">
+            <objects>
+                <viewController id="LgZ-Qz-gjP" customClass="NewsFeedMyProfile" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cgt-rs-bYI"/>
+                        <viewControllerLayoutGuide type="bottom" id="35G-KT-w3N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZgG-TW-uJq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31J-7g-b0w">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="MOBINION" id="3vF-R3-419">
+                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="ZDE-rf-L7i">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Leg-bC-nx6">
+                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="down arrow white"/>
+                                            </button>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="Search white" style="plain" id="xSD-Ul-SwX">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eRC-Oe-zay">
+                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Search white">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="pJk-fT-i53">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gBI-R9-lRa">
+                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Notification"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="0NT-P2-Rll"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="31J-7g-b0w" secondAttribute="trailing" id="7RJ-xP-4Z6"/>
+                            <constraint firstItem="31J-7g-b0w" firstAttribute="top" secondItem="cgt-rs-bYI" secondAttribute="bottom" id="dBK-IP-5m9"/>
+                            <constraint firstItem="31J-7g-b0w" firstAttribute="leading" secondItem="ZgG-TW-uJq" secondAttribute="leading" id="hGT-8Y-OEI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Profile normal" selectedImage="Profile selected" id="PCF-cM-bCW">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.19607843137254902" green="0.67843137254901964" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xI-P5-f8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5927" y="-355"/>
+        </scene>
+        <!--News Feed Controller-->
+        <scene sceneID="swR-cP-S9w">
+            <objects>
+                <tabBarController id="hu0-Xc-Vos" customClass="NewsFeedController" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="QSw-YF-P6r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cDL-lY-mU8" kind="relationship" relationship="viewControllers" id="4S1-b7-JnF"/>
+                        <segue destination="QFw-rT-C8d" kind="relationship" relationship="viewControllers" id="fYi-uO-dBf"/>
+                        <segue destination="zMC-dI-42f" kind="relationship" relationship="viewControllers" id="hQ9-YP-Iz6"/>
+                        <segue destination="LY8-x9-gp8" kind="relationship" relationship="viewControllers" id="lb5-L5-bDb"/>
+                        <segue destination="LgZ-Qz-gjP" kind="relationship" relationship="viewControllers" id="zK0-kF-caf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2iV-8l-ctP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5936" y="354"/>
         </scene>
     </scenes>
     <resources>

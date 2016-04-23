@@ -318,6 +318,8 @@ class NewsFeed: UIViewController, UITabBarDelegate, UITableViewDataSource, UITab
         
         toks.appendContentsOf(tok as! String)
         
+//        print(toks)
+        
         let header = ["Authorization": toks ]
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"

@@ -43,6 +43,12 @@
 		653F528E1CB1B013001B494C /* NBPhoneNumberMetadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653F52771CB1B013001B494C /* NBPhoneNumberMetadata.plist */; };
 		653F528F1CB1B013001B494C /* NBPhoneNumberUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */; };
 		653F52921CB1B08E001B494C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653F52911CB1B08E001B494C /* CoreTelephony.framework */; };
+		65BAEC4B1CC8F4D000CCACA3 /* NewsFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */; };
+		65BAEC4D1CC8F87200CCACA3 /* NewsFeedAroundMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC4C1CC8F87200CCACA3 /* NewsFeedAroundMe.swift */; };
+		65BAEC4F1CC9050300CCACA3 /* NewsFeedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC4E1CC9050300CCACA3 /* NewsFeedQR.swift */; };
+		65BAEC511CC9054200CCACA3 /* NewsFeedMyWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC501CC9054200CCACA3 /* NewsFeedMyWall.swift */; };
+		65BAEC531CC9057600CCACA3 /* NewsFeedCreatePoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC521CC9057600CCACA3 /* NewsFeedCreatePoll.swift */; };
+		65BAEC551CC905E200CCACA3 /* NewsFeedMyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC541CC905E200CCACA3 /* NewsFeedMyProfile.swift */; };
 		65D01D711CA2AA4F00A8A478 /* UpdateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D701CA2AA4F00A8A478 /* UpdateProfile.swift */; };
 		65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D721CA2AACB00A8A478 /* ChooseInterests.swift */; };
 		65D01D751CA2AAF800A8A478 /* FollowFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D01D741CA2AAF800A8A478 /* FollowFriends.swift */; };
@@ -143,6 +149,12 @@
 		653F52781CB1B013001B494C /* NBPhoneNumberUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberUtil.h; sourceTree = "<group>"; };
 		653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberUtil.m; sourceTree = "<group>"; };
 		653F52911CB1B08E001B494C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedController.swift; sourceTree = "<group>"; };
+		65BAEC4C1CC8F87200CCACA3 /* NewsFeedAroundMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedAroundMe.swift; sourceTree = "<group>"; };
+		65BAEC4E1CC9050300CCACA3 /* NewsFeedQR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedQR.swift; sourceTree = "<group>"; };
+		65BAEC501CC9054200CCACA3 /* NewsFeedMyWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedMyWall.swift; sourceTree = "<group>"; };
+		65BAEC521CC9057600CCACA3 /* NewsFeedCreatePoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedCreatePoll.swift; sourceTree = "<group>"; };
+		65BAEC541CC905E200CCACA3 /* NewsFeedMyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedMyProfile.swift; sourceTree = "<group>"; };
 		65D01D701CA2AA4F00A8A478 /* UpdateProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfile.swift; sourceTree = "<group>"; };
 		65D01D721CA2AACB00A8A478 /* ChooseInterests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseInterests.swift; sourceTree = "<group>"; };
 		65D01D741CA2AAF800A8A478 /* FollowFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowFriends.swift; sourceTree = "<group>"; };
@@ -250,6 +262,12 @@
 				65D01D7B1CA2AD6600A8A478 /* FollowTableViewCell.xib */,
 				65D01D761CA2AB4100A8A478 /* InviteFriends.swift */,
 				65D01D781CA2ABAE00A8A478 /* NewsFeed.swift */,
+				65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */,
+				65BAEC4C1CC8F87200CCACA3 /* NewsFeedAroundMe.swift */,
+				65BAEC4E1CC9050300CCACA3 /* NewsFeedQR.swift */,
+				65BAEC501CC9054200CCACA3 /* NewsFeedMyWall.swift */,
+				65BAEC521CC9057600CCACA3 /* NewsFeedCreatePoll.swift */,
+				65BAEC541CC905E200CCACA3 /* NewsFeedMyProfile.swift */,
 				65D01D7E1CA2B39300A8A478 /* NewsFeedTableViewCell.swift */,
 				65D01D7F1CA2B39300A8A478 /* NewsFeedTableViewCell.xib */,
 				65D01D841CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift */,
@@ -583,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				653F528D1CB1B013001B494C /* NBPhoneNumberDesc.m in Sources */,
+				65BAEC511CC9054200CCACA3 /* NewsFeedMyWall.swift in Sources */,
 				653F52871CB1B013001B494C /* NBMetadataHelper.m in Sources */,
 				65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */,
 				65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */,
@@ -590,18 +609,22 @@
 				653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */,
 				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
 				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
+				65BAEC551CC905E200CCACA3 /* NewsFeedMyProfile.swift in Sources */,
 				652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */,
 				65D01D8E1CA428E700A8A478 /* NewsFeedTableViewCell4.swift in Sources */,
 				653F528B1CB1B013001B494C /* NBPhoneNumber.m in Sources */,
 				653F52861CB1B013001B494C /* NBMetadataCoreTestMapper.m in Sources */,
 				65DD84DE1CB3D756006B6655 /* Verify Mobile2.swift in Sources */,
 				653F52821CB1B013001B494C /* NBAsYouTypeFormatter.m in Sources */,
+				65BAEC4B1CC8F4D000CCACA3 /* NewsFeedController.swift in Sources */,
+				65BAEC4D1CC8F87200CCACA3 /* NewsFeedAroundMe.swift in Sources */,
 				65D01D771CA2AB4100A8A478 /* InviteFriends.swift in Sources */,
 				65D01D8A1CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift in Sources */,
 				65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */,
 				650835C41C95779600C6C280 /* ViewController.swift in Sources */,
 				652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */,
 				65E1FD131C9C0D8700BA74E1 /* CreateAccount.swift in Sources */,
+				65BAEC531CC9057600CCACA3 /* NewsFeedCreatePoll.swift in Sources */,
 				65D01D801CA2B39300A8A478 /* NewsFeedTableViewCell.swift in Sources */,
 				65E1FD151C9C130D00BA74E1 /* VerifyMobile.swift in Sources */,
 				AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */,
@@ -611,6 +634,7 @@
 				653F52891CB1B013001B494C /* NBPhoneMetaData.m in Sources */,
 				653F52841CB1B013001B494C /* NBMetadataCoreMapper.m in Sources */,
 				65D01D711CA2AA4F00A8A478 /* UpdateProfile.swift in Sources */,
+				65BAEC4F1CC9050300CCACA3 /* NewsFeedQR.swift in Sources */,
 				65D01D861CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift in Sources */,
 				653F524F1CB1A982001B494C /* CountryView.swift in Sources */,
 				AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */,

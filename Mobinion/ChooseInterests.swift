@@ -383,6 +383,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     if let value = response.result.value
                     {
                         let json = JSON(value)
+                        print("entered")
                         print(json)
                     }
                 case .Failure(let error):
