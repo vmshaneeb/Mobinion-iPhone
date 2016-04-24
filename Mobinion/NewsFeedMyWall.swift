@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 import SwiftyJSON
-import CoreLocation
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
 {
@@ -124,9 +124,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         lat = String(userLocation.coordinate.latitude)
         long = String(userLocation.coordinate.longitude)
-        
-        //        print(lat)
-        //        print(long)
     }
     
     //MARK:- Actions

@@ -90,7 +90,6 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         captureSession.startRunning()
         
         // Move items to top
-//        self.view.bringSubviewToFront(statusB)
         self.view.bringSubviewToFront(navBar)
         self.view.bringSubviewToFront(QRView)
         self.view.bringSubviewToFront(qrCodeFrameView)
