@@ -86,9 +86,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomorrow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19H-va-vbo">
-                        <rect key="frame" x="38" y="189" width="77" height="21"/>
+                        <rect key="frame" x="38" y="189" width="111" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="77" id="tjc-qZ-7Eh"/>
+                            <constraint firstAttribute="width" constant="111" id="tjc-qZ-7Eh"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

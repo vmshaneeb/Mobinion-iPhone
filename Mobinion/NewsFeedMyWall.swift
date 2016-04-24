@@ -90,14 +90,17 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+//        self.StartLoader()
         return jsondata.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell: NewsFeedTableViewCell
+//        self.HideLoader()
         
-        cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
+        var cell = NewsFeedTableViewCell()
+        
+//        cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
         
 //        print(jsondata)
 //        print(jsondata["data"]["newsFeed"].count)
@@ -109,6 +112,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 switch jsondata["data"]["newsFeed"][i]["type"].stringValue
                 {
                     case "poll":
+                        cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
 //                        print(jsondata["data"]["newsFeed"][i]["userImage"].stringValue.isEmpty)
                         if (!jsondata["data"]["newsFeed"][i]["userImage"].stringValue.isEmpty)
                         {
@@ -133,26 +137,29 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         {
                             let dateFormatter = NSDateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                            print(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)
+//                            print(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)
 
                             let datesString:NSDate = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)!
-                            print(datesString)
+//                            print(datesString)
                             
-                            dateFormatter.dateFormat = "dd/MMM/yyyy"
+                            dateFormatter.dateFormat = "dd-MMM-yyyy"
                             
                             cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
                         }
-//
-//                        if (!jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue.isEmpty)
-//                        {
-//                            let dateFormatter = NSDateFormatter()
-//                            
-//                            dateFormatter.dateFormat = "dd/MMM/yyyy"
-//                            
-//                            let datesString = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue)
-//                            
-//                            cell.expiryDate.text = dateFormatter.stringFromDate(datesString!)
-//                        }
+
+                        if (!jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue.isEmpty)
+                        {
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+//                            print(jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue)
+                            
+                            let datesString:NSDate = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue)!
+//                            print(datesString)
+                            
+                            dateFormatter.dateFormat = "dd-MMM-yyyy"
+
+                            cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                        }
                         
                         if (!jsondata["data"]["newsFeed"][i]["itemDescription"].stringValue.isEmpty)
                         {
@@ -284,5 +291,23 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
         }
     }
+    
+    // MARK: - Loader
+    func StartLoader()
+    {
+        let objOfHUD:MBProgressHUD=MBProgressHUD .showHUDAddedTo(self.view, animated: true)
+        objOfHUD.labelText="Loading.."
+    }
+    
+    func stopLoader()
+    {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+    }
+    
+    func HideLoader()
+    {
+        self.stopLoader()
+    }
+
 
 }
