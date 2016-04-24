@@ -16,7 +16,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
-    var array = [String]()
+    var newsFeed = [String]()
+//    var newsFeed = [String: String]()
+    
+    var jsondata:JSON = [:]
     
     let locationManager = CLLocationManager()
     var lat = ""
@@ -27,7 +30,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewWillAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
         
-        array = ["hello"]
+//        array = ["hello"]
+//        jsondata = ""
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -67,6 +71,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.registerNib(nib, forCellReuseIdentifier: "Winner")
         
         domyWall()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 228
     }
     
     override func didReceiveMemoryWarning()
@@ -83,35 +90,102 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return array.count
+        return jsondata.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell :UITableViewCell!
+        var cell: NewsFeedTableViewCell
         
-        switch indexPath.row
+        cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
+        
+//        print(jsondata)
+//        print(jsondata["data"]["newsFeed"].count)
+        
+        for i in 0 ..<  jsondata["data"]["newsFeed"].count
         {
-        case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
-            
-        case 1:
-            cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
-            
-        case 2:
-            cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
-            
-        case 3:
-            cell = tableView.dequeueReusableCellWithIdentifier("Follow") as! NewsFeedTableViewCell4
-            
-        case 4:
-            cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
-            
-        case 5:
-            cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
-            
-        default:
-            break
+            if (!jsondata["data"]["newsFeed"][i].isEmpty)
+            {
+                switch jsondata["data"]["newsFeed"][i]["type"].stringValue
+                {
+                    case "poll":
+//                        print(jsondata["data"]["newsFeed"][i]["userImage"].stringValue.isEmpty)
+                        if (!jsondata["data"]["newsFeed"][i]["userImage"].stringValue.isEmpty)
+                        {
+                            let url = NSURL(string: jsondata["data"]["newsFeed"][i]["userImage"].stringValue)
+                            //                        print(url)
+                            let data = NSData(contentsOfURL: url!)
+                            let image = UIImage(data: data!)
+                            
+                            cell.profPic.image = image
+                        }
+                        else
+                        {
+                            cell.profPic.image = nil
+                        }
+                        
+                        if (!jsondata["data"]["newsFeed"][i]["userName"].stringValue.isEmpty)
+                        {
+                            cell.profName.text = jsondata["data"]["newsFeed"][i]["userName"].stringValue
+                        }
+                    
+                        if (!jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue.isEmpty)
+                        {
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            print(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)
+
+                            let datesString:NSDate = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)!
+                            print(datesString)
+                            
+                            dateFormatter.dateFormat = "dd/MMM/yyyy"
+                            
+                            cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+                        }
+//
+//                        if (!jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue.isEmpty)
+//                        {
+//                            let dateFormatter = NSDateFormatter()
+//                            
+//                            dateFormatter.dateFormat = "dd/MMM/yyyy"
+//                            
+//                            let datesString = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue)
+//                            
+//                            cell.expiryDate.text = dateFormatter.stringFromDate(datesString!)
+//                        }
+                        
+                        if (!jsondata["data"]["newsFeed"][i]["itemDescription"].stringValue.isEmpty)
+                        {
+                            cell.textBox.text = jsondata["data"]["newsFeed"][i]["itemDescription"].stringValue
+                        }
+                    
+//                    case "image":
+//                    
+//                    case "photo_upload":
+//                    
+//                    case "writing":
+//                    
+//                    case "ques_poll":
+                    
+//                    case 1:
+//                        cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
+//                        
+//                    case 2:
+//                        cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
+//                        
+//                    case 3:
+//                        cell = tableView.dequeueReusableCellWithIdentifier("Follow") as! NewsFeedTableViewCell4
+//                        
+//                    case 4:
+//                        cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
+//                        
+//                    case 5:
+//                        cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
+                    
+                    default:
+                        break
+                }
+            }
         }
         
         return cell
@@ -153,7 +227,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     {
                         let json = JSON(value)
                         print(json)
-                        
                     }
                 case .Failure(let error):
                     print("Request Failed with Error!!! \(error)")
@@ -190,8 +263,21 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     if let value = response.result.value
                     {
                         let json = JSON(value)
-                        print(json)
+//                        print(json)
                         
+                        self.jsondata = json
+                        
+//                        for i in 0 ..<  json["data"]["newsFeed"].count
+//                        {
+//                            if (!json["data"]["newsFeed"][i].isEmpty)
+//                            {
+//                                self.newsFeed.append(json["data"]["newsFeed"][i].stringValue)
+//                            }
+//                        }
+                        
+//                        print(self.jsondata)
+                        
+                        self.tableView.reloadData()
                     }
                 case .Failure(let error):
                     print("Request Failed with Error!!! \(error)")

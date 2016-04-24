@@ -1848,8 +1848,8 @@
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="BNC-lO-d0U"/>
                                                 <exclude reference="66y-3q-Xtf"/>
+                                                <exclude reference="BNC-lO-d0U"/>
                                                 <exclude reference="rRo-Zq-xGO"/>
                                             </mask>
                                         </variation>

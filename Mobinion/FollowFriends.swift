@@ -62,6 +62,9 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 }
         }
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 132
+
     }
     
     override func didReceiveMemoryWarning()
@@ -107,10 +110,10 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        return 132.0
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+//    {
+//        return 132.0
+//    }
     
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
