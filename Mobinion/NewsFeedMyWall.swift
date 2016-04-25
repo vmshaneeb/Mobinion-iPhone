@@ -16,7 +16,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
-    var newsFeed = [String]()
+    var newsFeed:NSMutableArray=NSMutableArray()
 //    var newsFeed = [String: String]()
     
     var jsondata:JSON = [:]
@@ -91,111 +91,180 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
 //        self.StartLoader()
-        return jsondata.count
+        return self.newsFeed.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-//        self.HideLoader()
+       let result = UITableViewCell()
         
-        var cell = NewsFeedTableViewCell()
-        
-//        cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
-        
-//        print(jsondata)
-//        print(jsondata["data"]["newsFeed"].count)
-        
-        for i in 0 ..<  jsondata["data"]["newsFeed"].count
+        if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
         {
-            if (!jsondata["data"]["newsFeed"][i].isEmpty)
+            //                    print("inside polls")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
+            if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
-                switch jsondata["data"]["newsFeed"][i]["type"].stringValue
-                {
-                    case "poll":
-                        cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
-//                        print(jsondata["data"]["newsFeed"][i]["userImage"].stringValue.isEmpty)
-                        if (!jsondata["data"]["newsFeed"][i]["userImage"].stringValue.isEmpty)
-                        {
-                            let url = NSURL(string: jsondata["data"]["newsFeed"][i]["userImage"].stringValue)
-                            //                        print(url)
-                            let data = NSData(contentsOfURL: url!)
-                            let image = UIImage(data: data!)
-                            
-                            cell.profPic.image = image
-                        }
-                        else
-                        {
-                            cell.profPic.image = nil
-                        }
-                        
-                        if (!jsondata["data"]["newsFeed"][i]["userName"].stringValue.isEmpty)
-                        {
-                            cell.profName.text = jsondata["data"]["newsFeed"][i]["userName"].stringValue
-                        }
-                    
-                        if (!jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue.isEmpty)
-                        {
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//                            print(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)
-
-                            let datesString:NSDate = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_createdDate"].stringValue)!
-//                            print(datesString)
-                            
-                            dateFormatter.dateFormat = "dd-MMM-yyyy"
-                            
-                            cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
-                        }
-
-                        if (!jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue.isEmpty)
-                        {
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//                            print(jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue)
-                            
-                            let datesString:NSDate = dateFormatter.dateFromString(jsondata["data"]["newsFeed"][i]["item_expiryDate"].stringValue)!
-//                            print(datesString)
-                            
-                            dateFormatter.dateFormat = "dd-MMM-yyyy"
-
-                            cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                        }
-                        
-                        if (!jsondata["data"]["newsFeed"][i]["itemDescription"].stringValue.isEmpty)
-                        {
-                            cell.textBox.text = jsondata["data"]["newsFeed"][i]["itemDescription"].stringValue
-                        }
-                    
-//                    case "image":
-//                    
+                let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+//                print(url)
+                let data = NSData(contentsOfURL: url!)
+                let image = UIImage(data: data!)
+                
+                cell.profPic.image = image
+            }
+            else
+            {
+                cell.profPic.image = nil
+            }
+            
+            if (!(newsFeed[indexPath.row]["userName"]!!.isEqualToString("")))
+            {
+                cell.profName.text = (newsFeed[indexPath.row]["userName"] as! String)
+            }
+            
+            if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isEqualToString("")))
+            {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                
+                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+                //                            print(datesString)
+                
+                dateFormatter.dateFormat = "dd-MMM-yyyy"
+                
+                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+            }
+            //
+            if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isEqualToString("")))
+            {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
+                
+                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                //                            print(datesString)
+                
+                dateFormatter.dateFormat = "dd-MMM-yyyy"
+                
+                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+            }
+            //
+            if (!(newsFeed[indexPath.row]["itemDescription"]!!.isEqualToString("")))
+            {
+                cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+            }
+            
+            if (!(newsFeed[indexPath.row]["itemText"]!!.isEqualToString("")))
+            {
+                cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
+                cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
+            }
+            
+//            cell.setNeedsUpdateConstraints()
+//            cell.updateConstraintsIfNeeded()
+            
+            return cell
+        }
+            
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("contest"))
+        {
+            //                    print("inside contest")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
+            //
+            if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
+            {
+                let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+                //                            print(url)
+                let data = NSData(contentsOfURL: url!)
+                let image = UIImage(data: data!)
+                
+                cell.profPic.image = image
+            }
+            else
+            {
+                cell.profPic.image = nil
+            }
+            
+            if (!(newsFeed[indexPath.row]["itemImage"]!!.isEqualToString("")))
+            {
+                let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
+                //                        print(url)
+                let data = NSData(contentsOfURL: url!)
+                let image = UIImage(data: data!)
+                
+                cell.img1.image = image
+            }
+            else
+            {
+                cell.img1.image = nil
+            }
+            
+            if (!(newsFeed[indexPath.row]["itemImage"]!!.isEqualToString("")))
+            {
+                cell.VotName.text = (newsFeed[indexPath.row]["itemText"] as! String)
+            }
+            //
+            if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isEqualToString("")))
+            {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                
+                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+                //                            print(datesString)
+                
+                dateFormatter.dateFormat = "dd-MMM-yyyy"
+                
+                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+            }
+            
+            if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isEqualToString("")))
+            {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
+                
+                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                //                            print(datesString)
+                
+                dateFormatter.dateFormat = "dd-MMM-yyyy"
+                
+                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+            }
+            
+            if (!(newsFeed[indexPath.row]["itemDescription"]!!.isEqualToString("")))
+            {
+                cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+            }
+            
+//            cell.setNeedsUpdateConstraints()
+//            cell.updateConstraintsIfNeeded()
+            
+            return cell
+        }
+//
 //                    case "photo_upload":
-//                    
+//
 //                    case "writing":
-//                    
+//
 //                    case "ques_poll":
-                    
+        
 //                    case 1:
 //                        cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
-//                        
+//
 //                    case 2:
 //                        cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
-//                        
+//
 //                    case 3:
 //                        cell = tableView.dequeueReusableCellWithIdentifier("Follow") as! NewsFeedTableViewCell4
-//                        
+//
 //                    case 4:
 //                        cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
-//                        
+//
 //                    case 5:
 //                        cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
-                    
-                    default:
-                        break
-                }
-            }
-        }
-        
-        return cell
+
+        return result
     }
     
     //MARK:- CLLocationManagerDelegates
@@ -262,6 +331,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
+        self.StartLoader()
+        
         Alamofire.request(.GET, URL,headers: header ,encoding: .JSON)
             .responseJSON { response in
                 switch response.result
@@ -271,8 +342,28 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     {
                         let json = JSON(value)
 //                        print(json)
-                        
                         self.jsondata = json
+//                        let dict:NSMutableDictionary = self.jsondata as! NSMutableDictionary
+                        
+//                        if let data = response.data
+//                        {
+//                            do {
+//                                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject]
+//                            } catch let error as NSError {
+//                                print(error)
+//                            }
+//                        }
+//                        
+                        
+                        do {
+                            let responseObject = try NSJSONSerialization.JSONObjectWithData(response.data!, options: []) as! [String:AnyObject]
+                            self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+//                            print (self.newsFeed)
+                        }
+                        catch let error as NSError
+                        {
+                            print("error: \(error.localizedDescription)")
+                        }
                         
 //                        for i in 0 ..<  json["data"]["newsFeed"].count
 //                        {
@@ -280,17 +371,22 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                            {
 //                                self.newsFeed.append(json["data"]["newsFeed"][i].stringValue)
 //                            }
+//                            self.newsFeed =  json["data"]["newsFeed"] as! NSMutableArray
+                        
 //                        }
                         
 //                        print(self.jsondata)
                         
                         self.tableView.reloadData()
+                        self.HideLoader()
                     }
                 case .Failure(let error):
                     print("Request Failed with Error!!! \(error)")
                 }
         }
     }
+    
+    
     
     // MARK: - Loader
     func StartLoader()
