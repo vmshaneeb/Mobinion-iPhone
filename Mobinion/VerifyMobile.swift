@@ -46,23 +46,24 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
         
     }
     
+    //MARK:- CountryPhoneCodePickerDelegates
     func countryPhoneCodePicker(picker: CountryPicker, didSelectCountryCountryWithName name: String, countryCode: String, phoneCode: String)
     {
         country.text = phoneCode
         print(country.text)
     }
 
-    //Actions
+    //MARK:- Actions
     @IBAction func VerifyMobile(sender:AnyObject)
     {
-//        self.StartLoader()
-        
         if ((number.text?.isEmpty)!)
         {
             doalertView("Phone# Not Entered", msgs: "Pls enter a phone number in the field!!!")
         }
         else
         {
+            self.StartLoader()
+
             sendMobileNo()
             { value, error in
                 
@@ -70,26 +71,37 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
                 {
                     let json = JSON(value!)
                     print(json)
+                    
+                    self.HideLoader()
+                    
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
-                    let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
-                    { action in
-                        switch action.style
-                        {
-                            case .Default:
-                                self.performSegueWithIdentifier("verifyFirstSegue", sender: sender)
-                            default:
-                                break
-                        }
-                    })
                     
-                    alertController.addAction(defaultAction)
-                    alertController.show()
-
+                    if titles == "error"
+                    {
+                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                        { action in
+                            switch action.style
+                            {
+                                case .Default:
+                                    self.performSegueWithIdentifier("verifyFirstSegue", sender: sender)
+                                default:
+                                    break
+                            }
+                        })
+                        
+                        alertController.addAction(defaultAction)
+                        alertController.show()
+                    }
                 }
                 else
                 {
+                    self.HideLoader()
                     print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -117,7 +129,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 //        ocObject.serverrequest(Postdata as String)
     }
 
-    //UITextFieldDelegates
+    //MARK:- UITextFieldDelegates
     func textFieldDidBeginEditing(textField: UITextField)
     {
         if (country == textField)
@@ -159,7 +171,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 //        return false
 //    }
     
-    //Overrides
+    //MARK:- Overrides
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         picker?.hidden = true
@@ -174,7 +186,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 //        print(secondVC.num)
     }
     
-    //Custom Functions
+    //MARK:- Custom Functions
     func serverresponse(str: NSString)
     {
         self.stopLoader()
@@ -183,8 +195,8 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     
     func doalertView (tit: String, msgs: String)
     {
-        let titles = tit
-        let messages = msgs
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
         let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
@@ -195,8 +207,8 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 
     func doDBalertView (tit: String, msgs: String)
     {
-        let titles = tit
-        let messages = msgs
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
         let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         

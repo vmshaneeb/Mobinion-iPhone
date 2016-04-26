@@ -75,18 +75,16 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
 //        return false
 //    }
     
-    //Overrrides
+    //MARK:- Overrrides
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
 //        picker?.hidden = true
         self.view.endEditing(true)
     }
     
-    //Actions
+    //MARK:- Actions
     @IBAction func verifyMobile2(sender: AnyObject)
     {
-        self.StartLoader()
-        
 //        print(cntry)
 //        print(num)
         
@@ -100,6 +98,8 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
         }
         else
         {
+            self.StartLoader()
+            
             sendOTP()
             { value, error in
                 
@@ -108,33 +108,48 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
                     let json = JSON(value!)
                     print(json)
                     
-                    let token = json["data"]["token"].stringValue
+                    let toks = json["data"]["token"].stringValue
                     
+//                    print(toks)
+                    
+                    var token:String = "JWT "
+                    token.appendContentsOf(toks)
                     print(token)
+
             
                     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
+                    self.HideLoader()
+                    
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
-                    let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
-                    { action in
-                        switch action.style
-                        {
-                            case .Default:
-                                self.performSegueWithIdentifier("verifySecondSegue", sender: sender)
-                            default:
-                                break
-                        }
-                    })
                     
-                    alertController.addAction(defaultAction)
-                    alertController.show()
-                    
+                    if titles == "error"
+                    {
+                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                        { action in
+                            switch action.style
+                            {
+                                case .Default:
+                                    self.performSegueWithIdentifier("verifySecondSegue", sender: sender)
+                                default:
+                                    break
+                            }
+                        })
+                        
+                        alertController.addAction(defaultAction)
+                        alertController.show()
+                    }
                 }
                 else
                 {
+                    self.HideLoader()
                     print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -143,11 +158,11 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
         }
     }
     
-    //Custom Functions
+    //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
-        let titles = tit
-        let messages = msgs
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
         let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
@@ -158,15 +173,14 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
     
     func doDBalertView (tit: String, msgs: String)
     {
-        let titles = tit
-        let messages = msgs
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
         let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
         alertController.addAction(defaultAction)
         alertController.show()
     }
-    
     
     func sendOTP(completionHandler : (NSDictionary?, NSError?) -> Void)
     {
@@ -186,7 +200,6 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
                     completionHandler(nil, error)
                 }
         }
-        
     }
 
     // MARK: - Loader

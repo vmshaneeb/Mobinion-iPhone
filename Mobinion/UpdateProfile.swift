@@ -9,11 +9,10 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import DBAlertController
 
 class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
-//    @IBOutlet weak var skipBtn: UIBarButtonItem!
-    
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var header2: UILabel!
     @IBOutlet weak var header3: UILabel!
@@ -25,11 +24,14 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet var allTextFields: [UITextField]!
     
     var profilePicURL = ""
+    var profName = ""
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        profileName.text = profName
         
         // for rounded profile pic
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
@@ -115,37 +117,48 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     {
         self.StartLoader()
         
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        
-        var toks:String = "JWT "
-        
-        toks.appendContentsOf(tok as! String)
-        
-//        print(toks)
-        
-        let header = ["Authorization": toks ]
-        
-        let URL = "http://vyooha.cloudapp.net:1337/updateProfile"
-        
-        Alamofire.request(.POST, URL, parameters: ["profilePic": profilePicURL,
-                                                   "userBio": profileBio.text!,
-                                                   "aboutUser": profileBrief.text!],
-            headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+        sendupdateProfile()
+        { value, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
                 {
-                case .Success:
-                    if let value = response.result.value
-                    {
-                        let json = JSON(value)
-                        print(json)
-                    }
-                case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+                    self.doDBalertView(titles, msgs: messages)
                 }
+                else
+                {
+                    let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                    { action in
+                        switch action.style
+                        {
+                            case .Default:
+                                self.performSegueWithIdentifier("updateProfileSegue", sender: sender)
+                            default:
+                                break
+                        }
+                    })
+                    
+                    alertController.addAction(defaultAction)
+                    alertController.show()
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
         }
-        
-        performSegueWithIdentifier("updateProfileSegue", sender: sender)
     }
     
     @IBAction func selectImage(sender: UITapGestureRecognizer)
@@ -226,15 +239,60 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-//    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
-//    {
-//        return false
-//    }
+    //MARK:- Custom Functions
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
-//    override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
-//    {
-//        print("now in update screen!!!")
-//    }
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
+    func sendupdateProfile(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/updateProfile"
+        
+        Alamofire.request(.POST, URL, parameters: ["profilePic": profilePicURL,
+                                                   "userBio": profileBio.text!,
+                                                   "aboutUser": profileBrief.text!],
+                          headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, error)
+                }
+        }
+    }
+
+    
     
     // MARK: - Loader
     func StartLoader()

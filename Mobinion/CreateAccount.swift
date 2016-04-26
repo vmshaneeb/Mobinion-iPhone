@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import DBAlertController
 
 class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate
 {
@@ -45,9 +46,6 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(serverdelegate.serverresponse(_:)), name: "AppdelegatePage" ,object: nil)
         
-//        usrSalutation.inputView = salutnPicker
-//        dobField.inputView = dobPicker
-        
         let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
         print(tok)
         
@@ -65,6 +63,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- UIPickerViewDelegates
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
         return 1
@@ -86,33 +85,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         salutnPicker.hidden = true
     }
     
-    @IBAction func dateValueChanged(sender:UIDatePicker)
-    {
-//        //Create the view
-//        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
-//        
-//        inputView.addSubview(dobPicker)
-//        
-//        
-//        let doneButton2 = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 0, 100, 50))
-//        doneButton2.setTitle("Done", forState: UIControlState.Normal)
-//        doneButton2.setTitle("Done", forState: UIControlState.Highlighted)
-//        doneButton2.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-//        doneButton2.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
-//        
-//        inputView.addSubview(doneButton2) // add Button to UIView
-//        
-//        doneButton2.addTarget(self, action: #selector(CreateAccount.doneButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "dd/MMM/yyyy"
-        
-        dobField.text = dateFormatter.stringFromDate(sender.date)
-        
-        print(dobField.text)
-        
-    }
+    
     
 //    func doneButton2(sender:UIButton)
 //    {
@@ -133,6 +106,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 //        return false
 //    }
 //    
+    //MARK:- UITextFieldDelegates
     func textFieldDidBeginEditing(textField: UITextField)
     {
         if (dobField == textField)
@@ -167,14 +141,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 //        }
     }
     
-    func close_all_textfields()
-    {
-        usrName.resignFirstResponder()
-        usrFullname.resignFirstResponder()
-        usrSalutation.resignFirstResponder()
-        dobField.resignFirstResponder()
-        zipCode.resignFirstResponder()
-    }
+    
     
 //    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
 //    {
@@ -238,7 +205,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 //        return false
 //    }
     
-    
+    //MARK:- Overrides
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         dobPicker.hidden = true
@@ -247,6 +214,34 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         self.view.endEditing(true)
     }
     
+    //MARK:- Actions
+    @IBAction func dateValueChanged(sender:UIDatePicker)
+    {
+        //        //Create the view
+        //        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
+        //
+        //        inputView.addSubview(dobPicker)
+        //
+        //
+        //        let doneButton2 = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 0, 100, 50))
+        //        doneButton2.setTitle("Done", forState: UIControlState.Normal)
+        //        doneButton2.setTitle("Done", forState: UIControlState.Highlighted)
+        //        doneButton2.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        //        doneButton2.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
+        //
+        //        inputView.addSubview(doneButton2) // add Button to UIView
+        //
+        //        doneButton2.addTarget(self, action: #selector(CreateAccount.doneButton2(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "dd/MMM/yyyy"
+        
+        dobField.text = dateFormatter.stringFromDate(sender.date)
+        
+        print(dobField.text)
+        
+    }
     
     @IBAction func checkBox(sender: UIButton)
     {
@@ -269,92 +264,206 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         if count > 0
         {
-            print("entered...")
-            let titles = "No Texts Entered!!!"
-            let messages = "Pls enter respective texts in the fields"
-            let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .Default,handler: nil)
-//            {
-//                UIAlertAction in self.navigationController?.popViewControllerAnimated(true)
-//            }
+//            print("entered...")
             
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.doalertView("No Texts Entered", msgs: "Pls enter respective texts in the fields")
+//            
+//            let titles = "No Texts Entered!!!"
+//            let messages = "Pls enter respective texts in the fields"
+//            let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+//            let defaultAction = UIAlertAction(title: "OK", style: .Default,handler: nil)
+////            {
+////                UIAlertAction in self.navigationController?.popViewControllerAnimated(true)
+////            }
+//            
+//            alertController.addAction(defaultAction)
+//            
+//            self.presentViewController(alertController, animated: true, completion: nil)
         }
+        else
+        {
         
-        self.StartLoader ()
         
         print(usrName.text)
         print(usrFullname.text)
         print(zipCode.text)
         print(dobField.text)
         
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        
-        var toks:String = "JWT "
-        
-        toks.appendContentsOf(tok as! String)
-        
-        print(toks)
-        
-        let header = ["Authorization": toks ]
-        
-        print(header)
-        
-        let URL = "http://vyooha.cloudapp.net:1337/createAccount"
-        let URL2 = "http://vyooha.cloudapp.net:1337/checkUsernameAvailability"
-        
-        Alamofire.request(.POST, URL, parameters: ["name": usrName.text!,
-                                                   "username": usrFullname.text!,
-                                                   "zipCode": zipCode.text!,
-                                                   "dob": dobField.text!],
-                          headers: header, encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+        self.StartLoader ()
+            
+        sendcheckUsernameAvail()
+        { value, error in
+                    
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
                 {
-                case .Success:
-                    if let value = response.result.value
-                    {
-                        let json = JSON(value)
-                        print(json)
-                    }
-                case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+                    self.doDBalertView(titles, msgs: messages)
                 }
-        }
-        
-//        var json2 = ""
-        
-        Alamofire.request(.POST, URL2, parameters: ["username": usrName.text!],headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+                else
                 {
-                case .Success:
-                    if let value = response.result.value
-                    {
-                        let json = JSON(value)
-//                        json2 = JSON(value) 
-                        print(json)
+                    self.StartLoader ()
+                    
+                    self.sendCreateAC()
+                        { value, error in
+                            
+                            if value != nil
+                            {
+                                let json = JSON(value!)
+                                print(json)
+                                
+                                self.HideLoader()
+                                
+                                let titles = json["status"].stringValue
+                                let messages = json["message"].stringValue
+                                
+                                if titles == "error"
+                                {
+                                    self.doDBalertView(titles, msgs: messages)
+                                }
+                                else
+                                {
+                                    let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+                                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                                        { action in
+                                            switch action.style
+                                            {
+                                            case .Default:
+                                                self.performSegueWithIdentifier("createAccountSegue", sender: sender)
+                                            default:
+                                                break
+                                            }
+                                    })
+                                    
+                                    alertController.addAction(defaultAction)
+                                    alertController.show()
+                                    
+                                    
+                                }
+                            }
+                            else
+                            {
+                                self.HideLoader()
+                                print(error)
+                                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                            }
                     }
-                case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
                 }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
         }
-        
-//        print(json2)
-        
-        self.stopLoader()
-        self.HideLoader()
-        performSegueWithIdentifier("createAccountSegue", sender: sender)
+            
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         let secondVC = segue.destinationViewController as! UpdateProfile
-        print(usrFullname)
-        secondVC.profileName.text = usrFullname.text!
+//        print("for segue \(usrFullname.text!)")
+        secondVC.profName = usrFullname.text!
     }
+    
+    //MARK:- Custom Functions
+    func close_all_textfields()
+    {
+        usrName.resignFirstResponder()
+        usrFullname.resignFirstResponder()
+        usrSalutation.resignFirstResponder()
+        dobField.resignFirstResponder()
+        zipCode.resignFirstResponder()
+    }
+    
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
+    func sendCreateAC(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+//        print(header)
+
+        let URL = "http://vyooha.cloudapp.net:1337/createAccount"
+        
+        Alamofire.request(.POST, URL, parameters: ["name": usrName.text!,
+                                                   "username": usrFullname.text!,
+                                                   "zipCode": zipCode.text!,
+                                                   "dob": dobField.text!], headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            completionHandler(value as? NSDictionary, nil)
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(nil, error)
+                }
+        }
+    }
+
+    func sendcheckUsernameAvail(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+//        print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/checkUsernameAvailability"
+        
+        Alamofire.request(.POST, URL, parameters: ["username": usrName.text!], headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            completionHandler(value as? NSDictionary, nil)
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(nil, error)
+                }
+        }
+    }
+    
     
     // MARK: - Loader
     func StartLoader()

@@ -10,12 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Cloudinary
+import DBAlertController
 
 class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
     
     @IBOutlet weak var navTitle: UINavigationItem!
-//    @IBOutlet weak var backBtn: UIBarButtonItem!
     
     @IBOutlet weak var searchHeaderImage: UIImageView!
     @IBOutlet weak var searchBarField: UITextField!
@@ -44,7 +44,6 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     {
         didSet
         {
-//            collectionView.allowsMultipleSelection = sharing
             collectionView.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
             selectedPhotos.removeAll(keepCapacity: false)
             deselectedPhotos.removeAll(keepCapacity: false)
@@ -71,35 +70,29 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
 //        print(self.imageURL)
         
         
+        self.StartLoader()
         
-        //        print(toks)
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        
-        var toks:String = "JWT "
-        
-        toks.appendContentsOf(tok as! String)
-        
-        let header = ["Authorization": toks ]
-        
-        let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
-        
-        
-//        self.StartLoader()
-        
-        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+        getinterestTopics()
+        { value, error in
+                
+                if value != nil
                 {
-                case .Success:
-                    if let value = response.result.value
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
                     {
-                        let json = JSON(value)
-                        print(json)
-                        //                            print(json["data"]["interests"].count)
+                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
                         for i in 0 ..< json["data"]["interests"].count
                         {
-//                            self.imageURLs.updateValue(json["data"]["interests"][i]["imageUrl"].stringValue, forKey: json["data"]["interests"][i]["title"].stringValue)
-                            
                             if (!json["data"]["interests"][i]["imageUrl"].stringValue.isEmpty)
                             {
                                 self.imageURL.append(json["data"]["interests"][i]["imageUrl"].stringValue)
@@ -107,20 +100,68 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                                 self.imageIDs.append(json["data"]["interests"][i]["id"].stringValue)
                             }
                         }
-                        print(self.imageURL)
-//                        dispatch_async(dispatch_get_main_queue())
-//                        {
-//                        self.StartLoader()
+                      
+//                        print(self.imageURL)
                         self.collectionView.reloadData()
-//                        }
-//                         print(self.imageURL)
-//                        print(self.imageURL.count)
                     }
-                case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
-                
+                }
+                else
+                {
+                    self.HideLoader()
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
         }
+
+        
+        
+        
+//        //        print(toks)
+//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+//        
+//        var toks:String = "JWT "
+//        
+//        toks.appendContentsOf(tok as! String)
+//        
+//        let header = ["Authorization": toks ]
+//        
+//        let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
+//        
+//        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
+//            .responseJSON { response in
+//                switch response.result
+//                {
+//                case .Success:
+//                    if let value = response.result.value
+//                    {
+//                        let json = JSON(value)
+//                        print(json)
+//                        //                            print(json["data"]["interests"].count)
+//                        for i in 0 ..< json["data"]["interests"].count
+//                        {
+////                            self.imageURLs.updateValue(json["data"]["interests"][i]["imageUrl"].stringValue, forKey: json["data"]["interests"][i]["title"].stringValue)
+//                            
+//                            if (!json["data"]["interests"][i]["imageUrl"].stringValue.isEmpty)
+//                            {
+//                                self.imageURL.append(json["data"]["interests"][i]["imageUrl"].stringValue)
+//                                self.imageNames.append(json["data"]["interests"][i]["title"].stringValue)
+//                                self.imageIDs.append(json["data"]["interests"][i]["id"].stringValue)
+//                            }
+//                        }
+//                        print(self.imageURL)
+////                        dispatch_async(dispatch_get_main_queue())
+////                        {
+////                        self.StartLoader()
+//                        self.collectionView.reloadData()
+////                        }
+////                         print(self.imageURL)
+////                        print(self.imageURL.count)
+//                    }
+//                case .Failure(let error):
+//                    print("Request Failed with Error!!! \(error)")
+//                
+//                }
+//        }
         
 //        self.stopLoader()
     }
@@ -147,14 +188,14 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
 //        print(imageURL.count)
-        self.StartLoader()
+//        self.StartLoader()
 //        print(imageURL)
         return imageURL.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        self.HideLoader()
+//        self.HideLoader()
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! InterestsCollectionViewCell
         
         let url = NSURL(string: self.imageURL[indexPath.row])
@@ -270,59 +311,90 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
             cell?.contentView.backgroundColor = nil
         }
     }
-
     
-    func  loadData(completionHandler : ((Dictionary<String, String>)?, NSError?) -> Void)
+    func doalertView (tit: String, msgs: String)
     {
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
-        var toks:String = "JWT "
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
-        toks.appendContentsOf(tok as! String)
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
-        //        print(toks)
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
+    func getinterestTopics(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
         
-        let header = ["Authorization": toks ]
+        let header = ["Authorization": toks as! String]
+        //print(header)
         
         let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
         
-//        var imageURLs: [String: String] = [String: String]()
-        
-        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
+        Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
                 case .Success:
                     if let value = response.result.value
                     {
-                        let json = JSON(value)
-                        //                            print(json)
-                        //                            print(json["data"]["interests"].count)
-                        for i in 0 ..< json["data"]["interests"].count
-                        {
-                            self.imageURLs.updateValue(json["data"]["interests"][i]["imageUrl"].stringValue, forKey: json["data"]["interests"][i]["title"].stringValue)
-                        }
-                        
-//                        print(self.imageURL)
-                        print(self.imageURL.count)
+                        completionHandler(value as? NSDictionary, nil)
                     }
+                    
                 case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
                     completionHandler(nil, error)
-                    }
-        completionHandler(self.imageURLs, nil)
+                }
         }
-//        print(imageURLs.count)
-
     }
     
-    //MARK: - Actions
+    func setinterestTopics(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/addInterests"
+        
+        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, error)
+                }
+        }
+    }
+    
+    
+    //MARK:- Unwind Segue
     @IBAction func unwindToInterests(segue: UIStoryboardSegue)
     {
         
     }
     
-    
+    //MARK: - Actions
     @IBAction func backButton(sender: AnyObject)
     {
         print("back button pressed!!!")
@@ -332,68 +404,92 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         self.presentViewController(view, animated: true, completion: nil)
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-//    {
-//        if segue.identifier == "unwindToUpdate"
-//        {
-//            let destinationViewController = segue.destinationViewController as! UpdateProfile
-//        }
-//    }
-    
-//    @IBAction func backBtn(segue: UIStoryboardSegue)
-//    {
-//        print("back pressed!!!")
-////        self.navigationController?.popViewControllerAnimated(true)
-//    }
-    
     @IBAction func addBtn(sender: AnyObject)
     {
-        //        print(selectedPhotos)
+        //print(selectedPhotos)
         if selectedPhotos.isEmpty
         {
-            let titles = "No Interests Selected!!!"
-            let messages = "Pls select atleast one interest"
-            let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .Default,handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            
+            doalertView("No Interests Selected", msgs: "Pls select atleast one interest!!!")
         }
-        
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        
-        var toks:String = "JWT "
-        
-        toks.appendContentsOf(tok as! String)
-        
-        let header = ["Authorization": toks ]
-        
-        let URL = "http://vyooha.cloudapp.net:1337/addInterests"
-        
-        
-        //        self.StartLoader()
-        
-        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
-                {
-                case .Success:
-                    if let value = response.result.value
-                    {
-                        let json = JSON(value)
-                        print("entered")
-                        print(json)
-                    }
-                case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+        else
+        {
+            self.StartLoader()
+            setinterestTopics()
+            { value, error in
                     
+                if value != nil
+                {
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
+                    {
+                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                            { action in
+                                switch action.style
+                                {
+                                    case .Default:
+                                        self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
+                                    default:
+                                        break
+                                }
+                        })
+                        
+                        alertController.addAction(defaultAction)
+                        alertController.show()
+                    }
+                }
+                else
+                {
+                    self.HideLoader()
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
         }
-
+        }
         
-        performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
+//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+//        
+//        var toks:String = "JWT "
+//        
+//        toks.appendContentsOf(tok as! String)
+//        
+//        let header = ["Authorization": toks ]
+//        
+//        let URL = "http://vyooha.cloudapp.net:1337/addInterests"
+//        
+//        
+//        //        self.StartLoader()
+//        
+//        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header ,encoding: .JSON)
+//            .responseJSON { response in
+//                switch response.result
+//                {
+//                case .Success:
+//                    if let value = response.result.value
+//                    {
+//                        let json = JSON(value)
+//                        print("entered")
+//                        print(json)
+//                    }
+//                case .Failure(let error):
+//                    print("Request Failed with Error!!! \(error)")
+//                    
+//                }
+//        }
+//
+//        
+//        performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
 //        sharing = !sharing
     }
     
