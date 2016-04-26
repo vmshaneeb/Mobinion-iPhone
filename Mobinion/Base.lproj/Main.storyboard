@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jDN-hD-Tqj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ROR-Z0-kAH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -2100,8 +2100,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgM-ag-DDW">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-4v-Hu8">
-                                        <rect key="frame" x="20" y="0.0" width="560" height="487"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-4v-Hu8">
+                                        <rect key="frame" x="8" y="0.0" width="584" height="487"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataSource" destination="zMC-dI-42f" id="KEi-C0-5Bn"/>
@@ -2111,9 +2111,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="hOb-4v-Hu8" secondAttribute="bottom" id="IHN-LH-yZs"/>
-                                    <constraint firstAttribute="trailing" secondItem="hOb-4v-Hu8" secondAttribute="trailing" constant="20" id="Ime-IT-BJ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="hOb-4v-Hu8" secondAttribute="trailing" constant="8" id="Ime-IT-BJ9"/>
                                     <constraint firstItem="hOb-4v-Hu8" firstAttribute="centerX" secondItem="tgM-ag-DDW" secondAttribute="centerX" id="Yfy-xH-rsf"/>
-                                    <constraint firstItem="hOb-4v-Hu8" firstAttribute="leading" secondItem="tgM-ag-DDW" secondAttribute="leading" constant="20" id="dXQ-UL-hut"/>
+                                    <constraint firstItem="hOb-4v-Hu8" firstAttribute="leading" secondItem="tgM-ag-DDW" secondAttribute="leading" constant="8" id="dXQ-UL-hut"/>
                                     <constraint firstItem="hOb-4v-Hu8" firstAttribute="top" secondItem="tgM-ag-DDW" secondAttribute="top" id="iEd-YF-Qv4"/>
                                     <constraint firstItem="hOb-4v-Hu8" firstAttribute="centerY" secondItem="tgM-ag-DDW" secondAttribute="centerY" id="rv4-B7-LCy"/>
                                 </constraints>

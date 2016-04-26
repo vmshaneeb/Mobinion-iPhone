@@ -10,16 +10,16 @@ import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import DateTools
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
-    var newsFeed:NSMutableArray=NSMutableArray()
-//    var newsFeed = [String: String]()
+    var newsFeed: NSMutableArray = NSMutableArray()
     
-    var jsondata:JSON = [:]
+//    var jsondata:JSON = [:]
     
     let locationManager = CLLocationManager()
     var lat = ""
@@ -29,9 +29,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         super.viewWillAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
-        
-//        array = ["hello"]
-//        jsondata = ""
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -74,6 +71,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 228
+        
+//        tableView.layer.cornerRadius = 10
+//        tableView.layer.masksToBounds = true
     }
     
     override func didReceiveMemoryWarning()
@@ -146,6 +146,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
                 
+                print(datesString.timeIntervalSinceNow)
+                
                 cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
             }
             //
@@ -162,6 +164,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             
 //            cell.setNeedsUpdateConstraints()
 //            cell.updateConstraintsIfNeeded()
+            
+            cell.contentView.layer.cornerRadius = 5
+            cell.contentView.layer.masksToBounds = true
             
             return cell
         }
@@ -267,6 +272,24 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         return result
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        cell.contentView.backgroundColor = UIColor.grayColor()
+        
+//        let whiteRoundedView : UIView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width - 5, cell.contentView.frame.size.height - 8))
+
+        let whiteRoundedView: UIView = UIView(frame: CGRectMake(0, 0, cell.contentView.frame.size.width - 3, cell.contentView.frame.size.height - 3))
+        
+        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 1.0])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 5
+        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubviewToBack(whiteRoundedView)
+    }
+    
     //MARK:- CLLocationManagerDelegates
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
@@ -341,41 +364,18 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     if let value = response.result.value
                     {
                         let json = JSON(value)
-//                        print(json)
-                        self.jsondata = json
-//                        let dict:NSMutableDictionary = self.jsondata as! NSMutableDictionary
+                        print(json)
                         
-//                        if let data = response.data
-//                        {
-//                            do {
-//                                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject]
-//                            } catch let error as NSError {
-//                                print(error)
-//                            }
-//                        }
-//                        
-                        
-                        do {
+                        do
+                        {
                             let responseObject = try NSJSONSerialization.JSONObjectWithData(response.data!, options: []) as! [String:AnyObject]
                             self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-//                            print (self.newsFeed)
+                            //print (self.newsFeed)
                         }
-                        catch let error as NSError
+                        catch
                         {
-                            print("error: \(error.localizedDescription)")
+                            print("error is responseObject")
                         }
-                        
-//                        for i in 0 ..<  json["data"]["newsFeed"].count
-//                        {
-//                            if (!json["data"]["newsFeed"][i].isEmpty)
-//                            {
-//                                self.newsFeed.append(json["data"]["newsFeed"][i].stringValue)
-//                            }
-//                            self.newsFeed =  json["data"]["newsFeed"] as! NSMutableArray
-                        
-//                        }
-                        
-//                        print(self.jsondata)
                         
                         self.tableView.reloadData()
                         self.HideLoader()

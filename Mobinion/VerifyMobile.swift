@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import DBAlertController
 
 class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFieldDelegate
 {
@@ -21,24 +22,18 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     @IBOutlet weak var picker: CountryPicker!
     
     @IBOutlet var allTextFields: [UITextField]!
-//    var cntry:String = ""
-//    var num:String = ""
-//    var vcode: String = ""
-
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-       
-//        country.inputView = picker
 //        NSNotificationCenter.defaultCenter().addObserver( self, selector: "serverresponse:", name: "AppdelegatePage" ,object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver( self, selector: #selector(serverdelegate.serverresponse(_:)), name: "AppdelegatePage" ,object: nil)
         
-        let locale = NSLocale.currentLocale()
-        let code = locale.objectForKey(NSLocaleCountryCode) as! String
+//        let locale = NSLocale.currentLocale()
+//        let code = locale.objectForKey(NSLocaleCountryCode) as! String
         picker?.setCountry("IN")
         
         picker?.countryPhoneCodeDelegate = self
@@ -57,57 +52,49 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
         print(country.text)
     }
 
-    
+    //Actions
     @IBAction func VerifyMobile(sender:AnyObject)
     {
-        //MARK: - Alamofire
+//        self.StartLoader()
         
-        
-        
-        self.StartLoader()
-        
-//        print(country?.text, number?.text)
-        
-//        cntry = country.text!
-//        num = number.text!
-//
-//        
-//        print(cntry)
-//        print(num)
-        
-        let URL = "http://vyooha.cloudapp.net:1337/generateOtp"
-        
-        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!], encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
-                {
-                  case .Success:
-                    if let value = response.result.value
-                    {
-                        let json = JSON(value)
-                        print(json)
-                    }
-
-                    
-                  case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
-                }
-//                print("original URL request")
-//                print(response.request)  // original URL request
-//                print("URL response")
-//                print(response.response) // URL response
-//                print("server data")
-//                print(response.data)     // server data
-//                print("result of response serialization")
-//                print(response.result)   // result of response serialization
-//                
-//                if let JSON = response.result.value
-//                {
-//                    print("JSON: \(JSON)")
-//                }
+        if ((number.text?.isEmpty)!)
+        {
+            doalertView("Phone# Not Entered", msgs: "Pls enter a phone number in the field!!!")
         }
+        else
+        {
+            sendMobileNo()
+            { value, error in
+                
+                if value != nil
+                {
+                    let json = JSON(value!)
+                    print(json)
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                    { action in
+                        switch action.style
+                        {
+                            case .Default:
+                                self.performSegueWithIdentifier("verifyFirstSegue", sender: sender)
+                            default:
+                                break
+                        }
+                    })
+                    
+                    alertController.addAction(defaultAction)
+                    alertController.show()
 
-        performSegueWithIdentifier("verifyFirstSegue", sender: sender)
+                }
+                else
+                {
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                }
+            }
+        }
         
         
         //MARK: - Hamdan Code
@@ -129,21 +116,8 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 ////        myCell.delegate=self
 //        ocObject.serverrequest(Postdata as String)
     }
-    
-    
-        
-    func serverresponse(str: NSString)
-    {
-        self.stopLoader()
-        print(str)
-    }
-    
-//    func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat{
-//        return 0.0
-//    }
-    
 
-    
+    //UITextFieldDelegates
     func textFieldDidBeginEditing(textField: UITextField)
     {
         if (country == textField)
@@ -185,35 +159,11 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 //        return false
 //    }
     
+    //Overrides
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         picker?.hidden = true
         self.view.endEditing(true)
-    }
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
-    {
-        if identifier == "verifyFirstSegue"
-        {
-            if ((number.text?.isEmpty) != nil)
-            {
-                let titles = "No Phone# Entered!!!"
-                let messages = "Pls enter a phone number in the field"
-                let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-                return false
-            }
-            else
-            {
-                return true
-            }
-        }
-        return true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -222,6 +172,58 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
         secondVC.num = number.text!
         
 //        print(secondVC.num)
+    }
+    
+    //Custom Functions
+    func serverresponse(str: NSString)
+    {
+        self.stopLoader()
+        print(str)
+    }
+    
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit
+        let messages = msgs
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit
+        let messages = msgs
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+
+    
+    func sendMobileNo(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let URL = "http://vyooha.cloudapp.net:1337/generateOtp"
+        
+        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!], encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            completionHandler(value as? NSDictionary, nil)
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(nil, error)
+                }
+        }
+
     }
     
     // MARK: - Loader

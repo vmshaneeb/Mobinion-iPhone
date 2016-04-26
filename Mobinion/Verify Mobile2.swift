@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import DBAlertController
 
 class VerifyMobile2: UIViewController, UITextFieldDelegate
 {
@@ -74,83 +75,119 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
 //        return false
 //    }
     
+    //Overrrides
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
 //        picker?.hidden = true
         self.view.endEditing(true)
     }
     
+    //Actions
     @IBAction func verifyMobile2(sender: AnyObject)
     {
         self.StartLoader()
         
 //        print(cntry)
-        print(num)
+//        print(num)
         
 //        vcode = verifyCode.text!
 //        print(vcode)
         
         
+        if ((verifyCode.text?.isEmpty)!)
+        {
+            doalertView("No Verification Code Entered", msgs: "Pls enter the verification code in the field")
+        }
+        else
+        {
+            sendOTP()
+            { value, error in
+                
+                if value != nil
+                {
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    let token = json["data"]["token"].stringValue
+                    
+                    print(token)
+            
+                    NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                    
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                    { action in
+                        switch action.style
+                        {
+                            case .Default:
+                                self.performSegueWithIdentifier("verifySecondSegue", sender: sender)
+                            default:
+                                break
+                        }
+                    })
+                    
+                    alertController.addAction(defaultAction)
+                    alertController.show()
+                    
+                }
+                else
+                {
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                }
+            }
+            
+        }
+    }
+    
+    //Custom Functions
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit
+        let messages = msgs
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit
+        let messages = msgs
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
+    
+    func sendOTP(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
         let URL = "http://vyooha.cloudapp.net:1337/verifyMobileNumber"
         
         Alamofire.request(.POST, URL, parameters: ["mobile": num, "otp":verifyCode.text!], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
-                 case .Success:
+                case .Success:
                     if let value = response.result.value
                     {
-                        let json = JSON(value)
-//                        print(json)
-                        
-                        let token = json["data"]["token"].stringValue
-                        
-                        print(token)
-                        
-                        NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
-                        NSUserDefaults.standardUserDefaults().synchronize()
+                        completionHandler(value as? NSDictionary, nil)
                     }
-                 case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+                    
+                case .Failure(let error):
+                    completionHandler(nil, error)
                 }
         }
         
-        
-
-//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-//        print(tok)
-        
-//        if tok != nil
-//        {
-            self.performSegueWithIdentifier("verifySecondSegue", sender: sender)
-//        }
     }
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
-    {
-        if identifier == "verifySecondSegue"
-        {
-            if ((verifyCode.text?.isEmpty) != nil)
-            {
-                let titles = "No Verification Code Entered!!!"
-                let messages = "Pls enter the verification code in the field"
-                let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-                return false
-            }
-            else
-            {
-                return true
-            }
-        }
-        return true
-    }
-
 
     // MARK: - Loader
     func StartLoader()

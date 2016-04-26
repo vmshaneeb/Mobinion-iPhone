@@ -86,12 +86,16 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Alamofire.framework"
   install_framework "Pods/Cloudinary.framework"
+  install_framework "Pods/DBAlertController.framework"
+  install_framework "Pods/DateTools.framework"
   install_framework "Pods/IQKeyboardManager.framework"
   install_framework "Pods/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
   install_framework "Pods/Cloudinary.framework"
+  install_framework "Pods/DBAlertController.framework"
+  install_framework "Pods/DateTools.framework"
   install_framework "Pods/IQKeyboardManager.framework"
   install_framework "Pods/SwiftyJSON.framework"
 fi

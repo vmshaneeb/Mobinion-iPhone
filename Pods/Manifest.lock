@@ -1,12 +1,16 @@
 PODS:
   - Alamofire (3.3.1)
   - Cloudinary (1.0.15)
+  - DateTools (1.7.0)
+  - DBAlertController (0.2.5)
   - IQKeyboardManager (4.0.2)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
   - Cloudinary
+  - DateTools
+  - DBAlertController
   - IQKeyboardManager
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -22,6 +26,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  DBAlertController: de025781531a926cf849455b4596b90ad639b076
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
