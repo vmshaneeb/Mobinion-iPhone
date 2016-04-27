@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Cloudinary.framework"
   install_framework "Pods/DBAlertController.framework"
   install_framework "Pods/IQKeyboardManager.framework"
+  install_framework "Pods/PhoneNumberKit.framework"
   install_framework "Pods/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,5 +96,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Cloudinary.framework"
   install_framework "Pods/DBAlertController.framework"
   install_framework "Pods/IQKeyboardManager.framework"
+  install_framework "Pods/PhoneNumberKit.framework"
   install_framework "Pods/SwiftyJSON.framework"
 fi
