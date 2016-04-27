@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
-import DateTools
 import DBAlertController
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
@@ -317,31 +316,36 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func notify(sender: AnyObject)
     {
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        
-        var toks:String = "JWT "
-        
-        toks.appendContentsOf(tok as! String)
-        
-        let header = ["Authorization": toks ]
-        
-        let URL = "http://vyooha.cloudapp.net:1337/getNotification"
-        
-        Alamofire.request(.GET, URL,headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+        StartLoader()
+        getNotifications()
+            { value, error in
+                
+                if value != nil
                 {
-                case .Success:
-                    if let value = response.result.value
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
                     {
-                        let json = JSON(value)
-                        print(json)
+                        self.doDBalertView(titles, msgs: messages)
                     }
-                case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+                    else
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    self.HideLoader()
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
         }
-        
     }
     
     @IBAction func search(sender: AnyObject)
@@ -492,6 +496,32 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return "Just now"
         
+    }
+    
+    func getNotifications(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/getNotification"
+        
+        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, error)
+                }
+        }
     }
     
     // MARK: - Loader
