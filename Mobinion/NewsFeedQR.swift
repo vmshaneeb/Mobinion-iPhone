@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import Alamofire
 import SwiftyJSON
+import DBAlertController
 
 class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 {
@@ -173,11 +174,9 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     //MARK:- Custom Functions
     func failed()
     {
-        let ac = UIAlertController(title: "Scanning not supported",
-                                   message: "Your device does not support scanning a code from an item. Please use a device with a camera.",
-                                   preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        self.doalertView("Scanning not supported",
+                         msgs: "Your device does not support scanning a code from an item. Please use a device with a camera!!!")
+
         captureSession = nil
     }
     
@@ -195,7 +194,9 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         
         let URL = "http://vyooha.cloudapp.net:1337/itemDetails"
         
-        Alamofire.request(.GET, URL,headers: header, parameters: ["qr": code], encoding: .JSON)
+        self.StartLoader()
+        
+        Alamofire.request(.POST, URL,headers: header, parameters: ["qr": code], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
@@ -205,12 +206,68 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                         let json = JSON(value)
                         print(json)
                         
+                        self.HideLoader()
+                        
+                        let titles = json["status"].stringValue
+                        let messages = json["message"].stringValue
+                        
+                        if titles == "error"
+                        {
+                            self.doDBalertView(titles, msgs: messages)
+                            self.captureSession.startRunning()
+                        }
+                        else
+                        {
+                            
+                        }
                     }
                 case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+                    self.HideLoader()
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error.localizedDescription))
+                    self.captureSession.startRunning()
                 }
         }
-
     }
     
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
+    // MARK: - Loader
+    func StartLoader()
+    {
+        let objOfHUD:MBProgressHUD=MBProgressHUD .showHUDAddedTo(self.view, animated: true)
+        objOfHUD.labelText="Loading.."
+    }
+    
+    func stopLoader()
+    {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+    }
+    
+    func HideLoader()
+    {
+        self.stopLoader()
+    }
+
 }

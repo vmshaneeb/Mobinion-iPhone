@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import CoreLocation
 import Alamofire
 import SwiftyJSON
 import DBAlertController
 
-class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
+class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -21,28 +20,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
 //    var jsondata:JSON = [:]
     
-    let locationManager = CLLocationManager()
-    var lat = ""
-    var long = ""
-    
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled()
-        {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-        
+
         [tableView.registerClass(NewsFeedTableViewCell.self, forCellReuseIdentifier: "Polls")]
         var nib:UINib = UINib(nibName: "NewsFeedTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Polls")
@@ -297,15 +279,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.contentView.addSubview(whiteRoundedView)
         cell.contentView.sendSubviewToBack(whiteRoundedView)
-    }
-    
-    //MARK:- CLLocationManagerDelegates
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
-        let userLocation:CLLocation = locations[0]
-        
-        lat = String(userLocation.coordinate.latitude)
-        long = String(userLocation.coordinate.longitude)
     }
     
     //MARK:- Actions
