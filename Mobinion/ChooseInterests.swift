@@ -19,7 +19,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     
     @IBOutlet weak var searchHeaderImage: UIImageView!
     @IBOutlet weak var searchBarField: UITextField!
-    @IBOutlet weak var searchBtn: UIButton!
+//    @IBOutlet weak var searchBtn: UIButton!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -33,13 +33,14 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     
     var selectedPhotos = [String]()
     var deselectedPhotos = [String]()
+    var searchedPhotos = [String]()
     
     let baseURL = "http://res.cloudinary.com/dscw6puvr/"
     
     let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
 //    let ids = CLCloudinary
 //    let pubid = CLCloudinary.randomPublicId("5706096b8b9fd2636717fa20")
-    
+
     var sharing: Bool = true
     {
         didSet
@@ -50,10 +51,18 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         }
     }
 
+    var alamoFireManager = Alamofire.Manager.sharedInstance
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 30 // seconds
+        configuration.timeoutIntervalForResource = 30
+        
+        alamoFireManager = Alamofire.Manager(configuration: configuration)
         
         [collectionView.registerClass(InterestsCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")]
         let nib:UINib = UINib(nibName: "InterestsCollectionViewCell", bundle: nil)
@@ -345,7 +354,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
         
-        Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
+//        Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
+        self.alamoFireManager.request(.POST, URL, headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
@@ -371,7 +381,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         let URL = "http://vyooha.cloudapp.net:1337/addInterests"
         
-        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
+//        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
+        alamoFireManager.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
@@ -404,6 +415,33 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         self.presentViewController(view, animated: true, completion: nil)
     }
     
+    @IBAction func searchBtn(sender: AnyObject)
+    {
+        if (!searchBarField.text!.isEmpty)
+        {
+            searchedPhotos.removeAll(keepCapacity: false)
+            searchedPhotos.append(searchBarField.text!)
+            searchedPhotos = Array(Set(searchedPhotos))
+            
+            if (!imageNames.isEmpty)
+            {
+                for photos in searchedPhotos
+                {
+                    if let index = imageNames.indexOf(photos)
+                    {
+                        imageNames.removeAtIndex(index)
+                        imageURL.removeAtIndex(index)
+                    }
+                }
+            }
+            else
+            {
+                self.doalertView("Error", msgs: "No interests to search for!!!!")
+            }
+        }
+        
+    }
+
     @IBAction func addBtn(sender: AnyObject)
     {
         //print(selectedPhotos)

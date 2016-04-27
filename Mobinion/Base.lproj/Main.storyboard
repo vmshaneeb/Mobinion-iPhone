@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2fz-Ay-ddo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hu0-Xc-Vos">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1040,6 +1040,9 @@
                                     <constraint firstAttribute="width" constant="32" id="z3t-J5-XQc"/>
                                 </constraints>
                                 <state key="normal" image="Search"/>
+                                <connections>
+                                    <action selector="searchBtn:" destination="2fz-Ay-ddo" eventType="touchUpInside" id="PjV-Ru-yLL"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="ifu-zB-RPI">
                                 <rect key="frame" x="35" y="71" width="490" height="47"/>
@@ -1106,7 +1109,6 @@
                         <outlet property="navTitle" destination="rwv-lB-BG6" id="Wg1-aG-WqO"/>
                         <outlet property="scrollView" destination="Elz-rE-3kh" id="Vs3-sS-8Ca"/>
                         <outlet property="searchBarField" destination="8Wq-BT-1gL" id="ZqG-JP-wdS"/>
-                        <outlet property="searchBtn" destination="BlD-SI-itr" id="CwT-5X-535"/>
                         <outlet property="searchHeaderImage" destination="ifu-zB-RPI" id="aW3-5V-6lL"/>
                         <segue destination="7yy-KC-gwr" kind="show" identifier="chooseInterestsSegue" id="wOq-CL-RZg"/>
                         <segue destination="Cy0-Ud-8eO" kind="unwind" identifier="unwindToUpdate" unwindAction="unwindToVC:" id="DAA-jo-vDf"/>
@@ -1166,10 +1168,10 @@
                                 </connections>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogD-07-tW8">
-                                <rect key="frame" x="20" y="69" width="560" height="511"/>
+                                <rect key="frame" x="8" y="69" width="584" height="511"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0TE-xp-FmB">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="511"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="584" height="511"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataSource" destination="7yy-KC-gwr" id="gnh-CJ-gw2"/>
@@ -1178,12 +1180,12 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0TE-xp-FmB" secondAttribute="bottom" constant="20" id="0dB-51-35z"/>
-                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="centerX" secondItem="ogD-07-tW8" secondAttribute="centerX" id="NNy-G8-gux"/>
-                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="centerY" secondItem="ogD-07-tW8" secondAttribute="centerY" id="UKP-ev-Oml"/>
-                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="top" secondItem="ogD-07-tW8" secondAttribute="top" id="Y7F-aD-5Av"/>
-                                    <constraint firstAttribute="trailing" secondItem="0TE-xp-FmB" secondAttribute="trailing" id="fz1-tI-Zk9"/>
-                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="leading" secondItem="ogD-07-tW8" secondAttribute="leading" id="sFK-09-3Fs"/>
+                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="top" secondItem="ogD-07-tW8" secondAttribute="top" id="4Qo-ia-cpK"/>
+                                    <constraint firstAttribute="bottom" secondItem="0TE-xp-FmB" secondAttribute="bottom" id="4YM-yr-fak"/>
+                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="centerX" secondItem="ogD-07-tW8" secondAttribute="centerX" id="VqW-0C-gqH"/>
+                                    <constraint firstAttribute="trailing" secondItem="0TE-xp-FmB" secondAttribute="trailing" id="e7W-0K-7Z5"/>
+                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="leading" secondItem="ogD-07-tW8" secondAttribute="leading" id="gha-ff-Cu5"/>
+                                    <constraint firstItem="0TE-xp-FmB" firstAttribute="centerY" secondItem="ogD-07-tW8" secondAttribute="centerY" id="i8k-iF-vJ1"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1194,7 +1196,7 @@
                             <constraint firstItem="0TE-xp-FmB" firstAttribute="top" secondItem="q8q-7P-SQM" secondAttribute="bottom" constant="5" id="9xQ-Bl-VZ9"/>
                             <constraint firstItem="ogD-07-tW8" firstAttribute="top" secondItem="q8q-7P-SQM" secondAttribute="bottom" constant="5" id="GBO-QF-5SM"/>
                             <constraint firstAttribute="trailing" secondItem="q8q-7P-SQM" secondAttribute="trailing" id="GZ0-4q-Tbm"/>
-                            <constraint firstItem="ogD-07-tW8" firstAttribute="leading" secondItem="fkK-6M-oOV" secondAttribute="leadingMargin" id="UVy-fW-Oig"/>
+                            <constraint firstItem="ogD-07-tW8" firstAttribute="leading" secondItem="fkK-6M-oOV" secondAttribute="leadingMargin" constant="-12" id="UVy-fW-Oig"/>
                             <constraint firstItem="q8q-7P-SQM" firstAttribute="top" secondItem="jk4-FX-AgK" secondAttribute="bottom" id="ZMq-Cc-qBR"/>
                             <constraint firstAttribute="bottom" secondItem="ogD-07-tW8" secondAttribute="bottom" constant="20" symbolic="YES" id="n2u-ay-CTJ"/>
                         </constraints>

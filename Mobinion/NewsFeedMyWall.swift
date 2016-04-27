@@ -11,6 +11,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import DateTools
+import DBAlertController
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
 {
@@ -125,28 +126,36 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                dateFormatter.timeZone = NSTimeZone(name: "UTC")
+                dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
                 //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
                 
                 let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
                 //                            print(datesString)
                 
+                
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
                 
-                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+//                print(datesString)
+//                print(timeAgoSince(datesString))
+                
+                
+//                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+                cell.pollCreated.text = timeAgoSince(datesString)
             }
             //
             if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isEqualToString("")))
             {
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
                 
                 let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
                 //                            print(datesString)
                 
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
                 
-                print(datesString.timeIntervalSinceNow)
+//                print(datesString)
+//                print(datesString.timeIntervalSinceNow)
                 
                 cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
             }
@@ -220,7 +229,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
                 
-                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+//                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+                cell.voCreated.text = timeAgoSince(datesString)
             }
             
             if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isEqualToString("")))
@@ -340,17 +350,37 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //MARK:- Custom Functions
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
     func domyWall()
     {
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
         
-        var toks:String = "JWT "
-        
-        toks.appendContentsOf(tok as! String)
-        
-        //        print(toks)
-        
-        let header = ["Authorization": toks ]
+        let header = ["Authorization": toks as! String]
+        //print(header)
+
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
@@ -366,27 +396,103 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         let json = JSON(value)
                         print(json)
                         
-                        do
-                        {
-                            let responseObject = try NSJSONSerialization.JSONObjectWithData(response.data!, options: []) as! [String:AnyObject]
-                            self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-                            //print (self.newsFeed)
-                        }
-                        catch
-                        {
-                            print("error is responseObject")
-                        }
+                        self.HideLoader()
                         
+                        let titles = json["status"].stringValue
+                        let messages = json["message"].stringValue
+                        
+                        if titles == "error"
+                        {
+                            self.doDBalertView(titles, msgs: messages)
+                        }
+                        else
+                        {
+                            do
+                            {
+                                let responseObject = try NSJSONSerialization.JSONObjectWithData(response.data!, options: []) as! [String:AnyObject]
+                                self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+                                //print (self.newsFeed)
+                            }
+                        
+                            catch
+                            {
+                                print("error in responseObject")
+                            }
+                        }
                         self.tableView.reloadData()
                         self.HideLoader()
                     }
                 case .Failure(let error):
-                    print("Request Failed with Error!!! \(error)")
+                    self.HideLoader()
+                    print(error)
+                    self.doDBalertView("Error", msgs: (error.localizedDescription))
                 }
         }
     }
     
-    
+    func timeAgoSince(date: NSDate) -> String
+    {
+        
+        let calendar = NSCalendar.currentCalendar()
+        let now = NSDate()
+        let unitFlags: NSCalendarUnit = [.Second, .Minute, .Hour, .Day, .WeekOfYear, .Month, .Year]
+        let components = calendar.components(unitFlags, fromDate: date, toDate: now, options: [])
+        
+        if components.year >= 2 {
+            return "\(components.year) years ago"
+        }
+        
+        if components.year >= 1 {
+            return "Last year"
+        }
+        
+        if components.month >= 2 {
+            return "\(components.month) months ago"
+        }
+        
+        if components.month >= 1 {
+            return "Last month"
+        }
+        
+        if components.weekOfYear >= 2 {
+            return "\(components.weekOfYear) weeks ago"
+        }
+        
+        if components.weekOfYear >= 1 {
+            return "Last week"
+        }
+        
+        if components.day >= 2 {
+            return "\(components.day) days ago"
+        }
+        
+        if components.day >= 1 {
+            return "Yesterday"
+        }
+        
+        if components.hour >= 2 {
+            return "\(components.hour) hours ago"
+        }
+        
+        if components.hour >= 1 {
+            return "An hour ago"
+        }
+        
+        if components.minute >= 2 {
+            return "\(components.minute) minutes ago"
+        }
+        
+        if components.minute >= 1 {
+            return "A minute ago"
+        }
+        
+        if components.second >= 3 {
+            return "\(components.second) seconds ago"
+        }
+        
+        return "Just now"
+        
+    }
     
     // MARK: - Loader
     func StartLoader()

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Contacts
 import Alamofire
 import SwiftyJSON
-import Contacts
+import DBAlertController
 
 class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
@@ -19,6 +20,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var tableView: UITableView!
 
     var contacts = [CNContact]()
+    var nos = [String]()
     
     let reuseIdentifier = "FollowCell"
     
@@ -35,32 +37,66 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         self.getContacts()
         self.HideLoader()
         
-        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
         
-        var toks:String = "JWT "
+        self.StartLoader()
         
-        toks.appendContentsOf(tok as! String)
-        
-        let header = ["Authorization": toks ]
-        
-        let URL = "http://vyooha.cloudapp.net:1337/followFriendList"
-        
-        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+        getFriendLists()
+        { value, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
                 {
-                    case .Success:
-                        if let value = response.result.value
-                        {
-                            let json = JSON(value)
-                            print(json)
-                            
-                            self.tableView.reloadData()
-                        }
-                    case .Failure(let error):
-                        print("Request Failed with Error!!! \(error)")
+                    self.doDBalertView(titles, msgs: messages)
                 }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
         }
+
+        
+//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
+//        
+//        var toks:String = "JWT "
+//        
+//        toks.appendContentsOf(tok as! String)
+//        
+//        let header = ["Authorization": toks ]
+//        
+//        let URL = "http://vyooha.cloudapp.net:1337/followFriendList"
+//        
+//        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
+//            .responseJSON { response in
+//                switch response.result
+//                {
+//                    case .Success:
+//                        if let value = response.result.value
+//                        {
+//                            let json = JSON(value)
+//                            print(json)
+//                            
+//                            self.tableView.reloadData()
+//                        }
+//                    case .Failure(let error):
+//                        print("Request Failed with Error!!! \(error)")
+//                }
+//        }
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 132
@@ -189,6 +225,56 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
 //            print(error.localizedDescription)
 //        }
     }
+    
+    func doalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = UIAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func doDBalertView (tit: String, msgs: String)
+    {
+        let titles = tit.capitalizedString
+        let messages = msgs.capitalizedString
+        let alertController = DBAlertController(title: titles, message: messages, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.show()
+    }
+    
+    func getFriendLists(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/followFriendList"
+        
+        Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, error)
+                }
+        }
+    }
+
     
     // MARK: - Loader
     func StartLoader()
