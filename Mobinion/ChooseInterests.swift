@@ -12,7 +12,7 @@ import SwiftyJSON
 import Cloudinary
 import DBAlertController
 
-class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate
 {
     
     @IBOutlet weak var navTitle: UINavigationItem!
@@ -34,6 +34,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     var selectedPhotos = [String]()
     var deselectedPhotos = [String]()
     var searchedPhotos = [String]()
+    var searchedURL = [String]()
     
     let baseURL = "http://res.cloudinary.com/dscw6puvr/"
     
@@ -107,6 +108,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                                 self.imageURL.append(json["data"]["interests"][i]["imageUrl"].stringValue)
                                 self.imageNames.append(json["data"]["interests"][i]["title"].stringValue)
                                 self.imageIDs.append(json["data"]["interests"][i]["id"].stringValue)
+                                self.imageURLs.updateValue(json["data"]["interests"][i]["imageUrl"].stringValue,
+                                                           forKey: json["data"]["interests"][i]["title"].stringValue)
                             }
                         }
                       
@@ -121,71 +124,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
         }
-
-        
-        
-        
-//        //        print(toks)
-//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-//        
-//        var toks:String = "JWT "
-//        
-//        toks.appendContentsOf(tok as! String)
-//        
-//        let header = ["Authorization": toks ]
-//        
-//        let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
-//        
-//        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
-//            .responseJSON { response in
-//                switch response.result
-//                {
-//                case .Success:
-//                    if let value = response.result.value
-//                    {
-//                        let json = JSON(value)
-//                        print(json)
-//                        //                            print(json["data"]["interests"].count)
-//                        for i in 0 ..< json["data"]["interests"].count
-//                        {
-////                            self.imageURLs.updateValue(json["data"]["interests"][i]["imageUrl"].stringValue, forKey: json["data"]["interests"][i]["title"].stringValue)
-//                            
-//                            if (!json["data"]["interests"][i]["imageUrl"].stringValue.isEmpty)
-//                            {
-//                                self.imageURL.append(json["data"]["interests"][i]["imageUrl"].stringValue)
-//                                self.imageNames.append(json["data"]["interests"][i]["title"].stringValue)
-//                                self.imageIDs.append(json["data"]["interests"][i]["id"].stringValue)
-//                            }
-//                        }
-//                        print(self.imageURL)
-////                        dispatch_async(dispatch_get_main_queue())
-////                        {
-////                        self.StartLoader()
-//                        self.collectionView.reloadData()
-////                        }
-////                         print(self.imageURL)
-////                        print(self.imageURL.count)
-//                    }
-//                case .Failure(let error):
-//                    print("Request Failed with Error!!! \(error)")
-//                
-//                }
-//        }
-        
-//        self.stopLoader()
     }
-//    
-//    override func viewDidAppear(animated: Bool)
-//    {
-//        super.viewDidAppear(true)
-//        
-//        if let indexPath = getIndexPathForSelectedCell()
-//        {
-//            highlightCell(indexPath, flag: false)
-//        }
-//        
-//        self.performSegueWithIdentifier("unwindToUpdate", sender: self)
-//    }
     
     override func didReceiveMemoryWarning()
     {
@@ -193,7 +132,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - UICollectionView Delegates
+    //MARK:- UICollectionView Delegates
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
 //        print(imageURL.count)
@@ -296,6 +235,35 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         }
     }
     
+    //MARK:- UITextFieldDelegates
+    func textFieldShouldClear(textField: UITextField) -> Bool
+    {
+//        print(imageNames.count)
+//        print(imageURLs.count)
+        
+//        searchBarField.resignFirstResponder()
+//        self.view.endEditing(true)
+        
+        if imageNames.count != imageURLs.count
+        {
+            imageNames.removeAll(keepCapacity: false)
+            imageURL.removeAll(keepCapacity: false)
+            
+            for (name, url) in imageURLs
+            {
+                imageNames.append(name)
+                imageURL.append(url)
+            }
+            
+            StartLoader()
+            collectionView.reloadData()
+            HideLoader()
+        }
+        
+        return true
+    }
+
+    
     //MARK: - Custom Functions
     func getIndexPathForSelectedCell() -> NSIndexPath?
     {
@@ -381,8 +349,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         let URL = "http://vyooha.cloudapp.net:1337/addInterests"
         
-//        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
-        alamoFireManager.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
+        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
+//        alamoFireManager.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
@@ -417,27 +385,64 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     
     @IBAction func searchBtn(sender: AnyObject)
     {
+//        print("pressed")
         if (!searchBarField.text!.isEmpty)
         {
+//            print("inside")
+            
+            let searchstr = searchBarField.text?.capitalizedString
+            
+            let trimmedstr = searchstr?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            
             searchedPhotos.removeAll(keepCapacity: false)
-            searchedPhotos.append(searchBarField.text!)
+            searchedPhotos.append(trimmedstr!)
             searchedPhotos = Array(Set(searchedPhotos))
             
+//            print(searchedPhotos)
+
             if (!imageNames.isEmpty)
             {
-                for photos in searchedPhotos
+                let set = Set(searchedPhotos)
+                let set2 = Set(imageNames)
+//                
+//                print(set)
+//                print(set2)
+                
+                let finalset = set2.intersect(set)
+                
+//                print(Array(finalset))
+                imageNames.removeAll(keepCapacity: false)
+                imageURL.removeAll(keepCapacity: false)
+                
+                if (!finalset.isEmpty)
                 {
-                    if let index = imageNames.indexOf(photos)
+                    imageNames = Array(finalset)
+                    
+                    for (name, url) in imageURLs
                     {
-                        imageNames.removeAtIndex(index)
-                        imageURL.removeAtIndex(index)
+                        if name == imageNames[0]
+                        {
+                            imageURL.append(url)
+                        }
                     }
+                    
+                    StartLoader()
+                    collectionView.reloadData()
+                    HideLoader()
                 }
-            }
+                else
+                {
+                    self.doalertView("error", msgs: "Searched interest not found!!!")
+                }
+           }
             else
             {
                 self.doalertView("Error", msgs: "No interests to search for!!!!")
             }
+        }
+        else
+        {
+            self.doalertView("Error", msgs: "Pls enter some text in the searchbar!!!")
         }
         
     }
@@ -473,14 +478,14 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     {
                         let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
-                            { action in
-                                switch action.style
-                                {
-                                    case .Default:
-                                        self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
-                                    default:
-                                        break
-                                }
+                        { action in
+                            switch action.style
+                            {
+                                case .Default:
+                                    self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
+                                default:
+                                    break
+                            }
                         })
                         
                         alertController.addAction(defaultAction)
@@ -491,44 +496,28 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                 {
                     self.HideLoader()
                     print(error)
-                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+//                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                    
+                    let alertController = DBAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    
+                    let skipAction = UIAlertAction(title: "Skip", style: .Cancel, handler:
+                    { action in
+                        switch action.style
+                        {
+                            case .Cancel:
+                                self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
+                            default:
+                                break
+                        }
+                    })
+                    
+                    alertController.addAction(defaultAction)
+                    alertController.addAction(skipAction)
+                    alertController.show()
                 }
+            }
         }
-        }
-        
-//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-//        
-//        var toks:String = "JWT "
-//        
-//        toks.appendContentsOf(tok as! String)
-//        
-//        let header = ["Authorization": toks ]
-//        
-//        let URL = "http://vyooha.cloudapp.net:1337/addInterests"
-//        
-//        
-//        //        self.StartLoader()
-//        
-//        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header ,encoding: .JSON)
-//            .responseJSON { response in
-//                switch response.result
-//                {
-//                case .Success:
-//                    if let value = response.result.value
-//                    {
-//                        let json = JSON(value)
-//                        print("entered")
-//                        print(json)
-//                    }
-//                case .Failure(let error):
-//                    print("Request Failed with Error!!! \(error)")
-//                    
-//                }
-//        }
-//
-//        
-//        performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
-//        sharing = !sharing
     }
     
     // MARK: - Loader

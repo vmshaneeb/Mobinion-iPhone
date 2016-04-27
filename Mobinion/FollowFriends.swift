@@ -22,6 +22,9 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     var contacts = [CNContact]()
     var nos = [String]()
     
+    var suggestionsUsers = NSMutableArray()
+    var fromContacts = NSMutableArray()
+    
     let reuseIdentifier = "FollowCell"
     
     override func viewDidLoad()
@@ -37,11 +40,26 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         self.getContacts()
         self.HideLoader()
         
+        for contact in contacts
+        {
+            
+            if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
+            {
+                for phoneNumber:CNLabeledValue in contact.phoneNumbers
+                {
+                    let a = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
+                    
+                    print(a)
+                    
+                    print(a.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "00")))
+                }
+            }
+        }
         
         self.StartLoader()
         
         getFriendLists()
-        { value, error in
+        { value, data, error in
                 
             if value != nil
             {
@@ -59,7 +77,29 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 }
                 else
                 {
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        self.suggestionsUsers = responseObject["data"]!["suggestionsUsers"]!!.mutableCopy() as! NSMutableArray
+                        print (self.suggestionsUsers)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
                     
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        self.fromContacts = responseObject["data"]!["fromContacts"]!!.mutableCopy() as! NSMutableArray
+                        print (self.fromContacts)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    
+                    self.tableView.reloadData()
                 }
             }
             else
@@ -69,34 +109,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
         }
-
-        
-//        let tok = NSUserDefaults.standardUserDefaults().objectForKey("token")
-//        
-//        var toks:String = "JWT "
-//        
-//        toks.appendContentsOf(tok as! String)
-//        
-//        let header = ["Authorization": toks ]
-//        
-//        let URL = "http://vyooha.cloudapp.net:1337/followFriendList"
-//        
-//        Alamofire.request(.POST, URL,headers: header ,encoding: .JSON)
-//            .responseJSON { response in
-//                switch response.result
-//                {
-//                    case .Success:
-//                        if let value = response.result.value
-//                        {
-//                            let json = JSON(value)
-//                            print(json)
-//                            
-//                            self.tableView.reloadData()
-//                        }
-//                    case .Failure(let error):
-//                        print("Request Failed with Error!!! \(error)")
-//                }
-//        }
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 132
@@ -249,7 +261,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         alertController.show()
     }
     
-    func getFriendLists(completionHandler : (NSDictionary?, NSError?) -> Void)
+    func getFriendLists(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
     {
         let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
         //print(toks)
@@ -259,18 +271,20 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let URL = "http://vyooha.cloudapp.net:1337/followFriendList"
         
-        Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
+        let parameter = ["contacts": ""]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
-                case .Success:
-                    if let value = response.result.value
-                    {
-                        completionHandler(value as? NSDictionary, nil)
-                    }
-                    
-                case .Failure(let error):
-                    completionHandler(nil, error)
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            completionHandler(value as? NSDictionary, response.data, nil)
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(nil, nil, error)
                 }
         }
     }

@@ -351,58 +351,46 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func domyWall()
-    {
-        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        //print(toks)
-        
-        let header = ["Authorization": toks as! String]
-        //print(header)
-
-        
-        let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
-        
+    {   
         self.StartLoader()
         
-        Alamofire.request(.GET, URL,headers: header ,encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
+        getFeeds()
+        { value, data, error in
+                
+                if value != nil
                 {
-                case .Success:
-                    if let value = response.result.value
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
                     {
-                        let json = JSON(value)
-                        print(json)
-                        
-                        self.HideLoader()
-                        
-                        let titles = json["status"].stringValue
-                        let messages = json["message"].stringValue
-                        
-                        if titles == "error"
+                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        do
                         {
-                            self.doDBalertView(titles, msgs: messages)
+                            let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                            self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+                            //print (self.newsFeed)
                         }
-                        else
+                        catch
                         {
-                            do
-                            {
-                                let responseObject = try NSJSONSerialization.JSONObjectWithData(response.data!, options: []) as! [String:AnyObject]
-                                self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-                                //print (self.newsFeed)
-                            }
-                        
-                            catch
-                            {
-                                print("error in responseObject")
-                            }
+                            print("error in responseObject")
                         }
                         self.tableView.reloadData()
-                        self.HideLoader()
                     }
-                case .Failure(let error):
+                }
+                else
+                {
                     self.HideLoader()
                     print(error)
-                    self.doDBalertView("Error", msgs: (error.localizedDescription))
+                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
         }
     }
@@ -469,6 +457,32 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return "Just now"
         
+    }
+    
+    func getFeeds(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
+        
+        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil,nil, error)
+                }
+        }
     }
     
     func getNotifications(completionHandler : (NSDictionary?, NSError?) -> Void)

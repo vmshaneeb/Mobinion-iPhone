@@ -168,9 +168,14 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     //MARK:- Actions
     @IBAction func enterCode(sender: AnyObject)
     {
-        
+        //print("pressed!!!")
     }
     
+    @IBAction func backBtn(sender: AnyObject)
+    {
+//        print("pressed!!!")
+        self.tabBarController?.selectedIndex = 2
+    }
     //MARK:- Custom Functions
     func failed()
     {
