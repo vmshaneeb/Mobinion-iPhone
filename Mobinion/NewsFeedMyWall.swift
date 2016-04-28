@@ -99,8 +99,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
 //                print(url)
-                let data = NSData(contentsOfURL: url!)
-                let image = UIImage(data: data!)
+//                let data = NSData(contentsOfURL: url!)
+//                let image = UIImage(data: data!)
                 
 //                cell.profPic.image = image
                 cell.profPic.sd_setImageWithURL(url!)
@@ -187,8 +187,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
                 //                            print(url)
-                let data = NSData(contentsOfURL: url!)
-                let image = UIImage(data: data!)
+//                let data = NSData(contentsOfURL: url!)
+//                let image = UIImage(data: data!)
                 
 //                cell.profPic.image = image
                 cell.profPic.sd_setImageWithURL(url!)
@@ -203,8 +203,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
                 //                        print(url)
-                let data = NSData(contentsOfURL: url!)
-                let image = UIImage(data: data!)
+//                let data = NSData(contentsOfURL: url!)
+//                let image = UIImage(data: data!)
                 
 //                cell.img1.image = image
                 cell.img1.sd_setImageWithURL(url!)

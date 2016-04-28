@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import Cloudinary
 import DBAlertController
+import SDWebImage
 
 class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate
 {
@@ -152,7 +153,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         let image = UIImage(data: data!)
         
         cell.viewWithTag(100)
-        cell.intImg.image = image
+//        cell.intImg.image = image
+        cell.intImg.sd_setImageWithURL(url!)
         cell.intImg.clipsToBounds = true
         cell.intImg.layer.cornerRadius = 10.0
         
@@ -240,14 +242,13 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     //MARK:- UITextFieldDelegates
     func textFieldShouldClear(textField: UITextField) -> Bool
     {
-//        print(imageNames.count)
-//        print(imageURLs.count)
-        
 //        searchBarField.resignFirstResponder()
 //        self.view.endEditing(true)
         
         if imageNames.count != imageURLs.count
         {
+            selectedPhotos.removeAll(keepCapacity: false)
+            deselectedPhotos.removeAll(keepCapacity: false)
             imageNames.removeAll(keepCapacity: false)
             imageURL.removeAll(keepCapacity: false)
             
@@ -396,6 +397,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
             
             let trimmedstr = searchstr?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             
+            selectedPhotos.removeAll(keepCapacity: false)
+            deselectedPhotos.removeAll(keepCapacity: false)
             searchedPhotos.removeAll(keepCapacity: false)
             searchedPhotos.append(trimmedstr!)
             searchedPhotos = Array(Set(searchedPhotos))
