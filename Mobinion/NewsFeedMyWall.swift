@@ -206,8 +206,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 let data = NSData(contentsOfURL: url!)
                 let image = UIImage(data: data!)
                 
-                cell.img1.image = image
-//                cell.img1.sd_setImageWithURL(url!)
+//                cell.img1.image = image
+                cell.img1.sd_setImageWithURL(url!)
 //                cell.img1.sd_setImageWithURL(url!, placeholderImage: UIImage(named: ""))
 //                cell.img1.hnk_setImageFromURL(url!, format: Format<UIImage>(name: "original2"))
                 
