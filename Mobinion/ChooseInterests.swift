@@ -221,6 +221,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
     {
+        let sample = UICollectionReusableView()
         switch kind
         {
             case UICollectionElementKindSectionHeader:
@@ -232,6 +233,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                 
             default:
                 assert(false, "Unexpected data element")
+                return sample
         }
     }
     
