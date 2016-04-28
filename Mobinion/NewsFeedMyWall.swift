@@ -82,8 +82,21 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
         {
+            
             //                    print("inside polls")
             let cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
+            
+            //        whiteRoundedView.layer.masksToBounds = false
+            //        whiteRoundedView.layer.cornerRadius = 5
+            //        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
+            //        whiteRoundedView.layer.shadowOpacity = 0.2
+            
+            cell.BgImg.layer.masksToBounds = false
+            cell.BgImg.layer.cornerRadius = 5
+            cell.BgImg.layer.shadowOffset = CGSizeMake(-1, 1)
+            cell.BgImg.layer.shadowOpacity = 0.2
+            
+            
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
                 let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
@@ -263,23 +276,23 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         return result
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        cell.contentView.backgroundColor = UIColor.grayColor()
-        
-//        let whiteRoundedView : UIView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width - 5, cell.contentView.frame.size.height - 8))
-
-        let whiteRoundedView: UIView = UIView(frame: CGRectMake(0, 0, cell.contentView.frame.size.width - 3, cell.contentView.frame.size.height - 3))
-        
-        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 1.0])
-        whiteRoundedView.layer.masksToBounds = false
-        whiteRoundedView.layer.cornerRadius = 5
-        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
-        whiteRoundedView.layer.shadowOpacity = 0.2
-        
-        cell.contentView.addSubview(whiteRoundedView)
-        cell.contentView.sendSubviewToBack(whiteRoundedView)
-    }
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//        cell.contentView.backgroundColor = UIColor.grayColor()
+//        
+////        let whiteRoundedView : UIView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width - 5, cell.contentView.frame.size.height - 8))
+//
+//        let whiteRoundedView: UIView = UIView(frame: CGRectMake(0, 0, cell.contentView.frame.size.width - 3, cell.contentView.frame.size.height - 3))
+//        
+//        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 1.0])
+//        whiteRoundedView.layer.masksToBounds = false
+//        whiteRoundedView.layer.cornerRadius = 5
+//        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
+//        whiteRoundedView.layer.shadowOpacity = 0.2
+//        
+//        cell.contentView.addSubview(whiteRoundedView)
+//        cell.contentView.sendSubviewToBack(whiteRoundedView)
+//    }
     
     //MARK:- Actions
     @IBAction func showLists(sender: AnyObject)

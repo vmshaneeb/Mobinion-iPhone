@@ -21,6 +21,7 @@ class NewsFeedTableViewCell: UITableViewCell
     @IBOutlet weak var expiryPic: UIImageView!
     @IBOutlet weak var expiryDate: UILabel!
     @IBOutlet weak var totalPic: UIImageView!
+    @IBOutlet weak var BgImg: UIImageView!
     @IBOutlet weak var totalNos: UILabel!
     
     override func awakeFromNib()

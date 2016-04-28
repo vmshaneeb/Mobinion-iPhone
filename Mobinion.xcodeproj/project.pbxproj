@@ -469,7 +469,7 @@
 				TargetAttributes = {
 					650835BD1C95779600C6C280 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 82NH72EESN;
+						DevelopmentTeam = V9WENA23JC;
 					};
 					650835D11C95779600C6C280 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -800,7 +800,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Novaglo.Mobinion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Novag.Mobinion123;
 				PRODUCT_NAME = Mobinion;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";
@@ -821,7 +821,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Novaglo.Mobinion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Novag.Mobinion123;
 				PRODUCT_NAME = Mobinion;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";

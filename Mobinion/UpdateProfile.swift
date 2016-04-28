@@ -200,7 +200,8 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
         
-        self.StartLoader()
+//        self.StartLoader()
+        self .performSelector(#selector(UpdateProfile.StartLoader), withObject: nil, afterDelay: 0.1)
         uploader.upload(self.profilePicURL, options: ["sync": true])
         self.HideLoader()
         

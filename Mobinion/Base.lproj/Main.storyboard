@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mcj-Uc-roK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hu0-Xc-Vos">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1213,7 +1213,7 @@
                         <outlet property="navTitle" destination="0zq-T5-m1X" id="vjI-Fw-hnK"/>
                         <outlet property="scrollView" destination="ogD-07-tW8" id="bSh-0z-cYW"/>
                         <outlet property="tableView" destination="0TE-xp-FmB" id="gRt-4F-nIi"/>
-                        <outlet property="view" destination="0TE-xp-FmB" id="8UC-S0-CRG"/>
+                        <outlet property="view" destination="fkK-6M-oOV" id="ErP-sn-ETb"/>
                         <segue destination="jDN-hD-Tqj" kind="show" identifier="followFriendsSegue" id="JGP-4H-nAo"/>
                         <segue destination="1kx-qn-Oig" kind="unwind" identifier="unwindToInterests" unwindAction="unwindToInterests:" id="qRb-bi-dXD"/>
                     </connections>

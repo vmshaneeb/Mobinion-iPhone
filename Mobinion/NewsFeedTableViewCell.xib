@@ -15,6 +15,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="569" height="227"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fbb-tL-FUu">
+                        <rect key="frame" x="5" y="6" width="558" height="217"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-IM-IgR">
                         <rect key="frame" x="8" y="8" width="72" height="62"/>
                         <constraints>
@@ -71,7 +74,7 @@
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Working on some early UI concepts for a new iPhone app. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Rr-0c-kEN">
                         <rect key="frame" x="10" y="87" width="548" height="100"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="RcJ-eu-LW3"/>
                         </constraints>
@@ -95,6 +98,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="lWv-T0-te1" firstAttribute="leading" secondItem="qVB-uJ-ovm" secondAttribute="leading" id="0pF-Tn-NcN"/>
                     <constraint firstItem="lWv-T0-te1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="6mC-eM-mDI"/>
@@ -110,16 +114,20 @@
                     <constraint firstItem="Cdd-IM-IgR" firstAttribute="top" secondItem="Axw-bV-ozB" secondAttribute="top" id="P5y-bU-PhN"/>
                     <constraint firstItem="mhX-Ft-18v" firstAttribute="leading" secondItem="9TT-83-vOr" secondAttribute="trailing" constant="13" id="Q0J-Tr-fMe"/>
                     <constraint firstItem="j4R-zP-eCi" firstAttribute="bottom" secondItem="19H-va-vbo" secondAttribute="bottom" id="TI0-We-O4P"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="fbb-tL-FUu" secondAttribute="bottom" constant="-4" id="VAX-EZ-888"/>
+                    <constraint firstItem="fbb-tL-FUu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="aAP-mp-PDI"/>
                     <constraint firstItem="Axw-bV-ozB" firstAttribute="trailing" secondItem="NQx-CU-JFd" secondAttribute="trailing" id="bO4-hh-vfd"/>
                     <constraint firstItem="Cdd-IM-IgR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cLV-9T-UN4"/>
                     <constraint firstItem="9TT-83-vOr" firstAttribute="centerY" secondItem="mhX-Ft-18v" secondAttribute="centerY" id="cbY-ET-9c0"/>
                     <constraint firstItem="j4R-zP-eCi" firstAttribute="centerY" secondItem="19H-va-vbo" secondAttribute="centerY" id="ckB-cQ-dsn"/>
                     <constraint firstItem="NQx-CU-JFd" firstAttribute="top" secondItem="qVB-uJ-ovm" secondAttribute="bottom" constant="18" id="doH-Xi-xlg"/>
                     <constraint firstItem="8Rr-0c-kEN" firstAttribute="top" secondItem="NQx-CU-JFd" secondAttribute="bottom" constant="8" symbolic="YES" id="fEh-Aa-F4h"/>
+                    <constraint firstItem="fbb-tL-FUu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-3" id="jiW-Ws-4Xz"/>
                     <constraint firstItem="9TT-83-vOr" firstAttribute="top" secondItem="mhX-Ft-18v" secondAttribute="top" id="nth-4Y-wb5"/>
                     <constraint firstItem="Cdd-IM-IgR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oEB-gH-44K"/>
                     <constraint firstItem="qVB-uJ-ovm" firstAttribute="top" secondItem="lWv-T0-te1" secondAttribute="bottom" id="reD-f9-L5S"/>
                     <constraint firstItem="19H-va-vbo" firstAttribute="leading" secondItem="j4R-zP-eCi" secondAttribute="trailing" constant="8" symbolic="YES" id="syY-yE-Nvu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fbb-tL-FUu" secondAttribute="trailing" constant="-2" id="uQd-yM-Uoj"/>
                     <constraint firstItem="NQx-CU-JFd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="wZI-Ww-HlH"/>
                     <constraint firstItem="8Rr-0c-kEN" firstAttribute="trailing" secondItem="mhX-Ft-18v" secondAttribute="trailing" id="xFk-5v-Jcs"/>
                     <constraint firstItem="19H-va-vbo" firstAttribute="top" secondItem="8Rr-0c-kEN" secondAttribute="bottom" constant="2" id="xsG-ZF-zMt"/>
@@ -127,6 +135,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="BgImg" destination="fbb-tL-FUu" id="x2O-Uh-KIh"/>
                 <outlet property="divider" destination="H2p-sc-9uM" id="h0D-SF-axm"/>
                 <outlet property="expiryDate" destination="19H-va-vbo" id="PHO-31-AnN"/>
                 <outlet property="expiryPic" destination="j4R-zP-eCi" id="5xO-kf-knY"/>
@@ -138,7 +147,7 @@
                 <outlet property="totalNos" destination="mhX-Ft-18v" id="dun-Mo-SDr"/>
                 <outlet property="totalPic" destination="9TT-83-vOr" id="34i-RE-FzE"/>
             </connections>
-            <point key="canvasLocation" x="430.5" y="351"/>
+            <point key="canvasLocation" x="412.5" y="381"/>
         </tableViewCell>
     </objects>
     <resources>

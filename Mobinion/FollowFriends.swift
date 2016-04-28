@@ -26,12 +26,17 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     var suggestionsUsers = NSMutableArray()
     var fromContacts = NSMutableArray()
     
+    var sections = [String]()
+    
     let reuseIdentifier = "FollowCell"
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        sections = ["Suggestions Based On Your Interests",
+                    "From Your Contacts"]
         
         [tableView.registerClass(FollowTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)]
         let nib:UINib = UINib(nibName: "FollowTableViewCell", bundle: nil)
@@ -48,32 +53,32 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
 //        self.doDBalertView("warning", msgs: "importing contacts will take some time....")
         
-        self.StartLoader()
-        for contact in contacts
-        {
-            
-            if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
-            {
-                for phoneNumber:CNLabeledValue in contact.phoneNumbers
-                {
-                    let no = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
-                    
-//                    print(no)
-                    do
-                    {
-                        let phoneNumber = try PhoneNumber(rawNumber: no)
-                        nos.append(String(phoneNumber.nationalNumber))
-                    }
-                    catch //if no country code
-                    {
-                        nos.append(no)
-                    }
-                    
-                }
-            }
-        }
-        
-        self.HideLoader()
+//        self.StartLoader()
+//        for contact in contacts
+//        {
+//            
+//            if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
+//            {
+//                for phoneNumber:CNLabeledValue in contact.phoneNumbers
+//                {
+//                    let no = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
+//                    
+////                    print(no)
+//                    do
+//                    {
+//                        let phoneNumber = try PhoneNumber(rawNumber: no)
+//                        nos.append(String(phoneNumber.nationalNumber))
+//                    }
+//                    catch //if no country code
+//                    {
+//                        nos.append(no)
+//                    }
+//                    
+//                }
+//            }
+//        }
+//        
+//        self.HideLoader()
 //        print(nos.count)
         
         self.StartLoader()
@@ -141,18 +146,26 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool)
+    {
+        
+    }
+    
     //MARK:- UITableViewDelegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 1
+//        return 1
+        return sections.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-            return contacts.count
-//        let count = contacts.count
-//        
-//        return (count == 0) ? 1: count
+        return contacts.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return sections[section]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
