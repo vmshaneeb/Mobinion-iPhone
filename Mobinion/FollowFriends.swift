@@ -46,6 +46,8 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             nos.removeAll(keepCapacity: false)
         }
         
+//        self.doDBalertView("warning", msgs: "importing contacts will take some time....")
+        
         self.StartLoader()
         for contact in contacts
         {

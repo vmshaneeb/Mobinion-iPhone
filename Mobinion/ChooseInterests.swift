@@ -506,7 +506,24 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                         switch action.style
                         {
                             case .Cancel:
-                                self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
+                                let alertController = DBAlertController(title: "warning", message: "importing contacts will take some time....", preferredStyle: .Alert)
+                                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+                                { action in
+                                    
+                                    switch action.style
+                                    {
+                                    case .Default:
+                                        self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
+                                    default:
+                                        break
+                                    }
+                                })
+                                
+//                                self.doDBalertView("warning", msgs: "importing contacts will take some time....")
+                                alertController.addAction(defaultAction)
+                                alertController.show()
+                                
+//                                self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
                             default:
                                 break
                         }
