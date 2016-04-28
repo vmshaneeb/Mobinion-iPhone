@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9D2DFE1D3B58AC82B786F564'
-               BlueprintName = 'Cloudinary'
+               BlueprintIdentifier = 'DE23A226980326B23A6F5E8E'
+               BlueprintName = 'AsyncSwift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Cloudinary.framework'>
+               BuildableName = 'Async.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

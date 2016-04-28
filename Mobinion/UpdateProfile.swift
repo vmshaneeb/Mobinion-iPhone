@@ -14,6 +14,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import Cloudinary
+import Async
 
 extension UIImage
 {
@@ -100,7 +101,8 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     var profName = ""
     
     let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
-   
+    
+    
     
     override func viewDidLoad()
     {
@@ -191,17 +193,19 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
 //        UIView.commitAnimations()
 //    }
     
-    //MARK: - Actions
+//    MARK: - Actions
     @IBAction func updateBtn (sender: AnyObject)
     {
-
-        let uploader = CLUploader.init(cloudinary, delegate: self)
         
-        uploader.upload(profilePicURL, options: [:])
+        
+        let uploader = CLUploader.init(self.cloudinary, delegate: self)
         
         self.StartLoader()
+        uploader.upload(self.profilePicURL, options: ["sync": true])
+        self.HideLoader()
         
-        sendupdateProfile()
+        self.StartLoader()
+        self.sendupdateProfile()
         { value, error in
                 
             if value != nil
@@ -242,7 +246,8 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
-        }
+            }
+        
     }
     
     @IBAction func selectImage(sender: UITapGestureRecognizer)
@@ -340,6 +345,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         uploadedURL = publicID["url"].stringValue
         print(uploadedURL)
+        
     }
     
     func uploaderError(result: String!, code: Int, context: AnyObject!)
@@ -386,8 +392,9 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         let URL = "http://vyooha.cloudapp.net:1337/updateProfile"
         
-        print(uploadedURL)
-        
+//        print(uploadedURL)
+
+            
         Alamofire.request(.POST, URL, parameters: ["profilePic": uploadedURL,
                                                    "userBio": profileBio.text!,
                                                    "aboutUser": profileBrief.text!],

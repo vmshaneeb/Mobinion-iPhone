@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.3.1)
+  - AsyncSwift (1.7.2)
   - Cloudinary (1.0.15)
   - DBAlertController (0.2.5)
   - IQKeyboardManager (4.0.2)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
+  - AsyncSwift
   - Cloudinary
   - DBAlertController
   - IQKeyboardManager
@@ -25,6 +27,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
   DBAlertController: de025781531a926cf849455b4596b90ad639b076
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
