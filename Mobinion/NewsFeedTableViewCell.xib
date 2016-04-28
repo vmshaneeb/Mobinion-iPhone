@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fbb-tL-FUu">
-                        <rect key="frame" x="5" y="6" width="558" height="217"/>
+                        <rect key="frame" x="3" y="3" width="562" height="220"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-IM-IgR">
                         <rect key="frame" x="8" y="8" width="72" height="62"/>
@@ -115,19 +115,19 @@
                     <constraint firstItem="mhX-Ft-18v" firstAttribute="leading" secondItem="9TT-83-vOr" secondAttribute="trailing" constant="13" id="Q0J-Tr-fMe"/>
                     <constraint firstItem="j4R-zP-eCi" firstAttribute="bottom" secondItem="19H-va-vbo" secondAttribute="bottom" id="TI0-We-O4P"/>
                     <constraint firstAttribute="bottomMargin" secondItem="fbb-tL-FUu" secondAttribute="bottom" constant="-4" id="VAX-EZ-888"/>
-                    <constraint firstItem="fbb-tL-FUu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="aAP-mp-PDI"/>
+                    <constraint firstItem="fbb-tL-FUu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="aAP-mp-PDI"/>
                     <constraint firstItem="Axw-bV-ozB" firstAttribute="trailing" secondItem="NQx-CU-JFd" secondAttribute="trailing" id="bO4-hh-vfd"/>
                     <constraint firstItem="Cdd-IM-IgR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cLV-9T-UN4"/>
                     <constraint firstItem="9TT-83-vOr" firstAttribute="centerY" secondItem="mhX-Ft-18v" secondAttribute="centerY" id="cbY-ET-9c0"/>
                     <constraint firstItem="j4R-zP-eCi" firstAttribute="centerY" secondItem="19H-va-vbo" secondAttribute="centerY" id="ckB-cQ-dsn"/>
                     <constraint firstItem="NQx-CU-JFd" firstAttribute="top" secondItem="qVB-uJ-ovm" secondAttribute="bottom" constant="18" id="doH-Xi-xlg"/>
                     <constraint firstItem="8Rr-0c-kEN" firstAttribute="top" secondItem="NQx-CU-JFd" secondAttribute="bottom" constant="8" symbolic="YES" id="fEh-Aa-F4h"/>
-                    <constraint firstItem="fbb-tL-FUu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-3" id="jiW-Ws-4Xz"/>
+                    <constraint firstItem="fbb-tL-FUu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="jiW-Ws-4Xz"/>
                     <constraint firstItem="9TT-83-vOr" firstAttribute="top" secondItem="mhX-Ft-18v" secondAttribute="top" id="nth-4Y-wb5"/>
                     <constraint firstItem="Cdd-IM-IgR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oEB-gH-44K"/>
                     <constraint firstItem="qVB-uJ-ovm" firstAttribute="top" secondItem="lWv-T0-te1" secondAttribute="bottom" id="reD-f9-L5S"/>
                     <constraint firstItem="19H-va-vbo" firstAttribute="leading" secondItem="j4R-zP-eCi" secondAttribute="trailing" constant="8" symbolic="YES" id="syY-yE-Nvu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="fbb-tL-FUu" secondAttribute="trailing" constant="-2" id="uQd-yM-Uoj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fbb-tL-FUu" secondAttribute="trailing" constant="-4" id="uQd-yM-Uoj"/>
                     <constraint firstItem="NQx-CU-JFd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="wZI-Ww-HlH"/>
                     <constraint firstItem="8Rr-0c-kEN" firstAttribute="trailing" secondItem="mhX-Ft-18v" secondAttribute="trailing" id="xFk-5v-Jcs"/>
                     <constraint firstItem="19H-va-vbo" firstAttribute="top" secondItem="8Rr-0c-kEN" secondAttribute="bottom" constant="2" id="xsG-ZF-zMt"/>

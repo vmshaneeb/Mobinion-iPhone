@@ -10,6 +10,8 @@ import UIKit
 
 class NewsFeedTableViewCell2: UITableViewCell
 {
+    @IBOutlet weak var bgImg: UIImageView!
+    
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var VotName: UILabel!
     @IBOutlet weak var voCreated: UILabel!

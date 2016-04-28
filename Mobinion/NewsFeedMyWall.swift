@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import SDWebImage
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
@@ -86,15 +87,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             //                    print("inside polls")
             let cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
             
-            //        whiteRoundedView.layer.masksToBounds = false
-            //        whiteRoundedView.layer.cornerRadius = 5
-            //        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
-            //        whiteRoundedView.layer.shadowOpacity = 0.2
-            
+//            cell.BgImg.layer.backgroundColor =
             cell.BgImg.layer.masksToBounds = false
             cell.BgImg.layer.cornerRadius = 5
-            cell.BgImg.layer.shadowOffset = CGSizeMake(-1, 1)
-            cell.BgImg.layer.shadowOpacity = 0.2
+            cell.BgImg.layer.borderWidth = 2
+            cell.BgImg.layer.borderColor = UIColor.grayColor().CGColor
+//            cell.BgImg.layer.shadowOffset = CGSizeMake(-1, 1)
+//            cell.BgImg.layer.shadowOpacity = 0.2
             
             
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
@@ -104,7 +103,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 let data = NSData(contentsOfURL: url!)
                 let image = UIImage(data: data!)
                 
-                cell.profPic.image = image
+//                cell.profPic.image = image
+                cell.profPic.sd_setImageWithURL(url!)
+//                cell.profPic.hnk_setImageFromURL(url!, format: Format<UIImage>(name: "original"))
             }
             else
             {
@@ -168,8 +169,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //            cell.setNeedsUpdateConstraints()
 //            cell.updateConstraintsIfNeeded()
             
-            cell.contentView.layer.cornerRadius = 5
-            cell.contentView.layer.masksToBounds = true
+//            cell.contentView.layer.cornerRadius = 5
+//            cell.contentView.layer.masksToBounds = true
             
             return cell
         }
@@ -178,6 +179,14 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             //                    print("inside contest")
             let cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
+            
+            cell.bgImg.layer.masksToBounds = false
+            cell.bgImg.layer.cornerRadius = 5
+            cell.bgImg.layer.borderWidth = 2
+            cell.bgImg.layer.borderColor = UIColor.grayColor().CGColor
+//            cell.bgImg.layer.shadowOffset = CGSizeMake(-1, 1)
+//            cell.bgImg.layer.shadowOpacity = 0.2
+
             //
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
@@ -186,7 +195,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 let data = NSData(contentsOfURL: url!)
                 let image = UIImage(data: data!)
                 
-                cell.profPic.image = image
+//                cell.profPic.image = image
+                cell.profPic.sd_setImageWithURL(url!)
+//                cell.profPic.hnk_setImageFromURL(url!, format: Format<UIImage>(name: "original"))
             }
             else
             {
@@ -201,13 +212,17 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 let image = UIImage(data: data!)
                 
                 cell.img1.image = image
+//                cell.img1.sd_setImageWithURL(url!)
+//                cell.img1.sd_setImageWithURL(url!, placeholderImage: UIImage(named: ""))
+//                cell.img1.hnk_setImageFromURL(url!, format: Format<UIImage>(name: "original2"))
+                
             }
             else
             {
                 cell.img1.image = nil
             }
             
-            if (!(newsFeed[indexPath.row]["itemImage"]!!.isEqualToString("")))
+            if (!(newsFeed[indexPath.row]["itemText"]!!.isEqualToString("")))
             {
                 cell.VotName.text = (newsFeed[indexPath.row]["itemText"] as! String)
             }

@@ -5,6 +5,9 @@ PODS:
   - DBAlertController (0.2.5)
   - IQKeyboardManager (4.0.2)
   - PhoneNumberKit (0.7)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - DBAlertController
   - IQKeyboardManager
   - PhoneNumberKit (~> 0.7)
+  - SDWebImage (~> 3.7)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -32,6 +36,7 @@ SPEC CHECKSUMS:
   DBAlertController: de025781531a926cf849455b4596b90ad639b076
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
   PhoneNumberKit: 0c726536585867d4877f496fa57473c6449f45a9
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

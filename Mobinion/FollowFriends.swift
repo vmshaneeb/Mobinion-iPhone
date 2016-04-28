@@ -53,33 +53,33 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
 //        self.doDBalertView("warning", msgs: "importing contacts will take some time....")
         
-//        self.StartLoader()
-//        for contact in contacts
-//        {
-//            
-//            if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
-//            {
-//                for phoneNumber:CNLabeledValue in contact.phoneNumbers
-//                {
-//                    let no = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
-//                    
-////                    print(no)
-//                    do
-//                    {
-//                        let phoneNumber = try PhoneNumber(rawNumber: no)
-//                        nos.append(String(phoneNumber.nationalNumber))
-//                    }
-//                    catch //if no country code
-//                    {
-//                        nos.append(no)
-//                    }
-//                    
-//                }
-//            }
-//        }
-//        
-//        self.HideLoader()
-//        print(nos.count)
+        self.StartLoader()
+        for contact in contacts
+        {
+            
+            if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
+            {
+                for phoneNumber:CNLabeledValue in contact.phoneNumbers
+                {
+                    let no = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
+                    
+//                    print(no)
+                    do
+                    {
+                        let phoneNumber = try PhoneNumber(rawNumber: no)
+                        nos.append(String(phoneNumber.nationalNumber))
+                    }
+                    catch //if no country code
+                    {
+                        nos.append(no)
+                    }
+                    
+                }
+            }
+        }
+        
+        self.HideLoader()
+        print(nos.count)
         
         self.StartLoader()
         

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9D2DFE1D3B58AC82B786F564'
+               BlueprintIdentifier = 'AD6EFAE8E61AD92285544489'
                BlueprintName = 'Cloudinary'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Cloudinary.framework'>
