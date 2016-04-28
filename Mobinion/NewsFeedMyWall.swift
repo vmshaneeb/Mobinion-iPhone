@@ -83,8 +83,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
         {
-            
-            //                    print("inside polls")
+            //print("inside polls")
             let cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
             
 //            cell.BgImg.layer.backgroundColor =
@@ -130,10 +129,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-//                print(datesString)
-//                print(timeAgoSince(datesString))
-                
                 
 //                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
                 cell.pollCreated.text = timeAgoSince(datesString)

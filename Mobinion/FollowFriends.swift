@@ -56,7 +56,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         self.StartLoader()
         for contact in contacts
         {
-            
             if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
             {
                 for phoneNumber:CNLabeledValue in contact.phoneNumbers
@@ -165,38 +164,77 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
+        if (suggestionsUsers.count == 0 && fromContacts.count == 0)
+        {
+            return sections[1]
+        }
         return sections[section]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! FollowTableViewCell
-//        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! FollowTableViewCell
         
-        let contact = contacts[indexPath.row] as CNContact
-//        let formatter = CNContactFormatter()
-        
-//        cell.header.text = "From Your Contacts"
-        
-        cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
-        cell.profileProfession.text = contact.jobTitle
-        
-        if contact.imageData != nil
+        if (suggestionsUsers.count != 0)
         {
-            cell.profileImage.image = UIImage(data: contact.imageData!)
+            if (!(suggestionsUsers[indexPath.row]["name"]!!.isEqualToString("")))
+            {
+                cell.profileName.text = (suggestionsUsers[indexPath.row]["name"] as! String)
+            }
+            
+            if (!(suggestionsUsers[indexPath.row]["bio"]!!.isEqualToString("")))
+            {
+                cell.profileProfession.text = (suggestionsUsers[indexPath.row]["bio"] as! String)
+            }
+            
+            if (!(suggestionsUsers[indexPath.row]["profPic"]!!.isEqualToString("")))
+            {
+                cell.profileImage.sd_setImageWithURL(NSURL(string: suggestionsUsers[indexPath.row]["profPic"] as! String))
+            }
+            else
+            {
+                cell.profileImage.image = nil
+            }
         }
-        else
+        else if (fromContacts.count != 0)
         {
-            cell.profileImage.image = nil
+            if (!(fromContacts[indexPath.row]["name"]!!.isEqualToString("")))
+            {
+                cell.profileName.text = (fromContacts[indexPath.row]["name"] as! String)
+            }
+            
+            if (!(fromContacts[indexPath.row]["bio"]!!.isEqualToString("")))
+            {
+                cell.profileProfession.text = (fromContacts[indexPath.row]["bio"] as! String)
+            }
+            
+            if (!(fromContacts[indexPath.row]["profPic"]!!.isEqualToString("")))
+            {
+                cell.profileImage.sd_setImageWithURL(NSURL(string: fromContacts[indexPath.row]["profPic"] as! String))
+            }
+            else
+            {
+                cell.profileImage.image = nil
+            }
         }
-        
+        else if (suggestionsUsers.count == 0 && fromContacts.count == 0)
+        {
+            let contact = contacts[indexPath.row] as CNContact
+
+            cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
+            cell.profileProfession.text = contact.jobTitle
+            
+            if contact.imageData != nil
+            {
+                cell.profileImage.image = UIImage(data: contact.imageData!)
+            }
+            else
+            {
+                cell.profileImage.image = nil
+            }
+        }
         return cell
     }
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-//    {
-//        return 132.0
-//    }
     
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
@@ -236,19 +274,12 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     {
         do
         {
-//            let groups = try store.groupsMatchingPredicate(nil)
-//            let predicate = CNContact.predicateForContactsInGroupWithIdentifier(groups[0].identifier)
-            //let predicate = CNContact.predicateForContactsMatchingName("John")
             let keysToFetch = [CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
                                CNContactPhoneNumbersKey,
                                CNContactJobTitleKey,
                                CNContactImageDataKey]
             
             let fetchRequest = CNContactFetchRequest(keysToFetch: keysToFetch)
-            
-//            let contacts = try store.unifiedContactsMatchingPredicate(predicate, keysToFetch: keysToFetch)
-            
-//            self.contacts = contacts
             
             do
             {
@@ -267,10 +298,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 self.tableView.reloadData()
             })
         }
-//        catch let error as NSError
-//        {
-//            print(error.localizedDescription)
-//        }
     }
     
     func doalertView (tit: String, msgs: String)
@@ -324,7 +351,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
 
-    
     // MARK: - Loader
     func StartLoader()
     {
