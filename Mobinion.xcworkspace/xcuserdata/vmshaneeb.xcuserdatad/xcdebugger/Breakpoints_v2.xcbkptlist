@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mobinion/FollowFriends.swift"
-            timestampString = "483483757.583232"
+            filePath = "Mobinion/UpdateProfile.swift"
+            timestampString = "483505970.997358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "updateBtn(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

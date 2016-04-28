@@ -11,7 +11,7 @@ import UIKit
 class FollowTableViewCell: UITableViewCell
 {
 
-    @IBOutlet weak var header: UILabel!
+//    @IBOutlet weak var header: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileProfession: UILabel!

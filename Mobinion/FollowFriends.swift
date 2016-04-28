@@ -11,6 +11,7 @@ import Contacts
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import PhoneNumberKit
 
 class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
@@ -40,6 +41,12 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         self.getContacts()
         self.HideLoader()
         
+        if !nos.isEmpty
+        {
+            nos.removeAll(keepCapacity: false)
+        }
+        
+        self.StartLoader()
         for contact in contacts
         {
             
@@ -47,14 +54,25 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             {
                 for phoneNumber:CNLabeledValue in contact.phoneNumbers
                 {
-                    let a = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
+                    let no = (phoneNumber.value as! CNPhoneNumber).valueForKey("digits") as! String
                     
-                    print(a)
+//                    print(no)
+                    do
+                    {
+                        let phoneNumber = try PhoneNumber(rawNumber: no)
+                        nos.append(String(phoneNumber.nationalNumber))
+                    }
+                    catch //if no country code
+                    {
+                        nos.append(no)
+                    }
                     
-                    print(a.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "00")))
                 }
             }
         }
+        
+        self.HideLoader()
+//        print(nos.count)
         
         self.StartLoader()
         
@@ -142,6 +160,8 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let contact = contacts[indexPath.row] as CNContact
 //        let formatter = CNContactFormatter()
+        
+//        cell.header.text = "From Your Contacts"
         
         cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
         cell.profileProfession.text = contact.jobTitle
@@ -271,7 +291,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let URL = "http://vyooha.cloudapp.net:1337/followFriendList"
         
-        let parameter = ["contacts": ""]
+        let parameter = ["contacts": nos]
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
             .responseJSON { response in

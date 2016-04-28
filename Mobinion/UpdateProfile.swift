@@ -7,11 +7,83 @@
 //
 
 import UIKit
+import ImageIO
+import MobileCoreServices
+
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import Cloudinary
 
-class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
+extension UIImage
+{
+    func writeAtPath(path:String) -> Bool
+    {
+        
+        let result = CGImageWriteToFile(self.CGImage!, filePath: path)
+        return result
+    }
+    
+    private func CGImageWriteToFile(image:CGImageRef, filePath:String) -> Bool
+    {
+        let imageURL:CFURLRef = NSURL(fileURLWithPath: filePath)
+        var destination:CGImageDestinationRef? = nil
+        
+        let ext = (filePath as NSString).pathExtension.uppercaseString
+        
+        if ext == "JPG" || ext == "JPEG"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeJPEG, 1, nil)
+        } else if ext == "PNG" || ext == "PNGF"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypePNG, 1, nil)
+        } else if ext == "TIFF" || ext == "TIF"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeTIFF, 1, nil)
+        } else if ext == "GIFF" || ext == "GIF"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeGIF, 1, nil)
+        } else if ext == "PICT" || ext == "PIC" || ext == "PCT" || ext == "X-PICT" || ext == "X-MACPICT"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypePICT, 1, nil)
+        } else if ext == "JP2"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeJPEG2000, 1, nil)
+        } else  if ext == "QTIF" || ext == "QIF"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeQuickTimeImage, 1, nil)
+        } else  if ext == "ICNS"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeAppleICNS, 1, nil)
+        } else  if ext == "BMPF" || ext == "BMP"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeBMP, 1, nil)
+        } else  if ext == "ICO"
+        {
+            destination = CGImageDestinationCreateWithURL(imageURL, kUTTypeICO, 1, nil)
+        } else
+        {
+            fatalError("Did not find any matching path extension to store the image")
+        }
+        
+        if (destination == nil)
+        {
+            fatalError("Did not find any matching path extension to store the image")
+//            return false
+        } else
+        {
+            CGImageDestinationAddImage(destination!, image, nil)
+            
+            if CGImageDestinationFinalize(destination!)
+            {
+                return false
+            }
+            return true
+        }
+    }
+}
+
+class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLUploaderDelegate
 {
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var header2: UILabel!
@@ -24,12 +96,19 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet var allTextFields: [UITextField]!
     
     var profilePicURL = ""
+    var uploadedURL = ""
     var profName = ""
+    
+    let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
+   
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
         
         profileName.text = profName
         
@@ -115,6 +194,11 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     //MARK: - Actions
     @IBAction func updateBtn (sender: AnyObject)
     {
+
+        let uploader = CLUploader.init(cloudinary, delegate: self)
+        
+        uploader.upload(profilePicURL, options: [:])
+        
         self.StartLoader()
         
         sendupdateProfile()
@@ -199,13 +283,20 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         // get image path
         let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
         let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
-        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imageName)
+//        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imageName)
         
 //        print(imageURL)
 //        print(imageName)
-        print(localPath)
+//        print(localPath)
         
-        profilePicURL = localPath.absoluteString
+        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        path = (path as NSString).stringByAppendingPathComponent(imageName)
+        
+        let result = selectedImage.writeAtPath(path)
+        print(result)
+        
+//        profilePicURL = localPath.absoluteString
+        profilePicURL = String(path)
         
         print(profilePicURL)
         
@@ -239,6 +330,28 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    //MARK:- CLUploaderDelegate
+    func uploaderSuccess(result: [NSObject : AnyObject]!, context: AnyObject!)
+    {
+        let publicID = JSON(result)
+        
+        print("Upload Sucess.. Public ID=\(publicID["public_id"])")
+        print("Full result=\(result)")
+        
+        uploadedURL = publicID["url"].stringValue
+        print(uploadedURL)
+    }
+    
+    func uploaderError(result: String!, code: Int, context: AnyObject!)
+    {
+        print("Upload error: \(result), Code: \(code)")
+    }
+    
+    func uploaderProgress(bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int, context: AnyObject!)
+    {
+        print("Upload progress: \(totalBytesWritten)/\(totalBytesExpectedToWrite), +(\(bytesWritten))")
+    }
+    
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
@@ -265,7 +378,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     
     func sendupdateProfile(completionHandler : (NSDictionary?, NSError?) -> Void)
     {
-        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+      let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
         //print(toks)
         
         let header = ["Authorization": toks as! String]
@@ -273,7 +386,9 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         let URL = "http://vyooha.cloudapp.net:1337/updateProfile"
         
-        Alamofire.request(.POST, URL, parameters: ["profilePic": profilePicURL,
+        print(uploadedURL)
+        
+        Alamofire.request(.POST, URL, parameters: ["profilePic": uploadedURL,
                                                    "userBio": profileBio.text!,
                                                    "aboutUser": profileBrief.text!],
                           headers: header, encoding: .JSON)
