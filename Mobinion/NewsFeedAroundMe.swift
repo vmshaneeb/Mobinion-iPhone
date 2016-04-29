@@ -11,10 +11,14 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import GoogleMaps
 
 class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate
 {
+    @IBOutlet weak var mapView: GMSMapView!
+    
     let locationManager = CLLocationManager()
+    
     var lat = ""
     var long = ""
     
@@ -36,7 +40,20 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+            
+            mapView.camera = GMSCameraPosition.cameraWithTarget((locationManager.location?.coordinate)!, zoom: 12.0)
+            
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
+            mapView.settings.compassButton = true
+            mapView.settings.setAllGesturesEnabled(true)
         }
+        
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
+//        marker.title = "Al Sebseb"
+//        marker.snippet = "Qatar"
+//        marker.map = mapView
         
         StartLoader()
         

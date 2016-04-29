@@ -2158,11 +2158,19 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="4ns-SZ-CHI"/>
                                 </connections>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-pX-zux" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="288"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Mnk-75-DXn" firstAttribute="top" secondItem="67Q-oo-aaP" secondAttribute="bottom" id="0xL-ie-b0F"/>
+                            <constraint firstItem="dwB-pX-zux" firstAttribute="top" secondItem="Mnk-75-DXn" secondAttribute="bottom" id="4fV-kz-IUU"/>
+                            <constraint firstItem="LL5-Ra-kT6" firstAttribute="top" secondItem="dwB-pX-zux" secondAttribute="bottom" constant="199" id="93I-l0-dsq"/>
                             <constraint firstItem="Mnk-75-DXn" firstAttribute="leading" secondItem="7cK-bd-DUj" secondAttribute="leading" id="IjJ-JX-Q5p"/>
+                            <constraint firstItem="dwB-pX-zux" firstAttribute="trailing" secondItem="Mnk-75-DXn" secondAttribute="trailing" id="K2H-XC-q0Q"/>
+                            <constraint firstItem="dwB-pX-zux" firstAttribute="leading" secondItem="Mnk-75-DXn" secondAttribute="leading" id="Wvm-rB-apu"/>
                             <constraint firstAttribute="trailing" secondItem="Mnk-75-DXn" secondAttribute="trailing" id="fpP-zE-ffp"/>
                         </constraints>
                     </view>
@@ -2174,6 +2182,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="dwB-pX-zux" id="KXw-fc-WeT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQH-Xr-57h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
