@@ -17,7 +17,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
-    var newsFeed: NSMutableArray = NSMutableArray()
+    var newsFeed = NSMutableArray()
+    var searchFeed = NSMutableArray()
+    var users = NSMutableArray()
     
 //    var jsondata:JSON = [:]
     
@@ -86,14 +88,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             //print("inside polls")
             let cell = tableView.dequeueReusableCellWithIdentifier("Polls") as! NewsFeedTableViewCell
             
-//            cell.BgImg.layer.backgroundColor =
             cell.BgImg.layer.masksToBounds = false
             cell.BgImg.layer.cornerRadius = 5
             cell.BgImg.layer.borderWidth = 2
             cell.BgImg.layer.borderColor = UIColor.grayColor().CGColor
-//            cell.BgImg.layer.shadowOffset = CGSizeMake(-1, 1)
-//            cell.BgImg.layer.shadowOpacity = 0.2
-            
             
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
@@ -160,13 +158,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
                 cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
             }
-            
-//            cell.setNeedsUpdateConstraints()
-//            cell.updateConstraintsIfNeeded()
-            
-//            cell.contentView.layer.cornerRadius = 5
-//            cell.contentView.layer.masksToBounds = true
-            
             return cell
         }
             
@@ -179,9 +170,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.cornerRadius = 5
             cell.bgImg.layer.borderWidth = 2
             cell.bgImg.layer.borderColor = UIColor.grayColor().CGColor
-//            cell.bgImg.layer.shadowOffset = CGSizeMake(-1, 1)
-//            cell.bgImg.layer.shadowOpacity = 0.2
-
+            
             //
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
@@ -255,54 +244,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
             }
-            
-//            cell.setNeedsUpdateConstraints()
-//            cell.updateConstraintsIfNeeded()
-            
             return cell
         }
-//
-//                    case "photo_upload":
-//
-//                    case "writing":
-//
-//                    case "ques_poll":
-        
-//                    case 1:
-//                        cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
-//
-//                    case 2:
-//                        cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
-//
-//                    case 3:
-//                        cell = tableView.dequeueReusableCellWithIdentifier("Follow") as! NewsFeedTableViewCell4
-//
-//                    case 4:
-//                        cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
-//
-//                    case 5:
-//                        cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
-
         return result
     }
-    
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
-//    {
-//        cell.contentView.backgroundColor = UIColor.grayColor()
-//        
-////        let whiteRoundedView : UIView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width - 5, cell.contentView.frame.size.height - 8))
-//
-//        let whiteRoundedView: UIView = UIView(frame: CGRectMake(0, 0, cell.contentView.frame.size.width - 3, cell.contentView.frame.size.height - 3))
-//        
-//        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 1.0])
-//        whiteRoundedView.layer.masksToBounds = false
-//        whiteRoundedView.layer.cornerRadius = 5
-//        whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
-//        whiteRoundedView.layer.shadowOpacity = 0.2
-//        
-//        cell.contentView.addSubview(whiteRoundedView)
-//        cell.contentView.sendSubviewToBack(whiteRoundedView)
-//    }
     
     //MARK:- Actions
     @IBAction func showLists(sender: AnyObject)
@@ -346,7 +291,47 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func search(sender: AnyObject)
     {
-        
+        StartLoader()
+        getSearch()
+        { value, data, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    self.doDBalertView(titles, msgs: messages)
+                }
+                else
+                {
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        self.searchFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+                        self.users = responseObject["data"]!["users"]!!.mutableCopy() as! NSMutableArray
+                        //print (self.newsFeed)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
     }
     
     //MARK:- Custom Functions
@@ -533,6 +518,37 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
         }
     }
+    
+    func getSearch(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+            let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+            //print(toks)
+            
+            let header = ["Authorization": toks as! String]
+            //print(header)
+            
+            let URL = "http://vyooha.cloudapp.net:1337/service/search"
+            
+            let parameter = ["search_text" : ""]
+            
+            Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
+                .responseJSON { response in
+                    switch response.result
+                    {
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            completionHandler(value as? NSDictionary, response.data, nil)
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(nil, nil, error)
+                    }
+            }
+        
+    }
+    
+
     
     // MARK: - Loader
     func StartLoader()
