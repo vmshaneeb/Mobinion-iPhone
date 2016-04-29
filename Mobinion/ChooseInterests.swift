@@ -352,7 +352,11 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         let URL = "http://vyooha.cloudapp.net:1337/addInterests"
         
-        Alamofire.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
+        let parameter = ["interest": selectedPhotos]
+        
+        print(parameter)
+        
+        Alamofire.request(.POST, URL, parameters: parameter, headers: header, encoding: .JSON)
 //        alamoFireManager.request(.POST, URL, parameters: ["interests": selectedPhotos], headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
