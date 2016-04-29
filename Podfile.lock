@@ -3,6 +3,7 @@ PODS:
   - AsyncSwift (1.7.2)
   - Cloudinary (1.0.15)
   - DBAlertController (0.2.5)
+  - GoogleMaps (1.13.0)
   - IQKeyboardManager (4.0.2)
   - PhoneNumberKit (0.7)
   - SDWebImage (3.7.5):
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - AsyncSwift
   - Cloudinary
   - DBAlertController
+  - GoogleMaps
   - IQKeyboardManager
   - PhoneNumberKit (~> 0.7)
   - SDWebImage (~> 3.7)
@@ -34,6 +36,7 @@ SPEC CHECKSUMS:
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
   DBAlertController: de025781531a926cf849455b4596b90ad639b076
+  GoogleMaps: 7a6caeb8336d7cb42982e969fc9b1b20a889fe79
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
   PhoneNumberKit: 0c726536585867d4877f496fa57473c6449f45a9
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
