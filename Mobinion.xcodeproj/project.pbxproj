@@ -414,6 +414,7 @@
 				650835BC1C95779600C6C280 /* Resources */,
 				F2F868EDBC7F7E082E8EB528 /* Embed Pods Frameworks */,
 				B3E3E2E1CC474548AA12D991 /* Copy Pods Resources */,
+				6522C6391CD44D4A00BD2021 /* Combine GoogleMaps */,
 			);
 			buildRules = (
 			);
@@ -551,6 +552,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6522C6391CD44D4A00BD2021 /* Combine GoogleMaps */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Combine GoogleMaps";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Github doesn't support files bigger than 100M.\n# Latest checked GoogleMaps Framework ~ 114M\n# We're expecting to have GoogleMaps Framework as a one file or as a number of chunks\n\nBINARY_FILENAME=GoogleMaps\nSPLIT_FILENAME_PREFIX=${BINARY_FILENAME}_Split\nGMAPS_FRAMEWORK_DIR=Pods/GoogleMaps/Frameworks/GoogleMaps.framework/Versions/Current\nGMAPS_FRAMEWORK_FILE=$GMAPS_FRAMEWORK_DIR/$BINARY_FILENAME\n\n# Check if we  have Google Maps Framework\nif [ ! -f ${GMAPS_FRAMEWORK_FILE} ]; then\necho \"There's no Google Maps framework at ${GMAPS_FRAMEWORK_FILE}\"\ncd ${GMAPS_FRAMEWORK_DIR}\n#  But we have chunks! ...Probably\nif [ -f ${SPLIT_FILENAME_PREFIX}_aa ]; then\necho \"Creating file from smaller files with ${SPLIT_FILENAME_PREFIX} prefix\"\ncat ${SPLIT_FILENAME_PREFIX}_* &gt; ${BINARY_FILENAME}\nfi\nfi";
+			showEnvVarsInLog = 0;
+		};
 		AF8532D2D2F2731FFC4B8F6D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
