@@ -21,7 +21,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOBINION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOj-ac-eyv">
                                 <rect key="frame" x="20" y="108" width="560" height="92"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <color key="textColor" red="0.22745098039215686" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.10980392156862745" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUR MISSION IS TO CREATE AN INTERFACE " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7DT-g7-ZH6">
@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="21" id="sJP-zN-4jU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -39,7 +39,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THAT WOULD BE EASY TO USE AND " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lkW-kW-oGX">
                                 <rect key="frame" x="20" y="289" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -48,7 +48,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONVEY A SENSE OF PURPOSE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ruG-Zx-c17">
                                 <rect key="frame" x="20" y="318" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -60,11 +60,11 @@
                                     <constraint firstAttribute="width" constant="241" id="vXh-rT-8RD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.35294117647058826" green="0.83137254901960789" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176470588237" green="0.54509803921568623" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.61568627450980395" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lkW-kW-oGX" firstAttribute="leading" secondItem="ruG-Zx-c17" secondAttribute="leading" id="0Wd-Z5-nhQ"/>
                             <constraint firstItem="gOj-ac-eyv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="9aO-K6-6BI"/>
