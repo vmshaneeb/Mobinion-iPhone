@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ROR-Z0-kAH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7O-bh-uaP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -676,6 +676,7 @@
                             <constraint firstItem="Bo7-3I-oLb" firstAttribute="leading" secondItem="xQz-qy-qRd" secondAttribute="leadingMargin" constant="21" id="E6C-rS-Szw"/>
                             <constraint firstItem="NZC-3B-EGv" firstAttribute="centerX" secondItem="4pq-Pr-nn8" secondAttribute="centerX" id="Evl-Hi-bdO"/>
                             <constraint firstItem="4md-qU-DGD" firstAttribute="leading" secondItem="xQz-qy-qRd" secondAttribute="leadingMargin" constant="21" id="F5d-bX-SN9"/>
+                            <constraint firstItem="4md-qU-DGD" firstAttribute="top" secondItem="NZC-3B-EGv" secondAttribute="bottom" constant="57" id="Fqw-b9-PmR"/>
                             <constraint firstItem="3bb-4z-GTU" firstAttribute="leading" secondItem="hba-tH-S6D" secondAttribute="leading" id="Gpc-8h-6oB"/>
                             <constraint firstItem="BE4-Nt-VXS" firstAttribute="top" secondItem="NZC-3B-EGv" secondAttribute="bottom" constant="1" id="HFy-0x-F84"/>
                             <constraint firstAttribute="trailingMargin" secondItem="USE-kF-qW9" secondAttribute="trailing" constant="21" id="I3r-b3-7eR"/>
@@ -746,6 +747,8 @@
                                 <exclude reference="BLe-ac-fVU"/>
                                 <exclude reference="HFy-0x-F84"/>
                                 <exclude reference="Wlb-xz-6SX"/>
+                                <exclude reference="buj-E4-1mS"/>
+                                <exclude reference="3oo-L4-FNv"/>
                                 <exclude reference="WM8-eZ-AwY"/>
                             </mask>
                         </variation>
@@ -879,9 +882,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="addPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="oLC-Qc-9r7">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="addPhoto2" translatesAutoresizingMaskIntoConstraints="NO" id="oLC-Qc-9r7">
                                 <rect key="frame" x="234" y="172" width="133" height="133"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oLC-Qc-9r7" secondAttribute="height" multiplier="133:122" constant="-11.991803278688536" id="fwq-hM-mfx"/>
@@ -1008,7 +1011,7 @@
                                     <navigationItem title="CHOOSE INTERESTS" id="rwv-lB-BG6">
                                         <barButtonItem key="leftBarButtonItem" image="back arrow" style="plain" id="ETA-qk-RLy">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9jQ-ta-PrV">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                                 <connections>
@@ -1150,7 +1153,7 @@
                                     <navigationItem title="FOLLOW FRIENDS" id="0zq-T5-m1X">
                                         <barButtonItem key="leftBarButtonItem" image="back arrow" style="plain" id="Lo3-O0-Xsg">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OCt-Ra-dfX">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                                 <connections>
@@ -1251,7 +1254,7 @@
                                     <navigationItem title="INVITE FRIENDS" id="Y56-3z-aMZ">
                                         <barButtonItem key="leftBarButtonItem" image="back arrow" style="plain" id="Nd0-BL-gbU">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="coZ-jo-xnU">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                                 <connections>
@@ -1804,10 +1807,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="QR CODE SCANNER" id="74r-XM-I4I">
+                                    <navigationItem id="74r-XM-I4I">
                                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="8AU-J6-GGW">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d9L-AY-O6b">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                                 <connections>
@@ -1818,7 +1821,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem image="Search white" style="plain" id="HmD-sf-AdD">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfW-IC-tQV">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1827,7 +1830,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="b8x-Zp-NXq">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FdJ-C1-KCs">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                 </button>
@@ -1839,6 +1842,12 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="MKT-cq-2D5"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QR CODE SCANNER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skk-V7-9vd">
+                                <rect key="frame" x="40" y="31" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhM-PC-Kxw">
                                 <rect key="frame" x="20" y="64" width="560" height="487"/>
                                 <subviews>
@@ -1941,10 +1950,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="QR CODE SCANNER" id="oOp-8I-Ktv">
+                                    <navigationItem id="oOp-8I-Ktv">
                                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="Hf1-iG-7Hx">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UEP-l3-jZs">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                                 <connections>
@@ -1955,7 +1964,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem image="Search white" style="plain" id="BwE-ok-htZ">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RbM-qt-Khi">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1964,7 +1973,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="UGz-FT-uxm">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KOf-2E-x1a">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                 </button>
@@ -1976,6 +1985,12 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="HOA-Ae-zNZ"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QR CODE SCANNER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-ik-ads">
+                                <rect key="frame" x="40" y="31" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER THE CONTEST CODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="w6a-pX-8Mo">
                                 <rect key="frame" x="40" y="174" width="520" height="44"/>
                                 <constraints>
@@ -2060,10 +2075,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="CREATE POLL" id="uQC-Hl-oOl">
+                                    <navigationItem id="uQC-Hl-oOl">
                                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="Jby-7q-N92">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yPn-ry-8q0">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                             </button>
@@ -2071,7 +2086,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem image="Search white" style="plain" id="fNC-1J-DSW">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MdR-gP-bEf">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -2080,7 +2095,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="yW6-Ao-hWS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZx-HV-H9A">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                 </button>
@@ -2092,6 +2107,12 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="KS8-0T-upM"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
+                                <rect key="frame" x="40" y="31" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2132,10 +2153,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="AROUND ME" id="CUw-mx-4Ru">
+                                    <navigationItem id="CUw-mx-4Ru">
                                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="myp-U0-gsw">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mta-Vw-Fpy">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                             </button>
@@ -2143,7 +2164,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem image="Search white" style="plain" id="TCq-Jo-Bsw">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bze-YA-N60">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -2152,7 +2173,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="uLn-EB-DJi">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RoM-gb-01v">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                 </button>
@@ -2164,6 +2185,12 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="4ns-SZ-CHI"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AROUND ME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMz-pe-kPi">
+                                <rect key="frame" x="40" y="31" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-pX-zux" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2215,10 +2242,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="MOBINION" id="J20-Tb-7m6">
+                                    <navigationItem id="J20-Tb-7m6">
                                         <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="GwP-IF-KGR">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r5i-6Z-Mrh">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="down arrow white"/>
                                                 <connections>
@@ -2229,7 +2256,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem image="Search white" style="plain" id="eIw-wE-ASd">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qce-ft-Bq4">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -2241,7 +2268,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="yr8-bD-HzE">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7bz-xt-KVy">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                     <connections>
@@ -2256,6 +2283,12 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="gIA-30-CKo"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOBINION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-4z-5UB">
+                                <rect key="frame" x="40" y="31" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgM-ag-DDW">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
@@ -2327,10 +2360,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="MOBINION" id="3vF-R3-419">
+                                    <navigationItem id="3vF-R3-419">
                                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="ZDE-rf-L7i">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Leg-bC-nx6">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
+                                                <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                             </button>
@@ -2338,7 +2371,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem image="Search white" style="plain" id="xSD-Ul-SwX">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eRC-Oe-zay">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -2347,7 +2380,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="pJk-fT-i53">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gBI-R9-lRa">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                 </button>
@@ -2359,6 +2392,12 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="0NT-P2-Rll"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOBINION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAW-g4-dIQ">
+                                <rect key="frame" x="40" y="31" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2421,7 +2460,7 @@
         <image name="Vine" width="128" height="128"/>
         <image name="WhatsApp" width="295" height="295"/>
         <image name="YouTube" width="512" height="360"/>
-        <image name="addPhoto" width="83" height="82"/>
+        <image name="addPhoto2" width="78" height="78"/>
         <image name="back arrow" width="32" height="32"/>
         <image name="divider" width="290" height="1"/>
         <image name="down arrow white" width="32" height="32"/>
