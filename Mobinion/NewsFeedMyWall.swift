@@ -83,6 +83,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     {
        let result = UITableViewCell()
         
+        //Poll Type
         if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
         {
             //print("inside polls")
@@ -145,7 +146,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                print(datesString)
 //                print(datesString.timeIntervalSinceNow)
                 
-                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+//                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                cell.expiryDate.text = timeAgoSince(datesString)
             }
             //
             if (!(newsFeed[indexPath.row]["itemDescription"]!!.isEqualToString("")))
@@ -160,7 +162,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             return cell
         }
-            
+         
+        //Contest Type
         else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("contest"))
         {
             //                    print("inside contest")
@@ -206,9 +209,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.img1.image = nil
             }
             
-            if (!(newsFeed[indexPath.row]["itemText"]!!.isEqualToString("")))
+            if (!(newsFeed[indexPath.row]["userName"]!!.isEqualToString("")))
             {
-                cell.VotName.text = (newsFeed[indexPath.row]["itemText"] as! String)
+                cell.VotName.text = (newsFeed[indexPath.row]["userName"] as! String)
             }
             //
             if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isEqualToString("")))
@@ -237,7 +240,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
                 
-                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+//                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                cell.expiryDate.text = timeAgoSince(datesString)
             }
             
             if (!(newsFeed[indexPath.row]["itemDescription"]!!.isEqualToString("")))
@@ -424,61 +428,148 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         let now = NSDate()
         let unitFlags: NSCalendarUnit = [.Second, .Minute, .Hour, .Day, .WeekOfYear, .Month, .Year]
         let components = calendar.components(unitFlags, fromDate: date, toDate: now, options: [])
+        var rcomp:Int
         
-        if components.year >= 2 {
+        //        print(components)
+        
+        if components.year >= 2
+        {
             return "\(components.year) years ago"
         }
         
-        if components.year >= 1 {
+        if components.year >= 1
+        {
             return "Last year"
         }
         
-        if components.month >= 2 {
+        if components.year <= -2
+        {
+            rcomp = abs(components.year)
+            return "In \(rcomp) years"
+        }
+        
+        if components.year <= -1
+        {
+            return "Next year"
+        }
+        
+        if components.month >= 2
+        {
             return "\(components.month) months ago"
         }
         
-        if components.month >= 1 {
+        if components.month >= 1
+        {
             return "Last month"
         }
         
-        if components.weekOfYear >= 2 {
+        if components.month <= -2
+        {
+            rcomp = abs(components.month)
+            return "In \(rcomp) months"
+        }
+        
+        if components.month <= -1
+        {
+            return "Next month"
+        }
+        
+        if components.weekOfYear >= 2
+        {
             return "\(components.weekOfYear) weeks ago"
         }
         
-        if components.weekOfYear >= 1 {
+        if components.weekOfYear >= 1
+        {
             return "Last week"
         }
         
-        if components.day >= 2 {
+        if components.weekOfYear <= -2
+        {
+            rcomp = abs(components.weekOfYear)
+            return "In \(rcomp) weeks"
+        }
+        
+        if components.weekOfYear <= -1
+        {
+            return "Next week"
+        }
+        
+        if components.day >= 2
+        {
             return "\(components.day) days ago"
         }
         
-        if components.day >= 1 {
+        if components.day >= 1
+        {
             return "Yesterday"
         }
         
-        if components.hour >= 2 {
+        if components.day <= -2
+        {
+            rcomp = abs(components.day)
+            return "In \(rcomp) days"
+        }
+        
+        if components.day <= -1
+        {
+            return "Tomorrow"
+        }
+        
+        if components.hour >= 2
+        {
             return "\(components.hour) hours ago"
         }
         
-        if components.hour >= 1 {
+        if components.hour >= 1
+        {
             return "An hour ago"
         }
         
-        if components.minute >= 2 {
+        if components.hour <= -2
+        {
+            rcomp = abs(components.hour)
+            return "In \(rcomp) hours"
+        }
+        
+        if components.hour <= -1
+        {
+            return "In an hour"
+        }
+        
+        if components.minute >= 2
+        {
             return "\(components.minute) minutes ago"
         }
         
-        if components.minute >= 1 {
+        if components.minute >= 1
+        {
             return "A minute ago"
         }
         
-        if components.second >= 3 {
+        if components.minute <= -2
+        {
+            rcomp = abs(components.minute)
+            return "In \(rcomp) minutes"
+        }
+        
+        if components.minute <= -1
+        {
+            return "In a minute"
+        }
+        
+        if components.second >= 3
+        {
             return "\(components.second) seconds ago"
         }
         
-        return "Just now"
+        if components.second <= -3
+        {
+            rcomp = abs(components.second)
+            return "In \(rcomp) seconds"
+        }
         
+        return "Just now"
     }
     
     func getFeeds(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
