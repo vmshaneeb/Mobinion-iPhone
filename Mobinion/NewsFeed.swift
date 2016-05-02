@@ -169,6 +169,19 @@ class NewsFeed: UIViewController, UITabBarDelegate, UITableViewDataSource, UITab
 //        print(long)
     }
     
+    //MARK:- UIScrollViewDelegates
+    func scrollViewWillBeginDragging(scrollView: UIScrollView)
+    {
+        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
+        {
+            changeTabBar(true, animated: true)
+        }
+        else
+        {
+            changeTabBar(false, animated: true)
+        }
+    }
+    
     //MARK:- Actions
     @IBAction func showLists(sender: AnyObject)
     {
@@ -338,6 +351,27 @@ class NewsFeed: UIViewController, UITabBarDelegate, UITableViewDataSource, UITab
                 case .Failure(let error):
                     print("Request Failed with Error!!! \(error)")
                 }
+        }
+    }
+    
+    func changeTabBar(hidden:Bool, animated: Bool)
+    {
+        let tabBar = self.tabBarController?.tabBar
+        if tabBar!.hidden == hidden{ return }
+        let frame = tabBar?.frame
+        let offset = (hidden ? (frame?.size.height)! : -(frame?.size.height)!)
+        let duration:NSTimeInterval = (animated ? 0.5 : 0.0)
+        
+        tabBar?.hidden = false
+        
+        if frame != nil
+        {
+            UIView.animateWithDuration(duration,
+                                       animations: {tabBar!.frame = CGRectOffset(frame!, 0, offset)},
+                                       completion: {
+                                        print($0)
+                                        if $0 {tabBar?.hidden = hidden}
+            })
         }
     }
 }
