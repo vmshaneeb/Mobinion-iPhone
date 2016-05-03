@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4AE73AA94C1B886BCD313192'
-               BlueprintName = 'AsyncSwift'
+               BlueprintIdentifier = '3A52608B5BD1FA27FD512655'
+               BlueprintName = 'IQDropDownTextField'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Async.framework'>
+               BuildableName = 'IQDropDownTextField.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -9,17 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AsyncSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Cloudinary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>DBAlertController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQDropDownTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,32 +52,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>064FF93457537AD676216B38FE1ACC27</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>098058DB8AA265D704661FE96460EF62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0B52A8A2D42590AA1AC092941763B3A0</key>
+		<key>1742CC2C9CD9667D5B46C37E8A3C751E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34FB6DCA5CA089CE55F35862C1EFFEF0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4E155FBB6070C868840C7A2BB6E75E85</key>
+		<key>3511258FF1DED3401C4B456024D5FA41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3B29AEF2A39F94D9AF30F89ED9146D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>C3088D509DCC08B3E07004508CF0BCC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D05AF06663D4023B09B30876DEC3A580</key>
 		<dict>
 			<key>primary</key>
 			<true/>
