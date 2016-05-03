@@ -92,7 +92,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.BgImg.layer.masksToBounds = false
             cell.BgImg.layer.cornerRadius = 5
             cell.BgImg.layer.borderWidth = 2
-            cell.BgImg.layer.borderColor = UIColor.grayColor().CGColor
+//            cell.BgImg.layer.borderColor = UIColor.grayColor().CGColor
             
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
@@ -160,6 +160,12 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
                 cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
             }
+            
+//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToString("")))
+//            {
+//                cell.totalNos.text = newsFeed[indexPath.row]["participants"]
+//            }
+            
             return cell
         }
          
@@ -172,7 +178,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.masksToBounds = false
             cell.bgImg.layer.cornerRadius = 5
             cell.bgImg.layer.borderWidth = 2
-            cell.bgImg.layer.borderColor = UIColor.grayColor().CGColor
+//            cell.bgImg.layer.borderColor = UIColor.grayColor().CGColor
             
             //
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
@@ -248,6 +254,12 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
             }
+            
+//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToString("")))
+//            {
+//                cell.totalNos.text = newsFeed[indexPath.row]["participants"]
+//            }
+            
             return cell
         }
         return result
@@ -445,7 +457,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.year <= -2
         {
             rcomp = abs(components.year)
-            return "In \(rcomp) years"
+            return "\(rcomp) years"
         }
         
         if components.year <= -1
@@ -466,7 +478,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.month <= -2
         {
             rcomp = abs(components.month)
-            return "In \(rcomp) months"
+            return "\(rcomp) months"
         }
         
         if components.month <= -1
@@ -487,7 +499,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.weekOfYear <= -2
         {
             rcomp = abs(components.weekOfYear)
-            return "In \(rcomp) weeks"
+            return "\(rcomp) weeks"
         }
         
         if components.weekOfYear <= -1
@@ -508,7 +520,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.day <= -2
         {
             rcomp = abs(components.day)
-            return "In \(rcomp) days"
+            return "\(rcomp) days"
         }
         
         if components.day <= -1
@@ -529,7 +541,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.hour <= -2
         {
             rcomp = abs(components.hour)
-            return "In \(rcomp) hours"
+            return "\(rcomp) hours"
         }
         
         if components.hour <= -1
@@ -550,7 +562,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.minute <= -2
         {
             rcomp = abs(components.minute)
-            return "In \(rcomp) minutes"
+            return "\(rcomp) minutes"
         }
         
         if components.minute <= -1
@@ -566,7 +578,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         if components.second <= -3
         {
             rcomp = abs(components.second)
-            return "In \(rcomp) seconds"
+            return "\(rcomp) seconds"
         }
         
         return "Just now"
@@ -673,8 +685,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-
-    
     // MARK: - Loader
     func StartLoader()
     {

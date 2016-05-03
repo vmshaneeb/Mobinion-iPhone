@@ -299,7 +299,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         path = (path as NSString).stringByAppendingPathComponent(imageName)
         
         let result = selectedImage.writeAtPath(path)
-        print(result)
+//        print(result)
         
 //        profilePicURL = localPath.absoluteString
         profilePicURL = String(path)
