@@ -33,6 +33,8 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     @IBOutlet var alltextFields: [UITextField]!
     
+    var popDatePicker : PopDatePicker?
+    
     var salutnPickerData: [String] = [String]()
     
     let nextField = [1:2, 2:3, 3:4, 4:5, 5:1]
@@ -55,6 +57,8 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
                             "Miss",
                             "Dr",
                             "Prof"]
+        
+        popDatePicker = PopDatePicker(forTextField: dobField)
     }
     
     override func didReceiveMemoryWarning()
@@ -107,40 +111,53 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 //    }
 //    
     //MARK:- UITextFieldDelegates
-    func textFieldDidBeginEditing(textField: UITextField)
+//    func textFieldDidBeginEditing(textField: UITextField)
+//    {
+//        if (dobField == textField)
+//        {
+//            self.close_all_textfields()
+//            dobPicker.hidden = false
+//        }
+//        else if (usrSalutation == textField)
+//        {
+//            self.close_all_textfields()
+//            salutnPicker.hidden = false
+//        }
+//    }
+    
+    //for popup date picker
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
     {
+        print(textField)
         if (dobField == textField)
         {
-//            dobField.resignFirstResponder()
+            close_all_textfields()
             
-//            for textfields in alltextFields
-//            {
-//                textfields.resignFirstResponder()
-//            }
-            self.close_all_textfields()
-            dobPicker.hidden = false
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = .MediumStyle
+            formatter.timeStyle = .NoStyle
+            
+            let initDate : NSDate? = formatter.dateFromString(dobField.text!)
+            
+//            print(initDate)
+            
+            let dataChangedCallback: PopDatePicker.PopDatePickerCallback =
+            { (newDate : NSDate, forTextField : UITextField) -> () in
+                    
+                // here we don't use self (no retain cycle)
+                forTextField.text = (newDate.ToDateMediumString() ?? "?") as String
+            
+            }
+            
+            popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
+            
+            return false
         }
-        else if (usrSalutation == textField)
+        else
         {
-//            usrSalutation.resignFirstResponder()
-//            self.view.endEditing(true)
-//            for textfields in alltextFields
-//            {
-//                textfields.resignFirstResponder()
-//            }
-            self.close_all_textfields()
-            salutnPicker.hidden = false
+            return true
         }
-//        else if (usrName == textField)
-//        {
-//            for textfields in alltextFields
-//            {
-//                textfields.resignFirstResponder()
-//            }
-//            
-//        }
     }
-    
     
     
 //    func textFieldShouldBeginEditing(textField: UITextField) -> Bool

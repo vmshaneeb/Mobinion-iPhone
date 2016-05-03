@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9" : 0,
+    "B4F7CE17E37AEF7D2FE4E12C4840F9EDDA206285" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CA91C80D-0C4F-450B-9F51-3635A4E08382",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9" : "Mobinion\/",
+    "B4F7CE17E37AEF7D2FE4E12C4840F9EDDA206285" : "..\/PopDatePickerApp"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Mobinion",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Mobinion.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vmshaneeb\/Mobinion-iPhone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/valfer\/PopDatePickerApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B4F7CE17E37AEF7D2FE4E12C4840F9EDDA206285"
+    }
+  ]
+}

@@ -91,6 +91,10 @@
 		65E312041CD8B4F900F784DA /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E311F21CD8B4F900F784DA /* RobotoCondensed-Light.ttf */; };
 		65E312051CD8B4F900F784DA /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E311F31CD8B4F900F784DA /* RobotoCondensed-LightItalic.ttf */; };
 		65E312061CD8B4F900F784DA /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E311F41CD8B4F900F784DA /* RobotoCondensed-Regular.ttf */; };
+		65E312511CD8F69300F784DA /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3124D1CD8F69300F784DA /* DateUtils.swift */; };
+		65E312521CD8F69300F784DA /* PopDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3124E1CD8F69300F784DA /* PopDatePicker.swift */; };
+		65E312531CD8F69300F784DA /* PopDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3124F1CD8F69300F784DA /* PopDateViewController.swift */; };
+		65E312541CD8F69300F784DA /* PopDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E312501CD8F69300F784DA /* PopDateViewController.xib */; };
 		AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2BD2631CAC2B51009C24CD /* ServerRequests.m */; };
 		AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -216,6 +220,10 @@
 		65E311F21CD8B4F900F784DA /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		65E311F31CD8B4F900F784DA /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		65E311F41CD8B4F900F784DA /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		65E3124D1CD8F69300F784DA /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		65E3124E1CD8F69300F784DA /* PopDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDatePicker.swift; sourceTree = "<group>"; };
+		65E3124F1CD8F69300F784DA /* PopDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDateViewController.swift; sourceTree = "<group>"; };
+		65E312501CD8F69300F784DA /* PopDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopDateViewController.xib; sourceTree = "<group>"; };
 		AC2BD2621CAC2B51009C24CD /* ServerRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequests.h; sourceTree = "<group>"; };
 		AC2BD2631CAC2B51009C24CD /* ServerRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequests.m; sourceTree = "<group>"; };
 		AC2BD2651CAC2FAA009C24CD /* Mobinion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobinion-Prefix.pch"; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 		650835C01C95779600C6C280 /* Mobinion */ = {
 			isa = PBXGroup;
 			children = (
+				65E3124C1CD8F69300F784DA /* PopDatePicker */,
 				65E311E21CD8B4F900F784DA /* RobotoTTF */,
 				653F52541CB1AA27001B494C /* CountryPicker */,
 				AC978CC81CABB756001E1D7D /* Loader */,
@@ -426,6 +435,17 @@
 			);
 			name = RobotoTTF;
 			path = ../../RobotoTTF;
+			sourceTree = "<group>";
+		};
+		65E3124C1CD8F69300F784DA /* PopDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				65E3124D1CD8F69300F784DA /* DateUtils.swift */,
+				65E3124E1CD8F69300F784DA /* PopDatePicker.swift */,
+				65E3124F1CD8F69300F784DA /* PopDateViewController.swift */,
+				65E312501CD8F69300F784DA /* PopDateViewController.xib */,
+			);
+			path = PopDatePicker;
 			sourceTree = "<group>";
 		};
 		844541A685AFEB62EF11AEF3 /* Frameworks */ = {
@@ -609,6 +629,7 @@
 				65E311FA1CD8B4F900F784DA /* Roboto-Light.ttf in Resources */,
 				65E311FC1CD8B4F900F784DA /* Roboto-Medium.ttf in Resources */,
 				65E312001CD8B4F900F784DA /* Roboto-ThinItalic.ttf in Resources */,
+				65E312541CD8F69300F784DA /* PopDateViewController.xib in Resources */,
 				652EF1931CA98C1C0048F33D /* InterestsCollectionViewCell.xib in Resources */,
 				650835C71C95779600C6C280 /* Main.storyboard in Resources */,
 				652EF1971CA9DA530048F33D /* InterestsCollectionReusableView.xib in Resources */,
@@ -706,14 +727,17 @@
 				65D01D771CA2AB4100A8A478 /* InviteFriends.swift in Sources */,
 				65D01D8A1CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift in Sources */,
 				65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */,
+				65E312511CD8F69300F784DA /* DateUtils.swift in Sources */,
 				650835C41C95779600C6C280 /* ViewController.swift in Sources */,
 				652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */,
+				65E312531CD8F69300F784DA /* PopDateViewController.swift in Sources */,
 				65E1FD131C9C0D8700BA74E1 /* CreateAccount.swift in Sources */,
 				65BAEC531CC9057600CCACA3 /* NewsFeedCreatePoll.swift in Sources */,
 				65D01D801CA2B39300A8A478 /* NewsFeedTableViewCell.swift in Sources */,
 				65E1FD151C9C130D00BA74E1 /* VerifyMobile.swift in Sources */,
 				AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */,
 				65D01D751CA2AAF800A8A478 /* FollowFriends.swift in Sources */,
+				65E312521CD8F69300F784DA /* PopDatePicker.swift in Sources */,
 				653F52881CB1B013001B494C /* NBNumberFormat.m in Sources */,
 				65D01D791CA2ABAE00A8A478 /* NewsFeed.swift in Sources */,
 				653F52891CB1B013001B494C /* NBPhoneMetaData.m in Sources */,

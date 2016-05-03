@@ -1265,8 +1265,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hby-mB-mYB">
-                                <rect key="frame" x="0.0" y="20" width="388" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hby-mB-mYB">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.058823529411764705" green="0.76078431372549016" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1285,7 +1285,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="SKIP" style="plain" id="zOG-Aj-1cg">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cey-kI-tL3">
-                                                <rect key="frame" x="306" y="7" width="62" height="30"/>
+                                                <rect key="frame" x="518" y="7" width="62" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="SKIP">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1301,14 +1301,15 @@
                                     <outlet property="delegate" destination="jDN-hD-Tqj" id="i98-C6-mph"/>
                                 </connections>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfH-qy-trV">
-                                <rect key="frame" x="170" y="275" width="49" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfH-qy-trV">
+                                <rect key="frame" x="170" y="275" width="261" height="50"/>
                                 <color key="backgroundColor" red="0.24705882352941178" green="0.68627450980392157" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="238" id="0So-Kg-4aN"/>
+                                    <constraint firstAttribute="width" constant="261" id="Xkf-Lc-C0a"/>
                                     <constraint firstAttribute="width" constant="238" id="ez5-fg-dkT"/>
                                     <constraint firstAttribute="width" secondItem="sfH-qy-trV" secondAttribute="height" multiplier="157:30" id="ggZ-FD-l9u"/>
-                                    <constraint firstAttribute="height" constant="50" id="wKC-tq-IJq"/>
+                                    <constraint firstAttribute="height" constant="50" id="qiL-qF-YKA"/>
                                 </constraints>
                                 <state key="normal" title="SHARE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1332,12 +1333,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hby-mB-mYB" firstAttribute="top" secondItem="8V2-EC-OSk" secondAttribute="bottom" id="N7f-Sw-oiI"/>
-                            <constraint firstItem="sfH-qy-trV" firstAttribute="leading" secondItem="jU0-gm-4s8" secondAttribute="leadingMargin" constant="150" id="QkK-mp-OW0"/>
-                            <constraint firstItem="sfH-qy-trV" firstAttribute="centerY" secondItem="jU0-gm-4s8" secondAttribute="centerY" id="YrH-wA-VaE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hby-mB-mYB" secondAttribute="trailing" constant="-20" id="gHA-c0-qiB"/>
-                            <constraint firstItem="sfH-qy-trV" firstAttribute="centerX" secondItem="Hby-mB-mYB" secondAttribute="centerX" id="meu-rN-WNG"/>
-                            <constraint firstItem="Hby-mB-mYB" firstAttribute="leading" secondItem="jU0-gm-4s8" secondAttribute="leadingMargin" constant="-20" id="zBg-xr-Xmd"/>
+                            <constraint firstItem="Hby-mB-mYB" firstAttribute="leading" secondItem="jU0-gm-4s8" secondAttribute="leading" id="BbQ-Mp-Lhk"/>
+                            <constraint firstAttribute="trailing" secondItem="Hby-mB-mYB" secondAttribute="trailing" id="Bqp-gi-bQx"/>
+                            <constraint firstItem="sfH-qy-trV" firstAttribute="centerY" secondItem="jU0-gm-4s8" secondAttribute="centerY" id="TwD-Ab-Y8O"/>
+                            <constraint firstItem="Hby-mB-mYB" firstAttribute="top" secondItem="8V2-EC-OSk" secondAttribute="bottom" id="hXP-bo-aY9"/>
+                            <constraint firstItem="sfH-qy-trV" firstAttribute="centerX" secondItem="jU0-gm-4s8" secondAttribute="centerX" id="kFC-Aa-cdH"/>
                         </constraints>
                     </view>
                     <connections>
