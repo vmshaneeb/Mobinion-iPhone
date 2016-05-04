@@ -14,7 +14,6 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import Cloudinary
-import Async
 
 extension UIImage
 {

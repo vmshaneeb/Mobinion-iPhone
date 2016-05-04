@@ -5,6 +5,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Black.ttf">
+            <string>Roboto-Black</string>
+            <string>Roboto-Black</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -34,7 +46,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="62" id="C3t-Dq-Vx3"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio Mango 91.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmR-D1-7MZ">
@@ -43,7 +55,7 @@
                             <constraint firstAttribute="height" constant="21" id="S4Q-Ba-IVn"/>
                             <constraint firstAttribute="width" constant="156" id="Yuq-jC-HeF"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -52,6 +64,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="114" id="PNI-4m-vfe"/>
                         </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                         <state key="normal" title="DISCARD CARD">
                             <color key="titleColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -62,7 +75,7 @@
                             <constraint firstAttribute="width" constant="160" id="7pB-wT-bIY"/>
                             <constraint firstAttribute="height" constant="21" id="llH-LT-WgL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

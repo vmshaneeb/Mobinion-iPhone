@@ -149,8 +149,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         let url = NSURL(string: self.imageURL[indexPath.row])
 //        print(url)
-        let data = NSData(contentsOfURL: url!)
-        let image = UIImage(data: data!)
+//        let data = NSData(contentsOfURL: url!)
+//        let image = UIImage(data: data!)
         
         cell.viewWithTag(100)
 //        cell.intImg.image = image
