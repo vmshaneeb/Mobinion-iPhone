@@ -221,7 +221,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     {
         let URL = "http://vyooha.cloudapp.net:1337/generateOtp"
         
-        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!], encoding: .JSON)
+        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!, "countryCode": country.text!], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {

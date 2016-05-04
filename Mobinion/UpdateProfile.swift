@@ -70,8 +70,8 @@ extension UIImage
         if (destination == nil)
         {
             fatalError("Did not find any matching path extension to store the image")
-//            return false
-        } else
+        }
+        else
         {
             CGImageDestinationAddImage(destination!, image, nil)
             
@@ -81,6 +81,7 @@ extension UIImage
             }
             return true
         }
+        return true
     }
 }
 
@@ -299,7 +300,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         path = (path as NSString).stringByAppendingPathComponent(imageName)
         
         let result = selectedImage.writeAtPath(path)
-//        print(result)
+        print(result)
         
 //        profilePicURL = localPath.absoluteString
         profilePicURL = String(path)
