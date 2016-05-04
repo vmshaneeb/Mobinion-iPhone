@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import PhoneNumberKit
 
 class VerifyMobile2: UIViewController, UITextFieldDelegate
 {
@@ -19,14 +20,14 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
     @IBOutlet weak var heading5: UILabel!
     @IBOutlet weak var verifyCode: UITextField!
     
-    var num: NSString!
-//    var vcode: String = ""
+//    var num: NSString!
+    var num = String()
+    var ccode = String()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-//        print(num!)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -38,42 +39,6 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
         
     }
     
-//    func textFieldDidBeginEditing(textField: UITextField)
-//    {
-////        verifyCode.userInteractionEnabled = false
-//    }
-    
-//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
-//    {
-//        // Create a button bar for the number pad
-//        let keyboardDoneButtonView = UIToolbar()
-//        keyboardDoneButtonView.sizeToFit()
-//        
-//        // Setup the buttons to be put in the system.
-//        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(CreateAccount.doneButton))
-//        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-//        
-//        let toolbarButtons = [flexibleSpaceButton, doneButton]
-//        
-//        //Put the buttons into the ToolBar and display the tool bar
-//        keyboardDoneButtonView.setItems(toolbarButtons, animated: false)
-//        textField.inputAccessoryView = keyboardDoneButtonView
-//        
-//        return true
-//    }
-//    
-//    func doneButton()
-//    {
-//        self.view.endEditing(true)
-//    }
-
-    
-//    func textFieldShouldReturn(textField: UITextField) -> Bool
-//    {
-//        self.view.endEditing(true)
-//        
-//        return false
-//    }
     
     //MARK:- Overrrides
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
@@ -184,9 +149,30 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
     
     func sendOTP(completionHandler : (NSDictionary?, NSError?) -> Void)
     {
+//        print(num)
+//        print(ccode)
+        
+        let no = ccode + num
+        var code = ""
+        
+        do
+        {
+            let phoneNumber = try PhoneNumber(rawNumber: no)
+            code = String(phoneNumber.countryCode)
+            
+//                        print(code)
+//                        print(no)
+        }
+        catch //if no country code
+        {
+            print("error in country code conversion!!!!")
+        }
+
+        
         let URL = "http://vyooha.cloudapp.net:1337/verifyMobileNumber"
         
-        Alamofire.request(.POST, URL, parameters: ["mobile": num, "otp":verifyCode.text!], encoding: .JSON)
+        Alamofire.request(.POST, URL, parameters: ["mobile": num, "otp":verifyCode.text!, "countryCode": code], encoding: .JSON)
+//            Alamofire.request(.POST, URL, parameters: ["mobile": num, "otp":verifyCode.text!], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {

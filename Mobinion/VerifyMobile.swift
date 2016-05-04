@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import PhoneNumberKit
 
 class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFieldDelegate
 {
@@ -182,6 +183,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     {
         let secondVC = segue.destinationViewController as! VerifyMobile2
         secondVC.num = number.text!
+        secondVC.ccode = country.text!
         
 //        print(secondVC.num)
     }
@@ -219,9 +221,26 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
     
     func sendMobileNo(completionHandler : (NSDictionary?, NSError?) -> Void)
     {
+        
+        let no = country.text! + number.text!
+        var code = ""
+        
+        do
+        {
+            let phoneNumber = try PhoneNumber(rawNumber: no)
+            code = String(phoneNumber.countryCode)
+            
+//            print(code)
+//            print(no)
+        }
+        catch //if no country code
+        {
+            print("error in country code conversion!!!!")
+        }
+        
         let URL = "http://vyooha.cloudapp.net:1337/generateOtp"
         
-        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!, "countryCode": country.text!], encoding: .JSON)
+        Alamofire.request(.POST, URL, parameters: ["mobile": number.text!, "countryCode": code], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
