@@ -10,18 +10,21 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import IQDropDownTextField
 
 class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate
 {
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var header2: UILabel!
     @IBOutlet weak var header3: UILabel!
-    @IBOutlet weak var usrSalutation: UITextField!
+//    @IBOutlet weak var usrSalutation: UITextField!
+    @IBOutlet weak var usrSalutation: IQDropDownTextField!
     @IBOutlet weak var saltnArrow: UIImageView!
     @IBOutlet weak var usrFullname: UITextField!
     @IBOutlet weak var usrName: UITextField!
     @IBOutlet weak var zipCode: UITextField!
-    @IBOutlet weak var dobField: UITextField!
+//    @IBOutlet weak var dobField: UITextField!
+    @IBOutlet weak var dobField: IQDropDownTextField!
 
     @IBOutlet weak var dobPicker: UIDatePicker!
     @IBOutlet weak var salutnPicker: UIPickerView!
@@ -59,6 +62,26 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
                             "Prof"]
         
         popDatePicker = PopDatePicker(forTextField: dobField)
+        
+        usrSalutation.isOptionalDropDown = false
+        usrSalutation.itemList = ["Mr",
+                                  "Mrs",
+                                  "Mstr",
+                                  "Miss",
+                                  "Dr",
+                                  "Prof"]
+        
+        dobField.isOptionalDropDown = false
+        dobField.dropDownMode = IQDropDownMode.DatePicker
+        
+        let df = NSDateFormatter()
+        
+//        dobField.se
+        
+        df.dateFormat = "dd/MMM/yyyy"
+        dobField.dateFormatter = df
+        
+        dobField.setSelectedItem(df.stringFromDate(NSDate()), animated: true)
     }
     
     override func didReceiveMemoryWarning()
@@ -85,7 +108,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        usrSalutation.text = salutnPickerData[row]
+//        usrSalutation.text = salutnPickerData[row]
         salutnPicker.hidden = true
     }
     
@@ -125,39 +148,39 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 //        }
 //    }
     
-    //for popup date picker
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
-    {
-        print(textField)
-        if (dobField == textField)
-        {
-            close_all_textfields()
-            
-            let formatter = NSDateFormatter()
-            formatter.dateStyle = .MediumStyle
-            formatter.timeStyle = .NoStyle
-            
-            let initDate : NSDate? = formatter.dateFromString(dobField.text!)
-            
-//            print(initDate)
-            
-            let dataChangedCallback: PopDatePicker.PopDatePickerCallback =
-            { (newDate : NSDate, forTextField : UITextField) -> () in
-                    
-                // here we don't use self (no retain cycle)
-                forTextField.text = (newDate.ToDateMediumString() ?? "?") as String
-            
-            }
-            
-            popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
-            
-            return false
-        }
-        else
-        {
-            return true
-        }
-    }
+//    //for popup date picker
+//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+//    {
+//        print(textField)
+//        if (dobField == textField)
+//        {
+//            close_all_textfields()
+//            
+//            let formatter = NSDateFormatter()
+//            formatter.dateStyle = .MediumStyle
+//            formatter.timeStyle = .NoStyle
+//            
+//            let initDate : NSDate? = formatter.dateFromString(dobField.text!)
+//            
+////            print(initDate)
+//            
+//            let dataChangedCallback: PopDatePicker.PopDatePickerCallback =
+//            { (newDate : NSDate, forTextField : UITextField) -> () in
+//                    
+//                // here we don't use self (no retain cycle)
+//                forTextField.text = (newDate.ToDateMediumString() ?? "?") as String
+//            
+//            }
+//            
+//            popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
+//            
+//            return false
+//        }
+//        else
+//        {
+//            return true
+//        }
+//    }
     
     
 //    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
@@ -254,9 +277,9 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         dateFormatter.dateFormat = "dd/MMM/yyyy"
         
-        dobField.text = dateFormatter.stringFromDate(sender.date)
-        
-        print(dobField.text)
+//        dobField.text = dateFormatter.stringFromDate(sender.date)
+//        
+//        print(dobField.text)
         
     }
     
@@ -304,7 +327,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         print(usrName.text)
         print(usrFullname.text)
         print(zipCode.text)
-        print(dobField.text)
+//        print(dobField.text)
         
         self.StartLoader ()
             
@@ -439,7 +462,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         Alamofire.request(.POST, URL, parameters: ["name": usrName.text!,
                                                    "username": usrFullname.text!,
                                                    "zipCode": zipCode.text!,
-                                                   "dob": dobField.text!], headers: header, encoding: .JSON)
+                                                   "dob": dobField.selectedItem!], headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
