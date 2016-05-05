@@ -917,6 +917,7 @@
 				PRODUCT_NAME = Mobinion;
 				PROVISIONING_PROFILE = "f9240d87-fe14-4caf-b8f2-810420f99336";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
