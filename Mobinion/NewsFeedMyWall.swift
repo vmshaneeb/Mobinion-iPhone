@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import SDWebImage
 
-class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate
+class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -92,7 +92,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.BgImg.layer.masksToBounds = false
             cell.BgImg.layer.cornerRadius = 5
             cell.BgImg.layer.borderWidth = 2
-//            cell.BgImg.layer.borderColor = UIColor.grayColor().CGColor
+            cell.BgImg.layer.borderColor = UIColor.clearColor().CGColor
             
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
             {
@@ -161,9 +161,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
             }
             
-//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToString("")))
+//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
 //            {
-//                cell.totalNos.text = newsFeed[indexPath.row]["participants"]
+//                print("\(newsFeed[indexPath.row]["participants"])")
+                cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+//                print(cell.totalNos.text)
 //            }
             
             return cell
@@ -178,7 +180,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.masksToBounds = false
             cell.bgImg.layer.cornerRadius = 5
             cell.bgImg.layer.borderWidth = 2
-//            cell.bgImg.layer.borderColor = UIColor.grayColor().CGColor
+            cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
             
             //
             if (!(newsFeed[indexPath.row]["userImage"]!!.isEqualToString("")))
@@ -255,13 +257,32 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
             }
             
-//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToString("")))
+//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
 //            {
-//                cell.totalNos.text = newsFeed[indexPath.row]["participants"]
+                cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
 //            }
             
             return cell
         }
+        
+        //Feedback Type
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("feedback"))
+        {
+
+        }
+        
+        //Voting Type
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
+        {
+
+        }
+            
+        //Cards Type
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
+        {
+            
+        }
+        
         return result
     }
     

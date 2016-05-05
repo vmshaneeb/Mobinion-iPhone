@@ -169,6 +169,7 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     @IBAction func enterCode(sender: AnyObject)
     {
         //print("pressed!!!")
+        self.performSegueWithIdentifier("manualCodeSegue", sender: sender)
     }
     
     @IBAction func backBtn(sender: AnyObject)
@@ -180,7 +181,7 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     func failed()
     {
         self.doalertView("Scanning not supported",
-                         msgs: "Your device does not support scanning a code from an item. Please use a device with a camera!!!")
+                         msgs: "Your device does not support scanning a code from an item. Please use a device with a camera or enter the code manually!!!")
 
         captureSession = nil
     }

@@ -25,10 +25,15 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let isiPhone5orLower = UIScreen.mainScreen().bounds.size.width == 320
+    let isiPhone6 = UIScreen.mainScreen().bounds.size.width == 375
+    let isiPhone6plus = UIScreen.mainScreen().bounds.size.width == 414
+    
     var imageURLs: [String: String] = [String: String]()
     var imageNames: [String] = [String]()
     var imageURL: [String] = [String]()
     var imageIDs: [String] = [String]()
+    var selected = [String: String]()
     
     let reuseIdentifier = "Cell"
     
@@ -74,7 +79,22 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         let nib2:UINib = UINib(nibName: "InterestsCollectionReusableView", bundle: nil)
         collectionView.registerNib(nib2, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
         
+//        let screenSize:CGRect = UIScreen.mainScreen().bounds
+//        
+//        let screenWidth = screenSize.width
+//        let screenHeight = screenSize.height
+//        
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+//        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+//        
+        
+        
         collectionView.allowsMultipleSelection = true
+        
+    
     
         
 //        print(self.imageURL.count)
@@ -111,6 +131,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                                 self.imageIDs.append(json["data"]["interests"][i]["id"].stringValue)
                                 self.imageURLs.updateValue(json["data"]["interests"][i]["imageUrl"].stringValue,
                                                            forKey: json["data"]["interests"][i]["title"].stringValue)
+                                self.selected.updateValue(json["data"]["interests"][i]["isSelected"].stringValue,
+                                    forKey: json["data"]["interests"][i]["title"].stringValue)
                             }
                         }
                       
@@ -160,6 +182,22 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         cell.intLabel.text = self.imageNames[indexPath.row].capitalizedString
         
+//        cell.in
+//        print(selected)
+        for (name, sel) in selected
+        {
+            if name == imageNames[indexPath.row]
+            {
+//                print(name)
+//                print(sel.containsString("true"))
+                if sel.containsString("true")
+                {
+                    cell.intSeleted.hidden = false
+//                    cell.selected = true
+                }
+            }
+        }
+        
         return cell
         
     }
@@ -171,15 +209,21 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
             let cell = collectionView.cellForItemAtIndexPath(indexPath)  as! InterestsCollectionViewCell
             if cell.selected == true
             {
-                cell.intSeleted.hidden = false
+                if cell.intSeleted.hidden == false
+                {
+                    cell.intSeleted.hidden = true
+                }
+                else
+                {
+                    cell.intSeleted.hidden = false
+                    
+                    let photo = imageNames[indexPath.row]
+                    
+                    selectedPhotos.append(photo)
+                    
+                    selectedPhotos = Array(Set(selectedPhotos))
+                }
             }
-            
-            let photo = imageNames[indexPath.row]
-            
-            selectedPhotos.append(photo)
-            
-            selectedPhotos = Array(Set(selectedPhotos))
-            
         }
         print("selected \(selectedPhotos)")
     }
@@ -230,12 +274,31 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                 let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Header", forIndexPath: indexPath) as! InterestsCollectionReusableView
                 
                 headerView.headerLabel.text = "CHOOSE TOPICS"
-                headerView.headerLabel.font = UIFont (name: "Helvetica Neue", size: 20.0)
+//                headerView.headerLabel.font = UIFont (name: "Helvetica Neue", size: 20.0)
                 return headerView
                 
             default:
                 assert(false, "Unexpected data element")
                 return sample
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAtIndex section: Int) -> UIEdgeInsets
+    {
+        if isiPhone6
+        {
+            let sectionInsets = UIEdgeInsets(top: 10, left: 35, bottom: 0, right: 35)
+            return sectionInsets
+        }
+        else if isiPhone6plus
+        {
+            let sectionInsets = UIEdgeInsets(top: 10, left: 45, bottom: 0, right: 45)
+            return sectionInsets
+        }
+        else
+        {
+            let sectionInsets = UIEdgeInsets(top:3, left: 5, bottom: 0, right: 5)
+            return sectionInsets
         }
     }
     
@@ -485,20 +548,20 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     }
                     else
                     {
-                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
-                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
-                        { action in
-                            switch action.style
-                            {
-                                case .Default:
+//                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+//                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+//                        { action in
+//                            switch action.style
+//                            {
+//                                case .Default:
                                     self.performSegueWithIdentifier("chooseInterestsSegue", sender: sender)
-                                default:
-                                    break
-                            }
-                        })
-                        
-                        alertController.addAction(defaultAction)
-                        alertController.show()
+//                                default:
+//                                    break
+//                            }
+//                        })
+//                        
+//                        alertController.addAction(defaultAction)
+//                        alertController.show()
                     }
                 }
                 else
