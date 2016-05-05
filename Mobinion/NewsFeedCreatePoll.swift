@@ -22,35 +22,35 @@ class NewsFeedCreatePoll: UIViewController
         
         StartLoader()
         
-        sendCreatePoll()
-        { value, error in
-                
-            if value != nil
-            {
-                let json = JSON(value!)
-                print(json)
-                
-                self.HideLoader()
-                
-                let titles = json["status"].stringValue
-                let messages = json["message"].stringValue
-                
-                if titles == "error"
-                {
-                    self.doDBalertView(titles, msgs: messages)
-                }
-                else
-                {
-                    
-                }
-            }
-            else
-            {
-                self.HideLoader()
-                print(error)
-                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
-            }
-        }
+//        sendCreatePoll()
+//        { value, error in
+//                
+//            if value != nil
+//            {
+//                let json = JSON(value!)
+//                print(json)
+//                
+//                self.HideLoader()
+//                
+//                let titles = json["status"].stringValue
+//                let messages = json["message"].stringValue
+//                
+//                if titles == "error"
+//                {
+//                    self.doDBalertView(titles, msgs: messages)
+//                }
+//                else
+//                {
+//                    
+//                }
+//            }
+//            else
+//            {
+//                self.HideLoader()
+//                print(error)
+//                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning()
