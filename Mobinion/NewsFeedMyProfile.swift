@@ -84,7 +84,7 @@ class NewsFeedMyProfile: UIViewController
                         
                         // for profile pic border
                         self.profImage.layer.borderWidth = 3.0
-                        self.profImage.layer.borderColor = UIColor.whiteColor().CGColor
+                        self.profImage.layer.borderColor = UIColor.cyanColor().CGColor
 
                     }
                     catch
