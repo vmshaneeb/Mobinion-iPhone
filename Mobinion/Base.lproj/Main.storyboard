@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hu0-Xc-Vos">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ROR-Z0-kAH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -612,7 +612,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7V-oI-f52" customClass="IQDropDownTextField">
+                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7V-oI-f52" customClass="IQDropDownTextField">
                                 <rect key="frame" x="108" y="346" width="451" height="30"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2450,6 +2450,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back arrow"/>
                                             </button>
+                                            <connections>
+                                                <action selector="backBtn:" destination="LgZ-Qz-gjP" id="eWA-NE-dPY"/>
+                                            </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem style="plain" id="ja1-qG-35J">
@@ -2460,6 +2463,9 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <connections>
+                                                    <action selector="optionsBtn:" destination="LgZ-Qz-gjP" id="9mr-VE-1bk"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem image="Search white" style="plain" id="xSD-Ul-SwX">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eRC-Oe-zay">
@@ -2476,6 +2482,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                 </button>
+                                                <connections>
+                                                    <action selector="notifyBtn:" destination="LgZ-Qz-gjP" id="7Ei-Q8-xVd"/>
+                                                </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
@@ -2626,6 +2635,20 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="followNos" destination="F3z-c2-Mhq" id="Fcw-XA-gYQ"/>
+                        <outlet property="followerLabel" destination="6gF-zo-xNI" id="wLB-28-VQh"/>
+                        <outlet property="followerNos" destination="KPU-20-3sj" id="R6B-ny-PM9"/>
+                        <outlet property="followingLabel" destination="dob-FA-tgh" id="DMy-jN-UCF"/>
+                        <outlet property="partView" destination="OPw-qZ-mlw" id="XJb-qw-bq6"/>
+                        <outlet property="partViewLabel" destination="gqK-mw-bfu" id="qF1-Bp-5du"/>
+                        <outlet property="pollView" destination="3R8-hz-RXC" id="hKE-Y9-h4m"/>
+                        <outlet property="pollViewLabel" destination="4dx-Mx-ABq" id="xNC-03-vYt"/>
+                        <outlet property="profImage" destination="sm1-1B-TEC" id="32f-hd-GBb"/>
+                        <outlet property="profName" destination="pM3-Hd-xLq" id="thV-Y8-RG1"/>
+                        <outlet property="tableView" destination="7zX-cu-7Mo" id="khj-xv-dZU"/>
+                        <outlet property="topView" destination="fSd-Eb-GPj" id="r8u-Dy-a3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xI-P5-f8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

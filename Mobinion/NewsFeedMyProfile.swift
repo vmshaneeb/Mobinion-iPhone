@@ -10,9 +10,31 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import SDWebImage
 
 class NewsFeedMyProfile: UIViewController
 {
+    
+    @IBOutlet weak var profName: UILabel!
+    @IBOutlet weak var profImage: UIImageView!
+    
+    @IBOutlet weak var followNos: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    
+    @IBOutlet weak var followerNos: UILabel!
+    @IBOutlet weak var followerLabel: UILabel!
+    
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var pollView: UIView!
+    @IBOutlet weak var pollViewLabel: UILabel!
+    
+    @IBOutlet weak var partView: UIView!
+    @IBOutlet weak var partViewLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var profile = NSMutableDictionary()
+    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
@@ -23,7 +45,7 @@ class NewsFeedMyProfile: UIViewController
         StartLoader()
         
         getmyAccount()
-        { value, error in
+        { value, data, error in
                 
             if value != nil
             {
@@ -41,7 +63,36 @@ class NewsFeedMyProfile: UIViewController
                 }
                 else
                 {
-                    
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
+
+                        self.profile = responseObject.objectForKey("data")?.mutableCopy() as! NSMutableDictionary
+                       
+//                         print(self.profile)
+//                        print(self.profile["user"]!["about_user"])
+//                        print(self.profile)
+                        
+                        self.profName.text = (self.profile["user"]!["name"] as! String)
+                        self.profImage.sd_setImageWithURL(NSURL(string: self.profile["user"]!["profile_pic"] as! String))
+                        self.followNos.text = String(self.profile["user"]!["follow_users"]!!.integerValue)
+                        self.followerNos.text = String(self.profile["user"]!["following_users"]!!.integerValue)
+                        
+                        // for rounded profile pic
+                        self.profImage.layer.cornerRadius = self.profImage.frame.size.width / 2
+                        self.profImage.clipsToBounds = true
+                        
+                        // for profile pic border
+                        self.profImage.layer.borderWidth = 3.0
+                        self.profImage.layer.borderColor = UIColor.whiteColor().CGColor
+
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    self.tableView.reloadData()
+
                 }
             }
             else
@@ -51,12 +102,30 @@ class NewsFeedMyProfile: UIViewController
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func backBtn(sender: AnyObject)
+    {
+        
+    }
+    
+    @IBAction func notifyBtn(sender: AnyObject)
+    {
+        
+    }
+    
+    @IBAction func optionsBtn(sender: AnyObject)
+    {
+        
     }
     
     //MARK:- Custom Functions
@@ -83,7 +152,7 @@ class NewsFeedMyProfile: UIViewController
         alertController.show()
     }
     
-    func getmyAccount(completionHandler : (NSDictionary?, NSError?) -> Void)
+    func getmyAccount(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
     {
         let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
         //print(toks)
@@ -100,11 +169,11 @@ class NewsFeedMyProfile: UIViewController
                 case .Success:
                     if let value = response.result.value
                     {
-                        completionHandler(value as? NSDictionary, nil)
+                        completionHandler(value as? NSDictionary, response.data, nil)
                     }
                     
                 case .Failure(let error):
-                    completionHandler(nil, error)
+                    completionHandler(nil, nil, error)
                 }
         }
     }
