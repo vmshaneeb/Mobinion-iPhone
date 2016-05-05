@@ -84,20 +84,20 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
                     }
                     else
                     {
-                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
-                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
-                        { action in
-                            switch action.style
-                            {
-                                case .Default:
+//                        let alertController = DBAlertController(title: titles.capitalizedString, message: messages.capitalizedString, preferredStyle: .Alert)
+//                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler:
+//                        { action in
+//                            switch action.style
+//                            {
+//                                case .Default:
                                     self.performSegueWithIdentifier("verifyFirstSegue", sender: sender)
-                                default:
-                                    break
-                            }
-                        })
-                        
-                        alertController.addAction(defaultAction)
-                        alertController.show()
+//                                default:
+//                                    break
+//                            }
+//                        })
+//                        
+//                        alertController.addAction(defaultAction)
+//                        alertController.show()
                     }
                 }
                 else
