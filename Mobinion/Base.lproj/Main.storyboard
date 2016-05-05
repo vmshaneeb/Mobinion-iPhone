@@ -1937,7 +1937,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="30"/>
+                                                <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
@@ -2264,17 +2264,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-pX-zux" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="600" height="288"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="264"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-Rf-TbV">
+                                <rect key="frame" x="0.0" y="336" width="600" height="215"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Mnk-75-DXn" firstAttribute="top" secondItem="67Q-oo-aaP" secondAttribute="bottom" id="0xL-ie-b0F"/>
+                            <constraint firstItem="dgx-Rf-TbV" firstAttribute="trailing" secondItem="dwB-pX-zux" secondAttribute="trailing" id="2OB-0B-YWs"/>
                             <constraint firstItem="dwB-pX-zux" firstAttribute="top" secondItem="Mnk-75-DXn" secondAttribute="bottom" id="4fV-kz-IUU"/>
-                            <constraint firstItem="LL5-Ra-kT6" firstAttribute="top" secondItem="dwB-pX-zux" secondAttribute="bottom" constant="199" id="93I-l0-dsq"/>
+                            <constraint firstItem="dgx-Rf-TbV" firstAttribute="leading" secondItem="dwB-pX-zux" secondAttribute="leading" id="4ra-TF-QiB"/>
+                            <constraint firstItem="LL5-Ra-kT6" firstAttribute="top" secondItem="dwB-pX-zux" secondAttribute="bottom" constant="223" id="93I-l0-dsq"/>
                             <constraint firstItem="Mnk-75-DXn" firstAttribute="leading" secondItem="7cK-bd-DUj" secondAttribute="leading" id="IjJ-JX-Q5p"/>
                             <constraint firstItem="dwB-pX-zux" firstAttribute="trailing" secondItem="Mnk-75-DXn" secondAttribute="trailing" id="K2H-XC-q0Q"/>
+                            <constraint firstItem="dgx-Rf-TbV" firstAttribute="bottom" secondItem="LL5-Ra-kT6" secondAttribute="top" id="K6j-gb-Nsr"/>
+                            <constraint firstItem="dgx-Rf-TbV" firstAttribute="top" secondItem="dwB-pX-zux" secondAttribute="bottom" constant="8" symbolic="YES" id="KOn-0h-O5A"/>
                             <constraint firstItem="dwB-pX-zux" firstAttribute="leading" secondItem="Mnk-75-DXn" secondAttribute="leading" id="Wvm-rB-apu"/>
                             <constraint firstAttribute="trailing" secondItem="Mnk-75-DXn" secondAttribute="trailing" id="fpP-zE-ffp"/>
                         </constraints>
@@ -2541,7 +2549,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zX-cu-7Mo">
-                                <rect key="frame" x="0.0" y="306" width="600" height="274"/>
+                                <rect key="frame" x="0.0" y="306" width="600" height="245"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R8-hz-RXC">
@@ -2592,7 +2600,7 @@
                             <constraint firstItem="31J-7g-b0w" firstAttribute="top" secondItem="cgt-rs-bYI" secondAttribute="bottom" id="Xfh-0x-tcV"/>
                             <constraint firstItem="7zX-cu-7Mo" firstAttribute="centerX" secondItem="ZgG-TW-uJq" secondAttribute="centerX" id="agK-CU-xBY"/>
                             <constraint firstItem="LAW-g4-dIQ" firstAttribute="top" secondItem="cgt-rs-bYI" secondAttribute="bottom" constant="11" id="aob-11-Mib"/>
-                            <constraint firstItem="35G-KT-w3N" firstAttribute="top" secondItem="7zX-cu-7Mo" secondAttribute="bottom" constant="-29" id="edi-Wo-vh1"/>
+                            <constraint firstItem="35G-KT-w3N" firstAttribute="top" secondItem="7zX-cu-7Mo" secondAttribute="bottom" id="edi-Wo-vh1"/>
                             <constraint firstItem="3R8-hz-RXC" firstAttribute="top" secondItem="fSd-Eb-GPj" secondAttribute="bottom" id="i20-po-wJB"/>
                             <constraint firstItem="31J-7g-b0w" firstAttribute="centerY" secondItem="LAW-g4-dIQ" secondAttribute="centerY" id="i9S-ou-NKB"/>
                             <constraint firstItem="31J-7g-b0w" firstAttribute="bottom" secondItem="fSd-Eb-GPj" secondAttribute="top" id="ieQ-cq-Rte"/>
