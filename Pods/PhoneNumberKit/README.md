@@ -52,7 +52,7 @@ let phoneNumbers = PhoneNumberKit().parseMultiple(rawNumberArray)
 let phoneNumbersCustomDefaultRegion = PhoneNumberKit().parseMultiple(rawNumberArray, region: "DE")
 ```
 
-To use the AsYouTypeFormatter, just replace your UITextField with a PhoneNumberTextField.
+To use the AsYouTypeFormatter, just replace your UITextField with a PhoneNumberTextField (if you are using Interface Builder make sure the module field is set to PhoneNumberKit).
 
 PhoneNumberTextField automatically formats phone numbers and gives the user full editing capabilities. If you want to customize you can use the PartialFormatter directly. The default region code is automatically computed but can be overridden if needed.  
 
@@ -85,6 +85,7 @@ phoneNumber.nationalNumber
 phoneNumber.numberExtension
 phoneNumber.rawNumber
 phoneNumber.type // e.g Mobile or Fixed
+phoneNumber.isValidNumber // Checks if number has a known type
 ```
 
 ### Setting up with Carthage
@@ -107,5 +108,5 @@ github "marmelroy/PhoneNumberKit"
 ### Setting up with [CocoaPods](http://cocoapods.org/?q=PhoneNumberKit)
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-pod 'PhoneNumberKit', '~> 0.7'
+pod 'PhoneNumberKit', '~> 0.8'
 ```

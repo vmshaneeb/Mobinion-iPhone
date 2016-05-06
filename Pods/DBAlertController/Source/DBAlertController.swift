@@ -15,6 +15,7 @@ public class DBAlertController: UIAlertController {
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.rootViewController = DBClearViewController()
         window.backgroundColor = UIColor.clearColor()
+		window.windowLevel = UIWindowLevelAlert
         return window
     }()
     
@@ -30,11 +31,6 @@ public class DBAlertController: UIAlertController {
             
             rootViewController.presentViewController(self, animated: flag, completion: completion)
         }
-    }
-    
-    // Fix for bug in iOS 9 Beta 5 that prevents the original window from becoming keyWindow again
-    deinit {
-        alertWindow.hidden = true
     }
     
 }
