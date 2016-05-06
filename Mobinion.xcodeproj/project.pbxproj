@@ -854,7 +854,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f9240d87-fe14-4caf-b8f2-810420f99336";
+				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -893,7 +893,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "f9240d87-fe14-4caf-b8f2-810420f99336";
+				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -904,8 +904,8 @@
 			baseConfigurationReference = B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: hamdan salim (C3DGNA5C96)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hamdan salim (C3DGNA5C96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Mobinion-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Mobinion/Info.plist;
@@ -915,7 +915,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Novag.Mobinion123;
 				PRODUCT_NAME = Mobinion;
-				PROVISIONING_PROFILE = "f9240d87-fe14-4caf-b8f2-810420f99336";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
@@ -926,8 +926,8 @@
 			baseConfigurationReference = AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: hamdan salim (C3DGNA5C96)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hamdan salim (C3DGNA5C96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Mobinion-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Mobinion/Info.plist;
@@ -937,7 +937,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Novag.Mobinion123;
 				PRODUCT_NAME = Mobinion;
-				PROVISIONING_PROFILE = "f9240d87-fe14-4caf-b8f2-810420f99336";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobinion/MobinionBridging-Header.h";
 			};
 			name = Release;
@@ -950,6 +950,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobinion.app/Mobinion";
 			};
 			name = Debug;
@@ -962,6 +963,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobinion.app/Mobinion";
 			};
 			name = Release;
@@ -973,6 +975,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
 				TEST_TARGET_NAME = Mobinion;
 				USES_XCTRUNNER = YES;
 			};
@@ -985,6 +988,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
 				TEST_TARGET_NAME = Mobinion;
 				USES_XCTRUNNER = YES;
 			};

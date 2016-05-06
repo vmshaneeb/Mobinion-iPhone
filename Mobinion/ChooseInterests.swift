@@ -12,15 +12,15 @@ import SwiftyJSON
 import Cloudinary
 import DBAlertController
 import SDWebImage
+import DZNEmptyDataSet
 
-class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate
+class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource
 {
     
     @IBOutlet weak var navTitle: UINavigationItem!
     
     @IBOutlet weak var searchHeaderImage: UIImageView!
     @IBOutlet weak var searchBarField: UITextField!
-//    @IBOutlet weak var searchBtn: UIButton!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -42,8 +42,9 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     var searchedPhotos = [String]()
     var searchedURL = [String]()
     
-    let baseURL = "http://res.cloudinary.com/dscw6puvr/"
+    var reloaded:Bool = false
     
+    let baseURL = "http://res.cloudinary.com/dscw6puvr/"
     let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
 //    let ids = CLCloudinary
 //    let pubid = CLCloudinary.randomPublicId("5706096b8b9fd2636717fa20")
@@ -79,23 +80,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         let nib2:UINib = UINib(nibName: "InterestsCollectionReusableView", bundle: nil)
         collectionView.registerNib(nib2, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
         
-//        let screenSize:CGRect = UIScreen.mainScreen().bounds
-//        
-//        let screenWidth = screenSize.width
-//        let screenHeight = screenSize.height
-//        
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-//        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 0
-//        
-        
-        
         collectionView.allowsMultipleSelection = true
-        
-    
-    
         
 //        print(self.imageURL.count)
 //        print(self.imageURL)
@@ -118,7 +103,8 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     
                     if titles == "error"
                     {
-                        self.doDBalertView(titles, msgs: messages)
+//                        self.doDBalertView(titles, msgs: messages)
+                        print("\(titles): \(messages)")
                     }
                     else
                     {
@@ -138,6 +124,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                       
 //                        print(self.imageURL)
                         self.collectionView.reloadData()
+//                        self.collectionView.reloadEmptyDataSet()
                     }
                 }
                 else
@@ -301,7 +288,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
             return sectionInsets
         }
     }
-    
+
     //MARK:- UITextFieldDelegates
     func textFieldShouldClear(textField: UITextField) -> Bool
     {
@@ -329,6 +316,50 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         return true
     }
 
+    //MARK:- DZNEmptyDataSetDelegate
+    //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    //    {
+    //        let str = "Welcome"
+    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+    //        return NSAttributedString(string: str, attributes: attrs)
+    //    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    {
+        let str = "No interests found"
+        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
+        
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    
+//    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool
+//    {
+//        if reloaded == false
+//        {
+//            return true
+//        }
+//        return false
+//    }
+    
+    //    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    //        return UIImage(named: "taylor-swift")
+    //    }
+    
+    //    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString!
+    //    {
+    //        let str = "Add Grokkleglob"
+    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleCallout)]
+    //        return NSAttributedString(string: str, attributes: attrs)
+    //    }
+    //
+    //
+    //    func emptyDataSetDidTapButton(scrollView: UIScrollView!)
+    //    {
+    //        let ac = UIAlertController(title: "Button tapped!", message: nil, preferredStyle: .Alert)
+    //        ac.addAction(UIAlertAction(title: "Hurray", style: .Default, handler: nil))
+    //        presentViewController(ac, animated: true, completion: nil)
+    //    }
     
     //MARK: - Custom Functions
     func getIndexPathForSelectedCell() -> NSIndexPath?

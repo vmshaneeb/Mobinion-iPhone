@@ -12,8 +12,9 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import PhoneNumberKit
+import DZNEmptyDataSet
 
-class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegate
+class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource
 {
 
     @IBOutlet weak var navTitle: UINavigationItem!
@@ -97,7 +98,8 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 
                 if titles == "error"
                 {
-                    self.doDBalertView(titles, msgs: messages)
+//                    self.doDBalertView(titles, msgs: messages)
+                    print("\(titles): \(messages)")
                 }
                 else
                 {
@@ -219,22 +221,57 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
         else if (suggestionsUsers.count == 0 && fromContacts.count == 0)
         {
-            let contact = contacts[indexPath.row] as CNContact
-
-            cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
-            cell.profileProfession.text = contact.jobTitle
-            
-            if contact.imageData != nil
-            {
-                cell.profileImage.image = UIImage(data: contact.imageData!)
-            }
-            else
-            {
-                cell.profileImage.image = nil
-            }
+//            let contact = contacts[indexPath.row] as CNContact
+//
+//            cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
+//            cell.profileProfession.text = contact.jobTitle
+//            
+//            if contact.imageData != nil
+//            {
+//                cell.profileImage.image = UIImage(data: contact.imageData!)
+//            }
+//            else
+//            {
+//                cell.profileImage.image = nil
+//            }
         }
         return cell
     }
+    
+    //MARK:- DZNEmptyDataSetDelegate
+    //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    //    {
+    //        let str = "Welcome"
+    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+    //        return NSAttributedString(string: str, attributes: attrs)
+    //    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    {
+        let str = "No contacts found"
+        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
+        
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    //    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    //        return UIImage(named: "taylor-swift")
+    //    }
+    
+    //    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString!
+    //    {
+    //        let str = "Add Grokkleglob"
+    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleCallout)]
+    //        return NSAttributedString(string: str, attributes: attrs)
+    //    }
+    //
+    //
+    //    func emptyDataSetDidTapButton(scrollView: UIScrollView!)
+    //    {
+    //        let ac = UIAlertController(title: "Button tapped!", message: nil, preferredStyle: .Alert)
+    //        ac.addAction(UIAlertAction(title: "Hurray", style: .Default, handler: nil))
+    //        presentViewController(ac, animated: true, completion: nil)
+    //    }
     
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)

@@ -11,8 +11,9 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import SDWebImage
+import DZNEmptyDataSet
 
-class NewsFeedMyProfile: UIViewController
+class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
     
     @IBOutlet weak var profName: UILabel!
@@ -34,6 +35,7 @@ class NewsFeedMyProfile: UIViewController
     @IBOutlet weak var tableView: UITableView!
     
     var profile = NSMutableDictionary()
+    var tabArray = [String]()
     
     override func viewDidAppear(animated: Bool)
     {
@@ -41,6 +43,8 @@ class NewsFeedMyProfile: UIViewController
         // Do any additional setup after loading the view, typically from a nib.
         
         //        print("in NewsFeedController")
+        
+//        tableView.tableFooterView = UIView()
         
         StartLoader()
         
@@ -59,7 +63,8 @@ class NewsFeedMyProfile: UIViewController
                 
                 if titles == "error"
                 {
-                    self.doDBalertView(titles, msgs: messages)
+//                    self.doDBalertView(titles, msgs: messages)
+                    print("\(titles): \(messages)")
                 }
                 else
                 {
@@ -112,7 +117,63 @@ class NewsFeedMyProfile: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: UITableViewDataSource
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return tabArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell()
+//        let cell = tableView.dequeueReusableCellWithIdentifier(<#identifier#>, forIndexPath: indexPath) as UITableViewCell
+//        configureCell(cell, forRowAtIndexPath: indexPath)
+        return cell
+    }
+    
+  
+    //MARK:- DZNEmptyDataSetDelegate
+//    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+//    {
+//        let str = "Welcome"
+//        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+//        return NSAttributedString(string: str, attributes: attrs)
+//    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    {
+        let str = "You haven't created any polls till now"
+        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
+        
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+//    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+//        return UIImage(named: "taylor-swift")
+//    }
+    
+//    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString!
+//    {
+//        let str = "Add Grokkleglob"
+//        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleCallout)]
+//        return NSAttributedString(string: str, attributes: attrs)
+//    }
+//    
+//    
+//    func emptyDataSetDidTapButton(scrollView: UIScrollView!)
+//    {
+//        let ac = UIAlertController(title: "Button tapped!", message: nil, preferredStyle: .Alert)
+//        ac.addAction(UIAlertAction(title: "Hurray", style: .Default, handler: nil))
+//        presentViewController(ac, animated: true, completion: nil)
+//    }
+    
+    //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
         
