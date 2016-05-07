@@ -12,6 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import SDWebImage
 import DZNEmptyDataSet
+import Spring
 
 extension UIColor
 {
@@ -99,6 +100,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var partViewLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var dropDownView: SpringView!
     
     var profile = NSMutableDictionary()
     
@@ -337,7 +340,19 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     {
 //        print("btton pressed")
 //        sender.setImage("accout options", forState: UIControlState.)
-        picker.hidden ? openPicker() : closePicker()
+//        picker.hidden ? openPicker() : closePicker()
+        if dropDownView.hidden == true
+        {
+            dropDownView.hidden = false
+            dropDownView.animation = "fadeIn"
+            dropDownView.animate()
+        }
+        else
+        {
+            dropDownView.hidden = true
+            dropDownView.animation = "fadeOut"
+            dropDownView.animate()
+        }
     }
     
     @IBAction func selectPolls(sender: UITapGestureRecognizer)
@@ -368,6 +383,27 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         
         tabArray.removeAllObjects()
         fetchparts()
+    }
+    
+    //MARK:- DropDown Actions
+    @IBAction func drpBtnAccount(sender: AnyObject)
+    {
+        print("account")
+    }
+    
+    @IBAction func drpBtnInterests(sender: AnyObject)
+    {
+        print("interests")
+    }
+    
+    @IBAction func drpBtnInvite(sender: AnyObject)
+    {
+        print("invites")
+    }
+    
+    @IBAction func drpBtnSettings(sender: AnyObject)
+    {
+        print("settings")
     }
     
     //MARK:- Custom Functions
