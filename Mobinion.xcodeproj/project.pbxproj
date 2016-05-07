@@ -95,6 +95,10 @@
 		65E312521CD8F69300F784DA /* PopDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3124E1CD8F69300F784DA /* PopDatePicker.swift */; };
 		65E312531CD8F69300F784DA /* PopDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3124F1CD8F69300F784DA /* PopDateViewController.swift */; };
 		65E312541CD8F69300F784DA /* PopDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E312501CD8F69300F784DA /* PopDateViewController.xib */; };
+		65EEC7201CDE384700A2A81E /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EEC71E1CDE384700A2A81E /* ProfileTableViewCell.swift */; };
+		65EEC7211CDE384700A2A81E /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EEC71F1CDE384700A2A81E /* ProfileTableViewCell.xib */; };
+		65EEC7241CDE5C3500A2A81E /* polls_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EEC7221CDE5C3500A2A81E /* polls_TableViewCell.swift */; };
+		65EEC7251CDE5C3500A2A81E /* polls_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EEC7231CDE5C3500A2A81E /* polls_TableViewCell.xib */; };
 		AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2BD2631CAC2B51009C24CD /* ServerRequests.m */; };
 		AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -224,6 +228,10 @@
 		65E3124E1CD8F69300F784DA /* PopDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDatePicker.swift; sourceTree = "<group>"; };
 		65E3124F1CD8F69300F784DA /* PopDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDateViewController.swift; sourceTree = "<group>"; };
 		65E312501CD8F69300F784DA /* PopDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopDateViewController.xib; sourceTree = "<group>"; };
+		65EEC71E1CDE384700A2A81E /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		65EEC71F1CDE384700A2A81E /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		65EEC7221CDE5C3500A2A81E /* polls_TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = polls_TableViewCell.swift; sourceTree = "<group>"; };
+		65EEC7231CDE5C3500A2A81E /* polls_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = polls_TableViewCell.xib; sourceTree = "<group>"; };
 		AC2BD2621CAC2B51009C24CD /* ServerRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequests.h; sourceTree = "<group>"; };
 		AC2BD2631CAC2B51009C24CD /* ServerRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequests.m; sourceTree = "<group>"; };
 		AC2BD2651CAC2FAA009C24CD /* Mobinion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobinion-Prefix.pch"; sourceTree = "<group>"; };
@@ -317,6 +325,10 @@
 				65BAEC501CC9054200CCACA3 /* NewsFeedMyWall.swift */,
 				65BAEC521CC9057600CCACA3 /* NewsFeedCreatePoll.swift */,
 				65BAEC541CC905E200CCACA3 /* NewsFeedMyProfile.swift */,
+				65EEC71E1CDE384700A2A81E /* ProfileTableViewCell.swift */,
+				65EEC71F1CDE384700A2A81E /* ProfileTableViewCell.xib */,
+				65EEC7221CDE5C3500A2A81E /* polls_TableViewCell.swift */,
+				65EEC7231CDE5C3500A2A81E /* polls_TableViewCell.xib */,
 				65D01D7E1CA2B39300A8A478 /* NewsFeedTableViewCell.swift */,
 				65D01D7F1CA2B39300A8A478 /* NewsFeedTableViewCell.xib */,
 				65D01D841CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift */,
@@ -605,6 +617,7 @@
 				653F52511CB1A997001B494C /* Flags.xcassets in Resources */,
 				65D01D971CA431EB00A8A478 /* NewsFeedTableViewCell6.xib in Resources */,
 				65E312041CD8B4F900F784DA /* RobotoCondensed-Light.ttf in Resources */,
+				65EEC7251CDE5C3500A2A81E /* polls_TableViewCell.xib in Resources */,
 				653F527F1CB1B013001B494C /* InfoPlist.strings in Resources */,
 				65D01D8F1CA428E700A8A478 /* NewsFeedTableViewCell4.xib in Resources */,
 				65D01D931CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib in Resources */,
@@ -623,6 +636,7 @@
 				65E312051CD8B4F900F784DA /* RobotoCondensed-LightItalic.ttf in Resources */,
 				650835C91C95779600C6C280 /* Assets.xcassets in Resources */,
 				65E312061CD8B4F900F784DA /* RobotoCondensed-Regular.ttf in Resources */,
+				65EEC7211CDE384700A2A81E /* ProfileTableViewCell.xib in Resources */,
 				65E311F81CD8B4F900F784DA /* Roboto-BoldItalic.ttf in Resources */,
 				65E311F61CD8B4F900F784DA /* Roboto-BlackItalic.ttf in Resources */,
 				65D01D7D1CA2AD6600A8A478 /* FollowTableViewCell.xib in Resources */,
@@ -714,6 +728,7 @@
 				653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */,
 				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
 				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
+				65EEC7201CDE384700A2A81E /* ProfileTableViewCell.swift in Sources */,
 				65BAEC551CC905E200CCACA3 /* NewsFeedMyProfile.swift in Sources */,
 				652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */,
 				65D01D8E1CA428E700A8A478 /* NewsFeedTableViewCell4.swift in Sources */,
@@ -727,6 +742,7 @@
 				65D01D771CA2AB4100A8A478 /* InviteFriends.swift in Sources */,
 				65D01D8A1CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift in Sources */,
 				65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */,
+				65EEC7241CDE5C3500A2A81E /* polls_TableViewCell.swift in Sources */,
 				65E312511CD8F69300F784DA /* DateUtils.swift in Sources */,
 				650835C41C95779600C6C280 /* ViewController.swift in Sources */,
 				652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */,

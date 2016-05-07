@@ -65,6 +65,14 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         
 //        tableView.tableFooterView = UIView()
         
+        tableView.registerClass(ProfileTableViewCell.self, forCellReuseIdentifier: "partstablecell")
+        var nib:UINib = UINib(nibName: "ProfileTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "partstablecell")
+        
+        tableView.registerClass(polls_TableViewCell.self, forCellReuseIdentifier: "pollstablecell")
+        nib = UINib(nibName: "polls_TableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "pollstablecell")
+        
         StartLoader()
         
         getmyAccount()
@@ -150,10 +158,54 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell()
-//        let cell = tableView.dequeueReusableCellWithIdentifier(<#identifier#>, forIndexPath: indexPath) as UITableViewCell
-//        configureCell(cell, forRowAtIndexPath: indexPath)
-        return cell
+        let result = UITableViewCell()
+        
+        if(tabArray[indexPath.row].containsObject("pollType"))
+        {
+//            print("is poll")
+            let cell = tableView.dequeueReusableCellWithIdentifier("pollstablecell") as! polls_TableViewCell
+            
+            cell.expType.text = (tabArray[indexPath.row]["type"] as! String)
+            cell.pollContent.text = (tabArray[indexPath.row]["content"] as! String)
+            cell.pollType.text = (tabArray[indexPath.row]["pollType"] as! String)
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            
+            let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
+            dateFormatter.dateFormat = "dd-MMM-yyyy"
+            
+            cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+            
+            return cell
+        }
+        else if(tabArray[indexPath.row].containsObject("authorName"))
+        {
+//            print("is parts")
+            let cell = tableView.dequeueReusableCellWithIdentifier("partstablecell") as! ProfileTableViewCell
+            
+            // for rounded profile pic
+            cell.authorImage.layer.cornerRadius = cell.authorImage.frame.size.width / 2
+            cell.authorImage.clipsToBounds = true
+            
+            let url = NSURL(string: tabArray[indexPath.row]["authorImage"] as! String)
+            cell.authorImage.sd_setImageWithURL(url!)
+            
+            cell.authorName.text = (tabArray[indexPath.row]["authorName"] as! String)
+            cell.textView.text = (tabArray[indexPath.row]["text"] as! String)
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            
+            let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
+            dateFormatter.dateFormat = "dd-MMM-yyyy"
+            
+            cell.createdDate.text = dateFormatter.stringFromDate(datesString)
+            
+            return cell
+        }
+        
+        return result
     }
     
   
@@ -195,7 +247,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
-        
+        self.tabBarController?.selectedIndex = 2
     }
     
     @IBAction func notifyBtn(sender: AnyObject)
