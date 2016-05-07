@@ -240,8 +240,8 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         
         let URL = "http://vyooha.cloudapp.net:1337/aroundme"
         
-        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": lat, "lon": long], encoding: .JSON)
-//        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": "10.0082783", "lon": "76.3592398"], encoding: .JSON)
+//        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": lat, "lon": long], encoding: .JSON)
+        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": "10.0082783", "lon": "76.3592398"], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {

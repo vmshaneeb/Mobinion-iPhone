@@ -28,9 +28,57 @@ extension UIColor
     {
         self.init(red:(Hex >> 16) & 0xff, green:(Hex >> 8) & 0xff, blue:Hex & 0xff)
     }
+    
+    convenience init(rgba: String)
+    {
+        var red:   CGFloat = 0.0
+        var green: CGFloat = 0.0
+        var blue:  CGFloat = 0.0
+        var alpha: CGFloat = 1.0
+        
+        if rgba.hasPrefix("#")
+        {
+            let index   = rgba.startIndex.advancedBy(1)
+            let hex     = rgba.substringFromIndex(index)
+            let scanner = NSScanner(string: hex)
+            var hexValue: CUnsignedLongLong = 0
+            
+            if scanner.scanHexLongLong(&hexValue)
+            {
+                if hex.characters.count == 6
+                {
+                    red   = CGFloat((hexValue & 0xFF0000) >> 16) / 255.0
+                    green = CGFloat((hexValue & 0x00FF00) >> 8)  / 255.0
+                    blue  = CGFloat(hexValue & 0x0000FF) / 255.0
+                }
+                else if hex.characters.count == 8
+                {
+                    red   = CGFloat((hexValue & 0xFF000000) >> 24) / 255.0
+                    green = CGFloat((hexValue & 0x00FF0000) >> 16) / 255.0
+                    blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
+                    alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
+                }
+                else
+                {
+                    print("invalid rgb string, length should be 7 or 9", terminator: "")
+                }
+            }
+            else
+            {
+                print("scan hex error", terminator: "")
+            }
+        }
+        else
+        {
+            print("invalid rgb string, missing '#' as prefix", terminator: "")
+        }
+        
+        self.init(red:red, green:green, blue:blue, alpha:alpha)
+    }
+
 }
 
-class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
+class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UIPopoverPresentationControllerDelegate
 {
     
     @IBOutlet weak var profName: UILabel!
@@ -56,10 +104,25 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var tabArray = NSMutableArray()
     
+    let picker = UIImageView(image: UIImage(named: "picker"))
+    
+    struct properties
+    {
+        static let moods =
+            [
+                ["title" : "ACCOUNT", "color" : "#151A1D"],
+                ["title" : "MY INTERESTS", "color": "#151A1D"],
+                ["title" : "INVITE FRIENDS", "color" : "#151A1D"],
+                ["title" : "SETTINGS", "color" : "#151A1D"]
+        ]
+    }
+    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
+        
+        createPicker()
         
         //        print("in NewsFeedController")
         
@@ -72,6 +135,9 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.registerClass(polls_TableViewCell.self, forCellReuseIdentifier: "pollstablecell")
         nib = UINib(nibName: "polls_TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "pollstablecell")
+        
+        
+
         
         StartLoader()
         getmyAccount()
@@ -133,6 +199,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         fetchpolls()
+        stopLoader()
+        
         
     }
     
@@ -242,6 +310,12 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
 //        presentViewController(ac, animated: true, completion: nil)
 //    }
     
+    //MARK:- UIPopoverPresentationControllerDelegates
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
+    }
+    
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
@@ -255,7 +329,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func optionsBtn(sender: AnyObject)
     {
-        
+        print("btton pressed")
+        picker.hidden ? openPicker() : closePicker()
     }
     
     @IBAction func selectPolls(sender: UITapGestureRecognizer)
@@ -489,7 +564,58 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             }
         }
     }
+    
+    func createPicker()
+    {
+        picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 200, width: 286, height: 291)
+        picker.alpha = 0
+        picker.hidden = true
+        picker.userInteractionEnabled = true
+        
+        var offset = 21
+        
+        for (index, feeling) in properties.moods.enumerate()
+        {
+            let button = UIButton()
+            button.frame = CGRect(x: 13, y: offset, width: 260, height: 43)
+            button.setTitleColor(UIColor(rgba: feeling["color"]!), forState: .Normal)
+            button.setTitle(feeling["title"], forState: .Normal)
+            button.tag = index
+            
+            picker.addSubview(button)
+            
+            offset += 44
+        }
+        
+        view.addSubview(picker)
+    }
+    
+    
+    func openPicker()
+    {
+        self.picker.hidden = false
+        
+        UIView.animateWithDuration(0.3, animations:
+        {
+            self.picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 230, width: 286, height: 291)
+            self.picker.alpha = 1
+        })
+    }
+    
+    func closePicker()
+    {
+        UIView.animateWithDuration(0.3, animations:
+        {
+            self.picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 200, width: 286, height: 291)
+            self.picker.alpha = 0
+        },
+        completion:
+        { finished in
+            self.picker.hidden = true
+        })
+    }
 
+    
     
     // MARK: - Loader
     func StartLoader()
