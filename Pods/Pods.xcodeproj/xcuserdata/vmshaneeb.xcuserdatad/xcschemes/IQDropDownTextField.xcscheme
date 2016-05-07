@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7ECD6BBC38FB2173E8F34803'
+               BlueprintIdentifier = '723FA93CB12D821E331A4E3A'
                BlueprintName = 'IQDropDownTextField'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'IQDropDownTextField.framework'>

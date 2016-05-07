@@ -10,6 +10,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -22,13 +23,20 @@ DEPENDENCIES:
   - IQKeyboardManager
   - PhoneNumberKit (~> 0.7)
   - SDWebImage (~> 3.7)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
   SwiftyJSON:
     :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -43,6 +51,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
   PhoneNumberKit: ff0be2a7078dda5ef7f3f1264d5e946124304880
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
