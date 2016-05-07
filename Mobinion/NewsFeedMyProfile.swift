@@ -104,7 +104,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var tabArray = NSMutableArray()
     
-    let picker = UIImageView(image: UIImage(named: "picker"))
+    let picker = UIImageView(image: UIImage(named: "blank_image"))
     
     struct properties
     {
@@ -316,6 +316,12 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         return UIModalPresentationStyle.None
     }
     
+    //MARK:- Overrides
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
+        self.picker.hidden = true
+    }
+    
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
@@ -327,9 +333,10 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    @IBAction func optionsBtn(sender: AnyObject)
+    @IBAction func optionsBtn(sender: UIButton)
     {
-        print("btton pressed")
+//        print("btton pressed")
+//        sender.setImage("accout options", forState: UIControlState.)
         picker.hidden ? openPicker() : closePicker()
     }
     
@@ -567,7 +574,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func createPicker()
     {
-        picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 200, width: 286, height: 291)
+        picker.frame = CGRect(x: 212, y: 50, width: 200, height: 200)
         picker.alpha = 0
         picker.hidden = true
         picker.userInteractionEnabled = true
@@ -577,10 +584,13 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         for (index, feeling) in properties.moods.enumerate()
         {
             let button = UIButton()
-            button.frame = CGRect(x: 13, y: offset, width: 260, height: 43)
+            button.frame = CGRect(x: 13, y: offset, width: 170, height: 43)
             button.setTitleColor(UIColor(rgba: feeling["color"]!), forState: .Normal)
             button.setTitle(feeling["title"], forState: .Normal)
+            button.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 18)
             button.tag = index
+            
+            button.addTarget(self, action: #selector(NewsFeedMyProfile.DropdownPressed(_:)), forControlEvents: .TouchUpInside)
             
             picker.addSubview(button)
             
@@ -597,7 +607,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         
         UIView.animateWithDuration(0.3, animations:
         {
-            self.picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 230, width: 286, height: 291)
+            self.picker.frame = CGRect(x: 212, y: 50, width: 200, height: 200)
             self.picker.alpha = 1
         })
     }
@@ -606,13 +616,31 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     {
         UIView.animateWithDuration(0.3, animations:
         {
-            self.picker.frame = CGRect(x: ((self.view.frame.width / 2) - 143), y: 200, width: 286, height: 291)
+            self.picker.frame = CGRect(x: 212, y: 50, width: 200, height: 200)
             self.picker.alpha = 0
         },
         completion:
         { finished in
             self.picker.hidden = true
         })
+    }
+    
+    func DropdownPressed(sender: UIButton)
+    {
+//        print(sender.tag)
+        switch sender.tag
+        {
+            case 0: //Account Btn
+                break
+            case 1: //Interests Btn
+                break
+            case 2: //Invite Btn
+                break
+            case 3: //Settings Btn
+                break
+            default:
+                break
+        }
     }
 
     

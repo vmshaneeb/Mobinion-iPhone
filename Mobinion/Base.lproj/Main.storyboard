@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hu0-Xc-Vos">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LgZ-Qz-gjP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -2274,7 +2274,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="264"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-Rf-TbV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-Rf-TbV">
                                 <rect key="frame" x="0.0" y="336" width="600" height="215"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -2476,6 +2476,8 @@
                                                     <state key="normal" image="accout options expanded">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <state key="selected" image="accout options"/>
+                                                    <state key="highlighted" image="accout options"/>
                                                     <connections>
                                                         <action selector="optionsBtn:" destination="LgZ-Qz-gjP" eventType="touchUpInside" id="Qgc-t6-mEQ"/>
                                                     </connections>
@@ -2571,7 +2573,7 @@
                                     <constraint firstItem="dob-FA-tgh" firstAttribute="centerY" secondItem="sm1-1B-TEC" secondAttribute="centerY" constant="14" id="yJH-ef-cWl"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zX-cu-7Mo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zX-cu-7Mo">
                                 <rect key="frame" x="0.0" y="305" width="600" height="246"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -2738,6 +2740,7 @@
         <image name="Vine" width="128" height="128"/>
         <image name="WhatsApp" width="295" height="295"/>
         <image name="YouTube" width="512" height="360"/>
+        <image name="accout options" width="32" height="32"/>
         <image name="accout options expanded" width="32" height="32"/>
         <image name="addPhoto2" width="78" height="78"/>
         <image name="back arrow" width="32" height="32"/>
