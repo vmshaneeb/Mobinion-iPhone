@@ -20,7 +20,7 @@ class NewsFeedCreatePoll: UIViewController
         
         //        print("in NewsFeedController")
         
-        StartLoader()
+//        StartLoader()
         
 //        sendCreatePoll()
 //        { value, error in

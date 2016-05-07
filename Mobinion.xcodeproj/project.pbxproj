@@ -99,6 +99,8 @@
 		65EEC7211CDE384700A2A81E /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EEC71F1CDE384700A2A81E /* ProfileTableViewCell.xib */; };
 		65EEC7241CDE5C3500A2A81E /* polls_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EEC7221CDE5C3500A2A81E /* polls_TableViewCell.swift */; };
 		65EEC7251CDE5C3500A2A81E /* polls_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EEC7231CDE5C3500A2A81E /* polls_TableViewCell.xib */; };
+		65EEC7281CDE68BA00A2A81E /* AroundMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EEC7261CDE68BA00A2A81E /* AroundMeTableViewCell.swift */; };
+		65EEC7291CDE68BA00A2A81E /* AroundMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EEC7271CDE68BA00A2A81E /* AroundMeTableViewCell.xib */; };
 		AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2BD2631CAC2B51009C24CD /* ServerRequests.m */; };
 		AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -232,6 +234,8 @@
 		65EEC71F1CDE384700A2A81E /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		65EEC7221CDE5C3500A2A81E /* polls_TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = polls_TableViewCell.swift; sourceTree = "<group>"; };
 		65EEC7231CDE5C3500A2A81E /* polls_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = polls_TableViewCell.xib; sourceTree = "<group>"; };
+		65EEC7261CDE68BA00A2A81E /* AroundMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AroundMeTableViewCell.swift; sourceTree = "<group>"; };
+		65EEC7271CDE68BA00A2A81E /* AroundMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AroundMeTableViewCell.xib; sourceTree = "<group>"; };
 		AC2BD2621CAC2B51009C24CD /* ServerRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequests.h; sourceTree = "<group>"; };
 		AC2BD2631CAC2B51009C24CD /* ServerRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerRequests.m; sourceTree = "<group>"; };
 		AC2BD2651CAC2FAA009C24CD /* Mobinion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobinion-Prefix.pch"; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				65D01D781CA2ABAE00A8A478 /* NewsFeed.swift */,
 				65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */,
 				65BAEC4C1CC8F87200CCACA3 /* NewsFeedAroundMe.swift */,
+				65EEC7261CDE68BA00A2A81E /* AroundMeTableViewCell.swift */,
+				65EEC7271CDE68BA00A2A81E /* AroundMeTableViewCell.xib */,
 				65BAEC4E1CC9050300CCACA3 /* NewsFeedQR.swift */,
 				657F5B171CD2E9C400A1C3FF /* ManualCode.swift */,
 				65BAEC501CC9054200CCACA3 /* NewsFeedMyWall.swift */,
@@ -608,6 +614,7 @@
 			files = (
 				65D01D8B1CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib in Resources */,
 				653F52801CB1B013001B494C /* libPhoneNumber-Info.plist in Resources */,
+				65EEC7291CDE68BA00A2A81E /* AroundMeTableViewCell.xib in Resources */,
 				65E311F71CD8B4F900F784DA /* Roboto-Bold.ttf in Resources */,
 				650835CC1C95779600C6C280 /* LaunchScreen.storyboard in Resources */,
 				65E312021CD8B4F900F784DA /* RobotoCondensed-BoldItalic.ttf in Resources */,
@@ -721,6 +728,7 @@
 			files = (
 				653F528D1CB1B013001B494C /* NBPhoneNumberDesc.m in Sources */,
 				65BAEC511CC9054200CCACA3 /* NewsFeedMyWall.swift in Sources */,
+				65EEC7281CDE68BA00A2A81E /* AroundMeTableViewCell.swift in Sources */,
 				653F52871CB1B013001B494C /* NBMetadataHelper.m in Sources */,
 				65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */,
 				65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */,

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aroundmecell" rowHeight="71" id="KGk-i7-Jjw" customClass="AroundMeTableViewCell" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile-avatar" translatesAutoresizingMaskIntoConstraints="NO" id="CiP-lJ-5Qz">
+                        <rect key="frame" x="8" y="11" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="CiP-lJ-5Qz" secondAttribute="height" multiplier="1:1" id="gM8-qo-jxN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-F0-IOg">
+                        <rect key="frame" x="61" y="11" width="502" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="rtk-sq-AYV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Re-eP-CcH">
+                        <rect key="frame" x="61" y="40" width="502" height="21"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contest-new" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-KQ-ZSu">
+                        <rect key="frame" x="566" y="21" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Agx-KQ-ZSu" secondAttribute="height" multiplier="1:1" id="mag-LZ-8Zk"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1PQ-F0-IOg" firstAttribute="leading" secondItem="5Re-eP-CcH" secondAttribute="leading" id="1ce-0k-6yg"/>
+                    <constraint firstItem="1PQ-F0-IOg" firstAttribute="leading" secondItem="CiP-lJ-5Qz" secondAttribute="trailing" constant="8" symbolic="YES" id="2vl-x5-zCP"/>
+                    <constraint firstItem="CiP-lJ-5Qz" firstAttribute="centerY" secondItem="Agx-KQ-ZSu" secondAttribute="centerY" id="3Nh-ne-Q7w"/>
+                    <constraint firstItem="1PQ-F0-IOg" firstAttribute="trailing" secondItem="5Re-eP-CcH" secondAttribute="trailing" id="9gw-4c-v1P"/>
+                    <constraint firstItem="CiP-lJ-5Qz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="JZ9-fD-YD5"/>
+                    <constraint firstItem="CiP-lJ-5Qz" firstAttribute="top" secondItem="1PQ-F0-IOg" secondAttribute="top" id="JiC-87-4JD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5Re-eP-CcH" secondAttribute="bottom" constant="2" id="brW-J0-XeZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CiP-lJ-5Qz" secondAttribute="bottom" constant="7" id="dAj-ge-uTf"/>
+                    <constraint firstItem="Agx-KQ-ZSu" firstAttribute="leading" secondItem="1PQ-F0-IOg" secondAttribute="trailing" constant="3" id="eXu-td-za6"/>
+                    <constraint firstItem="CiP-lJ-5Qz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mle-rP-ZYX"/>
+                    <constraint firstItem="5Re-eP-CcH" firstAttribute="top" secondItem="1PQ-F0-IOg" secondAttribute="bottom" constant="8" symbolic="YES" id="o6F-wL-Kyr"/>
+                    <constraint firstItem="Agx-KQ-ZSu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="sQG-yY-bfc"/>
+                    <constraint firstItem="Agx-KQ-ZSu" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="wne-xz-Nkd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contest_Image" destination="Agx-KQ-ZSu" id="i7I-pX-Rhu"/>
+                <outlet property="itemImage" destination="CiP-lJ-5Qz" id="yHd-Ba-Qlo"/>
+                <outlet property="nameLabel" destination="5Re-eP-CcH" id="OVg-6i-6IA"/>
+                <outlet property="titleLabel" destination="1PQ-F0-IOg" id="XTj-3o-lWw"/>
+            </connections>
+            <point key="canvasLocation" x="326" y="360.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Profile-avatar" width="82" height="82"/>
+        <image name="contest-new" width="32" height="32"/>
+    </resources>
+</document>

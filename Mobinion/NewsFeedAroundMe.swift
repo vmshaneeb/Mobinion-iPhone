@@ -33,6 +33,10 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         
         //        print("in NewsFeedController")
         
+        tableView.registerClass(AroundMeTableViewCell.self, forCellReuseIdentifier: "aroundmecell")
+        let nib:UINib = UINib(nibName: "AroundMeTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "aroundmecell")
+        
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         
@@ -135,9 +139,35 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell()
-//        let cell = tableView.dequeueReusableCellWithIdentifier(<#identifier#>, forIndexPath: indexPath) as UITableViewCell
-//        configureCell(cell, forRowAtIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("aroundmecell") as! AroundMeTableViewCell
+        
+        cell.titleLabel.text = (aroundMe[indexPath.row]["title"] as! String)
+        cell.nameLabel.text = (aroundMe[indexPath.row]["name"] as! String)
+        
+        // for rounded profile pic
+        cell.itemImage.layer.cornerRadius = cell.itemImage.frame.size.width / 2
+        cell.itemImage.clipsToBounds = true
+        
+        let url = NSURL(string: aroundMe[indexPath.row]["image"] as! String)
+        cell.itemImage.sd_setImageWithURL(url!)
+        
+        let type = (aroundMe[indexPath.row]["subType"] as! String)
+        var imgName = ""
+        
+        switch type
+        {
+            case "contest":
+                imgName = "contest-new"
+            case "poll":
+                imgName = "poll-new"
+            case "voting":
+                imgName = "voting-new"
+            default:
+                imgName = "poll-new"
+        }
+        
+        cell.contest_Image.image = UIImage(named: imgName)
+        
         return cell
     }
     
@@ -211,6 +241,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         let URL = "http://vyooha.cloudapp.net:1337/aroundme"
         
         Alamofire.request(.POST, URL, headers: header, parameters: ["lat": lat, "lon": long], encoding: .JSON)
+//        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": "10.0082783", "lon": "76.3592398"], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {

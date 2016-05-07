@@ -74,7 +74,6 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.registerNib(nib, forCellReuseIdentifier: "pollstablecell")
         
         StartLoader()
-        
         getmyAccount()
         { value, data, error in
                 
@@ -132,7 +131,6 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
         }
-        
         
         fetchpolls()
         
