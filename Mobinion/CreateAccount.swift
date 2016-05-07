@@ -459,8 +459,8 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
         let URL = "http://vyooha.cloudapp.net:1337/createAccount"
         
-        Alamofire.request(.POST, URL, parameters: ["name": usrName.text!,
-                                                   "username": usrFullname.text!,
+        Alamofire.request(.POST, URL, parameters: ["name": usrFullname.text!,
+                                                   "username": usrName.text!,
                                                    "zipCode": zipCode.text!,
                                                    "dob": dobField.selectedItem!], headers: header, encoding: .JSON)
             .responseJSON { response in

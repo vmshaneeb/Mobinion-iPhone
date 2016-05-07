@@ -16,8 +16,6 @@
             <string>Roboto-Bold</string>
             <string>Roboto-Bold</string>
             <string>Roboto-Bold</string>
-            <string>Roboto-Bold</string>
-            <string>Roboto-Bold</string>
         </mutableArray>
         <mutableArray key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
@@ -52,8 +50,10 @@
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -2584,28 +2584,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R8-hz-RXC">
                                 <rect key="frame" x="0.0" y="246" width="300" height="59"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Polls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dx-Mx-ABq">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Polls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dx-Mx-ABq">
                                         <rect key="frame" x="117" y="19" width="66" height="20"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.76581738990000003" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" red="0.058823529411764705" green="0.76078431372549016" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="RuR-lk-mqx" appends="YES" id="8tF-u7-wah"/>
+                                        </connections>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.87582435998505237" green="0.97147768904724119" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="4dx-Mx-ABq" firstAttribute="centerY" secondItem="3R8-hz-RXC" secondAttribute="centerY" id="HRb-z3-SxH"/>
                                     <constraint firstItem="4dx-Mx-ABq" firstAttribute="centerX" secondItem="3R8-hz-RXC" secondAttribute="centerX" id="UYE-vG-Hrk"/>
                                     <constraint firstItem="4dx-Mx-ABq" firstAttribute="top" secondItem="3R8-hz-RXC" secondAttribute="top" constant="19" id="thh-Da-MG7"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RuR-lk-mqx" appends="YES" id="wzv-TU-wpY"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPw-qZ-mlw">
                                 <rect key="frame" x="300" y="246" width="300" height="59"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Participations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqK-mw-bfu">
-                                        <rect key="frame" x="83" y="19" width="135" height="20"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.76581738990000003" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Participations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqK-mw-bfu">
+                                        <rect key="frame" x="84" y="19" width="133" height="20"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ZNu-Hb-DgP" appends="YES" id="j5W-jB-njb"/>
+                                        </connections>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87582435999999997" green="0.97147768899999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2613,6 +2622,9 @@
                                     <constraint firstItem="gqK-mw-bfu" firstAttribute="centerY" secondItem="OPw-qZ-mlw" secondAttribute="centerY" id="WEc-5P-B43"/>
                                     <constraint firstItem="gqK-mw-bfu" firstAttribute="centerX" secondItem="OPw-qZ-mlw" secondAttribute="centerX" id="o4m-pf-sta"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZNu-Hb-DgP" appends="YES" id="5aY-vX-AZC"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2671,6 +2683,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xI-P5-f8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RuR-lk-mqx">
+                    <connections>
+                        <action selector="selectPolls:" destination="LgZ-Qz-gjP" id="n07-nK-XLh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ZNu-Hb-DgP">
+                    <connections>
+                        <action selector="selectPart:" destination="LgZ-Qz-gjP" id="Ucz-sy-EFR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5927" y="-355"/>
         </scene>

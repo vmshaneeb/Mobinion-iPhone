@@ -13,6 +13,23 @@ import DBAlertController
 import SDWebImage
 import DZNEmptyDataSet
 
+extension UIColor
+{
+    convenience init(red: Int, green: Int, blue: Int)
+    {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(Hex:Int)
+    {
+        self.init(red:(Hex >> 16) & 0xff, green:(Hex >> 8) & 0xff, blue:Hex & 0xff)
+    }
+}
+
 class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
     
@@ -26,6 +43,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var followerLabel: UILabel!
     
     @IBOutlet weak var topView: UIView!
+    
     @IBOutlet weak var pollView: UIView!
     @IBOutlet weak var pollViewLabel: UILabel!
     
@@ -35,7 +53,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     
     var profile = NSMutableDictionary()
-    var tabArray = [String]()
+    
+    var tabArray = NSMutableArray()
     
     override func viewDidAppear(animated: Bool)
     {
@@ -96,8 +115,6 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                     {
                         print("error in responseObject")
                     }
-                    self.tableView.reloadData()
-
                 }
             }
             else
@@ -108,6 +125,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             }
         }
         
+        
+        fetchpolls()
         
     }
     
@@ -189,6 +208,36 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    @IBAction func selectPolls(sender: UITapGestureRecognizer)
+    {
+//        print("Polls selected!!!")
+        partViewLabel.textColor = UIColor.blackColor()
+        partViewLabel.font = UIFont(name: "Roboto-Regular", size: 17)
+        partView.backgroundColor = UIColor(Hex: 0xDFF8FF)
+        
+        pollView.backgroundColor = UIColor.whiteColor()
+        pollViewLabel.textColor = UIColor(Hex: 0x0FC2C4)
+        pollViewLabel.font = UIFont(name: "Roboto-Medium", size: 17)
+        
+        tabArray.removeAllObjects()
+        fetchpolls()
+    }
+    
+    @IBAction func selectPart(sender: UITapGestureRecognizer)
+    {
+//        print("Particiations selected!!!")
+        pollViewLabel.textColor = UIColor.blackColor()
+        pollViewLabel.font = UIFont(name: "Roboto-Regular", size: 17)
+        pollView.backgroundColor = UIColor(Hex: 0xDFF8FF)
+        
+        partView.backgroundColor = UIColor.whiteColor()
+        partViewLabel.textColor = UIColor(Hex: 0x0FC2C4)
+        partViewLabel.font = UIFont(name: "Roboto-Medium", size: 17)
+        
+        tabArray.removeAllObjects()
+        fetchparts()
+    }
+    
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
@@ -238,6 +287,159 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                 }
         }
     }
+    
+    func getmyPolls(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/myPolls"
+        
+        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, nil, error)
+                }
+        }
+    }
+
+    
+    func getmyParts(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/myParticipations"
+        
+        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, nil, error)
+                }
+        }
+    }
+    
+    func fetchpolls()
+    {
+        StartLoader()
+        getmyPolls()
+        { value, data, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    //                    self.doDBalertView(titles, msgs: messages)
+                    print("\(titles): \(messages)")
+                }
+                else
+                {
+                    do
+                    {
+//                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
+//                        
+//                        self.tabArray = responseObject.objectForKey("data")?.mutableCopy() as! NSMutableArray
+                        
+                        
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        
+                        self.tabArray = responseObject["data"]!["polls"]!!.mutableCopy() as! NSMutableArray
+                        print(self.tabArray)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    self.tableView.reloadData()
+                    
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
+    }
+
+    func fetchparts()
+    {
+        StartLoader()
+        getmyParts()
+        { value, data, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    //                    self.doDBalertView(titles, msgs: messages)
+                    print("\(titles): \(messages)")
+                }
+                else
+                {
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        
+                        self.tabArray = responseObject["data"]!["participations"]!!.mutableCopy() as! NSMutableArray
+                        print(self.tabArray)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    self.tableView.reloadData()
+                    
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
+    }
+
     
     // MARK: - Loader
     func StartLoader()
