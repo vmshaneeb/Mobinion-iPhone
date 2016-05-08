@@ -23,6 +23,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
 
     var contacts = [CNContact]()
     var nos = [String]()
+    var userIDs = [String]()
     
     var suggestionsUsers = NSMutableArray()
     var fromContacts = NSMutableArray()
@@ -120,16 +121,16 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                         print("error in responseObject")
                     }
                     
-                    do
-                    {
-                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
-                        self.fromContacts = responseObject["data"]!["fromContacts"]!!.mutableCopy() as! NSMutableArray
-                        print (self.fromContacts)
-                    }
-                    catch
-                    {
-                        print("error in responseObject")
-                    }
+//                    do
+//                    {
+//                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+//                        self.fromContacts = responseObject["data"]!["fromContacts"]!!.mutableCopy() as! NSMutableArray
+//                        print (self.fromContacts)
+//                    }
+//                    catch
+//                    {
+//                        print("error in responseObject")
+//                    }
                     
                     self.tableView.reloadData()
                 }
@@ -161,14 +162,11 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     //MARK:- UITableViewDelegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-//        return 1
-//        return sections.count
         return allUsers.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-//        return contacts.count
         let Str:NSString = allUsers.allKeys[section] as! NSString
 //        print(allUsers.objectForKey(Str)?.count)
         return (allUsers.objectForKey(Str)?.count)!
@@ -204,11 +202,16 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         if header.containsString("suggestionsUsers")
         {
-            cell.titleLabel.text = "Suggestions from your Interests"
+            cell.titleLabel.text = "Suggestions Based On Your Interests"
+            cell.followAllBtn.hidden = true
         }
         else if header.containsString("fromContacts")
         {
             cell.titleLabel.text = "From your Contacts"
+            
+            cell.followAllBtn.hidden = false
+            cell.followAllBtn.tag = section
+            cell.followAllBtn.addTarget(self, action: #selector(followAllBtnAPI(_:)), forControlEvents: .TouchUpInside)
         }
         else
         {
@@ -218,8 +221,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         return cell
     }
     
-//    func  table
-    //-(UITableViewCell *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! FollowTableViewCell
@@ -245,100 +246,15 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             
         cell.followBtn.tag = indexPath.row
         cell.followBtn.titleLabel?.tag = indexPath.section
-        cell.followBtn.addTarget(self, action: #selector(followBTNAPI(_:)), forControlEvents: .TouchUpInside)
+        cell.followBtn.addTarget(self, action: #selector(followBtnAPI(_:)), forControlEvents: .TouchUpInside)
         
-//              [allUsers.allKeys[indexPath.section].!)//("%@", )
-//        cell.profileName.text = (allUsers[allUsers.allKeys[indexPath.section] as! String]![indexPath.row]!!["name"] as! String)
-//        cell.profileProfession.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["bio"] as! String)
-//        cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers["suggestionsUsers"]![indexPath.row]!["profPic"] as! String))
-        
-//        if (!(allUsers[indexPath.row]["name"]!!.isEqualToString("")))
-//        {
-//        if indexPath.section == all
-//        {
-//            cell.profileName.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["name"] as! String)
-////        }
-//        
-////        if (!(suggestionsUsers[indexPath.row]["bio"]!!.isEqualToString("")))
-////        {
-//            cell.profileProfession.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["bio"] as! String)
-////        }
-//        
-////        if (!(suggestionsUsers[indexPath.row]["profPic"]!!.isEqualToString("")))
-////        {
-//            cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers["suggestionsUsers"]![indexPath.row]!["profPic"] as! String))
-////        }
-////        else
-////        {
-////            cell.profileImage.image = nil
-////        }
-//        }
-//        else
-//        {
-////            if (!(fromContacts[indexPath.row]["name"]!!.isEqualToString("")))
-//            //            {
-//                            cell.profileName.text = (allUsers["fromContacts"][indexPath.row]["name"] as! String)
-//            //            }
-//            //
-//            //            if (!(fromContacts[indexPath.row]["bio"]!!.isEqualToString("")))
-//            //            {
-//                            cell.profileProfession.text = (allUsers[indexPath.row]["bio"] as! String)
-//            //            }
-//            //
-//            //            if (!(fromContacts[indexPath.row]["profPic"]!!.isEqualToString("")))
-//            //            {
-//                            cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers[indexPath.row]["profPic"] as! String))
-//            //            }
-//            //            else
-//            //            {
-//            //                cell.profileImage.image = nil
-//            //            }
-//
-//            
-//        }
-        
-//        if (suggestionsUsers.count != 0)
-//        {
-//            if (!(suggestionsUsers[indexPath.row]["name"]!!.isEqualToString("")))
-//            {
-//                cell.profileName.text = (suggestionsUsers[indexPath.row]["name"] as! String)
-//            }
-//            
-//            if (!(suggestionsUsers[indexPath.row]["bio"]!!.isEqualToString("")))
-//            {
-//                cell.profileProfession.text = (suggestionsUsers[indexPath.row]["bio"] as! String)
-//            }
-//            
-//            if (!(suggestionsUsers[indexPath.row]["profPic"]!!.isEqualToString("")))
-//            {
-//                cell.profileImage.sd_setImageWithURL(NSURL(string: suggestionsUsers[indexPath.row]["profPic"] as! String))
-//            }
-//            else
-//            {
-//                cell.profileImage.image = nil
-//            }
-//        }
-//        else if (fromContacts.count != 0)
-//        {
-//            if (!(fromContacts[indexPath.row]["name"]!!.isEqualToString("")))
-//            {
-//                cell.profileName.text = (fromContacts[indexPath.row]["name"] as! String)
-//            }
-//            
-//            if (!(fromContacts[indexPath.row]["bio"]!!.isEqualToString("")))
-//            {
-//                cell.profileProfession.text = (fromContacts[indexPath.row]["bio"] as! String)
-//            }
-//            
-//            if (!(fromContacts[indexPath.row]["profPic"]!!.isEqualToString("")))
-//            {
-//                cell.profileImage.sd_setImageWithURL(NSURL(string: fromContacts[indexPath.row]["profPic"] as! String))
-//            }
-//            else
-//            {
-//                cell.profileImage.image = nil
-//            }
-//        }
+        if (indexPath.section == 1)
+        {
+            if (!((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("id"))!.isKindOfClass(NSNull)))
+            {
+                userIDs.append((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("id") as! String))
+            }
+        }
 //        else if (suggestionsUsers.count == 0 && fromContacts.count == 0)
 //        {
 ////            let contact = contacts[indexPath.row] as CNContact
@@ -538,7 +454,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
 
     }
     
-    func followBTNAPI(sender: UIButton)
+    func followBtnAPI(sender: UIButton)
     {
 //        print(sender.tag)
 //        print(sender.titleLabel?.tag)
@@ -601,6 +517,35 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
 
 //        allUsers
+    }
+    
+    func followAllBtnAPI(sender: UIButton)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/followAll"
+        
+        let parameter = ["followUsers": userIDs]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        let json = JSON(value)
+                        print(json)
+                    }
+                    
+                case .Failure(let error):
+                    print(error)
+                }
+        }
     }
 
     // MARK: - Loader
