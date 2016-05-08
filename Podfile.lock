@@ -13,6 +13,7 @@ PODS:
   - SDWebImage/Core (3.7.5)
   - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
+  - TextAttributes (0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - TextAttributes
 
 EXTERNAL SOURCES:
   Spring:
@@ -56,5 +58,6 @@ SPEC CHECKSUMS:
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TextAttributes: 34f7560fad65c8fede4edd3a7c0ca444971226fd
 
 COCOAPODS: 0.39.0
