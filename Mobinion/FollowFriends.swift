@@ -26,6 +26,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     var suggestionsUsers = NSMutableArray()
     var fromContacts = NSMutableArray()
+    var allUsers = NSMutableDictionary()
     
     var sections = [String]()
     
@@ -105,9 +106,11 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 {
                     do
                     {
-                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
-                        self.suggestionsUsers = responseObject["data"]!["suggestionsUsers"]!!.mutableCopy() as! NSMutableArray
-                        print (self.suggestionsUsers)
+//                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+//                        self.suggestionsUsers = responseObject["data"]!["suggestionsUsers"]!!.mutableCopy() as! NSMutableArray
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
+                        self.allUsers = responseObject.objectForKey("data")?.mutableCopy() as! NSMutableDictionary
+//                        print (self.suggestionsUsers)
                     }
                     catch
                     {
@@ -156,85 +159,179 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
 //        return 1
-        return sections.count
+//        return sections.count
+        return allUsers.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return contacts.count
+//        return contacts.count
+        let Str:NSString = allUsers.allKeys[section] as! NSString
+//        print(allUsers.objectForKey(Str)?.count)
+        return (allUsers.objectForKey(Str)?.count)!
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-        if (suggestionsUsers.count == 0 && fromContacts.count == 0)
+//        print(allUsers.allKeys[section] as! String)
+        
+        let header = allUsers.allKeys[section] as! String
+        
+        if header.containsString("suggestionsUsers")
         {
-            return sections[1]
+            return "Suggestions Based On your Interests"
         }
-        return sections[section]
+        else if header.containsString("fromContacts")
+        {
+            return "From your Contacts"
+        }
+        else
+        {
+            return ""
+        }
+//        return (allUsers.allKeys[section] as! String)//sections[section]
     }
     
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+//    {
+//        
+//    }
+    
+//    func  table
+    //-(UITableViewCell *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! FollowTableViewCell
         
-        if (suggestionsUsers.count != 0)
+//        print(allUsers.allKeys[indexPath.section])
+        let Str = allUsers.allKeys[indexPath.section] as! String
+        print(allUsers.objectForKey(Str) as! NSArray)
+        
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("name"))!.isKindOfClass(NSNull)))
         {
-            if (!(suggestionsUsers[indexPath.row]["name"]!!.isEqualToString("")))
-            {
-                cell.profileName.text = (suggestionsUsers[indexPath.row]["name"] as! String)
-            }
-            
-            if (!(suggestionsUsers[indexPath.row]["bio"]!!.isEqualToString("")))
-            {
-                cell.profileProfession.text = (suggestionsUsers[indexPath.row]["bio"] as! String)
-            }
-            
-            if (!(suggestionsUsers[indexPath.row]["profPic"]!!.isEqualToString("")))
-            {
-                cell.profileImage.sd_setImageWithURL(NSURL(string: suggestionsUsers[indexPath.row]["profPic"] as! String))
-            }
-            else
-            {
-                cell.profileImage.image = nil
-            }
+            cell.profileName.text = (allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("name") as! String)
         }
-        else if (fromContacts.count != 0)
+        
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("bio"))!.isKindOfClass(NSNull)))
         {
-            if (!(fromContacts[indexPath.row]["name"]!!.isEqualToString("")))
-            {
-                cell.profileName.text = (fromContacts[indexPath.row]["name"] as! String)
-            }
-            
-            if (!(fromContacts[indexPath.row]["bio"]!!.isEqualToString("")))
-            {
-                cell.profileProfession.text = (fromContacts[indexPath.row]["bio"] as! String)
-            }
-            
-            if (!(fromContacts[indexPath.row]["profPic"]!!.isEqualToString("")))
-            {
-                cell.profileImage.sd_setImageWithURL(NSURL(string: fromContacts[indexPath.row]["profPic"] as! String))
-            }
-            else
-            {
-                cell.profileImage.image = nil
-            }
+            cell.profileProfession.text = (allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("bio") as! String)
         }
-        else if (suggestionsUsers.count == 0 && fromContacts.count == 0)
+        
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("profPic"))!.isKindOfClass(NSNull)))
         {
-//            let contact = contacts[indexPath.row] as CNContact
+            cell.profileImage.sd_setImageWithURL(NSURL(string: (allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("profPic") as! String)))
+        }
+            
+        cell.followBtn.tag=indexPath.row
+//        cell.followBtn.addTarget(self, action: #selector(followBTNAPI(cell.followBtn, section: indexPath.section)), forControlEvents: .TouchUpInside )
+//            [allUsers.allKeys[indexPath.section].!)//("%@", )
+//        cell.profileName.text = (allUsers[allUsers.allKeys[indexPath.section] as! String]![indexPath.row]!!["name"] as! String)
+//        cell.profileProfession.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["bio"] as! String)
+//        cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers["suggestionsUsers"]![indexPath.row]!["profPic"] as! String))
+        
+//        if (!(allUsers[indexPath.row]["name"]!!.isEqualToString("")))
+//        {
+//        if indexPath.section == all
+//        {
+//            cell.profileName.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["name"] as! String)
+////        }
+//        
+////        if (!(suggestionsUsers[indexPath.row]["bio"]!!.isEqualToString("")))
+////        {
+//            cell.profileProfession.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["bio"] as! String)
+////        }
+//        
+////        if (!(suggestionsUsers[indexPath.row]["profPic"]!!.isEqualToString("")))
+////        {
+//            cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers["suggestionsUsers"]![indexPath.row]!["profPic"] as! String))
+////        }
+////        else
+////        {
+////            cell.profileImage.image = nil
+////        }
+//        }
+//        else
+//        {
+////            if (!(fromContacts[indexPath.row]["name"]!!.isEqualToString("")))
+//            //            {
+//                            cell.profileName.text = (allUsers["fromContacts"][indexPath.row]["name"] as! String)
+//            //            }
+//            //
+//            //            if (!(fromContacts[indexPath.row]["bio"]!!.isEqualToString("")))
+//            //            {
+//                            cell.profileProfession.text = (allUsers[indexPath.row]["bio"] as! String)
+//            //            }
+//            //
+//            //            if (!(fromContacts[indexPath.row]["profPic"]!!.isEqualToString("")))
+//            //            {
+//                            cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers[indexPath.row]["profPic"] as! String))
+//            //            }
+//            //            else
+//            //            {
+//            //                cell.profileImage.image = nil
+//            //            }
 //
-//            cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
-//            cell.profileProfession.text = contact.jobTitle
 //            
-//            if contact.imageData != nil
+//        }
+        
+//        if (suggestionsUsers.count != 0)
+//        {
+//            if (!(suggestionsUsers[indexPath.row]["name"]!!.isEqualToString("")))
 //            {
-//                cell.profileImage.image = UIImage(data: contact.imageData!)
+//                cell.profileName.text = (suggestionsUsers[indexPath.row]["name"] as! String)
+//            }
+//            
+//            if (!(suggestionsUsers[indexPath.row]["bio"]!!.isEqualToString("")))
+//            {
+//                cell.profileProfession.text = (suggestionsUsers[indexPath.row]["bio"] as! String)
+//            }
+//            
+//            if (!(suggestionsUsers[indexPath.row]["profPic"]!!.isEqualToString("")))
+//            {
+//                cell.profileImage.sd_setImageWithURL(NSURL(string: suggestionsUsers[indexPath.row]["profPic"] as! String))
 //            }
 //            else
 //            {
 //                cell.profileImage.image = nil
 //            }
-        }
+//        }
+//        else if (fromContacts.count != 0)
+//        {
+//            if (!(fromContacts[indexPath.row]["name"]!!.isEqualToString("")))
+//            {
+//                cell.profileName.text = (fromContacts[indexPath.row]["name"] as! String)
+//            }
+//            
+//            if (!(fromContacts[indexPath.row]["bio"]!!.isEqualToString("")))
+//            {
+//                cell.profileProfession.text = (fromContacts[indexPath.row]["bio"] as! String)
+//            }
+//            
+//            if (!(fromContacts[indexPath.row]["profPic"]!!.isEqualToString("")))
+//            {
+//                cell.profileImage.sd_setImageWithURL(NSURL(string: fromContacts[indexPath.row]["profPic"] as! String))
+//            }
+//            else
+//            {
+//                cell.profileImage.image = nil
+//            }
+//        }
+//        else if (suggestionsUsers.count == 0 && fromContacts.count == 0)
+//        {
+////            let contact = contacts[indexPath.row] as CNContact
+////
+////            cell.profileName.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
+////            cell.profileProfession.text = contact.jobTitle
+////            
+////            if contact.imageData != nil
+////            {
+////                cell.profileImage.image = UIImage(data: contact.imageData!)
+////            }
+////            else
+////            {
+////                cell.profileImage.image = nil
+////            }
+//        }
         return cell
     }
     
@@ -386,6 +483,12 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                         completionHandler(nil, nil, error)
                 }
         }
+    }
+    
+    func followBTNAPI(sender: UIButton, section: Int)
+    {
+        print(sender.tag)
+//        allUsers
     }
 
     // MARK: - Loader

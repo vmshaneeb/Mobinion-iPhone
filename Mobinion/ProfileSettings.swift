@@ -23,6 +23,11 @@ class ProfileSettings: UIViewController
     }
     
     //MARK:- Actions
+    @IBAction func backBtn(sender: AnyObject)
+    {
+        let view = self.storyboard!.instantiateViewControllerWithIdentifier("myProfile") as! NewsFeedMyProfile
+        self.presentViewController(view, animated: true, completion: nil)
+    }
     @IBAction func privacyBtn(sender: AnyObject)
     {
         print("privacy")
