@@ -17,6 +17,8 @@ class ManualCode: UIViewController
     {
         super.viewWillAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tabBarController?.tabBar.hidden = true
     }
     
     override func didReceiveMemoryWarning()
