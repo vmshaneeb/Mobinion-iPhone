@@ -527,6 +527,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         navBarTitle.text = "MY ACTIVITIES"
         
         accountView.hidden = true
+        
+        performSegueWithIdentifier("showProfileSegue", sender: sender)
     }
     
     //MARK:- Custom Functions
