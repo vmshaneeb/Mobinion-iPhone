@@ -184,10 +184,25 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
 //                        print(self.profile["user"]!["about_user"])
 //                        print(self.profile)
                         
-                        self.profName.text = (self.profile["user"]!["name"] as! String)
-                        self.profImage.sd_setImageWithURL(NSURL(string: self.profile["user"]!["profile_pic"] as! String))
-                        self.followNos.text = String(self.profile["user"]!["follow_users"]!!.integerValue)
-                        self.followerNos.text = String(self.profile["user"]!["following_users"]!!.integerValue)
+                        if (!(self.profile["user"]!["name"]!!.isKindOfClass(NSNull)))
+                        {
+                            self.profName.text = (self.profile["user"]!["name"] as! String)
+                        }
+                        
+                        if (!(self.profile["user"]!["profile_pic"]!!.isKindOfClass(NSNull)))
+                        {
+                            self.profImage.sd_setImageWithURL(NSURL(string: self.profile["user"]!["profile_pic"] as! String))
+                        }
+                        
+                        if (!(self.profile["user"]!["follow_users"]!!.isKindOfClass(NSNull)))
+                        {
+                            self.followNos.text = String(self.profile["user"]!["follow_users"]!!.integerValue)
+                        }
+                        
+                        if (!(self.profile["user"]!["following_users"]!!.isKindOfClass(NSNull)))
+                        {
+                            self.followerNos.text = String(self.profile["user"]!["following_users"]!!.integerValue)
+                        }
                         
                         // for rounded profile pic
                         self.profImage.layer.cornerRadius = self.profImage.frame.size.width / 2
@@ -245,17 +260,31 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
 //            print("is poll")
             let cell = tableView.dequeueReusableCellWithIdentifier("pollstablecell") as! polls_TableViewCell
             
-            cell.expType.text = (tabArray[indexPath.row]["type"] as! String)
-            cell.pollContent.text = (tabArray[indexPath.row]["content"] as! String)
-            cell.pollType.text = (tabArray[indexPath.row]["pollType"] as! String)
+            if (!(tabArray[indexPath.row]["type"]!!.isEqualToString("")))
+            {
+                cell.expType.text = (tabArray[indexPath.row]["type"] as! String)
+            }
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            if (!(tabArray[indexPath.row]["content"]!!.isEqualToString("")))
+            {
+                cell.pollContent.text = (tabArray[indexPath.row]["content"] as! String)
+            }
             
-            let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
-            dateFormatter.dateFormat = "dd-MMM-yyyy"
+            if (!(tabArray[indexPath.row]["pollType"]!!.isEqualToString("")))
+            {
+                cell.pollType.text = (tabArray[indexPath.row]["pollType"] as! String)
+            }
             
-            cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+            if (!(tabArray[indexPath.row]["createdAt"]!!.isEqualToString("")))
+            {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                
+                let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
+                dateFormatter.dateFormat = "dd-MMM-yyyy"
+                
+                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+            }
             
             return cell
         }
@@ -265,23 +294,37 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             let cell = tableView.dequeueReusableCellWithIdentifier("partstablecell") as! ProfileTableViewCell
             
             // for rounded profile pic
-            cell.authorImage.layer.cornerRadius = cell.authorImage.frame.size.width / 2
-            cell.authorImage.clipsToBounds = true
             
-            let url = NSURL(string: tabArray[indexPath.row]["authorImage"] as! String)
-            cell.authorImage.sd_setImageWithURL(url!)
             
-            cell.authorName.text = (tabArray[indexPath.row]["authorName"] as! String)
-            cell.textView.text = (tabArray[indexPath.row]["text"] as! String)
+            if (!(tabArray[indexPath.row]["authorImage"]!!.isEqualToString("")))
+            {
+                cell.authorImage.layer.cornerRadius = cell.authorImage.frame.size.width / 2
+                cell.authorImage.clipsToBounds = true
+                
+                let url = NSURL(string: tabArray[indexPath.row]["authorImage"] as! String)
+                cell.authorImage.sd_setImageWithURL(url!)
+            }
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            if (!(tabArray[indexPath.row]["authorName"]!!.isEqualToString("")))
+            {
+                cell.authorName.text = (tabArray[indexPath.row]["authorName"] as! String)
+            }
             
-            let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
-            dateFormatter.dateFormat = "dd-MMM-yyyy"
+            if (!(tabArray[indexPath.row]["text"]!!.isEqualToString("")))
+            {
+                cell.textView.text = (tabArray[indexPath.row]["text"] as! String)
+            }
             
-            cell.createdDate.text = dateFormatter.stringFromDate(datesString)
-            
+            if (!(tabArray[indexPath.row]["createdAt"]!!.isEqualToString("")))
+            {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                
+                let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
+                dateFormatter.dateFormat = "dd-MMM-yyyy"
+                
+                cell.createdDate.text = dateFormatter.stringFromDate(datesString)
+            }
             return cell
         }
         
@@ -429,7 +472,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             
             let datesString:NSDate = dateFormatter.dateFromString(profile["user"]!["dob"] as! String)!
-            dateFormatter.dateFormat = "dd-MMM-yyyy"
+            dateFormatter.dateFormat = "dd MMM yyyy"
             doB.text = dateFormatter.stringFromDate(datesString)
         }
         
