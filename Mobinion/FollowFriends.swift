@@ -41,8 +41,11 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                     "From Your Contacts"]
         
         [tableView.registerClass(FollowTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)]
-        let nib:UINib = UINib(nibName: "FollowTableViewCell", bundle: nil)
+        var nib:UINib = UINib(nibName: "FollowTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        
+        nib = UINib(nibName: "FollowSectionHeader", bundle: nil)
+        tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "FollowSectionHeader")
         
         self.StartLoader()
         self.getContacts()
@@ -171,31 +174,49 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         return (allUsers.objectForKey(Str)?.count)!
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+//    {
+////        print(allUsers.allKeys[section] as! String)
+//        
+//        let header = allUsers.allKeys[section] as! String
+//        
+//        if header.containsString("suggestionsUsers")
+//        {
+//            return "Suggestions Based On your Interests"
+//        }
+//        else if header.containsString("fromContacts")
+//        {
+//            return "From your Contacts"
+//        }
+//        else
+//        {
+//            return ""
+//        }
+////        return (allUsers.allKeys[section] as! String)//sections[section]
+//    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-//        print(allUsers.allKeys[section] as! String)
+        // Dequeue with the reuse identifier
+        let cell = tableView.dequeueReusableHeaderFooterViewWithIdentifier("FollowSectionHeader") as! FollowSectionHeader
         
         let header = allUsers.allKeys[section] as! String
         
         if header.containsString("suggestionsUsers")
         {
-            return "Suggestions Based On your Interests"
+            cell.titleLabel.text = "Suggestions from your Interests"
         }
         else if header.containsString("fromContacts")
         {
-            return "From your Contacts"
+            cell.titleLabel.text = "From your Contacts"
         }
         else
         {
-            return ""
+            cell.titleLabel.text = ""
         }
-//        return (allUsers.allKeys[section] as! String)//sections[section]
+
+        return cell
     }
-    
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-//    {
-//        
-//    }
     
 //    func  table
     //-(UITableViewCell *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -222,9 +243,11 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             cell.profileImage.sd_setImageWithURL(NSURL(string: (allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("profPic") as! String)))
         }
             
-        cell.followBtn.tag=indexPath.row
-//        cell.followBtn.addTarget(self, action: #selector(followBTNAPI(cell.followBtn, section: indexPath.section)), forControlEvents: .TouchUpInside )
-//            [allUsers.allKeys[indexPath.section].!)//("%@", )
+        cell.followBtn.tag = indexPath.row
+        cell.followBtn.titleLabel?.tag = indexPath.section
+        cell.followBtn.addTarget(self, action: #selector(followBTNAPI(_:)), forControlEvents: .TouchUpInside)
+        
+//              [allUsers.allKeys[indexPath.section].!)//("%@", )
 //        cell.profileName.text = (allUsers[allUsers.allKeys[indexPath.section] as! String]![indexPath.row]!!["name"] as! String)
 //        cell.profileProfession.text = (allUsers["suggestionsUsers"]![indexPath.row]!!["bio"] as! String)
 //        cell.profileImage.sd_setImageWithURL(NSURL(string: allUsers["suggestionsUsers"]![indexPath.row]!["profPic"] as! String))
@@ -485,9 +508,98 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func followBTNAPI(sender: UIButton, section: Int)
+    func doFollowFriends(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
     {
-        print(sender.tag)
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/followFriends"
+        
+        let parameter = ["followFriend": "",
+                         "isFollowing": ""]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, nil, error)
+                }
+        }
+
+    }
+    
+    func followBTNAPI(sender: UIButton)
+    {
+//        print(sender.tag)
+//        print(sender.titleLabel?.tag)
+        
+        let index = sender.tag
+        let section = sender.titleLabel?.tag
+        var id = ""
+        var following = ""
+        
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/followFriends"
+        
+        let Str = allUsers.allKeys[section!] as! String
+        
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("name"))!.isKindOfClass(NSNull)))
+        {
+            id = (allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("id") as! String)
+        }
+        else
+        {
+            id = ""
+        }
+        
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("name"))!.isKindOfClass(NSNull)))
+        {
+            following = (allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("isFollowing") as! String)
+        }
+
+        if following.containsString("false")
+        {
+            following = "true"
+        }
+        else
+        {
+            following = "false"
+        }
+        
+        let parameter = ["followFriend": id,
+                         "isFollowing": following]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            let json = JSON(value)
+                            print(json)
+                        }
+                        
+                    case .Failure(let error):
+                        print(error)
+                }
+        }
+
 //        allUsers
     }
 

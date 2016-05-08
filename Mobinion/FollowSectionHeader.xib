@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FollowSectionHeader" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="584" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggestions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="km3-Mw-duT">
+                    <rect key="frame" x="8" y="14" width="85" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1k-U4-N9i">
+                    <rect key="frame" x="511" y="10" width="65" height="30"/>
+                    <state key="normal" title="Follow All">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="km3-Mw-duT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="QrN-q3-Wfq"/>
+                <constraint firstItem="l1k-U4-N9i" firstAttribute="leading" secondItem="km3-Mw-duT" secondAttribute="trailing" constant="408" id="Z7F-R7-Nb3"/>
+                <constraint firstItem="km3-Mw-duT" firstAttribute="centerY" secondItem="l1k-U4-N9i" secondAttribute="centerY" id="c8m-GI-YZT"/>
+                <constraint firstItem="km3-Mw-duT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="fOD-Gu-uLo"/>
+                <constraint firstItem="l1k-U4-N9i" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="gRW-PU-dG4"/>
+                <constraint firstItem="l1k-U4-N9i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="tge-1t-GdF"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Z7F-R7-Nb3"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="followAllBtn" destination="l1k-U4-N9i" id="4t0-cR-Ck5"/>
+                <outlet property="titleLabel" destination="km3-Mw-duT" id="mQH-ba-Flw"/>
+            </connections>
+            <point key="canvasLocation" x="486" y="106.5"/>
+        </view>
+    </objects>
+</document>

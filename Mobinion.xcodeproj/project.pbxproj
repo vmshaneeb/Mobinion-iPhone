@@ -44,6 +44,8 @@
 		653F528F1CB1B013001B494C /* NBPhoneNumberUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */; };
 		653F52921CB1B08E001B494C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653F52911CB1B08E001B494C /* CoreTelephony.framework */; };
 		657F5B181CD2E9C400A1C3FF /* ManualCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F5B171CD2E9C400A1C3FF /* ManualCode.swift */; };
+		6596F7801CDF7B3A00F97687 /* FollowSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6596F77F1CDF7B3A00F97687 /* FollowSectionHeader.swift */; };
+		6596F7821CDF7BDF00F97687 /* FollowSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6596F7811CDF7BDF00F97687 /* FollowSectionHeader.xib */; };
 		65BAEC4B1CC8F4D000CCACA3 /* NewsFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */; };
 		65BAEC4D1CC8F87200CCACA3 /* NewsFeedAroundMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC4C1CC8F87200CCACA3 /* NewsFeedAroundMe.swift */; };
 		65BAEC4F1CC9050300CCACA3 /* NewsFeedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC4E1CC9050300CCACA3 /* NewsFeedQR.swift */; };
@@ -180,6 +182,8 @@
 		653F52791CB1B013001B494C /* NBPhoneNumberUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberUtil.m; sourceTree = "<group>"; };
 		653F52911CB1B08E001B494C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		657F5B171CD2E9C400A1C3FF /* ManualCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualCode.swift; sourceTree = "<group>"; };
+		6596F77F1CDF7B3A00F97687 /* FollowSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowSectionHeader.swift; sourceTree = "<group>"; };
+		6596F7811CDF7BDF00F97687 /* FollowSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowSectionHeader.xib; sourceTree = "<group>"; };
 		65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedController.swift; sourceTree = "<group>"; };
 		65BAEC4C1CC8F87200CCACA3 /* NewsFeedAroundMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedAroundMe.swift; sourceTree = "<group>"; };
 		65BAEC4E1CC9050300CCACA3 /* NewsFeedQR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedQR.swift; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				65D01D741CA2AAF800A8A478 /* FollowFriends.swift */,
 				65D01D7A1CA2AD6600A8A478 /* FollowTableViewCell.swift */,
 				65D01D7B1CA2AD6600A8A478 /* FollowTableViewCell.xib */,
+				6596F77F1CDF7B3A00F97687 /* FollowSectionHeader.swift */,
+				6596F7811CDF7BDF00F97687 /* FollowSectionHeader.xib */,
 				65D01D761CA2AB4100A8A478 /* InviteFriends.swift */,
 				65D01D781CA2ABAE00A8A478 /* NewsFeed.swift */,
 				65BAEC4A1CC8F4CE00CCACA3 /* NewsFeedController.swift */,
@@ -641,6 +647,7 @@
 				65E311FD1CD8B4F900F784DA /* Roboto-MediumItalic.ttf in Resources */,
 				65E311FF1CD8B4F900F784DA /* Roboto-Thin.ttf in Resources */,
 				65E312011CD8B4F900F784DA /* RobotoCondensed-Bold.ttf in Resources */,
+				6596F7821CDF7BDF00F97687 /* FollowSectionHeader.xib in Resources */,
 				65D01D811CA2B39300A8A478 /* NewsFeedTableViewCell.xib in Resources */,
 				65E312031CD8B4F900F784DA /* RobotoCondensed-Italic.ttf in Resources */,
 				65E312051CD8B4F900F784DA /* RobotoCondensed-LightItalic.ttf in Resources */,
@@ -766,6 +773,7 @@
 				AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */,
 				65D01D751CA2AAF800A8A478 /* FollowFriends.swift in Sources */,
 				65E312521CD8F69300F784DA /* PopDatePicker.swift in Sources */,
+				6596F7801CDF7B3A00F97687 /* FollowSectionHeader.swift in Sources */,
 				653F52881CB1B013001B494C /* NBNumberFormat.m in Sources */,
 				65D01D791CA2ABAE00A8A478 /* NewsFeed.swift in Sources */,
 				653F52891CB1B013001B494C /* NBPhoneMetaData.m in Sources */,
