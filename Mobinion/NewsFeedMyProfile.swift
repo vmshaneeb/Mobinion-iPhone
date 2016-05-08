@@ -103,6 +103,17 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBOutlet weak var dropDownView: SpringView!
     
+    @IBOutlet weak var accountView: UIView!
+    
+    @IBOutlet weak var jobTitle: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var doB: UILabel!
+    @IBOutlet weak var zipCode: UILabel!
+    @IBOutlet weak var bioText: UITextView!
+    
+    @IBOutlet weak var navBarTitle: UILabel!
+    @IBOutlet weak var optionsBtn: UIButton!
+    
     var profile = NSMutableDictionary()
     
     var tabArray = NSMutableArray()
@@ -339,16 +350,19 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func optionsBtn(sender: UIButton)
     {
 //        print("btton pressed")
-//        sender.setImage("accout options", forState: UIControlState.)
 //        picker.hidden ? openPicker() : closePicker()
         if dropDownView.hidden == true
         {
+            sender.setImage(UIImage(named: "accout options"), forState: UIControlState.Normal)
+            
             dropDownView.hidden = false
             dropDownView.animation = "fadeIn"
             dropDownView.animate()
         }
         else
         {
+            sender.setImage(UIImage(named: "accout options expanded"), forState: UIControlState.Normal)
+//
             dropDownView.hidden = true
             dropDownView.animation = "fadeOut"
             dropDownView.animate()
@@ -388,22 +402,88 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK:- DropDown Actions
     @IBAction func drpBtnAccount(sender: AnyObject)
     {
-        print("account")
+//        print("account")
+        dropDownView.hidden = !dropDownView.hidden
+        optionsBtn.setImage(UIImage(named: "accout options expanded"), forState: UIControlState.Normal)
+        
+//        dropDownView.animation = "fadeOut"
+        dropDownView.animate()
+        
+        navBarTitle.text = "ACCOUNT"
+        
+        accountView.hidden = false
+        
+        if (!(profile["user"]!["bio"]!!.isKindOfClass(NSNull)))
+        {
+            jobTitle.text = (profile["user"]!["bio"] as! String)
+        }
+    
+        if (!(profile["user"]!["username"]!!.isKindOfClass(NSNull)))
+        {
+            userName.text = (profile["user"]!["username"] as! String)
+        }
+        
+        if (!(profile["user"]!["dob"]!!.isKindOfClass(NSNull)))
+        {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            
+            let datesString:NSDate = dateFormatter.dateFromString(profile["user"]!["dob"] as! String)!
+            dateFormatter.dateFormat = "dd-MMM-yyyy"
+            doB.text = dateFormatter.stringFromDate(datesString)
+        }
+        
+        if (!(profile["user"]!["zipCode"]!!.isKindOfClass(NSNull)))
+        {
+            zipCode.text = String(profile["user"]!["zipCode"]!!.integerValue)
+        }
+        
+        if (!(profile["user"]!["about_user"]!!.isKindOfClass(NSNull)))
+        {
+            bioText.text = (profile["user"]!["about_user"] as! String)
+        }
     }
     
     @IBAction func drpBtnInterests(sender: AnyObject)
     {
-        print("interests")
+//        print("ACTIVITIES")
+        dropDownView.hidden = !dropDownView.hidden
+        optionsBtn.setImage(UIImage(named: "accout options expanded"), forState: UIControlState.Normal)
+        
+        dropDownView.animation = "fadeOut"
+        dropDownView.animate()
+        
+        navBarTitle.text = "MY ACTIVITIES"
+        
+        accountView.hidden = true
     }
     
     @IBAction func drpBtnInvite(sender: AnyObject)
     {
-        print("invites")
+//        print("invites")
+        dropDownView.hidden = !dropDownView.hidden
+        optionsBtn.setImage(UIImage(named: "accout options expanded"), forState: UIControlState.Normal)
+        
+        dropDownView.animation = "fadeOut"
+        dropDownView.animate()
+        
+        navBarTitle.text = "MY ACTIVITIES"
+        
+        accountView.hidden = true
     }
     
     @IBAction func drpBtnSettings(sender: AnyObject)
     {
-        print("settings")
+//        print("settings")
+        dropDownView.hidden = !dropDownView.hidden
+        optionsBtn.setImage(UIImage(named: "accout options expanded"), forState: UIControlState.Normal)
+        
+        dropDownView.animation = "fadeOut"
+        dropDownView.animate()
+        
+        navBarTitle.text = "MY ACTIVITIES"
+        
+        accountView.hidden = true
     }
     
     //MARK:- Custom Functions
