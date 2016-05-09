@@ -15,6 +15,8 @@
 		650835CC1C95779600C6C280 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650835CA1C95779600C6C280 /* LaunchScreen.storyboard */; };
 		650835D71C95779600C6C280 /* MobinionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835D61C95779600C6C280 /* MobinionTests.swift */; };
 		650835E21C95779600C6C280 /* MobinionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835E11C95779600C6C280 /* MobinionUITests.swift */; };
+		650B879F1CE1119200C6A30F /* PollShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B879D1CE1119200C6A30F /* PollShared.swift */; };
+		650B87A01CE1119200C6A30F /* PollSharedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650B879E1CE1119200C6A30F /* PollSharedCell.xib */; };
 		652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */; };
 		652EF1931CA98C1C0048F33D /* InterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */; };
 		652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */; };
@@ -142,6 +144,8 @@
 		650835DD1C95779600C6C280 /* MobinionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobinionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		650835E11C95779600C6C280 /* MobinionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobinionUITests.swift; sourceTree = "<group>"; };
 		650835E31C95779600C6C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650B879D1CE1119200C6A30F /* PollShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollShared.swift; sourceTree = "<group>"; };
+		650B879E1CE1119200C6A30F /* PollSharedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PollSharedCell.xib; sourceTree = "<group>"; };
 		652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCollectionViewCell.xib; sourceTree = "<group>"; };
 		652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 				65EEC7231CDE5C3500A2A81E /* polls_TableViewCell.xib */,
 				65D01D7E1CA2B39300A8A478 /* NewsFeedTableViewCell.swift */,
 				65D01D7F1CA2B39300A8A478 /* NewsFeedTableViewCell.xib */,
+				650B879D1CE1119200C6A30F /* PollShared.swift */,
+				650B879E1CE1119200C6A30F /* PollSharedCell.xib */,
 				65D01D841CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift */,
 				65D01D851CA3F71E00A8A478 /* NewsFeedTableViewCell2.xib */,
 				65D01D881CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift */,
@@ -640,6 +646,7 @@
 				653F527D1CB1B013001B494C /* Default.png in Resources */,
 				653F52531CB1A9F0001B494C /* CountryView.xib in Resources */,
 				653F52511CB1A997001B494C /* Flags.xcassets in Resources */,
+				650B87A01CE1119200C6A30F /* PollSharedCell.xib in Resources */,
 				65D01D971CA431EB00A8A478 /* NewsFeedTableViewCell6.xib in Resources */,
 				65E312041CD8B4F900F784DA /* RobotoCondensed-Light.ttf in Resources */,
 				65EEC7251CDE5C3500A2A81E /* polls_TableViewCell.xib in Resources */,
@@ -797,6 +804,7 @@
 				AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */,
 				653F528A1CB1B013001B494C /* NBPhoneMetaDataGenerator.m in Sources */,
 				65D01D7C1CA2AD6600A8A478 /* FollowTableViewCell.swift in Sources */,
+				650B879F1CE1119200C6A30F /* PollShared.swift in Sources */,
 				653F528C1CB1B013001B494C /* NBPhoneNumberDefines.m in Sources */,
 				653F528F1CB1B013001B494C /* NBPhoneNumberUtil.m in Sources */,
 				650835C21C95779600C6C280 /* AppDelegate.swift in Sources */,
@@ -879,8 +887,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: hamdan salim (C3DGNA5C96)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hamdan salim (C3DGNA5C96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -902,7 +910,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -925,8 +933,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: hamdan salim (C3DGNA5C96)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hamdan salim (C3DGNA5C96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -941,7 +949,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -994,11 +1002,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MobinionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobinion.app/Mobinion";
 			};
 			name = Debug;
@@ -1007,11 +1016,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MobinionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobinion.app/Mobinion";
 			};
 			name = Release;
@@ -1019,11 +1029,12 @@
 		650835ED1C95779600C6C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MobinionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Mobinion;
 				USES_XCTRUNNER = YES;
 			};
@@ -1032,11 +1043,12 @@
 		650835EE1C95779600C6C280 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MobinionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Novateurglow.MobinionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cdba492f-0973-45ab-99a9-278ad585004a";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Mobinion;
 				USES_XCTRUNNER = YES;
 			};

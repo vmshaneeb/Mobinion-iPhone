@@ -14,7 +14,8 @@ class NewsFeedTableViewCell5: UITableViewCell
     @IBOutlet weak var sharedOn: UILabel!
 
     @IBOutlet weak var profilePic: UIImageView!
-    @IBOutlet weak var voteIdentity: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var voteIdentity: UIImageView!
     @IBOutlet weak var dateCreated: UILabel!
     @IBOutlet weak var voteNo: UILabel!
     
@@ -23,6 +24,7 @@ class NewsFeedTableViewCell5: UITableViewCell
     
     @IBOutlet weak var IMView: UIImageView!
     @IBOutlet weak var textBox: UITextView!
+    @IBOutlet weak var bgImg: UIImageView!
     
     @IBOutlet weak var poleExpiryPic: UIImageView!
     @IBOutlet weak var poleExpiry: UILabel!
