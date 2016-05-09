@@ -57,6 +57,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             mapView.settings.setAllGesturesEnabled(true)
         }
         
+        //TODO:- Custom Markers for polls/contest/voting
 //        let marker = GMSMarker()
 //        marker.position = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
 //        marker.title = "Al Sebseb"
