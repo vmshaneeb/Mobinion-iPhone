@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import SDWebImage
+import TextAttributes
 
 class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -82,6 +83,56 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.timeText.text = timeAgoSince(datesString)
         }
         
+        
+        let para = NSMutableAttributedString()
+        var actorName = NSAttributedString()
+        var content = NSAttributedString()
+        var text = NSAttributedString()
+        let space = NSAttributedString(string: " ")
+        let hiphen = NSAttributedString(string: " - ")
+        
+        if (!(notifyArray[indexPath.row]["actorName"]!!.isKindOfClass(NSNull)))
+        {
+            let attrs = TextAttributes()
+                .font(name: "Roboto-Medium", size: 16)
+            
+            actorName = NSAttributedString(string: notifyArray[indexPath.row]["actorName"] as! String, attributes: attrs)
+            para.appendAttributedString(actorName)
+            para.appendAttributedString(space)
+//            cell.detailsText.attributedText = NSAttributedString(string: "The quick brown fox jumps over the lazy dog", attributes: attrs)
+        }
+        
+        if (!(notifyArray[indexPath.row]["content"]!!.isKindOfClass(NSNull)))
+        {
+            let attrs = TextAttributes()
+                .font(name: "Roboto-Regular", size: 15)
+            
+            content = NSAttributedString(string: notifyArray[indexPath.row]["content"] as! String, attributes: attrs)
+            para.appendAttributedString(content)
+            para.appendAttributedString(hiphen)
+        }
+        
+        if (!(notifyArray[indexPath.row]["text"]!!.isKindOfClass(NSNull)))
+        {
+            let attrs = TextAttributes()
+                .font(name: "Roboto-Regular", size: 15)
+//                .foregroundColor(red: 15, green: 194, blue: 196, alpha: 1)
+            .foregroundColor(UIColor.cyanColor())
+            
+//            print(notifyArray[indexPath.row]["text"] as! String)
+            
+            text = NSAttributedString(string: notifyArray[indexPath.row]["text"] as! String, attributes: attrs)
+            para.appendAttributedString(text)
+        }
+        
+        cell.detailsText.attributedText = para
+        
+//        let sizeThatFitsTextView: CGSize = cell.detailsText.sizeThatFits(CGSizeMake(cell.detailsText.frame.size.width, CGFloat(MAXFLOAT)))
+//        cell.textViewHeightConstraint.constant = sizeThatFitsTextView.height
+        
+        cell.textViewHeightConstraint.constant = cell.detailsText.intrinsicContentSize().height
+//        cell.detailsText.height
+//        cell.detailsText.sizeToFit()
         
         return cell
     }

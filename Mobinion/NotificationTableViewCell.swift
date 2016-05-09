@@ -14,6 +14,7 @@ class NotificationTableViewCell: UITableViewCell
     @IBOutlet weak var profImage: UIImageView!
     @IBOutlet weak var detailsText: UITextView!
     @IBOutlet weak var timeText: UILabel!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib()
     {
