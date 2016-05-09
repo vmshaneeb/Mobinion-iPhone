@@ -130,6 +130,7 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
 //        let sizeThatFitsTextView: CGSize = cell.detailsText.sizeThatFits(CGSizeMake(cell.detailsText.frame.size.width, CGFloat(MAXFLOAT)))
 //        cell.textViewHeightConstraint.constant = sizeThatFitsTextView.height
         
+        //TODO:- fix the height for the text view
         cell.textViewHeightConstraint.constant = cell.detailsText.intrinsicContentSize().height
 //        cell.detailsText.height
 //        cell.detailsText.sizeToFit()
