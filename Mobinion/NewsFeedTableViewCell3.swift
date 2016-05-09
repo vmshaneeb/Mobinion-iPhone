@@ -10,6 +10,7 @@ import UIKit
 
 class NewsFeedTableViewCell3: UITableViewCell
 {
+    @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var choosePic: UIImageView!
     @IBOutlet weak var textBox: UITextView!
 

@@ -25,6 +25,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="569" height="560"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J2m-Wc-H9r">
+                        <rect key="frame" x="4" y="8" width="562" height="544"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add interest" translatesAutoresizingMaskIntoConstraints="NO" id="92l-P2-Rcl">
                         <rect key="frame" x="164" y="35" width="232" height="212"/>
                         <constraints>
@@ -75,11 +78,14 @@
                         </variation>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="PQi-XL-Glo" firstAttribute="top" secondItem="ajO-B4-ibb" secondAttribute="bottom" constant="37" id="0hT-LD-Pz3"/>
                     <constraint firstItem="ajO-B4-ibb" firstAttribute="top" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="34" id="2N9-dR-VOF"/>
                     <constraint firstItem="92l-P2-Rcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="6HH-77-wTc"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerX" secondItem="4pQ-To-yW6" secondAttribute="centerX" id="9Hb-YE-M9Y"/>
                     <constraint firstItem="ajO-B4-ibb" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-138" id="Bu5-6a-B03"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-4" id="Mss-1g-6Dz"/>
                     <constraint firstItem="PQi-XL-Glo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="434" id="Nm5-Er-hbT"/>
                     <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="94" id="P8D-Or-zyx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="92l-P2-Rcl" secondAttribute="trailing" constant="165" id="PW6-9I-nHY"/>
@@ -88,13 +94,17 @@
                     <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="edN-vr-OHl"/>
                     <constraint firstItem="ajO-B4-ibb" firstAttribute="top" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="34" id="en1-L0-KUr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4pQ-To-yW6" secondAttribute="trailing" constant="94" id="jA1-vh-CjN"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jI2-He-kpj"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="bottom" secondItem="PQi-XL-Glo" secondAttribute="bottom" id="pSW-ui-KqL"/>
                     <constraint firstItem="ajO-B4-ibb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="137" id="seL-Qk-8XY"/>
                     <constraint firstItem="PQi-XL-Glo" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="uGT-TL-Rdg"/>
                     <constraint firstItem="92l-P2-Rcl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="156" id="vEf-RL-h4X"/>
                     <constraint firstItem="PQi-XL-Glo" firstAttribute="top" secondItem="ajO-B4-ibb" secondAttribute="bottom" constant="37" id="veb-9n-gA5"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="bgImg" destination="J2m-Wc-H9r" id="anq-7z-nhs"/>
                 <outlet property="chooseBtn" destination="ajO-B4-ibb" id="nlW-XF-8nu"/>
                 <outlet property="choosePic" destination="92l-P2-Rcl" id="lmq-iy-Tav"/>
                 <outlet property="discardBtn" destination="PQi-XL-Glo" id="8ej-gi-riT"/>

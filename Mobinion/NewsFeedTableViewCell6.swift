@@ -10,6 +10,7 @@ import UIKit
 
 class NewsFeedTableViewCell6: UITableViewCell
 {
+    @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var winnerBanner: UIImageView!
     @IBOutlet weak var winnerNo: UIImageView!
 

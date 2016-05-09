@@ -28,6 +28,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="569" height="560"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KEe-rq-Tm2">
+                        <rect key="frame" x="3" y="8" width="562" height="544"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add followers" translatesAutoresizingMaskIntoConstraints="NO" id="0BS-po-NfP">
                         <rect key="frame" x="164" y="35" width="232" height="212"/>
                         <constraints>
@@ -85,6 +88,7 @@
                         </state>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="cMc-pJ-1le" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="37" id="0ce-iI-Gru"/>
                     <constraint firstItem="gfR-Zp-K6Y" firstAttribute="top" secondItem="cMc-pJ-1le" secondAttribute="bottom" constant="24" id="0wt-Pc-DdU"/>
@@ -122,7 +126,9 @@
                     </userDefinedRuntimeAttribute>
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="bgImg" destination="KEe-rq-Tm2" id="cT8-Kf-MKp"/>
                 <outlet property="discardBtn" destination="pKL-7M-lj9" id="8eX-dc-lkv"/>
                 <outlet property="followBtn" destination="1uG-3m-QI6" id="pY7-go-Evu"/>
                 <outlet property="followPic" destination="0BS-po-NfP" id="DMI-7o-BUG"/>
