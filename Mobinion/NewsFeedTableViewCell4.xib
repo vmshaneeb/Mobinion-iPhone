@@ -34,7 +34,7 @@
                             <constraint firstAttribute="height" constant="212" id="fyX-1c-qWh"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Follow your Favourite Stars and Celebereties &amp; Make your wall Selective!!!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-pJ-1le">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Follow your Favourite Stars and Celebereties &amp; Make your wall Selective!!!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-pJ-1le">
                         <rect key="frame" x="45" y="282" width="471" height="128"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>

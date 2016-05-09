@@ -32,7 +32,7 @@
                             <constraint firstAttribute="height" constant="212" id="Hz3-Tc-SQ6"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hey!! You didnt select any Topics to My Interests" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-To-yW6">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Hey!! You didnt select any Topics to My Interests" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-To-yW6">
                         <rect key="frame" x="102" y="264" width="365" height="128"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
