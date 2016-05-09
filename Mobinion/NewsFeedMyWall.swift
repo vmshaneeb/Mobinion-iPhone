@@ -308,36 +308,38 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func notify(sender: AnyObject)
     {
-        StartLoader()
-        getNotifications()
-            { value, error in
-                
-                if value != nil
-                {
-                    let json = JSON(value!)
-                    print(json)
-                    
-                    self.HideLoader()
-                    
-                    let titles = json["status"].stringValue
-                    let messages = json["message"].stringValue
-                    
-                    if titles == "error"
-                    {
-                        self.doDBalertView(titles, msgs: messages)
-                    }
-                    else
-                    {
-                        
-                    }
-                }
-                else
-                {
-                    self.HideLoader()
-                    print(error)
-                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
-                }
-        }
+//        performSegueWithIdentifier("showNotification", sender: sender)
+        
+//        StartLoader()
+//        getNotifications()
+//            { value, error in
+//                
+//                if value != nil
+//                {
+//                    let json = JSON(value!)
+//                    print(json)
+//                    
+//                    self.HideLoader()
+//                    
+//                    let titles = json["status"].stringValue
+//                    let messages = json["message"].stringValue
+//                    
+//                    if titles == "error"
+//                    {
+//                        self.doDBalertView(titles, msgs: messages)
+//                    }
+//                    else
+//                    {
+//                        
+//                    }
+//                }
+//                else
+//                {
+//                    self.HideLoader()
+//                    print(error)
+//                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+//                }
+//        }
     }
     
     @IBAction func search(sender: AnyObject)

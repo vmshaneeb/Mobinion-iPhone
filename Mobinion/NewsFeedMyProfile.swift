@@ -189,6 +189,11 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                             self.profName.text = (self.profile["user"]!["name"] as! String)
                         }
                         
+                        if (!(self.profile["user"]!["username"]!!.isKindOfClass(NSNull)))
+                        {
+                            self.userName.text = (self.profile["user"]!["username"] as! String)
+                        }
+                        
                         if (!(self.profile["user"]!["profile_pic"]!!.isKindOfClass(NSNull)))
                         {
                             self.profImage.sd_setImageWithURL(NSURL(string: self.profile["user"]!["profile_pic"] as! String))
@@ -387,7 +392,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func notifyBtn(sender: AnyObject)
     {
-        
+//        performSegueWithIdentifier("showNotification", sender: sender)
     }
     
     @IBAction func optionsBtn(sender: UIButton)

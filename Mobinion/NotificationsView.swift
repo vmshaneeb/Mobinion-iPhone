@@ -24,7 +24,7 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.tabBarController?.tabBar.hidden = true
+//        self.tabBarController?.tabBar.hidden = true
         
         tableView.registerClass(NotificationTableViewCell.self, forCellReuseIdentifier: "notifyCell")
         let nib:UINib = UINib(nibName: "NotificationTableViewCell", bundle: nil)
@@ -141,7 +141,9 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("newsFeedMain") as! NewsFeedMyProfile
+//        self.tabBarController?.tabBar.hidden = false
+        
+        let view = self.storyboard!.instantiateViewControllerWithIdentifier("newsFeedMain") as! NewsFeedMyWall
         self.presentViewController(view, animated: false, completion: nil)
     }
     
