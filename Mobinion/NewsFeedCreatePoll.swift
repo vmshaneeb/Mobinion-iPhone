@@ -11,12 +11,17 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 
-class NewsFeedCreatePoll: UIViewController
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
 {
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     override func viewDidAppear(animated: Bool) 
     {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
+        
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1400)
         
         //        print("in NewsFeedController")
         
@@ -51,6 +56,7 @@ class NewsFeedCreatePoll: UIViewController
 //                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
 //            }
 //        }
+        
     }
     
     override func didReceiveMemoryWarning()
