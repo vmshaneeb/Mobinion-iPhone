@@ -86,7 +86,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-       let result = UITableViewCell()
+//       let result = UITableViewCell()
         
         //Shared Type
 //        print(newsFeed[indexPath.row])
@@ -774,10 +774,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func notify(sender: AnyObject)
     {
-//        performSegueWithIdentifier("showNotification", sender: sender)
+        performSegueWithIdentifier("showNotificationFromFeed", sender: sender)
         
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("notifications") as! NotificationsView
-        self.presentViewController(view, animated: true, completion: nil)
+//        let view = self.storyboard!.instantiateViewControllerWithIdentifier("notifications") as! NotificationsView
+//        self.presentViewController(view, animated: true, completion: nil)
     }
     
     @IBAction func search(sender: AnyObject)

@@ -241,6 +241,10 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         if (!((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("profPic"))!.isKindOfClass(NSNull)))
         {
+            // for rounded profile pic
+            cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.width / 2
+            cell.profileImage.clipsToBounds = true
+            
             cell.profileImage.sd_setImageWithURL(NSURL(string: (allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("profPic") as! String)))
         }
             

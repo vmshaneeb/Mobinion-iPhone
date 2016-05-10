@@ -2087,6 +2087,7 @@
                         <outlet property="QRView" destination="JhM-PC-Kxw" id="cXX-Zk-emV"/>
                         <outlet property="navBar" destination="D1z-oy-unu" id="YNl-iD-LtB"/>
                         <segue destination="DfO-vD-q6a" kind="show" identifier="manualCodeSegue" id="gfm-NP-eqc"/>
+                        <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromBarcode" id="6Kd-aA-gAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Uk-LMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2590,7 +2591,7 @@
             </objects>
             <point key="canvasLocation" x="6768" y="227"/>
         </scene>
-        <!--Notifications View-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="IYU-nG-D3c">
             <objects>
                 <viewController storyboardIdentifier="notifications" id="ITF-O6-7pw" customClass="NotificationsView" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -2651,10 +2652,12 @@
                                 </connections>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NJs-1H-Ylf">
-                                <rect key="frame" x="8" y="64" width="584" height="528"/>
+                                <rect key="frame" x="8" y="64" width="584" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ITF-O6-7pw" id="N9S-il-Tnx"/>
+                                    <outlet property="emptyDataSetDelegate" destination="ITF-O6-7pw" id="InF-H3-MW3"/>
+                                    <outlet property="emptyDataSetSource" destination="ITF-O6-7pw" id="hd7-C3-BY3"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NOTIFICATIONS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-zY-YWx">
@@ -2670,7 +2673,7 @@
                             <constraint firstItem="cLY-zY-YWx" firstAttribute="top" secondItem="IzH-wA-kLq" secondAttribute="bottom" constant="11" id="1mT-GH-rx5"/>
                             <constraint firstAttribute="trailing" secondItem="A28-qe-wPb" secondAttribute="trailing" id="8HA-I3-Cz3"/>
                             <constraint firstItem="NJs-1H-Ylf" firstAttribute="centerX" secondItem="A28-qe-wPb" secondAttribute="centerX" id="9lf-TW-P0Z"/>
-                            <constraint firstItem="NJs-1H-Ylf" firstAttribute="bottom" secondItem="c2N-cZ-1YT" secondAttribute="top" constant="-8" id="IFr-KI-14X"/>
+                            <constraint firstItem="NJs-1H-Ylf" firstAttribute="bottom" secondItem="c2N-cZ-1YT" secondAttribute="top" id="IFr-KI-14X"/>
                             <constraint firstItem="cLY-zY-YWx" firstAttribute="centerY" secondItem="A28-qe-wPb" secondAttribute="centerY" id="Q8p-My-g8c"/>
                             <constraint firstItem="NJs-1H-Ylf" firstAttribute="leading" secondItem="Uun-cj-FXA" secondAttribute="leadingMargin" constant="-12" id="XG7-Uv-Mxz"/>
                             <constraint firstItem="A28-qe-wPb" firstAttribute="leading" secondItem="Uun-cj-FXA" secondAttribute="leading" id="b2I-TJ-Ois"/>
@@ -4814,7 +4817,7 @@
             </objects>
             <point key="canvasLocation" x="13909" y="-442"/>
         </scene>
-        <!--News Feed My Wall-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="WSN-0B-WOk">
             <objects>
                 <viewController storyboardIdentifier="newsFeedMain" id="zMC-dI-42f" customClass="NewsFeedMyWall" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -4889,6 +4892,8 @@
                                         <connections>
                                             <outlet property="dataSource" destination="zMC-dI-42f" id="KEi-C0-5Bn"/>
                                             <outlet property="delegate" destination="zMC-dI-42f" id="q91-Qj-bm9"/>
+                                            <outlet property="emptyDataSetDelegate" destination="zMC-dI-42f" id="M3H-oK-gYy"/>
+                                            <outlet property="emptyDataSetSource" destination="zMC-dI-42f" id="GSR-sg-1co"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -4929,6 +4934,7 @@
                     <connections>
                         <outlet property="scrollView" destination="tgM-ag-DDW" id="8Xl-VI-aTt"/>
                         <outlet property="tableView" destination="hOb-4v-Hu8" id="xAW-fe-bl7"/>
+                        <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromFeed" id="rwZ-01-9uh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zn6-pk-XMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5108,6 +5114,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GL0-9o-KYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5927" y="-1075"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="QnO-3z-dKq">
+            <objects>
+                <tableViewController id="ypU-Lr-Umq" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ePI-dY-yck">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Day-Wi-zQf">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Day-Wi-zQf" id="BAd-Ik-Iju">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ypU-Lr-Umq" id="oAi-wc-NMV"/>
+                            <outlet property="delegate" destination="ypU-Lr-Umq" id="ffa-Ga-k6r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="bas-Za-ucU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q6e-RU-t9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5297" y="-550"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="X9k-H6-CY9">
+            <objects>
+                <navigationController id="cjk-ci-Lmv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VJb-a8-u8l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ypU-Lr-Umq" kind="relationship" relationship="rootViewController" id="sQo-An-PGS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QgF-4Z-dSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4478" y="-550"/>
         </scene>
         <!--Empty Data Set Delegate-->
         <scene sceneID="jVZ-OZ-pk0">
@@ -5528,6 +5579,7 @@
                         <outlet property="userName" destination="Rxk-VB-WSg" id="tcN-SX-db3"/>
                         <outlet property="zipCode" destination="fQP-Xd-Ava" id="ojn-9d-Ncg"/>
                         <segue destination="YD1-Oq-0qz" kind="show" identifier="showProfileSegue" animates="NO" id="4sO-su-8Jn"/>
+                        <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromProfile" animates="NO" id="AOu-oG-NUO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xI-P5-f8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5621,4 +5673,7 @@
         <image name="tumblr" width="100" height="100"/>
         <image name="viber" width="150" height="150"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rwZ-01-9uh"/>
+    </inferredMetricsTieBreakers>
 </document>

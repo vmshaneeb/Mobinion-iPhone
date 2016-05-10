@@ -142,9 +142,10 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func backBtn(sender: AnyObject)
     {
 //        self.tabBarController?.tabBar.hidden = false
+        self.tabBarController?.selectedIndex = 2
         
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("newsFeedMain") as! NewsFeedMyWall
-        self.presentViewController(view, animated: false, completion: nil)
+//        let view = self.storyboard!.instantiateViewControllerWithIdentifier("newsFeedMain") as! NewsFeedMyWall
+//        self.presentViewController(view, animated: false, completion: nil)
     }
     
     //MARK:- Custom Functions

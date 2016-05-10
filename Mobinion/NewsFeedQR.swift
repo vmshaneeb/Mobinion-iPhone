@@ -177,6 +177,9 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 //        print("pressed!!!")
         self.tabBarController?.selectedIndex = 2
     }
+    
+//    showNotificationFromBarcode
+    
     //MARK:- Custom Functions
     func failed()
     {
