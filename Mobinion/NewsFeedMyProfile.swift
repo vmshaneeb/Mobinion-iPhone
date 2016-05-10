@@ -393,6 +393,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func notifyBtn(sender: AnyObject)
     {
 //        performSegueWithIdentifier("showNotification", sender: sender)
+        let view = self.storyboard!.instantiateViewControllerWithIdentifier("notifications") as! NotificationsView
+        self.presentViewController(view, animated: true, completion: nil)
     }
     
     @IBAction func optionsBtn(sender: UIButton)

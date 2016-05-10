@@ -80,6 +80,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
 //        self.StartLoader()
+        print(newsFeed.count)
         return self.newsFeed.count
     }
     
@@ -88,9 +89,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
        let result = UITableViewCell()
         
         //Shared Type
+//        print(newsFeed[indexPath.row])
         if (newsFeed[indexPath.row]["feedType"]!!.isEqualToString("shared"))
         {
-            //Shared Poll
+            //            //Shared Poll
             if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("PollShared") as! PollShared
@@ -103,6 +105,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
                 {
                     cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                }
+                else
+                {
+                    cell.nameofSharer.text = ""
                 }
                 
                 if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
@@ -205,8 +211,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 return cell
             }
-            
-            //Shared Contest
+                
+                //Shared Contest
             else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("contest"))
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
@@ -221,6 +227,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
                 {
                     cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                }
+                else
+                {
+                    cell.nameofSharer.text = ""
                 }
                 
                 if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
@@ -326,7 +336,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             }
                 
             //Shared Votes
-            else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
+            else //if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("Shared") as! NewsFeedTableViewCell5
                 
@@ -340,6 +350,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
                 {
                     cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                }
+                else
+                {
+                    cell.nameofSharer.text = ""
                 }
                 
                 if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
@@ -624,14 +638,15 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
         }
         
-        //Feedback Type
-        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("feedback"))
-        {
-
-        }
+//        //Feedback Type
+//        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("feedback"))
+//        {
+//
+//        }
         
         //Voting Type
-        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
+        else
+//            if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
         {
             //                    print("inside voting")
             let cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
@@ -688,9 +703,12 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
+//                print ("hello")
+//                print(newsFeed[indexPath.row])
                 
-//                print(newsFeed[indexPath.row]["item_expiryDate"] as! String)
+//                print(newsFeed[indexPath.row]["item_expiryDate"]!! as! String)
+                
+//                print(newsFeed[indexPath.row]["item_expiryDate"].intere)
                 let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
                 //                            print(datesString)
                 
@@ -713,15 +731,21 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
 
         }
-            
-        //Cards Type
-        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
-        {
+//            else
+//        {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("PollShared") as! PollShared
+//            return cell
+//            
+//        }
+//        //Cards Type
+//        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
+//        {
+//        
+//        }
         
+//        return result
         }
-        
-        return result
-    }
+    
     
 //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
 //    {
@@ -752,36 +776,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     {
 //        performSegueWithIdentifier("showNotification", sender: sender)
         
-//        StartLoader()
-//        getNotifications()
-//            { value, error in
-//                
-//                if value != nil
-//                {
-//                    let json = JSON(value!)
-//                    print(json)
-//                    
-//                    self.HideLoader()
-//                    
-//                    let titles = json["status"].stringValue
-//                    let messages = json["message"].stringValue
-//                    
-//                    if titles == "error"
-//                    {
-//                        self.doDBalertView(titles, msgs: messages)
-//                    }
-//                    else
-//                    {
-//                        
-//                    }
-//                }
-//                else
-//                {
-//                    self.HideLoader()
-//                    print(error)
-//                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
-//                }
-//        }
+        let view = self.storyboard!.instantiateViewControllerWithIdentifier("notifications") as! NotificationsView
+        self.presentViewController(view, animated: true, completion: nil)
     }
     
     @IBAction func search(sender: AnyObject)
@@ -793,7 +789,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             if value != nil
             {
                 let json = JSON(value!)
-                print(json)
+//                print(json)
                 
                 self.HideLoader()
                 
@@ -863,7 +859,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if value != nil
                 {
                     let json = JSON(value!)
-                    print(json)
+//                    print(json)
                     
                     self.HideLoader()
                     
@@ -880,7 +876,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         {
                             let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
                             self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-                            //print (self.newsFeed)
+                            print (self.newsFeed)
                         }
                         catch
                         {
@@ -892,7 +888,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 else
                 {
                     self.HideLoader()
-                    print(error)
+//                    print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
         }
@@ -1059,8 +1055,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
-        let parameter = ["rowNumber": "1",
-                         "showingType": "all"]
+//        let parameter = ["rowNumber": "1", "showingType": "all"]
         
 //        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
         Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
