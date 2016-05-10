@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.3.1)
+  - Alamofire (3.4.0)
   - Cloudinary (1.0.15)
   - DBAlertController (0.2.6)
   - DLRadioButton (1.4.8)
@@ -8,9 +8,9 @@ PODS:
   - IQDropDownTextField (1.0.9)
   - IQKeyboardManager (4.0.2)
   - PhoneNumberKit (0.8.3)
-  - SDWebImage (3.7.5):
-    - SDWebImage/Core (= 3.7.5)
-  - SDWebImage/Core (3.7.5)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
   - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
   - TextAttributes (0.3)
@@ -46,7 +46,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
   DBAlertController: f6bc826127685e6e44b2d5003034d9ff1c952322
   DLRadioButton: 8fe4865b3ea8a5236e1d114dd283dd0884d3dc46
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   IQDropDownTextField: 7d32b5ee371a09ede9b6ef63425c06ea785d2ed2
   IQKeyboardManager: 2341089c4ae25fa2fa82ce356a259fcd267dc6b6
   PhoneNumberKit: ff0be2a7078dda5ef7f3f1264d5e946124304880
-  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TextAttributes: 34f7560fad65c8fede4edd3a7c0ca444971226fd
