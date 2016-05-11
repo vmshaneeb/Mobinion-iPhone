@@ -102,37 +102,58 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.BgImg.layer.borderWidth = 2
                 cell.BgImg.layer.borderColor = UIColor.clearColor().CGColor
                 
-                if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("sharedUserId")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                    if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                    }
+                    else
+                    {
+                        cell.nameofSharer.text = ""
+                    }
                 }
                 else
                 {
                     cell.nameofSharer.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("sharedOn")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["sharedOn"] as! String)!
-                    dateFormatter.dateFormat = "dd MMM yyyy"
-                    
-                    cell.sharedOn.text = dateFormatter.stringFromDate(datesString)
+                    if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["sharedOn"] as! String)!
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+                        
+                        cell.sharedOn.text = dateFormatter.stringFromDate(datesString)
+                    }
+                    else
+                    {
+                        cell.sharedOn.text = ""
+                    }
                 }
                 else
                 {
                     cell.sharedOn.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["participants"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
                 {
-                    let no = newsFeed[indexPath.row]["participants"]!!.integerValue
-                    
-                    if no != 0
+                    if (!(newsFeed[indexPath.row]["participants"]!!.isKindOfClass(NSNull)))
                     {
-                        cell.voteNo.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                        let no = newsFeed[indexPath.row]["participants"]!!.integerValue
+                        
+                        if no != 0
+                        {
+                            cell.voteNo.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                        }
+                        else
+                        {
+                            cell.voteNo.text = ""
+                        }
                     }
                     else
                     {
@@ -144,70 +165,152 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.voteNo.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("userImage")?.isKindOfClass(NSNull) != nil)
                 {
-                    let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
-                    //                print(url)
-                    
-                    cell.profPic.sd_setImageWithURL(url!)
+                    if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                    {
+                        let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+                        //                print(url)
+                        
+                        cell.profPic.sd_setImageWithURL(url!)
+                    }
+                    else
+                    {
+                        cell.profPic.image = nil
+                    }
                 }
                 else
                 {
                     cell.profPic.image = nil
                 }
                 
-                if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("userName")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.profName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                    if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.profName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                    }
+                    else
+                    {
+                        
+                        cell.profName.text = ""
+                    }
+                }
+                else
+                {
+                    
+                    cell.profName.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("item_createdDate")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    dateFormatter.timeZone = NSTimeZone(name: "UTC")
-                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-                    //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                    if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+                        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+                        //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+                        //                            print(datesString)
+                        
+                        
+                        dateFormatter.dateFormat = "dd-MMM-yyyy"
+                        
+                        //                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+                        cell.pollCreated.text = timeAgoSince(datesString)
+                    }
+                    else
+                    {
+                        
+                        cell.pollCreated.text = ""
+                    }
+                }
+                else
+                {
                     
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
-                    //                            print(datesString)
-                    
-                    
-                    dateFormatter.dateFormat = "dd-MMM-yyyy"
-                    
-                    //                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
-                    cell.pollCreated.text = timeAgoSince(datesString)
+                    cell.pollCreated.text = ""
                 }
                 //
-                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                        //                            print(datesString)
+                        
+                        dateFormatter.dateFormat = "dd-MMM-yyyy"
+                        
+                        //                print(datesString)
+                        //                print(datesString.timeIntervalSinceNow)
+                        
+                        //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                        cell.expiryDate.text = timeAgoSince(datesString)
+                    }
+                    else
+                    {
+                        
+                        cell.expiryDate.text = ""
+                    }
+
+                }
+                else
+                {
                     
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-                    //                            print(datesString)
-                    
-                    dateFormatter.dateFormat = "dd-MMM-yyyy"
-                    
-                    //                print(datesString)
-                    //                print(datesString.timeIntervalSinceNow)
-                    
-                    //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                    cell.expiryDate.text = timeAgoSince(datesString)
+                    cell.expiryDate.text = ""
                 }
                 //
-                if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("itemDescription")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                    if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                    }
+                    else
+                    {
+                        
+                        cell.textBox.text = ""
+                    }
+                }
+                else
+                {
+                    
+                    cell.textBox.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["itemText"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("itemText")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
-                    cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
+                    if (!(newsFeed[indexPath.row]["itemText"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
+                        cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
+                    }
+                    else
+                    {
+                        
+                        cell.textBox.text = cell.textBox.text.stringByAppendingString("")
+                    }
+                }
+                else
+                {
+                    
+                    cell.textBox.text = cell.textBox.text.stringByAppendingString("")
                 }
                 
-                cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
+                {
+                    cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                }
+                else
+                {
+                    
+                    cell.totalNos.text = "0"
+                }
+                
                 
                 return cell
             }
@@ -224,37 +327,58 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.voteIdentity.image = UIImage(named: "contest-new")
                 
-                if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("sharedUserId")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                    if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                    }
+                    else
+                    {
+                        cell.nameofSharer.text = ""
+                    }
                 }
                 else
                 {
                     cell.nameofSharer.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("sharedOn")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["sharedOn"] as! String)!
-                    dateFormatter.dateFormat = "dd MMM yyyy"
-                    
-                    cell.sharedOn.text = dateFormatter.stringFromDate(datesString)
+                    if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["sharedOn"] as! String)!
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+                        
+                        cell.sharedOn.text = dateFormatter.stringFromDate(datesString)
+                    }
+                    else
+                    {
+                        cell.sharedOn.text = ""
+                    }
                 }
                 else
                 {
                     cell.sharedOn.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["participants"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
                 {
-                    let no = newsFeed[indexPath.row]["participants"]!!.integerValue
-                    
-                    if no != 0
+                    if (!(newsFeed[indexPath.row]["participants"]!!.isKindOfClass(NSNull)))
                     {
-                        cell.voteNo.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                        let no = newsFeed[indexPath.row]["participants"]!!.integerValue
+                        
+                        if no != 0
+                        {
+                            cell.voteNo.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                        }
+                        else
+                        {
+                            cell.voteNo.text = ""
+                        }
                     }
                     else
                     {
@@ -266,71 +390,137 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.voteNo.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("userImage")?.isKindOfClass(NSNull) != nil)
                 {
-                    let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
-                    
-                    cell.profilePic.sd_setImageWithURL(url!)
+                    if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                    {
+                        let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+                        
+                        cell.profilePic.sd_setImageWithURL(url!)
+                    }
+                    else
+                    {
+                        cell.profilePic.image = nil
+                    }
                 }
                 else
                 {
                     cell.profilePic.image = nil
                 }
                 
-                if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("itemImage")?.isKindOfClass(NSNull) != nil)
                 {
-                    let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
-                    cell.IMView.sd_setImageWithURL(url!)
+                    if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+                    {
+                        let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
+                        cell.IMView.sd_setImageWithURL(url!)
+                    }
+                    else
+                    {
+                        cell.IMView.image = nil
+                    }
                 }
                 else
                 {
                     cell.IMView.image = nil
                 }
+
                 
-                if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("userName")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.userName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                    if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.userName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                    }
+                    else
+                    {
+                        cell.userName.text = ""
+                    }
+                }
+                else
+                {
+                    cell.userName.text = ""
                 }
                 //
-                if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("item_createdDate")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
-                    //                            print(datesString)
-                    
-                    dateFormatter.dateFormat = "dd-MMM-yyyy"
-                    
-                    //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
-                    cell.dateCreated.text = timeAgoSince(datesString)
+                    if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+                        //                            print(datesString)
+                        
+                        dateFormatter.dateFormat = "dd-MMM-yyyy"
+                        
+                        //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+                        cell.dateCreated.text = timeAgoSince(datesString)
+                    }
+                    else
+                    {
+                        cell.dateCreated.text = ""
+                    }
+                }
+                else
+                {
+                    cell.dateCreated.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-                    //                            print(datesString)
-                    
-                    dateFormatter.dateFormat = "dd-MMM-yyyy"
-                    
-                    //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                    cell.poleExpiry.text = timeAgoSince(datesString)
+                    if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                        //                            print(datesString)
+                        
+                        dateFormatter.dateFormat = "dd-MMM-yyyy"
+                        
+                        //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                        cell.poleExpiry.text = timeAgoSince(datesString)
+                    }
+                    else
+                    {
+                        cell.poleExpiry.text = ""
+                    }
+                }
+                else
+                {
+                    cell.poleExpiry.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("itemDescription")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+
+                    if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                    }
+                    else
+                    {
+                        cell.textBox.text = ""
+                    }
+
                 }
-                
+                else
+                {
+                    cell.textBox.text = ""
+                }
                 //            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
-                //            {
-                cell.totalPoles.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
-                //            }
+                //  
+                if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
+                {
+                    cell.totalPoles.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                }
+                else
+                {
+                    cell.totalPoles.text = "0"
+                }
                 
                 return cell
             }
@@ -347,37 +537,58 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.voteIdentity.image = UIImage(named: "voting-new")
                 
-                if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("sharedUserId")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                    if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                    }
+                    else
+                    {
+                        cell.nameofSharer.text = ""
+                    }
                 }
                 else
                 {
                     cell.nameofSharer.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("sharedOn")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["sharedOn"] as! String)!
-                    dateFormatter.dateFormat = "dd MMM yyyy"
-                    
-                    cell.sharedOn.text = dateFormatter.stringFromDate(datesString)
+                    if (!(newsFeed[indexPath.row]["sharedOn"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["sharedOn"] as! String)!
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+                        
+                        cell.sharedOn.text = dateFormatter.stringFromDate(datesString)
+                    }
+                    else
+                    {
+                        cell.sharedOn.text = ""
+                    }
                 }
                 else
                 {
                     cell.sharedOn.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["participants"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
                 {
-                    let no = newsFeed[indexPath.row]["participants"]!!.integerValue
-                    
-                    if no != 0
+                    if (!(newsFeed[indexPath.row]["participants"]!!.isKindOfClass(NSNull)))
                     {
-                        cell.voteNo.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                        let no = newsFeed[indexPath.row]["participants"]!!.integerValue
+                        
+                        if no != 0
+                        {
+                            cell.voteNo.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                        }
+                        else
+                        {
+                            cell.voteNo.text = ""
+                        }
                     }
                     else
                     {
@@ -389,70 +600,135 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.voteNo.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("userImage")?.isKindOfClass(NSNull) != nil)
                 {
-                    let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
-                    
-                    cell.profilePic.sd_setImageWithURL(url!)
+                    if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                    {
+                        let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+                        
+                        cell.profilePic.sd_setImageWithURL(url!)
+                    }
+                    else
+                    {
+                        cell.profilePic.image = nil
+                    }
                 }
                 else
                 {
                     cell.profilePic.image = nil
                 }
                 
-                if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("itemImage")?.isKindOfClass(NSNull) != nil)
                 {
-                    let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
-                    cell.IMView.sd_setImageWithURL(url!)
+                    if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+                    {
+                        let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
+                        cell.IMView.sd_setImageWithURL(url!)
+                    }
+                    else
+                    {
+                        cell.IMView.image = nil
+                    }
                 }
                 else
                 {
                     cell.IMView.image = nil
                 }
                 
-                if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("userName")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.userName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                    if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.userName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                    }
+                    else
+                    {
+                        cell.userName.text = ""
+                    }
+                }
+                else
+                {
+                    cell.userName.text = ""
                 }
                 //
-                if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("item_createdDate")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
-                    //                            print(datesString)
-                    
-                    dateFormatter.dateFormat = "dd-MMM-yyyy"
-                    
-                    //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
-                    cell.dateCreated.text = timeAgoSince(datesString)
+                    if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+                        //                            print(datesString)
+                        
+                        dateFormatter.dateFormat = "dd-MMM-yyyy"
+                        
+                        //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+                        cell.dateCreated.text = timeAgoSince(datesString)
+                    }
+                    else
+                    {
+                        cell.dateCreated.text = ""
+                    }
+                }
+                else
+                {
+                    cell.dateCreated.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
                 {
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                    //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
-                    
-                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-                    //                            print(datesString)
-                    
-                    dateFormatter.dateFormat = "dd-MMM-yyyy"
-                    
-                    //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                    cell.poleExpiry.text = timeAgoSince(datesString)
+                    if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                    {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
+                        
+                        let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                        //                            print(datesString)
+                        
+                        dateFormatter.dateFormat = "dd-MMM-yyyy"
+                        
+                        //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                        cell.poleExpiry.text = timeAgoSince(datesString)
+                    }
+                    else
+                    {
+                        cell.poleExpiry.text = ""
+                    }
+                }
+                else
+                {
+                    cell.poleExpiry.text = ""
                 }
                 
-                if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                if (newsFeed[indexPath.row].valueForKey("itemDescription")?.isKindOfClass(NSNull) != nil)
                 {
-                    cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                    if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                    {
+                        cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                    }
+                    else
+                    {
+                        cell.textBox.text = ""
+                    }
+                }
+                else
+                {
+                    cell.textBox.text = ""
                 }
                 
                 //            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
                 //            {
-                cell.totalPoles.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
+                {
+                    cell.totalPoles.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+                }
+                else
+                {
+                    cell.totalPoles.text = "0"
+                }
                 //            }
                 
                 return cell
@@ -469,75 +745,134 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.BgImg.layer.borderWidth = 2
             cell.BgImg.layer.borderColor = UIColor.clearColor().CGColor
             
-            if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("userImage")?.isKindOfClass(NSNull) != nil)
             {
-                let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
-//                print(url)
-
-                cell.profPic.sd_setImageWithURL(url!)
+                if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                {
+                    let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+                    //                print(url)
+                    
+                    cell.profPic.sd_setImageWithURL(url!)
+                }
+                else
+                {
+                    cell.profPic.image = nil
+                }
             }
             else
             {
                 cell.profPic.image = nil
             }
             
-            if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("userName")?.isKindOfClass(NSNull) != nil)
             {
-                cell.profName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.profName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                }
+                else
+                {
+                    cell.profName.text = ""
+                }
+            }
+            else
+            {
+                cell.profName.text = ""
             }
             
-            if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("item_createdDate")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                dateFormatter.timeZone = NSTimeZone(name: "UTC")
-                dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-                //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
-                
-                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
-                //                            print(datesString)
-                
-                
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-//                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
-                cell.pollCreated.text = timeAgoSince(datesString)
+                if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    dateFormatter.timeZone = NSTimeZone(name: "UTC")
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+
+                    cell.pollCreated.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    cell.pollCreated.text = ""
+                }
+            }
+            else
+            {
+                cell.pollCreated.text = ""
             }
             //
-            if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                
-                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-                //                            print(datesString)
-                
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-//                print(datesString)
-//                print(datesString.timeIntervalSinceNow)
-                
-//                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                cell.expiryDate.text = timeAgoSince(datesString)
+                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+
+                    
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+
+                    cell.expiryDate.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    cell.expiryDate.text = ""
+                }
+            }
+            else
+            {
+                cell.expiryDate.text = ""
             }
             //
-            if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("itemDescription")?.isKindOfClass(NSNull) != nil)
             {
-                cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                }
+                else
+                {
+                    cell.textBox.text = ""
+                }
+            }
+            else
+            {
+                cell.textBox.text = ""
             }
             
-            if (!(newsFeed[indexPath.row]["itemText"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("itemText")?.isKindOfClass(NSNull) != nil)
             {
-                cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
-                cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
+                if (!(newsFeed[indexPath.row]["itemText"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.textBox.text = cell.textBox.text.stringByAppendingString("\n\n")
+                    cell.textBox.text = cell.textBox.text.stringByAppendingString(newsFeed[indexPath.row]["itemText"] as! String)
+                }
+                else
+                {
+                    cell.textBox.text = cell.textBox.text.stringByAppendingString("")
+                }
+            }
+            else
+            {
+                cell.textBox.text = cell.textBox.text.stringByAppendingString("")
             }
             
-//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
-//            {
-//                print("\(newsFeed[indexPath.row]["participants"])")
+
+            if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
+            {
                 cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
-//                print(cell.totalNos.text)
-//            }
+
+            }
+            else
+            {
+                cell.totalNos.text = ""
+            }
             
             return cell
         }
@@ -556,84 +891,136 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
             
             //
-            if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("userImage")?.isKindOfClass(NSNull) != nil)
             {
-                let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
-                //                            print(url)
-//                let data = NSData(contentsOfURL: url!)
-//                let image = UIImage(data: data!)
-                
-//                cell.profPic.image = image
-                cell.profPic.sd_setImageWithURL(url!)
-//                cell.profPic.hnk_setImageFromURL(url!, format: Format<UIImage>(name: "original"))
+                if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                {
+                    let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+
+                    cell.profPic.sd_setImageWithURL(url!)
+                }
+                else
+                {
+                    cell.profPic.image = nil
+                }
             }
             else
             {
                 cell.profPic.image = nil
             }
             
-            if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("itemImage")?.isKindOfClass(NSNull) != nil)
             {
-                let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
-                //                        print(url)
-//                let data = NSData(contentsOfURL: url!)
-//                let image = UIImage(data: data!)
-                
-//                cell.img1.image = image
-                cell.img1.sd_setImageWithURL(url!)
-//                cell.img1.sd_setImageWithURL(url!, placeholderImage: UIImage(named: ""))
-//                cell.img1.hnk_setImageFromURL(url!, format: Format<UIImage>(name: "original2"))
-                
+                if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+                {
+                    let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
+
+                    cell.img1.sd_setImageWithURL(url!)
+                }
+                else
+                {
+                    cell.img1.image = nil
+                }
             }
             else
             {
                 cell.img1.image = nil
             }
+
             
-            if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("userName")?.isKindOfClass(NSNull) != nil)
             {
-                cell.VotName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.VotName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                }
+                else
+                {
+                    cell.VotName.text = ""
+                }
+            }
+            else
+            {
+                cell.VotName.text = ""
             }
             //
-            if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("item_createdDate")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
-                
-                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
-                //                            print(datesString)
-                
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-//                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
-                cell.voCreated.text = timeAgoSince(datesString)
+                if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
+                    //                            print(datesString)
+                    
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+                    cell.voCreated.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    cell.voCreated.text = ""
+                }
+            }
+            else
+            {
+                cell.voCreated.text = ""
             }
             
-            if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
-                
-                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-                //                            print(datesString)
-                
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-//                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                cell.expiryDate.text = timeAgoSince(datesString)
+                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    //                            print(newsFeed[indexPath.row]["item_expiryDate"].stringValue)
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                    //                            print(datesString)
+                    
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                    cell.expiryDate.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    cell.expiryDate.text = ""
+                }
+            }
+            else
+            {
+                cell.expiryDate.text = ""
             }
             
-            if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("itemDescription")?.isKindOfClass(NSNull) != nil)
             {
-                cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                }
+                else
+                {
+                    cell.textBox.text = ""
+                }
+            }
+            else
+            {
+                cell.textBox.text = ""
             }
             
-//            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
-//            {
+
+            if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
+            {
                 cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
-//            }
+            }
+            else
+            {
+                 cell.totalNos.text = "0"
+            }
             
             return cell
         }
@@ -657,79 +1044,128 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
             
             //
-            if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("userImage")?.isKindOfClass(NSNull) != nil)
             {
-                let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
-                cell.profPic.sd_setImageWithURL(url!)
+                if (!(newsFeed[indexPath.row]["userImage"]!!.isKindOfClass(NSNull)))
+                {
+                    let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
+                    cell.profPic.sd_setImageWithURL(url!)
+                }
+                else
+                {
+                    cell.profPic.image = nil
+                }
+            }
+            
+            if (newsFeed[indexPath.row].valueForKey("itemImage")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
+                {
+                    let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
+                    
+                    cell.img1.sd_setImageWithURL(url!)
+                    
+                }
+                else
+                {
+                    cell.img1.image = nil
+                }
+            }
+            
+            if (newsFeed[indexPath.row].valueForKey("userName")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.VotName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                }
+                else
+                {
+                    cell.VotName.text = ""
+                }
             }
             else
             {
-                cell.profPic.image = nil
-            }
-            
-            if (!(newsFeed[indexPath.row]["itemImage"]!!.isKindOfClass(NSNull)))
-            {
-                let url = NSURL(string: newsFeed[indexPath.row]["itemImage"] as! String)
-
-                cell.img1.sd_setImageWithURL(url!)
-
-            }
-            else
-            {
-                cell.img1.image = nil
-            }
-            
-            if (!(newsFeed[indexPath.row]["userName"]!!.isKindOfClass(NSNull)))
-            {
-                cell.VotName.text = (newsFeed[indexPath.row]["userName"] as! String)
+                cell.VotName.text = ""
             }
             //
-            if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+            if (newsFeed[indexPath.row].valueForKey("item_createdDate")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
-                
-                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
-                //                            print(datesString)
-                
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-                //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
-                cell.voCreated.text = timeAgoSince(datesString)
-            }
-            
-            if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
-            {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//                print ("hello")
-//                print(newsFeed[indexPath.row])
-                
-//                print(newsFeed[indexPath.row]["item_expiryDate"]!! as! String)
-                
-//                print(newsFeed[indexPath.row]["item_expiryDate"].intere)
-                
-                let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-               
-
+                if (!(newsFeed[indexPath.row]["item_createdDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    //                            print(newsFeed[indexPath.row]["item_createdDate"].stringValue)
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_createdDate"] as! String)!
                     //                            print(datesString)
-                
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-                //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
-                cell.expiryDate.text = timeAgoSince(datesString)
+                    
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    //                cell.voCreated.text = dateFormatter.stringFromDate(datesString)
+                    cell.voCreated.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    cell.voCreated.text = ""
+                }
             }
-            
-            if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+            else
             {
-                cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                cell.voCreated.text = ""
             }
             
-            //            if (!(newsFeed[indexPath.row]["participants"]!!.isEqualToNumber(0)))
-            //            {
-            cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
-            //            }
+            if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                    
+                    
+                    //                            print(datesString)
+                    
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    //                cell.expiryDate.text = dateFormatter.stringFromDate(datesString)
+                    cell.expiryDate.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    cell.expiryDate.text = ""
+                }
+            }
+            else
+            {
+                cell.expiryDate.text = ""
+            }
+            
+            if (newsFeed[indexPath.row].valueForKey("itemDescription")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(newsFeed[indexPath.row]["itemDescription"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.textBox.text = newsFeed[indexPath.row]["itemDescription"] as! String
+                }
+                else
+                {
+                    cell.textBox.text = ""
+                }
+            }
+            else
+            {
+                cell.textBox.text = ""
+            }
+           
+            if (newsFeed[indexPath.row].valueForKey("participants")?.isKindOfClass(NSNull) != nil)
+            {
+                cell.totalNos.text = String(newsFeed[indexPath.row]["participants"]!!.integerValue)
+            }
+            else
+            {
+                cell.totalNos.text = "0"
+            }
             
             return cell
 
@@ -862,7 +1298,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if value != nil
                 {
                     let json = JSON(value!)
-//                    print(json)
+                    print(json)
                     
                     self.HideLoader()
                     

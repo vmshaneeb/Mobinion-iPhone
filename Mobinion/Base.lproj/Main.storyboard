@@ -2782,9 +2782,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="Sev-KA-DrK"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="l4I-PU-jKv">
@@ -2792,9 +2789,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="4Ld-eW-01V"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -2878,9 +2872,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="xgA-as-ihe"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="rmz-1l-2Lk">
@@ -2888,9 +2879,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="a3H-G9-UAw"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -3133,9 +3121,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="FWe-o9-RKc"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="MfX-lJ-g1n">
@@ -3143,9 +3128,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="maF-hK-qXV"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -3307,9 +3289,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="vSG-yA-Sp1"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="e1J-9h-I5g">
@@ -3317,9 +3296,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="rm5-e7-RsQ"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -3523,9 +3499,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="bq3-EO-tXT"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="Lbo-M1-IEg">
@@ -3533,9 +3506,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="gR9-Ct-a4d"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -3702,9 +3672,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="wq9-IL-9a2"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="2y9-Wj-LEi">
@@ -3712,9 +3679,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="7Pg-AG-dWQ"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -3876,9 +3840,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="Nub-bC-xFN"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="aZV-nL-E87">
@@ -3886,9 +3847,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="CaJ-JI-5Db"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -4080,9 +4038,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="R2V-EJ-CF2"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="Fze-yd-Q3B">
@@ -4090,9 +4045,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="wVP-xS-hrx"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -4269,9 +4221,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="YSk-Td-h1e"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="1pK-rQ-ugN">
@@ -4279,9 +4228,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="LTI-av-bvj"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -4437,9 +4383,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="la9-1U-IDn"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="Ji5-nc-DUK">
@@ -4447,9 +4390,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="6bu-LI-oQT"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -4603,9 +4543,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="t6K-we-Der"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="9Oj-em-0ME">
@@ -4613,9 +4550,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="yvp-It-1K9"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -4792,9 +4726,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="gkc-Ah-Mc6"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="Ri0-1E-0HV">
@@ -4802,9 +4733,6 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
-                                                    <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="qBv-xb-2Fb"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -4935,7 +4863,7 @@
             </objects>
             <point key="canvasLocation" x="14721" y="-442"/>
         </scene>
-        <!--Empty Data Set Delegate-->
+        <!--News Feed My Wall-->
         <scene sceneID="WSN-0B-WOk">
             <objects>
                 <viewController storyboardIdentifier="newsFeedMain" id="zMC-dI-42f" customClass="NewsFeedMyWall" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -4960,9 +4888,6 @@
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="down arrow white"/>
-                                                <connections>
-                                                    <action selector="showLists:" destination="zMC-dI-42f" eventType="touchUpInside" id="8ly-za-j1l"/>
-                                                </connections>
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
@@ -4973,9 +4898,6 @@
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="search:" destination="zMC-dI-42f" eventType="touchUpInside" id="ejP-MY-OeU"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="yr8-bD-HzE">
@@ -4984,7 +4906,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
                                                     <connections>
-                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="Cj5-ym-Sxt"/>
+                                                        <action selector="notify:" destination="zMC-dI-42f" eventType="touchUpInside" id="2VR-dW-BQS"/>
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
@@ -5007,8 +4929,6 @@
                                         <connections>
                                             <outlet property="dataSource" destination="zMC-dI-42f" id="KEi-C0-5Bn"/>
                                             <outlet property="delegate" destination="zMC-dI-42f" id="q91-Qj-bm9"/>
-                                            <outlet property="emptyDataSetDelegate" destination="zMC-dI-42f" id="M3H-oK-gYy"/>
-                                            <outlet property="emptyDataSetSource" destination="zMC-dI-42f" id="GSR-sg-1co"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -5802,6 +5722,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="ON8-GW-73r"/>
+        <segue reference="rwZ-01-9uh"/>
     </inferredMetricsTieBreakers>
 </document>
