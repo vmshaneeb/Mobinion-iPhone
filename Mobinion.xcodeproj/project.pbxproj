@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		469563212743E8BFE481F42B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4DD1FE8D8243636602741F /* Pods.framework */; };
 		650835C21C95779600C6C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835C11C95779600C6C280 /* AppDelegate.swift */; };
 		650835C41C95779600C6C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835C31C95779600C6C280 /* ViewController.swift */; };
 		650835C71C95779600C6C280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650835C51C95779600C6C280 /* Main.storyboard */; };
@@ -109,6 +108,7 @@
 		65EEC7281CDE68BA00A2A81E /* AroundMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EEC7261CDE68BA00A2A81E /* AroundMeTableViewCell.swift */; };
 		65EEC7291CDE68BA00A2A81E /* AroundMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EEC7271CDE68BA00A2A81E /* AroundMeTableViewCell.xib */; };
 		65EEC72B1CDEE5CE00A2A81E /* ProfileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EEC72A1CDEE5CE00A2A81E /* ProfileSettings.swift */; };
+		88E4DBC4B517F690F7FD3E11 /* Pods_Mobinion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE46761B5DB4E3D45C03F095 /* Pods_Mobinion.framework */; };
 		AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2BD2631CAC2B51009C24CD /* ServerRequests.m */; };
 		AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -131,6 +131,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DC56062F1CE314F75AE631F /* Pods-Mobinion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobinion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mobinion/Pods-Mobinion.release.xcconfig"; sourceTree = "<group>"; };
+		4CDF3A5E40A208FFB7930AB2 /* Pods-Mobinion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobinion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mobinion/Pods-Mobinion.debug.xcconfig"; sourceTree = "<group>"; };
 		650835BE1C95779600C6C280 /* Mobinion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobinion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		650835C11C95779600C6C280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		650835C31C95779600C6C280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -258,8 +260,7 @@
 		AC978CC71CABB65C001E1D7D /* MobinionBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobinionBridging-Header.h"; sourceTree = "<group>"; };
 		AC978CC91CABB756001E1D7D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		AC978CCA1CABB756001E1D7D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BE46761B5DB4E3D45C03F095 /* Pods_Mobinion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobinion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4DD1FE8D8243636602741F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -269,7 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				653F52921CB1B08E001B494C /* CoreTelephony.framework in Frameworks */,
-				469563212743E8BFE481F42B /* Pods.framework in Frameworks */,
+				88E4DBC4B517F690F7FD3E11 /* Pods_Mobinion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +300,8 @@
 				650835D51C95779600C6C280 /* MobinionTests */,
 				650835E01C95779600C6C280 /* MobinionUITests */,
 				650835BF1C95779600C6C280 /* Products */,
-				ABD439F543C014DBE00B8E26 /* Pods */,
 				844541A685AFEB62EF11AEF3 /* Frameworks */,
+				6CD1344936E47FC989398157 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -490,21 +491,22 @@
 			path = PopDatePicker;
 			sourceTree = "<group>";
 		};
+		6CD1344936E47FC989398157 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF3A5E40A208FFB7930AB2 /* Pods-Mobinion.debug.xcconfig */,
+				3DC56062F1CE314F75AE631F /* Pods-Mobinion.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		844541A685AFEB62EF11AEF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				CB4DD1FE8D8243636602741F /* Pods.framework */,
+				BE46761B5DB4E3D45C03F095 /* Pods_Mobinion.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		ABD439F543C014DBE00B8E26 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */,
-				AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		AC2BD2611CAC2B51009C24CD /* ServerPostRequest */ = {
@@ -533,12 +535,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 650835E61C95779600C6C280 /* Build configuration list for PBXNativeTarget "Mobinion" */;
 			buildPhases = (
-				AF8532D2D2F2731FFC4B8F6D /* Check Pods Manifest.lock */,
+				896BC3D51C655E5413CA8C88 /* 📦 Check Pods Manifest.lock */,
 				650835BA1C95779600C6C280 /* Sources */,
 				650835BB1C95779600C6C280 /* Frameworks */,
 				650835BC1C95779600C6C280 /* Resources */,
-				F2F868EDBC7F7E082E8EB528 /* Embed Pods Frameworks */,
-				B3E3E2E1CC474548AA12D991 /* Copy Pods Resources */,
+				B1C3A42B9CB3A3244A9D60D0 /* 📦 Embed Pods Frameworks */,
+				2523C8CC8A6792208FC2F036 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -701,14 +703,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AF8532D2D2F2731FFC4B8F6D /* Check Pods Manifest.lock */ = {
+		2523C8CC8A6792208FC2F036 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mobinion/Pods-Mobinion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		896BC3D51C655E5413CA8C88 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,34 +733,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B3E3E2E1CC474548AA12D991 /* Copy Pods Resources */ = {
+		B1C3A42B9CB3A3244A9D60D0 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2F868EDBC7F7E082E8EB528 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mobinion/Pods-Mobinion-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -957,7 +959,7 @@
 		};
 		650835E71C95779600C6C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B49B41EF4F80EF49D6CD7E71 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 4CDF3A5E40A208FFB7930AB2 /* Pods-Mobinion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -979,7 +981,7 @@
 		};
 		650835E81C95779600C6C280 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEC30B4BA687851835B76A45 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 3DC56062F1CE314F75AE631F /* Pods-Mobinion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
