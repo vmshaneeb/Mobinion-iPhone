@@ -709,8 +709,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                print(newsFeed[indexPath.row]["item_expiryDate"]!! as! String)
                 
 //                print(newsFeed[indexPath.row]["item_expiryDate"].intere)
+                
                 let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
-                //                            print(datesString)
+               
+
+                    //                            print(datesString)
                 
                 dateFormatter.dateFormat = "dd-MMM-yyyy"
                 
@@ -1048,14 +1051,14 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     func getFeeds(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
     {
         let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
-        print(toks)
+//        print(toks)
         
         let header = ["Authorization": toks as! String]
         //print(header)
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
-        let parameter = ["rowNumber": "1", "showingType": "all"]
+        let parameter = ["rowNumber": "7", "showingType": "all"]
         
 //        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
         Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
