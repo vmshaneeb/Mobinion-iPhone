@@ -1888,82 +1888,6 @@
             </objects>
             <point key="canvasLocation" x="4616" y="1422"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="yRe-Jw-UVN">
-            <objects>
-                <viewController id="KOy-Qf-aoF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ae0-C6-O7R"/>
-                        <viewControllerLayoutGuide type="bottom" id="ar4-rD-sg5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7S4-xi-6gP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCz-R3-n3X">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="MOBINION" id="YcC-5p-muu">
-                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="LPD-xB-XJl">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dr1-H4-a4L">
-                                                <rect key="frame" x="20" y="9" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="down arrow white"/>
-                                            </button>
-                                        </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="wOy-u2-5yH">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6fB-MK-QRo">
-                                                    <rect key="frame" x="555" y="9" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="Search white">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="u4I-He-QcK">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xrR-mG-U9E">
-                                                    <rect key="frame" x="522" y="9" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="Notification"/>
-                                                </button>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="FB0-wh-OIX"/>
-                                </connections>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-sC-ee6">
-                                <rect key="frame" x="20" y="64" width="560" height="483"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="bpA-sC-ee6" firstAttribute="centerX" secondItem="aCz-R3-n3X" secondAttribute="centerX" id="TOJ-Xu-cHc"/>
-                            <constraint firstItem="bpA-sC-ee6" firstAttribute="leading" secondItem="7S4-xi-6gP" secondAttribute="leadingMargin" id="V5p-qP-aHj"/>
-                            <constraint firstAttribute="bottom" secondItem="bpA-sC-ee6" secondAttribute="bottom" constant="53" id="XY5-JG-WXh"/>
-                            <constraint firstAttribute="trailing" secondItem="aCz-R3-n3X" secondAttribute="trailing" id="a26-tc-bBe"/>
-                            <constraint firstItem="bpA-sC-ee6" firstAttribute="top" secondItem="aCz-R3-n3X" secondAttribute="bottom" id="j1o-Ei-s16"/>
-                            <constraint firstItem="aCz-R3-n3X" firstAttribute="top" secondItem="Ae0-C6-O7R" secondAttribute="bottom" id="qhB-gB-pxb"/>
-                            <constraint firstItem="aCz-R3-n3X" firstAttribute="leading" secondItem="7S4-xi-6gP" secondAttribute="leading" id="yxM-xM-Dev"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k0e-Xr-6x5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider" id="XT1-9P-rnV">
-                    <rect key="frame" x="0.0" y="0.0" width="190" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-            </objects>
-            <point key="canvasLocation" x="5301" y="1456"/>
-        </scene>
         <!--News FeedQR-->
         <scene sceneID="fVU-1p-F3m">
             <objects>
@@ -2014,9 +1938,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="MKT-cq-2D5"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="QR CODE SCANNER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skk-V7-9vd">
                                 <rect key="frame" x="40" y="31" width="164" height="21"/>
@@ -2158,9 +2079,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="HOA-Ae-zNZ"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR CODE SCANNER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-ik-ads">
                                 <rect key="frame" x="40" y="31" width="165" height="21"/>
@@ -2287,9 +2205,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="KS8-0T-upM"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
                                 <rect key="frame" x="40" y="31" width="112" height="21"/>
@@ -2759,9 +2674,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="4ns-SZ-CHI"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AROUND ME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMz-pe-kPi">
                                 <rect key="frame" x="40" y="31" width="110" height="21"/>
@@ -2885,9 +2797,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="6kK-ch-yeX"/>
-                                </connections>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NJs-1H-Ylf">
                                 <rect key="frame" x="8" y="64" width="584" height="487"/>
@@ -2984,9 +2893,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="wZL-we-b8p"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ter-jv-p44">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -3242,9 +3148,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="nbI-Gn-t9q"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOTING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoZ-FP-8YS">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -3419,9 +3322,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="BFO-nP-13U"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FEEDBACK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66g-B5-j63">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -3638,9 +3538,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="vBE-QS-j59"/>
-                                </connections>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrU-OR-Evy">
                                 <rect key="frame" x="9" y="64" width="583" height="202"/>
@@ -3820,9 +3717,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="sm2-5f-rfL"/>
-                                </connections>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZ6-h2-VBk">
                                 <rect key="frame" x="9" y="64" width="583" height="202"/>
@@ -3997,9 +3891,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="3cE-cg-ILF"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CONTEST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uik-9p-ex5">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -4204,9 +4095,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="x6K-6I-9Jd"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CONTEST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mL0-jn-7qY">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -4396,9 +4284,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="XVN-g8-o4J"/>
-                                </connections>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCM-No-GjI">
                                 <rect key="frame" x="9" y="64" width="583" height="202"/>
@@ -4567,9 +4452,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="PlQ-F0-N5w"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CONTEST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwi-fc-hib">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -4736,9 +4618,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="GXY-QA-hak"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CONTEST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQQ-lT-77w">
                                 <rect key="frame" x="40" y="30" width="126" height="21"/>
@@ -4928,9 +4807,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="0mG-in-a1b"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CONTEST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-T5-AOG">
                                 <rect key="frame" x="40" y="31" width="126" height="21"/>
@@ -5112,9 +4988,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="gIA-30-CKo"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOBINION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-4z-5UB">
                                 <rect key="frame" x="40" y="31" width="91" height="21"/>
@@ -5171,7 +5044,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zn6-pk-XMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7580" y="-442"/>
+            <point key="canvasLocation" x="7516" y="-442"/>
         </scene>
         <!--Profile Settings-->
         <scene sceneID="fUB-gx-hYh">
@@ -5234,9 +5107,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="OG4-ZS-uoE"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk5-DN-mXE">
                                 <rect key="frame" x="40" y="31" width="88" height="21"/>
@@ -5431,9 +5301,6 @@
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="KOy-Qf-aoF" id="0NT-P2-Rll"/>
-                                </connections>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MY ACTIVITIES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAW-g4-dIQ">
                                 <rect key="frame" x="40" y="31" width="119" height="21"/>
@@ -5932,6 +5799,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="6Kd-aA-gAn"/>
+        <segue reference="rwZ-01-9uh"/>
     </inferredMetricsTieBreakers>
 </document>
