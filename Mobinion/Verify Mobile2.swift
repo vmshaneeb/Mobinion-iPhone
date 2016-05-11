@@ -92,9 +92,17 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
                     
+                    print(messages)
+                    
                     if titles == "error"
                     {
                         self.doDBalertView(titles, msgs: messages)
+                    }
+//                    else if messages.containsString("Temp User created successfully")
+                    
+                    else if messages.containsString("User Verified, Restored old details of user")
+                    {
+                        self.performSegueWithIdentifier("showNewsFeedFromVerify", sender: sender)
                     }
                     else
                     {

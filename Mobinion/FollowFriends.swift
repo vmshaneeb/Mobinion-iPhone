@@ -200,6 +200,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let header = allUsers.allKeys[section] as! String
         
+        //TODO:- hide suggestion users header if empty
         if header.containsString("suggestionsUsers")
         {
             cell.titleLabel.text = "Suggestions Based On Your Interests"
