@@ -583,6 +583,7 @@
                         <outlet property="heading5" destination="rn0-bb-E9Z" id="47P-dV-se3"/>
                         <outlet property="verifyCode" destination="DDO-RT-oXt" id="EnL-II-Wwc"/>
                         <segue destination="A7O-bh-uaP" kind="show" identifier="verifySecondSegue" id="Ywz-9V-hoU"/>
+                        <segue destination="hu0-Xc-Vos" kind="show" identifier="showNewsFeedFromVerify" id="lhy-Qt-sII"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msj-d8-lbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1975,7 +1976,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1z-oy-unu">
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1z-oy-unu">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.058823529411764705" green="0.76078431372549016" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -2017,7 +2018,7 @@
                                     <outlet property="delegate" destination="KOy-Qf-aoF" id="MKT-cq-2D5"/>
                                 </connections>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR CODE SCANNER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skk-V7-9vd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="QR CODE SCANNER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skk-V7-9vd">
                                 <rect key="frame" x="40" y="31" width="164" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="jnh-Mg-6GL"/>
@@ -2026,10 +2027,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhM-PC-Kxw">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JhM-PC-Kxw">
                                 <rect key="frame" x="20" y="64" width="560" height="487"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrL-XE-7Zf">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrL-XE-7Zf">
                                         <rect key="frame" x="150" y="418" width="261" height="50"/>
                                         <color key="backgroundColor" red="0.24705882352941178" green="0.68627450980392157" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -2081,14 +2082,7 @@
                             <constraint firstItem="skk-V7-9vd" firstAttribute="top" secondItem="Chf-j7-vFg" secondAttribute="bottom" constant="11" id="zBw-uz-6zU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="qr code scanner normal" selectedImage="qr code scanner selected" id="TID-yN-9ca">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.023529411764705882" green="0.61568627450980395" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="TKO-ZS-rqj"/>
                     <connections>
                         <outlet property="QRView" destination="JhM-PC-Kxw" id="cXX-Zk-emV"/>
                         <outlet property="navBar" destination="D1z-oy-unu" id="YNl-iD-LtB"/>
@@ -2098,7 +2092,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Uk-LMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6768" y="888"/>
+            <point key="canvasLocation" x="7580" y="888"/>
         </scene>
         <!--Manual Code-->
         <scene sceneID="cpr-ck-bbd">
@@ -2244,7 +2238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZE-hK-com" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6768" y="1586"/>
+            <point key="canvasLocation" x="7580" y="1636"/>
         </scene>
         <!--News Feed Create Poll-->
         <scene sceneID="8Gc-jV-FPT">
@@ -5819,7 +5813,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="cDL-lY-mU8" kind="relationship" relationship="viewControllers" id="4S1-b7-JnF"/>
-                        <segue destination="QFw-rT-C8d" kind="relationship" relationship="viewControllers" id="fYi-uO-dBf"/>
+                        <segue destination="kaJ-73-LXY" kind="relationship" relationship="viewControllers" id="fYi-uO-dBf"/>
                         <segue destination="LD3-F6-jWU" kind="relationship" relationship="viewControllers" id="hQ9-YP-Iz6"/>
                         <segue destination="LY8-x9-gp8" kind="relationship" relationship="viewControllers" id="lb5-L5-bDb"/>
                         <segue destination="cjk-ci-Lmv" kind="relationship" relationship="viewControllers" id="kFa-cn-uoU"/>
@@ -5854,6 +5848,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oO9-c3-UmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6768" y="-442"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gyZ-Bx-B7I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="kaJ-73-LXY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="qr code scanner normal" selectedImage="qr code scanner selected" id="TID-yN-9ca">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.023529411764705882" green="0.61568627450980395" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l9k-Ov-97Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QFw-rT-C8d" kind="relationship" relationship="rootViewController" id="fuZ-7e-WHA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXe-jt-Hb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6768" y="888"/>
         </scene>
     </scenes>
     <resources>
@@ -5911,6 +5931,7 @@
         <image name="viber" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lhy-Qt-sII"/>
         <segue reference="6Kd-aA-gAn"/>
     </inferredMetricsTieBreakers>
 </document>

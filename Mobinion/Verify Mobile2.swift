@@ -56,6 +56,8 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
 //        vcode = verifyCode.text!
 //        print(vcode)
         
+        //TODO:- skip to news feeds page
+//        showNewsFeedFromVerify
         
         if ((verifyCode.text?.isEmpty)!)
         {
