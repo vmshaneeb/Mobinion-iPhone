@@ -2013,7 +2013,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Uk-LMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7580" y="888"/>
+            <point key="canvasLocation" x="6768" y="1602"/>
         </scene>
         <!--Manual Code-->
         <scene sceneID="cpr-ck-bbd">
@@ -2153,10 +2153,13 @@
                             <constraint firstItem="lMZ-ik-ads" firstAttribute="leading" secondItem="w6a-pX-8Mo" secondAttribute="leading" id="yHs-vG-3Ub"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromMannualCode" id="ON8-GW-73r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZE-hK-com" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7580" y="1636"/>
+            <point key="canvasLocation" x="6768" y="2384"/>
         </scene>
         <!--News Feed Create Poll-->
         <scene sceneID="8Gc-jV-FPT">
@@ -5799,6 +5802,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="rwZ-01-9uh"/>
+        <segue reference="ON8-GW-73r"/>
     </inferredMetricsTieBreakers>
 </document>
