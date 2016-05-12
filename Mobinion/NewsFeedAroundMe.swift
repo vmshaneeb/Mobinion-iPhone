@@ -142,6 +142,38 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("aroundmecell") as! AroundMeTableViewCell
         
+        if (aroundMe[indexPath.row].valueForKey("longitude")?.isKindOfClass(NSNull) != nil && aroundMe[indexPath.row].valueForKey("latitude")?.isKindOfClass(NSNull) != nil)
+        {
+            if (!(aroundMe[indexPath.row]["longitude"]!!.isKindOfClass(NSNull)) && !(aroundMe[indexPath.row]["latitude"]!!.isKindOfClass(NSNull)))
+            {
+                let long = aroundMe[indexPath.row]["longitude"]!!.doubleValue
+                let lat = aroundMe[indexPath.row]["latitude"]!!.doubleValue
+//                print("long: \(long), lat: \(lat)")
+                let marker = GMSMarker()
+                
+                marker.position = CLLocationCoordinate2DMake(long, lat)
+                
+                let type = (aroundMe[indexPath.row]["post_type"] as! String)
+                
+                switch type
+                {
+                    case "contest":
+                        marker.icon = UIImage(named: "Map-contest")
+                    case "poll":
+                        marker.icon = UIImage(named: "Map-poll")
+                    case "voting":
+                        marker.icon = UIImage(named: "Map-vote")
+                    default:
+                        break
+//                        marker.icon = UIImage(named: "")
+                }
+                
+        //        marker.title = "Al Sebseb"
+        //        marker.snippet = "Qatar"
+                marker.map = mapView
+            }
+        }
+        
         if (aroundMe[indexPath.row].valueForKey("title")?.isKindOfClass(NSNull) != nil)
         {
             if (!(aroundMe[indexPath.row]["title"]!!.isKindOfClass(NSNull)))
@@ -305,8 +337,8 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         
         let URL = "http://vyooha.cloudapp.net:1337/aroundme"
         
-//        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": lat, "lon": long], encoding: .JSON)
-        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": "10.0082783", "lon": "76.3592398"], encoding: .JSON)
+        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": lat, "lon": long], encoding: .JSON)
+//        Alamofire.request(.POST, URL, headers: header, parameters: ["lat": "10.0082783", "lon": "76.3592398"], encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {

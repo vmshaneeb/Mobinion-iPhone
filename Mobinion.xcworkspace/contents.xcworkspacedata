@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:infopark.gpx">
+   </FileRef>
+   <FileRef
       location = "group:Mobinion.xcodeproj">
    </FileRef>
    <FileRef

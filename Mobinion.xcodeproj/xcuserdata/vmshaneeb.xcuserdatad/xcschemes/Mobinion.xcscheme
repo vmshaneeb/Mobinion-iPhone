@@ -89,8 +89,8 @@
          </AdditionalOption>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "Mumbai, India"
-         referenceType = "1">
+         identifier = "../infopark.gpx"
+         referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
