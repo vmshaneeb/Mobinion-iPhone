@@ -11,8 +11,9 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import SDWebImage
+import DZNEmptyDataSet
 
-class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
+class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -60,6 +61,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 228
+        
+        tableView.tableFooterView = UIView()
         
 //        tableView.layer.cornerRadius = 10
 //        tableView.layer.masksToBounds = true
@@ -1204,6 +1207,21 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
+    //MARK:- DZNEmptyDataSetDelegate
+    //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    //    {
+    //        let str = "Welcome"
+    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+    //        return NSAttributedString(string: str, attributes: attrs)
+    //    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    {
+        let str = "You dont have any feeds\n\nPlease check back later"
+        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
+        
+        return NSAttributedString(string: str, attributes: attrs)
+    }
     
     //MARK:- Actions
     @IBAction func showLists(sender: AnyObject)
@@ -1494,7 +1512,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
-        let parameter = ["rowNumber": 7, "showingType": "all"]
+        let parameter = ["rowNumber": 5, "showingType": "all"]
         
         Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
 //        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)

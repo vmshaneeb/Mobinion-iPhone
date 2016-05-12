@@ -4885,7 +4885,7 @@
             </objects>
             <point key="canvasLocation" x="14721" y="-442"/>
         </scene>
-        <!--News Feed My Wall-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="WSN-0B-WOk">
             <objects>
                 <viewController storyboardIdentifier="newsFeedMain" id="zMC-dI-42f" customClass="NewsFeedMyWall" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -4951,6 +4951,8 @@
                                         <connections>
                                             <outlet property="dataSource" destination="zMC-dI-42f" id="KEi-C0-5Bn"/>
                                             <outlet property="delegate" destination="zMC-dI-42f" id="q91-Qj-bm9"/>
+                                            <outlet property="emptyDataSetDelegate" destination="zMC-dI-42f" id="YMn-Ke-ncm"/>
+                                            <outlet property="emptyDataSetSource" destination="zMC-dI-42f" id="52t-ss-qxv"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -5776,6 +5778,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="vhk-j8-Soq"/>
+        <segue reference="rwZ-01-9uh"/>
     </inferredMetricsTieBreakers>
 </document>

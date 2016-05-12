@@ -24,11 +24,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile-avatar" translatesAutoresizingMaskIntoConstraints="NO" id="CiP-lJ-5Qz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile-avatar" translatesAutoresizingMaskIntoConstraints="NO" id="CiP-lJ-5Qz">
                         <rect key="frame" x="8" y="11" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="Rji-Hd-XFh"/>
                             <constraint firstAttribute="width" secondItem="CiP-lJ-5Qz" secondAttribute="height" multiplier="1:1" id="gM8-qo-jxN"/>
+                            <constraint firstAttribute="width" constant="45" id="tK5-Q5-CPK"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-F0-IOg">

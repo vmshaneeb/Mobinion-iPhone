@@ -12,8 +12,9 @@ import SwiftyJSON
 import DBAlertController
 import SDWebImage
 import TextAttributes
+import DZNEmptyDataSet
 
-class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataSource
+class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +35,8 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 144
+        
+        tableView.tableFooterView = UIView()
     }
     
     override func didReceiveMemoryWarning()
@@ -136,6 +139,22 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
 //        cell.detailsText.sizeToFit()
         
         return cell
+    }
+    
+    //MARK:- DZNEmptyDataSetDelegate
+    //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    //    {
+    //        let str = "Welcome"
+    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+    //        return NSAttributedString(string: str, attributes: attrs)
+    //    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+    {
+        let str = "You dont have any notifications\n\nPlease check back later"
+        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
+        
+        return NSAttributedString(string: str, attributes: attrs)
     }
     
     //MARK:- Actions
