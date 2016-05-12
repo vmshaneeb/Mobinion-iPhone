@@ -105,11 +105,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.BgImg.layer.borderWidth = 2
                 cell.BgImg.layer.borderColor = UIColor.clearColor().CGColor
                 
-                if (newsFeed[indexPath.row].valueForKey("sharedUserId")?.isKindOfClass(NSNull) != nil)
+                if (newsFeed[indexPath.row].valueForKey("sharedUserName")?.isKindOfClass(NSNull) != nil)
                 {
-                    if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                    if (!(newsFeed[indexPath.row]["sharedUserName"]!!.isKindOfClass(NSNull)))
                     {
-                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserName"] as! String)
                     }
                     else
                     {
@@ -330,11 +330,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.voteIdentity.image = UIImage(named: "contest-new")
                 
-                if (newsFeed[indexPath.row].valueForKey("sharedUserId")?.isKindOfClass(NSNull) != nil)
+                if (newsFeed[indexPath.row].valueForKey("sharedUserName")?.isKindOfClass(NSNull) != nil)
                 {
-                    if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                    if (!(newsFeed[indexPath.row]["sharedUserName"]!!.isKindOfClass(NSNull)))
                     {
-                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserName"] as! String)
                     }
                     else
                     {
@@ -540,11 +540,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 cell.voteIdentity.image = UIImage(named: "voting-new")
                 
-                if (newsFeed[indexPath.row].valueForKey("sharedUserId")?.isKindOfClass(NSNull) != nil)
+                if (newsFeed[indexPath.row].valueForKey("sharedUserName")?.isKindOfClass(NSNull) != nil)
                 {
-                    if (!(newsFeed[indexPath.row]["sharedUserId"]!!.isKindOfClass(NSNull)))
+                    if (!(newsFeed[indexPath.row]["sharedUserName"]!!.isKindOfClass(NSNull)))
                     {
-                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserId"] as! String)
+                        cell.nameofSharer.text = (newsFeed[indexPath.row]["sharedUserName"] as! String)
                     }
                     else
                     {
@@ -1512,10 +1512,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
-        let parameter = ["rowNumber": 5, "showingType": "all"]
+        let parameter = ["rowNumber": "1", "showingType": "all"]
         
-        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
-//        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+//        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
+        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {

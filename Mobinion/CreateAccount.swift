@@ -290,6 +290,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     @IBAction func createBtn (sender: UIButton)
     {
+        //TODO:- check box validation
         var count = 0
         for textfield in alltextFields
         {
