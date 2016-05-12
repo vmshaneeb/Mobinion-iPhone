@@ -1933,6 +1933,9 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
+                                                    <connections>
+                                                        <action selector="notify:" destination="QFw-rT-C8d" eventType="touchUpInside" id="IaZ-kf-Bv6"/>
+                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -2056,6 +2059,7 @@
                                                 <state key="normal" image="back arrow"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="QFw-rT-C8d" eventType="touchUpInside" id="HGL-jk-BBx"/>
+                                                    <action selector="backBtn:" destination="DfO-vD-q6a" eventType="touchUpInside" id="dFY-5a-bQ4"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -2074,6 +2078,9 @@
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
+                                                    <connections>
+                                                        <action selector="notify:" destination="DfO-vD-q6a" eventType="touchUpInside" id="N2l-Ra-ePg"/>
+                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -5009,6 +5016,9 @@
                                                     </state>
                                                     <state key="selected" image="accout options"/>
                                                     <state key="highlighted" image="accout options"/>
+                                                    <connections>
+                                                        <action selector="notifyBtnTop:" destination="YD1-Oq-0qz" eventType="touchUpInside" id="jSz-3n-FSf"/>
+                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem image="Search white" style="plain" id="pWW-wE-ScS">
@@ -5135,6 +5145,9 @@
                             <constraint firstItem="qM7-8h-uZJ" firstAttribute="leading" secondItem="UW4-nX-inR" secondAttribute="leadingMargin" id="zGb-Cw-dUA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromSettings" id="lCu-5X-dbo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GL0-9o-KYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5574,7 +5587,7 @@
                         <outlet property="userName" destination="Rxk-VB-WSg" id="tcN-SX-db3"/>
                         <outlet property="zipCode" destination="fQP-Xd-Ava" id="ojn-9d-Ncg"/>
                         <segue destination="YD1-Oq-0qz" kind="show" identifier="showProfileSegue" animates="NO" id="4sO-su-8Jn"/>
-                        <segue destination="ITF-O6-7pw" kind="push" identifier="showNotificationFromProfile" id="fgp-ei-JqZ"/>
+                        <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromProfile" id="fgp-ei-JqZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xI-P5-f8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5722,6 +5735,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="rwZ-01-9uh"/>
+        <segue reference="lCu-5X-dbo"/>
     </inferredMetricsTieBreakers>
 </document>

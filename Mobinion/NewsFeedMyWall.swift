@@ -32,23 +32,23 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         var nib:UINib = UINib(nibName: "NewsFeedTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Polls")
         
-        [tableView.registerClass(NewsFeedTableViewCell2.self, forCellReuseIdentifier: "Voting")]
+        tableView.registerClass(NewsFeedTableViewCell2.self, forCellReuseIdentifier: "Voting")
         nib = UINib(nibName: "NewsFeedTableViewCell2", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Voting")
         
-        [tableView.registerClass(NewsFeedTableViewCell3.self, forCellReuseIdentifier: "ChooseTopics")]
+        tableView.registerClass(NewsFeedTableViewCell3.self, forCellReuseIdentifier: "ChooseTopics")
         nib = UINib(nibName: "NewsFeedTableViewCell3", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "ChooseTopics")
         
-        [tableView.registerClass(NewsFeedTableViewCell4.self, forCellReuseIdentifier: "Follow")]
+        tableView.registerClass(NewsFeedTableViewCell4.self, forCellReuseIdentifier: "Follow")
         nib = UINib(nibName: "NewsFeedTableViewCell4", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Follow")
         
-        [tableView.registerClass(NewsFeedTableViewCell5.self, forCellReuseIdentifier: "Shared")]
+        tableView.registerClass(NewsFeedTableViewCell5.self, forCellReuseIdentifier: "Shared")
         nib = UINib(nibName: "NewsFeedTableViewCell5", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Shared")
         
-        [tableView.registerClass(NewsFeedTableViewCell6.self, forCellReuseIdentifier: "Winner")]
+        tableView.registerClass(NewsFeedTableViewCell6.self, forCellReuseIdentifier: "Winner")
         nib = UINib(nibName: "NewsFeedTableViewCell6", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "Winner")
         
@@ -92,7 +92,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //        print(newsFeed[indexPath.row])
         if (newsFeed[indexPath.row]["feedType"]!!.isEqualToString("shared"))
         {
-            //            //Shared Poll
+            //Shared Poll
             if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("PollShared") as! PollShared
@@ -1315,7 +1315,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         {
                             let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
                             self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-                            print (self.newsFeed)
+//                            print (self.newsFeed)
                         }
                         catch
                         {

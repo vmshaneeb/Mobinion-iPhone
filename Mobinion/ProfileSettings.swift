@@ -28,9 +28,14 @@ class ProfileSettings: UIViewController
     @IBAction func backBtn(sender: AnyObject)
     {
         self.navigationController?.popViewControllerAnimated(true)
-//        let view = self.storyboard!.instantiateViewControllerWithIdentifier("myProfile") as! NewsFeedMyProfile
-//        self.presentViewController(view, animated: false, completion: nil)
     }
+    
+    @IBAction func notifyBtnTop(sender: AnyObject)
+    {
+        performSegueWithIdentifier("showNotificationFromSettings", sender: sender)
+    }
+    
+    
     @IBAction func privacyBtn(sender: AnyObject)
     {
         print("privacy")
@@ -38,7 +43,8 @@ class ProfileSettings: UIViewController
 
     @IBAction func notifyBtn(sender: AnyObject)
     {
-        print("notify")
+//        print("notify")
+        performSegueWithIdentifier("showNotificationFromSettings", sender: sender)
     }
     
     @IBAction func chngpassBtn(sender: AnyObject)

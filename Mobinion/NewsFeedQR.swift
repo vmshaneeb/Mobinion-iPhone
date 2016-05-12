@@ -178,6 +178,11 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         self.tabBarController?.selectedIndex = 2
     }
     
+    @IBAction func notify(sender: AnyObject)
+    {
+        performSegueWithIdentifier("showNotificationFromBarcode", sender: sender)
+    }
+
 //    showNotificationFromBarcode
     
     //MARK:- Custom Functions

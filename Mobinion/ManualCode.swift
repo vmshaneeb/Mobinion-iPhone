@@ -27,6 +27,13 @@ class ManualCode: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    //TODO:- segue to notifications
-//    showNotificationFromMannualCode
+    @IBAction func backBtn(sender: AnyObject)
+    {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func notify(sender: AnyObject)
+    {
+        performSegueWithIdentifier("showNotificationFromMannualCode", sender: sender)
+    }
 }
