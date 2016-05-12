@@ -5018,23 +5018,10 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem style="plain" id="tUV-s6-Bfa">
                                                 <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dus-x6-nQ1">
-                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="accout options expanded">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="selected" image="accout options"/>
-                                                    <state key="highlighted" image="accout options"/>
-                                                    <connections>
-                                                        <action selector="notifyBtnTop:" destination="YD1-Oq-0qz" eventType="touchUpInside" id="jSz-3n-FSf"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
                                             <barButtonItem image="Search white" style="plain" id="pWW-wE-ScS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iUr-aE-EoT">
-                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
+                                                    <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Search white">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -5043,9 +5030,12 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="w01-XT-Qzx">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gB0-15-z3r">
-                                                    <rect key="frame" x="519" y="14" width="15" height="15"/>
+                                                    <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
+                                                    <connections>
+                                                        <action selector="notifyBtnTop:" destination="YD1-Oq-0qz" eventType="touchUpInside" id="lbY-zI-aeI"/>
+                                                    </connections>
                                                 </button>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -5071,7 +5061,7 @@
                                     <action selector="privacyBtn:" destination="YD1-Oq-0qz" eventType="touchUpInside" id="iXS-tN-FWV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1k-mL-YAa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1k-mL-YAa">
                                 <rect key="frame" x="35" y="177" width="77" height="30"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                 <state key="normal" title="Notification">
@@ -5081,7 +5071,7 @@
                                     <action selector="notifyBtn:" destination="YD1-Oq-0qz" eventType="touchUpInside" id="ryH-I2-aKW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93A-tW-gUA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93A-tW-gUA">
                                 <rect key="frame" x="35" y="234" width="123" height="30"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                 <state key="normal" title="Change Password">
@@ -5101,7 +5091,7 @@
                                     <action selector="deleBtn:" destination="YD1-Oq-0qz" eventType="touchUpInside" id="Xxx-Xt-ymj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATw-pP-ytB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATw-pP-ytB">
                                 <rect key="frame" x="35" y="348" width="178" height="30"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                 <state key="normal" title="Restore Mobinion Defaults">
@@ -5770,6 +5760,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="fgp-ei-JqZ"/>
+        <segue reference="lCu-5X-dbo"/>
     </inferredMetricsTieBreakers>
 </document>
