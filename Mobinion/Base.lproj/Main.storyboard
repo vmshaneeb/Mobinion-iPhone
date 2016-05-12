@@ -5018,7 +5018,6 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                                <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dus-x6-nQ1">
                                             <barButtonItem image="Search white" style="plain" id="pWW-wE-ScS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iUr-aE-EoT">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
