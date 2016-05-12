@@ -36,6 +36,8 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 144
         
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
     }
     

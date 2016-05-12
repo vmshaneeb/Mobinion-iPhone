@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ROR-Z0-kAH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hu0-Xc-Vos">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -2637,7 +2637,7 @@
             </objects>
             <point key="canvasLocation" x="5936" y="1165"/>
         </scene>
-        <!--Empty Data Set Delegate-->
+        <!--News Feed Around Me-->
         <scene sceneID="62j-YM-jwS">
             <objects>
                 <viewController id="cDL-lY-mU8" customClass="NewsFeedAroundMe" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -2732,8 +2732,6 @@
                                 <connections>
                                     <outlet property="dataSource" destination="cDL-lY-mU8" id="UPF-AE-sSe"/>
                                     <outlet property="delegate" destination="cDL-lY-mU8" id="ybi-P7-THQ"/>
-                                    <outlet property="emptyDataSetDelegate" destination="cDL-lY-mU8" id="7n5-BY-tkZ"/>
-                                    <outlet property="emptyDataSetSource" destination="cDL-lY-mU8" id="YNw-3J-BaB"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -2766,7 +2764,7 @@
             </objects>
             <point key="canvasLocation" x="7516" y="275"/>
         </scene>
-        <!--Empty Data Set Delegate-->
+        <!--Notifications View-->
         <scene sceneID="IYU-nG-D3c">
             <objects>
                 <viewController storyboardIdentifier="notifications" id="ITF-O6-7pw" customClass="NotificationsView" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -2822,8 +2820,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ITF-O6-7pw" id="N9S-il-Tnx"/>
-                                    <outlet property="emptyDataSetDelegate" destination="ITF-O6-7pw" id="InF-H3-MW3"/>
-                                    <outlet property="emptyDataSetSource" destination="ITF-O6-7pw" id="hd7-C3-BY3"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NOTIFICATIONS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-zY-YWx">
@@ -4885,7 +4881,7 @@
             </objects>
             <point key="canvasLocation" x="14721" y="-442"/>
         </scene>
-        <!--Empty Data Set Delegate-->
+        <!--News Feed My Wall-->
         <scene sceneID="WSN-0B-WOk">
             <objects>
                 <viewController storyboardIdentifier="newsFeedMain" id="zMC-dI-42f" customClass="NewsFeedMyWall" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -4951,8 +4947,6 @@
                                         <connections>
                                             <outlet property="dataSource" destination="zMC-dI-42f" id="KEi-C0-5Bn"/>
                                             <outlet property="delegate" destination="zMC-dI-42f" id="q91-Qj-bm9"/>
-                                            <outlet property="emptyDataSetDelegate" destination="zMC-dI-42f" id="YMn-Ke-ncm"/>
-                                            <outlet property="emptyDataSetSource" destination="zMC-dI-42f" id="52t-ss-qxv"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -5187,7 +5181,7 @@
             </objects>
             <point key="canvasLocation" x="5142" y="-360"/>
         </scene>
-        <!--Empty Data Set Delegate-->
+        <!--News Feed My Profile-->
         <scene sceneID="jVZ-OZ-pk0">
             <objects>
                 <viewController storyboardIdentifier="myProfile" id="LgZ-Qz-gjP" customClass="NewsFeedMyProfile" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
@@ -5395,8 +5389,6 @@
                                 <connections>
                                     <outlet property="dataSource" destination="LgZ-Qz-gjP" id="Ej1-UX-j16"/>
                                     <outlet property="delegate" destination="LgZ-Qz-gjP" id="zL3-JZ-U3F"/>
-                                    <outlet property="emptyDataSetDelegate" destination="LgZ-Qz-gjP" id="XTS-3r-JJ1"/>
-                                    <outlet property="emptyDataSetSource" destination="LgZ-Qz-gjP" id="IDs-Yd-47y"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R8-hz-RXC">
@@ -5778,6 +5770,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-Qt-sII"/>
-        <segue reference="rwZ-01-9uh"/>
+        <segue reference="fgp-ei-JqZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -40,6 +40,8 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
         
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         
         // Ask for Authorisation from the User.

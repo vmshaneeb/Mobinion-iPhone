@@ -140,7 +140,9 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         
         //        print("in NewsFeedController")
         
-//        tableView.tableFooterView = UIView()
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
         
         tableView.registerClass(ProfileTableViewCell.self, forCellReuseIdentifier: "partstablecell")
         var nib:UINib = UINib(nibName: "ProfileTableViewCell", bundle: nil)

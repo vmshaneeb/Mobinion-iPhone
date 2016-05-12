@@ -62,6 +62,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 228
         
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         
 //        tableView.layer.cornerRadius = 10
