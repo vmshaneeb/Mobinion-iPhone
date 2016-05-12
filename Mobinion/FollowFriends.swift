@@ -212,7 +212,8 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             
             cell.followAllBtn.hidden = false
             cell.followAllBtn.tag = section
-            cell.followAllBtn.addTarget(self, action: #selector(followAllBtnAPI(_:)), forControlEvents: .TouchUpInside)
+            //TODO:- check the erro for button tap
+//            cell.followAllBtn.addTarget(self, action: #selector(followAllBtnAPI(_:)), forControlEvents: .TouchUpInside)
         }
         else
         {
@@ -251,7 +252,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             
         cell.followBtn.tag = indexPath.row
         cell.followBtn.titleLabel?.tag = indexPath.section
-        cell.followBtn.addTarget(self, action: #selector(followBtnAPI(_:)), forControlEvents: .TouchUpInside)
+//        cell.followBtn.addTarget(self, action: #selector(followBtnAPI(_:)), forControlEvents: .TouchUpInside)
         
         if (indexPath.section == 1)
         {
