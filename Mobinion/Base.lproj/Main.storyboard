@@ -2807,7 +2807,7 @@
                                                 </button>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="l4I-PU-jKv">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5PP-Km-jRf">
+                                                <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5PP-Km-jRf">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Notification"/>
