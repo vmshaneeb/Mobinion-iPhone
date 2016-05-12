@@ -1197,14 +1197,15 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK:- UIScrollViewDelegates
     func scrollViewWillBeginDragging(scrollView: UIScrollView)
     {
-        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
-        {
-            changeTabBar(true, animated: true)
-        }
-        else
-        {
-            changeTabBar(false, animated: true)
-        }
+        //TODO:- check tabbar animation issues
+//        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
+//        {
+//            changeTabBar(true, animated: true)
+//        }
+//        else
+//        {
+//            changeTabBar(false, animated: true)
+//        }
     }
 
     //MARK:- DZNEmptyDataSetDelegate
@@ -1512,7 +1513,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
-        let parameter = ["rowNumber": "1", "showingType": "all"]
+//        let parameter = ["rowNumber": "1", "showingType": "all"]
         
 //        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
         Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
