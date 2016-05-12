@@ -196,11 +196,11 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             cell.itemImage.image = nil
         }
         
-        if (aroundMe[indexPath.row].valueForKey("subType")?.isKindOfClass(NSNull) != nil)
+        if (aroundMe[indexPath.row].valueForKey("post_type")?.isKindOfClass(NSNull) != nil)
         {
-            if (!(aroundMe[indexPath.row]["subType"]!!.isKindOfClass(NSNull)))
+            if (!(aroundMe[indexPath.row]["post_type"]!!.isKindOfClass(NSNull)))
             {
-                let type = (aroundMe[indexPath.row]["subType"] as! String)
+                let type = (aroundMe[indexPath.row]["post_type"] as! String)
                 var imgName = ""
                 
                 switch type
@@ -229,6 +229,12 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        return tableView.dequeueReusableCellWithIdentifier("tableHeader") as? UIView
+    }
+    
     
     //MARK:- DZNEmptyDataSetDelegate
     //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
