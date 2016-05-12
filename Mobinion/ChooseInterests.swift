@@ -82,6 +82,9 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         
         collectionView.allowsMultipleSelection = true
         
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
+        
 //        print(self.imageURL.count)
 //        print(self.imageURL)
         

@@ -145,7 +145,10 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 132
-
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
     }
     
     override func didReceiveMemoryWarning()
