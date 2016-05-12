@@ -7,8 +7,8 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
@@ -42,7 +42,10 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Re-eP-CcH">
                         <rect key="frame" x="61" y="40" width="502" height="21"/>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="tgP-6o-ZDt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -55,17 +58,17 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="1PQ-F0-IOg" firstAttribute="leading" secondItem="5Re-eP-CcH" secondAttribute="leading" id="1ce-0k-6yg"/>
                     <constraint firstItem="1PQ-F0-IOg" firstAttribute="leading" secondItem="CiP-lJ-5Qz" secondAttribute="trailing" constant="8" symbolic="YES" id="2vl-x5-zCP"/>
                     <constraint firstItem="CiP-lJ-5Qz" firstAttribute="centerY" secondItem="Agx-KQ-ZSu" secondAttribute="centerY" id="3Nh-ne-Q7w"/>
-                    <constraint firstItem="1PQ-F0-IOg" firstAttribute="trailing" secondItem="5Re-eP-CcH" secondAttribute="trailing" id="9gw-4c-v1P"/>
+                    <constraint firstItem="5Re-eP-CcH" firstAttribute="trailing" secondItem="1PQ-F0-IOg" secondAttribute="trailing" id="97J-tb-p2w"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5Re-eP-CcH" secondAttribute="bottom" constant="2" id="E5H-bO-WCO"/>
+                    <constraint firstItem="5Re-eP-CcH" firstAttribute="top" secondItem="1PQ-F0-IOg" secondAttribute="bottom" constant="8" symbolic="YES" id="HkH-F0-quA"/>
                     <constraint firstItem="CiP-lJ-5Qz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="JZ9-fD-YD5"/>
                     <constraint firstItem="CiP-lJ-5Qz" firstAttribute="top" secondItem="1PQ-F0-IOg" secondAttribute="top" id="JiC-87-4JD"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="5Re-eP-CcH" secondAttribute="bottom" constant="2" id="brW-J0-XeZ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="CiP-lJ-5Qz" secondAttribute="bottom" constant="7" id="dAj-ge-uTf"/>
+                    <constraint firstItem="5Re-eP-CcH" firstAttribute="leading" secondItem="1PQ-F0-IOg" secondAttribute="leading" id="eIf-tr-36i"/>
                     <constraint firstItem="Agx-KQ-ZSu" firstAttribute="leading" secondItem="1PQ-F0-IOg" secondAttribute="trailing" constant="3" id="eXu-td-za6"/>
                     <constraint firstItem="CiP-lJ-5Qz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mle-rP-ZYX"/>
-                    <constraint firstItem="5Re-eP-CcH" firstAttribute="top" secondItem="1PQ-F0-IOg" secondAttribute="bottom" constant="8" symbolic="YES" id="o6F-wL-Kyr"/>
                     <constraint firstItem="Agx-KQ-ZSu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="sQG-yY-bfc"/>
                     <constraint firstItem="Agx-KQ-ZSu" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="wne-xz-Nkd"/>
                 </constraints>

@@ -37,6 +37,9 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
         let nib:UINib = UINib(nibName: "AroundMeTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "aroundmecell")
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
+        
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         
@@ -57,8 +60,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             mapView.settings.setAllGesturesEnabled(true)
         }
         
-        //TODO:- Custom Markers for polls/contest/voting
-//        let marker = GMSMarker()
+        //        let marker = GMSMarker()
 //        marker.position = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
 //        marker.title = "Al Sebseb"
 //        marker.snippet = "Qatar"
@@ -151,7 +153,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
 //                print("long: \(long), lat: \(lat)")
                 let marker = GMSMarker()
                 
-                marker.position = CLLocationCoordinate2DMake(long, lat)
+                marker.position = CLLocationCoordinate2DMake(lat, long)
                 
                 let type = (aroundMe[indexPath.row]["post_type"] as! String)
                 
@@ -170,6 +172,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
                 
         //        marker.title = "Al Sebseb"
         //        marker.snippet = "Qatar"
+                marker.appearAnimation = kGMSMarkerAnimationPop
                 marker.map = mapView
             }
         }
@@ -195,6 +198,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             if (!(aroundMe[indexPath.row]["name"]!!.isKindOfClass(NSNull)))
             {
                 cell.nameLabel.text = (aroundMe[indexPath.row]["name"] as! String)
+//                print(cell.nameLabel.text)
             }
             else
             {
@@ -264,7 +268,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        return tableView.dequeueReusableCellWithIdentifier("tableHeader") as? UIView
+        return tableView.dequeueReusableCellWithIdentifier("tableHeader")! 
     }
     
     
@@ -302,6 +306,12 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
     //        ac.addAction(UIAlertAction(title: "Hurray", style: .Default, handler: nil))
     //        presentViewController(ac, animated: true, completion: nil)
     //    }
+    
+    //MARK:- Actions
+    @IBAction func notify(sender: AnyObject)
+    {
+        performSegueWithIdentifier("showNotificationFromAroundMe", sender: sender)
+    }
     
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
