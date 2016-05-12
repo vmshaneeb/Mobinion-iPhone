@@ -150,9 +150,6 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         nib = UINib(nibName: "polls_TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "pollstablecell")
         
-        
-
-        
         StartLoader()
         getmyAccount()
         { value, data, error in
@@ -197,6 +194,10 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                         if (!(self.profile["user"]!["profile_pic"]!!.isKindOfClass(NSNull)))
                         {
                             self.profImage.sd_setImageWithURL(NSURL(string: self.profile["user"]!["profile_pic"] as! String))
+
+//                            let backgroundImage = UIImageView(frame: self.topView.bounds)
+//                            backgroundImage.sd_setImageWithURL(NSURL(string: self.profile["user"]!["profile_pic"] as! String))
+//                            self.topView.insertSubview(backgroundImage, atIndex: 0)
                         }
                         
                         if (!(self.profile["user"]!["follow_users"]!!.isKindOfClass(NSNull)))
