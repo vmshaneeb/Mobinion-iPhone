@@ -142,32 +142,90 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("aroundmecell") as! AroundMeTableViewCell
         
-        cell.titleLabel.text = (aroundMe[indexPath.row]["title"] as! String)
-        cell.nameLabel.text = (aroundMe[indexPath.row]["name"] as! String)
+        if (aroundMe[indexPath.row].valueForKey("title")?.isKindOfClass(NSNull) != nil)
+        {
+            if (!(aroundMe[indexPath.row]["title"]!!.isKindOfClass(NSNull)))
+            {
+                cell.titleLabel.text = (aroundMe[indexPath.row]["title"] as! String)
+            }
+            else
+            {
+                cell.titleLabel.text = ""
+            }
+        }
+        else
+        {
+            cell.titleLabel.text = ""
+        }
+        
+        if (aroundMe[indexPath.row].valueForKey("name")?.isKindOfClass(NSNull) != nil)
+        {
+            if (!(aroundMe[indexPath.row]["name"]!!.isKindOfClass(NSNull)))
+            {
+                cell.nameLabel.text = (aroundMe[indexPath.row]["name"] as! String)
+            }
+            else
+            {
+                cell.nameLabel.text = ""
+            }
+        }
+        else
+        {
+            cell.nameLabel.text = ""
+        }
         
         // for rounded profile pic
         cell.itemImage.layer.cornerRadius = cell.itemImage.frame.size.width / 2
         cell.itemImage.clipsToBounds = true
         
-        let url = NSURL(string: aroundMe[indexPath.row]["image"] as! String)
-        cell.itemImage.sd_setImageWithURL(url!)
-        
-        let type = (aroundMe[indexPath.row]["subType"] as! String)
-        var imgName = ""
-        
-        switch type
+        if (aroundMe[indexPath.row].valueForKey("image")?.isKindOfClass(NSNull) != nil)
         {
-            case "contest":
-                imgName = "contest-new"
-            case "poll":
-                imgName = "poll-new"
-            case "voting":
-                imgName = "voting-new"
-            default:
-                imgName = "poll-new"
+            if (!(aroundMe[indexPath.row]["image"]!!.isKindOfClass(NSNull)))
+            {
+        
+                let url = NSURL(string: aroundMe[indexPath.row]["image"] as! String)
+                cell.itemImage.sd_setImageWithURL(url!)
+            }
+            else
+            {
+                cell.itemImage.image = nil
+            }
+        }
+        else
+        {
+            cell.itemImage.image = nil
         }
         
-        cell.contest_Image.image = UIImage(named: imgName)
+        if (aroundMe[indexPath.row].valueForKey("subType")?.isKindOfClass(NSNull) != nil)
+        {
+            if (!(aroundMe[indexPath.row]["subType"]!!.isKindOfClass(NSNull)))
+            {
+                let type = (aroundMe[indexPath.row]["subType"] as! String)
+                var imgName = ""
+                
+                switch type
+                {
+                    case "contest":
+                        imgName = "contest-new"
+                    case "poll":
+                        imgName = "poll-new"
+                    case "voting":
+                        imgName = "voting-new"
+                    default:
+                        imgName = "poll-new"
+                }
+                
+                cell.contest_Image.image = UIImage(named: imgName)
+            }
+            else
+            {
+                cell.contest_Image.image = nil
+            }
+        }
+        else
+        {
+            cell.contest_Image.image = nil
+        }
         
         return cell
     }

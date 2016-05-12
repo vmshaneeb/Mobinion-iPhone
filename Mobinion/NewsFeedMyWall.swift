@@ -1494,10 +1494,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
         
-        let parameter = ["rowNumber": "7", "showingType": "all"]
+        let parameter = ["rowNumber": 7, "showingType": "all"]
         
-//        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
-        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
+//        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
