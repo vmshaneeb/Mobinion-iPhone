@@ -28,8 +28,15 @@ class InviteFriends: UIViewController
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("FollowFriends") as! FollowFriends
-        self.presentViewController(view, animated: true, completion: nil)
+        if (self.navigationController?.topViewController!.isKindOfClass(ViewController) != nil)
+        {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else
+        {
+            let view = self.storyboard!.instantiateViewControllerWithIdentifier("FollowFriends") as! FollowFriends
+            self.presentViewController(view, animated: true, completion: nil)
+        }
     }
     
     @IBAction func skipBtn(sender: AnyObject)

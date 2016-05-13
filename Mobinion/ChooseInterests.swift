@@ -483,8 +483,15 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         print("back button pressed!!!")
 //        self.performSegueWithIdentifier("unwindToUpdate", sender: self)
         
+        if (self.navigationController?.topViewController!.isKindOfClass(ViewController) != nil)
+        {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else
+        {
         let view = self.storyboard!.instantiateViewControllerWithIdentifier("UpdateProfile") as! UpdateProfile
-        self.presentViewController(view, animated: true, completion: nil)
+            self.presentViewController(view, animated: true, completion: nil)
+        }
     }
     
     @IBAction func searchBtn(sender: AnyObject)

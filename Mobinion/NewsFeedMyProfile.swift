@@ -510,6 +510,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         navBarTitle.text = "MY ACTIVITIES"
         
         accountView.hidden = true
+        
+        performSegueWithIdentifier("showChooseIntFromMyProfile", sender: sender)
     }
     
     @IBAction func drpBtnInvite(sender: AnyObject)
@@ -524,6 +526,9 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         navBarTitle.text = "MY ACTIVITIES"
         
         accountView.hidden = true
+        
+//        performSegueWithIdentifier("showFollowFriendsFromMyProfile", sender: sender)
+        performSegueWithIdentifier("showInviteFriendsFromMyProfile", sender: sender)
     }
     
     @IBAction func drpBtnSettings(sender: AnyObject)

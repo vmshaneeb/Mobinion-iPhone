@@ -322,8 +322,15 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBAction func backBtn(sender: AnyObject)
     {
 //        performSegueWithIdentifier("unwindToInterests", sender: sender)
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("ChooseInterests") as! ChooseInterests
-        self.presentViewController(view, animated: true, completion: nil)
+//        if (self.navigationController?.topViewController!.isKindOfClass(ViewController) != nil)
+//        {
+//            self.navigationController?.popViewControllerAnimated(true)
+//        }
+//        else
+//        {
+            let view = self.storyboard!.instantiateViewControllerWithIdentifier("ChooseInterests") as! ChooseInterests
+            self.presentViewController(view, animated: true, completion: nil)
+//        }
     }
     
     
