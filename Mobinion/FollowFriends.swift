@@ -216,7 +216,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             cell.followAllBtn.hidden = false
             cell.followAllBtn.tag = section
             //TODO:- check the erro for button tap
-//            cell.followAllBtn.addTarget(self, action: #selector(followAllBtnAPI(_:)), forControlEvents: .TouchUpInside)
+            cell.followAllBtn.addTarget(self, action: #selector(followAllBtnAPI(_:)), forControlEvents: .TouchUpInside)
         }
         else
         {
@@ -252,10 +252,22 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             
             cell.profileImage.sd_setImageWithURL(NSURL(string: (allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("profPic") as! String)))
         }
-            
+        
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("isFollowing"))!.isKindOfClass(NSNull)))
+        {
+            if ((allUsers.objectForKey(Str)?.objectAtIndex(indexPath.row).objectForKey("isFollowing"))! as! NSObject == true)
+            {
+                cell.followBtn.selected = true
+            }
+            else
+            {
+                cell.followBtn.selected = false
+            }
+        }
+        
         cell.followBtn.tag = indexPath.row
         cell.followBtn.titleLabel?.tag = indexPath.section
-//        cell.followBtn.addTarget(self, action: #selector(followBtnAPI(_:)), forControlEvents: .TouchUpInside)
+        cell.followBtn.addTarget(self, action: #selector(followBtnAPI(_:)), forControlEvents: .TouchUpInside)
         
         if (indexPath.section == 1)
         {
@@ -474,11 +486,12 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
     {
 //        print(sender.tag)
 //        print(sender.titleLabel?.tag)
-        
+
         let index = sender.tag
         let section = sender.titleLabel?.tag
         var id = ""
-        var following = ""
+        var following:Int = 0
+        var sendFollow = ""
         
         let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
         //print(toks)
@@ -490,7 +503,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let Str = allUsers.allKeys[section!] as! String
         
-        if (!((allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("name"))!.isKindOfClass(NSNull)))
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("id"))!.isKindOfClass(NSNull)))
         {
             id = (allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("id") as! String)
         }
@@ -499,37 +512,47 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             id = ""
         }
         
-        if (!((allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("name"))!.isKindOfClass(NSNull)))
+        if (!((allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("isFollowing"))!.isKindOfClass(NSNull)))
         {
-            following = (allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("isFollowing") as! String)
+//            following = (allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("isFollowing") as! String)
+            following = (allUsers.objectForKey(Str)?.objectAtIndex(index).objectForKey("isFollowing")) as! Int
+            print(following)
         }
 
-        if following.containsString("false")
+        if following == 0
         {
-            following = "true"
+//            following = 1
+            sendFollow = "true"
+            sender.selected = !sender.selected
         }
         else
         {
-            following = "false"
+//            following = 0
+            sendFollow = "false"
+            sender.selected = !sender.selected
         }
         
-        let parameter = ["followFriend": id,
-                         "isFollowing": following]
+//        print(id)
+//        print(sendFollow)
+        
+        let parameter = ["followFriend": id, //"5734c7b6ef00f3aa0c15de3f",
+                         "isFollowing": sendFollow] //false]
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
-                {
-                    case .Success:
-                        if let value = response.result.value
-                        {
-                            let json = JSON(value)
-                            print(json)
-                        }
-                        
-                    case .Failure(let error):
-                        print(error)
-                }
+        .responseJSON { response in
+        switch response.result
+        {
+            case .Success:
+            if let value = response.result.value
+            {
+                let json = JSON(value)
+                print(json)
+                self.tableView.reloadData()
+            }
+            
+            case .Failure(let error):
+                print(error)
+        }
         }
 
 //        allUsers
@@ -545,6 +568,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let URL = "http://vyooha.cloudapp.net:1337/followAll"
         
+        print(userIDs)
         let parameter = ["followUsers": userIDs]
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
@@ -556,6 +580,8 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                     {
                         let json = JSON(value)
                         print(json)
+                        
+                        self.tableView.reloadData()
                     }
                     
                 case .Failure(let error):

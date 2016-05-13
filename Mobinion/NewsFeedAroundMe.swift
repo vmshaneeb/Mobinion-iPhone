@@ -64,14 +64,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             mapView.settings.setAllGesturesEnabled(true)
         }
         
-        //        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2DMake((locationManager.location?.coordinate.latitude)!, (locationManager.location?.coordinate.longitude)!)
-//        marker.title = "Al Sebseb"
-//        marker.snippet = "Qatar"
-//        marker.map = mapView
-        
         StartLoader()
-        
         getAroundme()
         { value, data, error in
                 

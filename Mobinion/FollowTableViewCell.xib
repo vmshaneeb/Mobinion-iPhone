@@ -8,9 +8,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
-        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -50,37 +47,31 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIg-Lp-Rkg">
-                        <rect key="frame" x="416" y="43" width="136" height="43"/>
-                        <color key="backgroundColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIg-Lp-Rkg">
+                        <rect key="frame" x="434" y="45" width="101" height="39"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="136" id="pNV-sa-ENv"/>
+                            <constraint firstAttribute="width" constant="101" id="pNV-sa-ENv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                        <state key="normal" title="Follow">
+                        <state key="normal" image="follow-button-w-txt">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
+                        <state key="selected" image="following-button-w-txt"/>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="BIg-Lp-Rkg" firstAttribute="firstBaseline" secondItem="UOl-R2-8Ow" secondAttribute="baseline" id="5Zk-IO-WkV"/>
                     <constraint firstItem="UOl-R2-8Ow" firstAttribute="leading" secondItem="vjk-gl-lC8" secondAttribute="leading" id="74c-ED-qw7"/>
-                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="leading" secondItem="UOl-R2-8Ow" secondAttribute="trailing" constant="8" symbolic="YES" id="B6I-kJ-TGd"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="leading" secondItem="UOl-R2-8Ow" secondAttribute="trailing" constant="26" id="B6I-kJ-TGd"/>
                     <constraint firstItem="FYH-79-fn2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Dhx-dH-mdr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="UOl-R2-8Ow" secondAttribute="bottom" constant="48" id="FRN-u1-LQS"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vjk-gl-lC8" secondAttribute="bottom" constant="32" id="G6D-YH-NfU"/>
                     <constraint firstItem="FYH-79-fn2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="HFS-vT-Fft"/>
-                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="35" id="IUh-LG-yS7"/>
-                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="leading" secondItem="vjk-gl-lC8" secondAttribute="trailing" constant="8" symbolic="YES" id="OPQ-h1-XVw"/>
-                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="QV0-QX-xsv"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="37" id="IUh-LG-yS7"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="leading" secondItem="vjk-gl-lC8" secondAttribute="trailing" constant="26" id="OPQ-h1-XVw"/>
+                    <constraint firstItem="BIg-Lp-Rkg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-17" id="QV0-QX-xsv"/>
                     <constraint firstItem="BIg-Lp-Rkg" firstAttribute="baseline" secondItem="UOl-R2-8Ow" secondAttribute="baseline" id="V2w-qw-bRG"/>
                     <constraint firstItem="UOl-R2-8Ow" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="YS3-pW-lvX"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="BIg-Lp-Rkg" secondAttribute="bottom" constant="37" id="dQc-Kr-DWf"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BIg-Lp-Rkg" secondAttribute="bottom" constant="39" id="dQc-Kr-DWf"/>
                     <constraint firstItem="UOl-R2-8Ow" firstAttribute="leading" secondItem="FYH-79-fn2" secondAttribute="trailing" constant="8" symbolic="YES" id="eis-vr-R66"/>
                     <constraint firstItem="BIg-Lp-Rkg" firstAttribute="baseline" secondItem="UOl-R2-8Ow" secondAttribute="baseline" id="fKg-Pi-72X"/>
                     <constraint firstItem="vjk-gl-lC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="65" id="hrg-My-XRD"/>
@@ -105,4 +96,8 @@
             <point key="canvasLocation" x="385" y="353"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="follow-button-w-txt" width="101" height="39"/>
+        <image name="following-button-w-txt" width="101" height="39"/>
+    </resources>
 </document>

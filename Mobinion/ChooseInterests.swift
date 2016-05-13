@@ -489,7 +489,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         }
         else
         {
-        let view = self.storyboard!.instantiateViewControllerWithIdentifier("UpdateProfile") as! UpdateProfile
+            let view = self.storyboard!.instantiateViewControllerWithIdentifier("UpdateProfile") as! UpdateProfile
             self.presentViewController(view, animated: true, completion: nil)
         }
     }
