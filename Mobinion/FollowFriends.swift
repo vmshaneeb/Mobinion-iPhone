@@ -572,9 +572,9 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         let parameter = ["followUsers": userIDs]
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
-                {
+        .responseJSON { response in
+            switch response.result
+            {
                 case .Success:
                     if let value = response.result.value
                     {
@@ -586,7 +586,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                     
                 case .Failure(let error):
                     print(error)
-                }
+            }
         }
     }
 

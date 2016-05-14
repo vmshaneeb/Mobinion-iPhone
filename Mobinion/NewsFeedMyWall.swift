@@ -13,7 +13,7 @@ import DBAlertController
 import SDWebImage
 import DZNEmptyDataSet
 
-class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
+class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -57,14 +57,18 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         nib = UINib(nibName: "PollSharedCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "PollShared")
         
+        tableView.registerClass(NewsFeedTableNoFeedsCell.self, forCellReuseIdentifier: "NoFeeds")
+        nib = UINib(nibName: "NewsFeedTableNoFeedsCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "NoFeeds")
+        
         domyWall()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 228
         
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-        tableView.tableFooterView = UIView()
+//        tableView.emptyDataSetSource = self
+//        tableView.emptyDataSetDelegate = self
+//        tableView.tableFooterView = UIView()
         
 //        tableView.layer.cornerRadius = 10
 //        tableView.layer.masksToBounds = true
@@ -95,6 +99,14 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //Shared Type
 //        print(newsFeed[indexPath.row])
+        
+//        if (newsFeed[indexPath.row].valueForKey("sharedUserName")?.isKindOfClass(NSNull) != nil)
+//        {
+//            if (!(newsFeed[indexPath.row]["sharedUserName"]!!.isKindOfClass(NSNull)))
+//            {
+
+        
+        
         if (newsFeed[indexPath.row]["feedType"]!!.isEqualToString("shared"))
         {
             //Shared Poll
@@ -1029,16 +1041,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             
             return cell
         }
-        
-//        //Feedback Type
-//        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("feedback"))
-//        {
-//
-//        }
-        
+            
         //Voting Type
-        else
-//            if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
         {
             //                    print("inside voting")
             let cell = tableView.dequeueReusableCellWithIdentifier("Voting") as! NewsFeedTableViewCell2
@@ -1175,17 +1180,25 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
 
         }
-//            else
-//        {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("PollShared") as! PollShared
-//            return cell
-//            
-//        }
+
 //        //Cards Type
 //        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
 //        {
 //        
 //        }
+            
+//        //Feedback Type
+//        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("feedback"))
+//        {
+//
+//        }
+
+        else
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("NoFeeds") as! NewsFeedTableNoFeedsCell
+            
+            return cell
+        }
         
 //        return result
         }
@@ -1200,31 +1213,74 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     func scrollViewWillBeginDragging(scrollView: UIScrollView)
     {
         //TODO:- check tabbar animation issues
-//        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
-//        {
+        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
+        {
+            
 //            changeTabBar(true, animated: true)
-//        }
+            
+//            getFeeds()
+//                { value, data, error in
+//                    
+//                    if value != nil
+//                    {
+//                        let json = JSON(value!)
+//                        print(json)
+//                        
+////                        self.HideLoader()
+//                        
+//                        let titles = json["status"].stringValue
+//                        let messages = json["message"].stringValue
+//                        
+//                        if titles == "error"
+//                        {
+////                            self.doDBalertView(titles, msgs: messages)
+//                        }
+//                        else
+//                        {
+//                            do
+//                            {
+//                                let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+////                                self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+//                                self.newsFeed.addObject(responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray)
+//                                //                            print (self.newsFeed)
+//                            }
+//                            catch
+//                            {
+//                                print("error in responseObject")
+//                            }
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                    else
+//                    {
+////                        self.HideLoader()
+//                        //                    print(error)
+////                        self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+//                    }
+//            }
+
+        }
 //        else
 //        {
 //            changeTabBar(false, animated: true)
 //        }
     }
 
-    //MARK:- DZNEmptyDataSetDelegate
-    //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
-    //    {
-    //        let str = "Welcome"
-    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
-    //        return NSAttributedString(string: str, attributes: attrs)
-    //    }
-    
-    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
-    {
-        let str = "You dont have any feeds\n\nPlease check back later"
-        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
-        
-        return NSAttributedString(string: str, attributes: attrs)
-    }
+//    //MARK:- DZNEmptyDataSetDelegate
+//    //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+//    //    {
+//    //        let str = "Welcome"
+//    //        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+//    //        return NSAttributedString(string: str, attributes: attrs)
+//    //    }
+//    
+//    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!
+//    {
+//        let str = "You dont have any feeds\n\nPlease check back later"
+//        let attrs = [NSFontAttributeName: UIFont(name: "Roboto-Bold", size: 17)!]
+//        
+//        return NSAttributedString(string: str, attributes: attrs)
+//    }
     
     //MARK:- Actions
     @IBAction func showLists(sender: AnyObject)
@@ -1513,24 +1569,23 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         let header = ["Authorization": toks as! String]
         //print(header)
         
-        let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"
+        let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"//?rowNumber=1&showingType=all"
         
-//        let parameter = ["rowNumber": "1", "showingType": "all"]
+        let parameter = ["rowNumber": 1, "showingType": "all"]
         
-//        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .JSON)
-        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
-            .responseJSON { response in
-                switch response.result
-                {
+        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .URL)
+//        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
+        .responseJSON { response in
+            switch response.result
+            {
                 case .Success:
-                    if let value = response.result.value
-                    {
-                        completionHandler(value as? NSDictionary, response.data, nil)
-                    }
-                    
+                if let value = response.result.value
+                {
+                    completionHandler(value as? NSDictionary, response.data, nil)
+                }
                 case .Failure(let error):
                     completionHandler(nil,nil, error)
-                }
+            }
         }
     }
     
