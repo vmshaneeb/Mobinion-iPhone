@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import SDWebImage
-import DZNEmptyDataSet
+import UIScrollView_InfiniteScroll
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
@@ -21,6 +21,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     var newsFeed = NSMutableArray()
     var searchFeed = NSMutableArray()
     var users = NSMutableArray()
+    var rowno:Int = 1
     
 //    var jsondata:JSON = [:]
     
@@ -61,10 +62,73 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         nib = UINib(nibName: "NewsFeedTableNoFeedsCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "NoFeeds")
         
-        domyWall()
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 228
+        
+        domyWall()
+        
+        // change indicator view style to white
+        tableView.infiniteScrollIndicatorStyle = .White
+        
+        // Add infinite scroll handler
+        tableView.addInfiniteScrollWithHandler
+        { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            
+            
+             //fetch your data here, can be async operation,
+             //just make sure to call finishInfiniteScroll in the end
+            
+            
+            self.getFeeds()
+            { value, data, error in
+                if value != nil
+                {
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    //                        self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
+                    {
+                        //                            self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        do
+                        {
+                            let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                            //                                self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+                            self.newsFeed.addObject(responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray)
+                            print("after \(self.rowno) rows")
+                            print (self.newsFeed)
+                        }
+                        catch
+                        {
+                            print("error in responseObject")
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+                else
+                {
+                    //                        self.HideLoader()
+                    //                    print(error)
+                    //                        self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                }
+            }
+
+            
+            
+            // make sure you reload tableView before calling -finishInfiniteScroll
+//            tableView.reloadData()
+            
+            // finish infinite scroll animation
+            tableView.finishInfiniteScroll()
+        }
         
 //        tableView.emptyDataSetSource = self
 //        tableView.emptyDataSetDelegate = self
@@ -97,17 +161,19 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     {
 //       let result = UITableViewCell()
         
+        
+        debugPrint(newsFeed[indexPath.row])
+        if (newsFeed[indexPath.row]["cardDetails"]!!.isKindOfClass(NSDictionary))
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
+            
+            cell.text2.text = (newsFeed[indexPath.row]["cardDetails"]!!["text"]!! as! String)
+            cell.text3.text = (newsFeed[indexPath.row]["cardDetails"]!!["conductedBy"]!! as! String)
+            
+            return cell
+        }
         //Shared Type
-//        print(newsFeed[indexPath.row])
-        
-//        if (newsFeed[indexPath.row].valueForKey("sharedUserName")?.isKindOfClass(NSNull) != nil)
-//        {
-//            if (!(newsFeed[indexPath.row]["sharedUserName"]!!.isKindOfClass(NSNull)))
-//            {
-
-        
-        
-        if (newsFeed[indexPath.row]["feedType"]!!.isEqualToString("shared"))
+        else if (newsFeed[indexPath.row]["feedType"]!!.isEqualToString("shared"))
         {
             //Shared Poll
             if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
@@ -1209,6 +1275,18 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //        print("\(newsFeed[indexPath.row]["userName"] as! String) pressed")
 //    }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        if (newsFeed[indexPath.row]["cardDetails"]!!.isKindOfClass(NSDictionary))
+        {
+            return 561.0
+        }
+        else
+        {
+            return 393.0
+        }
+    }
+    
     //MARK:- UIScrollViewDelegates
     func scrollViewWillBeginDragging(scrollView: UIScrollView)
     {
@@ -1371,42 +1449,52 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         getFeeds()
         { value, data, error in
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
                 
-                if value != nil
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
                 {
-                    let json = JSON(value!)
-                    print(json)
-                    
-                    self.HideLoader()
-                    
-                    let titles = json["status"].stringValue
-                    let messages = json["message"].stringValue
-                    
-                    if titles == "error"
-                    {
-                        self.doDBalertView(titles, msgs: messages)
-                    }
-                    else
-                    {
-                        do
-                        {
-                            let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
-                            self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-//                            print (self.newsFeed)
-                        }
-                        catch
-                        {
-                            print("error in responseObject")
-                        }
-                        self.tableView.reloadData()
-                    }
+                    self.doDBalertView(titles, msgs: messages)
                 }
                 else
                 {
-                    self.HideLoader()
-//                    print(error)
-                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+                            print (self.newsFeed)
+                        
+//                        for i in 0..<self.newsFeed.count
+//                        {
+////                            if (self.newsFeed[i]["type"]!!.isKindOfClass(NSNull))
+//                            if (self.newsFeed.objectAtIndex(i).isKindOfClass(NSNull))
+//                            {
+//                                self.newsFeed.replaceObjectAtIndex(i, withObject: " ")
+//                            }
+//                        }
+//                        
+//                        print (self.newsFeed)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    self.tableView.reloadData()
                 }
+            }
+            else
+            {
+                self.HideLoader()
+//                    print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
         }
     }
     
@@ -1571,7 +1659,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"//?rowNumber=1&showingType=all"
         
-        let parameter = ["rowNumber": 1, "showingType": "all"]
+        let parameter = ["rowNumber": String(rowno), "showingType": "all"]
         
         Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .URL)
 //        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
@@ -1582,6 +1670,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let value = response.result.value
                 {
                     completionHandler(value as? NSDictionary, response.data, nil)
+                    
+                    self.rowno += 1
                 }
                 case .Failure(let error):
                     completionHandler(nil,nil, error)

@@ -26,15 +26,14 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-feeds-1" translatesAutoresizingMaskIntoConstraints="NO" id="92l-P2-Rcl">
                         <rect key="frame" x="163" y="13" width="232" height="212"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="232" id="COf-YW-eQh"/>
-                            <constraint firstAttribute="height" constant="212" id="Hz3-Tc-SQ6"/>
+                            <constraint firstAttribute="width" constant="232" id="avM-32-O0m"/>
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="No feeds are available to show     On your wall...." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-To-yW6">
                         <rect key="frame" x="101" y="242" width="365" height="128"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="128" id="rds-UY-WdF"/>
+                            <constraint firstAttribute="height" constant="128" id="T1B-OX-YNC"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -42,17 +41,16 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="92l-P2-Rcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="6HH-77-wTc"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerX" secondItem="4pQ-To-yW6" secondAttribute="centerX" id="9Hb-YE-M9Y"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Bsc-Pu-zE0"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="Mss-1g-6Dz"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="93" id="P8D-Or-zyx"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="92l-P2-Rcl" secondAttribute="trailing" constant="166" id="PW6-9I-nHY"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="X1a-qe-FfS"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="edN-vr-OHl"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4pQ-To-yW6" secondAttribute="trailing" constant="95" id="jA1-vh-CjN"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jI2-He-kpj"/>
-                    <constraint firstItem="92l-P2-Rcl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="155" id="vEf-RL-h4X"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="93" id="3qL-IY-bpa"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerX" secondItem="4pQ-To-yW6" secondAttribute="centerX" id="40F-b4-5Is"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="44J-Vz-WhA"/>
+                    <constraint firstItem="92l-P2-Rcl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="163" id="6xG-Ko-yT3"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="9HE-QR-4lk"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="AvN-Ff-Voo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="14" id="Hxp-Bl-cIi"/>
+                    <constraint firstItem="92l-P2-Rcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Nrh-w6-prc"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m35-UO-0Lt"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xdR-Yu-62n"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
