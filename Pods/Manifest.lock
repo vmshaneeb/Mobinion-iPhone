@@ -14,6 +14,7 @@ PODS:
   - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
   - TextAttributes (0.3)
+  - UIScrollView-InfiniteScroll (0.7.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TextAttributes
+  - UIScrollView-InfiniteScroll
 
 EXTERNAL SOURCES:
   Spring:
@@ -59,7 +61,8 @@ SPEC CHECKSUMS:
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TextAttributes: 34f7560fad65c8fede4edd3a7c0ca444971226fd
+  UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
-PODFILE CHECKSUM: 5a2ffd7e181c09909ea18bb7155c02d91b23625d
+PODFILE CHECKSUM: 9c08fe1eac13ada28b60bf1e6ef301420a3bbe0c
 
 COCOAPODS: 1.0.0

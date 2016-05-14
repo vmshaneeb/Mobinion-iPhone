@@ -17,4 +17,5 @@ target 'Mobinion' do
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
     pod 'DLRadioButton', '~> 1.4'
     pod 'TextAttributes'
+    pod 'UIScrollView-InfiniteScroll'
 end
