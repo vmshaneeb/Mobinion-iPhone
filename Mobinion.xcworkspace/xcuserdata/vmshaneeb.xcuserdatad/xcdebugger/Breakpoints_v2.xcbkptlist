@@ -10,28 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobinion/NewsFeedMyWall.swift"
-            timestampString = "484949951.264497"
+            timestampString = "485028796.734958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "1479"
+            endingLineNumber = "1479"
+            landmarkName = "domyWall()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobinion/NewsFeedMyWall.swift"
-            timestampString = "484950152.040125"
+            timestampString = "485028605.117812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

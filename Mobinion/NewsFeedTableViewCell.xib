@@ -30,7 +30,7 @@
                         <rect key="frame" x="3" y="7" width="562" height="220"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-IM-IgR">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-IM-IgR">
                         <rect key="frame" x="8" y="12" width="72" height="62"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="72" id="cAD-ph-Kt7"/>

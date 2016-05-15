@@ -105,13 +105,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                            self.newsFeed.arrayByAddingObjectsFromArray(newsFeedNew.mutableCopy()) as! NSDictionary
                             let numbers = (self.newsFeed.copy() as! NSArray).arrayByAddingObjectsFromArray(newsFeedNew as [AnyObject]) as! [NSMutableArray]
 //                            (responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray)
-                            print("after \(self.rowno) rows")
+//                            print("after \(self.rowno) rows")
                             
-                            print(numbers.count)
-                            print(newsFeedNew)
+//                            print(numbers.count)
+//                            print(newsFeedNew)
                             self.newsFeed.removeAllObjects()
                             self.newsFeed=NSMutableArray(array: numbers, copyItems: true)
-                            print(self.newsFeed.count)
+//                            print(self.newsFeed.count)
                         }
                         catch
                         {
