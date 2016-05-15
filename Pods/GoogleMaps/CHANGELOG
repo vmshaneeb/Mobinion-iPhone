@@ -1,3 +1,9 @@
+Version 1.13.2 - May 2016
+=========================
+Resolved Issues:
+  - Added a workaround to avoid the false positive for the non-public API
+    imageWithName: selector.
+
 Version 1.13.1 - May 2016
 =========================
 Resolved Issues:
