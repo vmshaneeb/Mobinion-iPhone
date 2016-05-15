@@ -25,9 +25,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
 //    var jsondata:JSON = [:]
     
-    override func viewWillAppear(animated: Bool)
+    
+    override func viewDidLoad()
     {
-        super.viewWillAppear(animated)
+        super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
         tableView.registerClass(NewsFeedTableViewCell.self, forCellReuseIdentifier: "Polls")
