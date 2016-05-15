@@ -90,7 +90,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     //                        self.HideLoader()
                     
                     let titles = json["status"].stringValue
-                    let messages = json["message"].stringValue
+//                    let messages = json["message"].stringValue
                     
                     if titles == "error"
                     {
@@ -101,10 +101,17 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         do
                         {
                             let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
-                            //                                self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-                            self.newsFeed.addObject(responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray)
+                            let newsFeedNew: NSArray = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSArray
+//                            self.newsFeed.arrayByAddingObjectsFromArray(newsFeedNew.mutableCopy()) as! NSDictionary
+                            let numbers = (self.newsFeed.copy() as! NSArray).arrayByAddingObjectsFromArray(newsFeedNew as [AnyObject]) as! [NSMutableArray]
+//                            (responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray)
                             print("after \(self.rowno) rows")
-                            print (self.newsFeed)
+                            
+                            print(numbers.count)
+                            print(newsFeedNew)
+                            self.newsFeed.removeAllObjects()
+                            self.newsFeed=NSMutableArray(array: numbers, copyItems: true)
+                            print(self.newsFeed.count)
                         }
                         catch
                         {
@@ -1291,9 +1298,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     func scrollViewWillBeginDragging(scrollView: UIScrollView)
     {
         //TODO:- check tabbar animation issues
-        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
-        {
-            
+//        if scrollView.panGestureRecognizer.translationInView(scrollView).y < 0
+//        {
+        
 //            changeTabBar(true, animated: true)
             
 //            getFeeds()
@@ -1337,7 +1344,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    }
 //            }
 
-        }
+//        }
 //        else
 //        {
 //            changeTabBar(false, animated: true)
@@ -1469,18 +1476,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     {
                         let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
                         self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
-                            print (self.newsFeed)
-                        
-//                        for i in 0..<self.newsFeed.count
-//                        {
-////                            if (self.newsFeed[i]["type"]!!.isKindOfClass(NSNull))
-//                            if (self.newsFeed.objectAtIndex(i).isKindOfClass(NSNull))
-//                            {
-//                                self.newsFeed.replaceObjectAtIndex(i, withObject: " ")
-//                            }
-//                        }
-//                        
-//                        print (self.newsFeed)
+                        print (self.newsFeed)
                     }
                     catch
                     {
