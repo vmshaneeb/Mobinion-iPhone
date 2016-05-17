@@ -24,8 +24,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var expiryDate: IQDropDownTextField!
     @IBOutlet weak var tagstextView: UITextView!
 
-    
-    
     override func viewDidAppear(animated: Bool) 
     {
         super.viewDidAppear(animated)

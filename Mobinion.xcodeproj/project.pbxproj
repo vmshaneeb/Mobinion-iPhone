@@ -46,6 +46,7 @@
 		653F52921CB1B08E001B494C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653F52911CB1B08E001B494C /* CoreTelephony.framework */; };
 		6569E6F51CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569E6F31CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift */; };
 		6569E6F61CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */; };
+		656CFE5C1CEB969F0088175A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CFE5B1CEB969F0088175A /* Extensions.swift */; };
 		657F5B181CD2E9C400A1C3FF /* ManualCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F5B171CD2E9C400A1C3FF /* ManualCode.swift */; };
 		6596F7801CDF7B3A00F97687 /* FollowSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6596F77F1CDF7B3A00F97687 /* FollowSectionHeader.swift */; };
 		6596F7821CDF7BDF00F97687 /* FollowSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6596F7811CDF7BDF00F97687 /* FollowSectionHeader.xib */; };
@@ -194,6 +195,7 @@
 		653F52911CB1B08E001B494C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6569E6F31CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableNoFeedsCell.swift; sourceTree = "<group>"; };
 		6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableNoFeedsCell.xib; sourceTree = "<group>"; };
+		656CFE5B1CEB969F0088175A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		657F5B171CD2E9C400A1C3FF /* ManualCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualCode.swift; sourceTree = "<group>"; };
 		6596F77F1CDF7B3A00F97687 /* FollowSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowSectionHeader.swift; sourceTree = "<group>"; };
 		6596F7811CDF7BDF00F97687 /* FollowSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowSectionHeader.xib; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				65E311E21CD8B4F900F784DA /* RobotoTTF */,
 				653F52541CB1AA27001B494C /* CountryPicker */,
 				AC978CC81CABB756001E1D7D /* Loader */,
+				656CFE5B1CEB969F0088175A /* Extensions.swift */,
 				650835C11C95779600C6C280 /* AppDelegate.swift */,
 				650835C31C95779600C6C280 /* ViewController.swift */,
 				65E1FD141C9C130D00BA74E1 /* VerifyMobile.swift */,
@@ -769,6 +772,7 @@
 				65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */,
 				65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */,
 				653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */,
+				656CFE5C1CEB969F0088175A /* Extensions.swift in Sources */,
 				653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */,
 				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
 				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
