@@ -10,10 +10,20 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import IQDropDownTextField
 
 class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var choose_cat: IQDropDownTextField!
+    @IBOutlet weak var quest_textView: UITextView!
+    @IBOutlet weak var desc_Field: UITextField!
+    @IBOutlet weak var optionsType: IQDropDownTextField!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var speical_textView: UITextView!
+    @IBOutlet weak var expiryDate: IQDropDownTextField!
+    @IBOutlet weak var tagstextView: UITextView!
+
     
     
     override func viewDidAppear(animated: Bool) 
@@ -65,6 +75,16 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- Actions
+    @IBAction func checkBox(sender: AnyObject)
+    {
+        
+    }
+    
+    @IBAction func createPoll(sender: AnyObject)
+    {
+        
+    }
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
