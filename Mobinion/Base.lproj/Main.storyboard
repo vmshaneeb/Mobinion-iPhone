@@ -2391,15 +2391,24 @@
                                             <constraint firstAttribute="width" constant="14" id="5T9-6T-JPH"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Options for Poll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnv-aP-M67">
+                                        <rect key="frame" x="14" y="669" width="442" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ofH-7i-Pcc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EU7-5G-DqF">
-                                        <rect key="frame" x="14" y="669" width="572" height="183"/>
+                                        <rect key="frame" x="14" y="707" width="572" height="183"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="183" id="qpK-HS-FR3"/>
                                         </constraints>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a special zone for your Poll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah8-FV-TfW">
-                                        <rect key="frame" x="14" y="873" width="572" height="21"/>
+                                        <rect key="frame" x="14" y="911" width="572" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="UV5-0E-Ed3"/>
                                         </constraints>
@@ -2408,7 +2417,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1dD-Aa-wo9">
-                                        <rect key="frame" x="14" y="902" width="572" height="90"/>
+                                        <rect key="frame" x="14" y="940" width="572" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="gSk-pg-LA1"/>
@@ -2417,20 +2426,20 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pole expiry" translatesAutoresizingMaskIntoConstraints="NO" id="LLv-B9-wyf">
-                                        <rect key="frame" x="14" y="1019" width="15" height="15"/>
+                                        <rect key="frame" x="14" y="1057" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Dvq-dZ-hfZ"/>
                                             <constraint firstAttribute="height" constant="15" id="QFi-8h-mzS"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-wa-8uR">
-                                        <rect key="frame" x="35" y="1019" width="75" height="18"/>
+                                        <rect key="frame" x="35" y="1057" width="75" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrp-9r-ImR">
-                                        <rect key="frame" x="130" y="1012" width="456" height="30"/>
+                                        <rect key="frame" x="130" y="1050" width="456" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="XlQ-Qa-t9A"/>
@@ -2439,20 +2448,20 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date of birth" translatesAutoresizingMaskIntoConstraints="NO" id="4a7-gf-avr">
-                                        <rect key="frame" x="563" y="1019" width="15" height="15"/>
+                                        <rect key="frame" x="563" y="1057" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Qip-1d-UX5"/>
                                             <constraint firstAttribute="height" constant="15" id="c2c-52-Ysf"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Tags to your poll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A36-Wy-yqK">
-                                        <rect key="frame" x="14" y="1057" width="572" height="21"/>
+                                        <rect key="frame" x="14" y="1095" width="572" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-qt-wV7">
-                                        <rect key="frame" x="14" y="1086" width="572" height="90"/>
+                                        <rect key="frame" x="14" y="1124" width="572" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="kGp-cg-5Js"/>
@@ -2461,13 +2470,13 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I hearby accept the terms and policies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ4-p5-WHr">
-                                        <rect key="frame" x="89" y="1193" width="497" height="21"/>
+                                        <rect key="frame" x="89" y="1231" width="497" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTH-IU-Tur">
-                                        <rect key="frame" x="14" y="1196" width="15" height="15"/>
+                                        <rect key="frame" x="14" y="1234" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="5qy-y9-49p"/>
                                             <constraint firstAttribute="width" constant="15" id="FCw-wR-NPW"/>
@@ -2476,7 +2485,7 @@
                                         <state key="selected" image="Check box checked"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJs-tj-qrv">
-                                        <rect key="frame" x="170" y="1242" width="261" height="50"/>
+                                        <rect key="frame" x="170" y="1280" width="261" height="50"/>
                                         <color key="backgroundColor" red="0.2470588235" green="0.68627450980000004" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="238" id="8WN-mM-pBM"/>
@@ -2509,6 +2518,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fSz-qt-wV7" firstAttribute="top" secondItem="A36-Wy-yqK" secondAttribute="bottom" constant="8" symbolic="YES" id="03A-yx-oBb"/>
+                                    <constraint firstItem="Hnv-aP-M67" firstAttribute="trailing" secondItem="fft-1N-2ZR" secondAttribute="trailing" id="0e2-zy-Xhv"/>
                                     <constraint firstItem="7rm-07-yap" firstAttribute="leading" secondItem="9dP-Le-NIY" secondAttribute="leading" constant="14" id="28G-Rc-9pn"/>
                                     <constraint firstItem="1dD-Aa-wo9" firstAttribute="leading" secondItem="A36-Wy-yqK" secondAttribute="leading" id="3CJ-Ft-FMm"/>
                                     <constraint firstItem="vPf-Ls-xdc" firstAttribute="leading" secondItem="VZW-yI-lG7" secondAttribute="trailing" constant="-206" id="3dk-nC-qFw"/>
@@ -2519,7 +2529,7 @@
                                     <constraint firstItem="ah8-FV-TfW" firstAttribute="trailing" secondItem="1dD-Aa-wo9" secondAttribute="trailing" id="BHD-3t-omT"/>
                                     <constraint firstItem="pQ4-p5-WHr" firstAttribute="top" secondItem="fSz-qt-wV7" secondAttribute="bottom" constant="17" id="BVI-XL-3eq"/>
                                     <constraint firstItem="Waz-wa-8uR" firstAttribute="leading" secondItem="pQ4-p5-WHr" secondAttribute="leading" constant="-54" id="C5S-Sm-7bA"/>
-                                    <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="8hu-sv-e2N" secondAttribute="bottom" constant="24" id="DWT-cg-0O8"/>
+                                    <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="8hu-sv-e2N" secondAttribute="bottom" constant="62" id="DWT-cg-0O8"/>
                                     <constraint firstAttribute="trailing" secondItem="Ug6-2z-Nt8" secondAttribute="trailing" constant="14" id="FZe-2T-QeX"/>
                                     <constraint firstAttribute="trailing" secondItem="FHx-mC-UYw" secondAttribute="trailing" constant="56" id="GJ8-RM-4cr"/>
                                     <constraint firstItem="nul-Pn-6y6" firstAttribute="top" secondItem="dhE-52-1Q8" secondAttribute="bottom" constant="40" id="GqT-DT-ECk"/>
@@ -2561,7 +2571,8 @@
                                     <constraint firstItem="vPf-Ls-xdc" firstAttribute="leading" secondItem="dhE-52-1Q8" secondAttribute="trailing" constant="-211" id="eak-ZY-pYX"/>
                                     <constraint firstItem="7rm-07-yap" firstAttribute="top" secondItem="9xb-yK-2MA" secondAttribute="bottom" constant="33" id="ebj-72-z0K"/>
                                     <constraint firstItem="pQ4-p5-WHr" firstAttribute="leading" secondItem="sTH-IU-Tur" secondAttribute="trailing" constant="60" id="exc-NI-IHp"/>
-                                    <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="I02-sk-xh4" secondAttribute="bottom" constant="34" id="fEo-ZL-Neh"/>
+                                    <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="I02-sk-xh4" secondAttribute="bottom" constant="72" id="fEo-ZL-Neh"/>
+                                    <constraint firstItem="Hnv-aP-M67" firstAttribute="leading" secondItem="fft-1N-2ZR" secondAttribute="leading" id="fZA-A1-jBa"/>
                                     <constraint firstItem="EU7-5G-DqF" firstAttribute="trailing" secondItem="ah8-FV-TfW" secondAttribute="trailing" id="gl9-lf-pPE"/>
                                     <constraint firstAttribute="trailing" secondItem="hrp-9r-ImR" secondAttribute="trailing" constant="14" id="hay-bd-845"/>
                                     <constraint firstItem="EU7-5G-DqF" firstAttribute="leading" secondItem="ah8-FV-TfW" secondAttribute="leading" id="hkI-8O-tZz"/>
@@ -2574,13 +2585,13 @@
                                     <constraint firstItem="JKj-vR-GhD" firstAttribute="leading" secondItem="nD5-Aw-Q5z" secondAttribute="leading" id="llO-9s-cb1"/>
                                     <constraint firstItem="9xb-yK-2MA" firstAttribute="top" secondItem="9dP-Le-NIY" secondAttribute="top" constant="28" id="o0a-qz-sYc"/>
                                     <constraint firstItem="A36-Wy-yqK" firstAttribute="top" secondItem="hrp-9r-ImR" secondAttribute="bottom" constant="15" id="psN-ZT-a3A"/>
-                                    <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="fft-1N-2ZR" secondAttribute="bottom" constant="29" id="qU7-po-CYY"/>
+                                    <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="fft-1N-2ZR" secondAttribute="bottom" constant="67" id="qU7-po-CYY"/>
                                     <constraint firstItem="7rm-07-yap" firstAttribute="centerY" secondItem="aPv-5Y-mhv" secondAttribute="centerY" id="qkd-7X-12Q"/>
                                     <constraint firstItem="fft-1N-2ZR" firstAttribute="top" secondItem="Ug6-2z-Nt8" secondAttribute="bottom" constant="29" id="roQ-xK-aNB"/>
                                     <constraint firstItem="hrp-9r-ImR" firstAttribute="centerY" secondItem="4a7-gf-avr" secondAttribute="centerY" constant="0.5" id="sOv-z1-Pco"/>
                                     <constraint firstItem="7rm-07-yap" firstAttribute="trailing" secondItem="8hu-sv-e2N" secondAttribute="trailing" id="tjD-pH-7EQ"/>
                                     <constraint firstItem="JKj-vR-GhD" firstAttribute="trailing" secondItem="EU7-5G-DqF" secondAttribute="trailing" id="tsg-o4-5Cx"/>
-                                    <constraint firstItem="lJs-tj-qrv" firstAttribute="centerY" secondItem="9dP-Le-NIY" secondAttribute="centerY" constant="1023.5" id="uO7-dF-9V3"/>
+                                    <constraint firstItem="lJs-tj-qrv" firstAttribute="centerY" secondItem="9dP-Le-NIY" secondAttribute="centerY" constant="1061.5" id="uO7-dF-9V3"/>
                                     <constraint firstAttribute="trailing" secondItem="4a7-gf-avr" secondAttribute="trailing" constant="22" id="uZv-c7-Izc"/>
                                     <constraint firstItem="aPv-5Y-mhv" firstAttribute="trailing" secondItem="dhE-52-1Q8" secondAttribute="trailing" id="vuk-qx-7V5"/>
                                     <constraint firstAttribute="trailing" secondItem="vPf-Ls-xdc" secondAttribute="trailing" constant="183" id="w2J-KW-pfz"/>
@@ -2588,6 +2599,7 @@
                                     <constraint firstItem="fSz-qt-wV7" firstAttribute="leading" secondItem="sTH-IU-Tur" secondAttribute="leading" id="xFa-uf-waM"/>
                                     <constraint firstItem="A36-Wy-yqK" firstAttribute="leading" secondItem="fSz-qt-wV7" secondAttribute="leading" id="xaJ-Os-bl3"/>
                                     <constraint firstItem="ah8-FV-TfW" firstAttribute="leading" secondItem="1dD-Aa-wo9" secondAttribute="leading" id="ycs-ce-k23"/>
+                                    <constraint firstItem="Hnv-aP-M67" firstAttribute="top" secondItem="fft-1N-2ZR" secondAttribute="bottom" constant="29" id="zzS-Pk-pLL"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -5761,7 +5773,7 @@
         <segue reference="CUD-YG-SMp"/>
         <segue reference="JGP-4H-nAo"/>
         <segue reference="1qJ-hb-56E"/>
-        <segue reference="fgp-ei-JqZ"/>
         <segue reference="FeV-7c-TkY"/>
+        <segue reference="6Kd-aA-gAn"/>
     </inferredMetricsTieBreakers>
 </document>
