@@ -15,8 +15,8 @@ class NewsFeedController: UITabBarController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // Sets the default color of the icon of the selected UITabBarItem and Title
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+//        // Sets the default color of the icon of the selected UITabBarItem and Title
+//        UITabBar.appearance().tintColor = UIColor.whiteColor()
         
         // Sets the background color of the selected UITabBarItem (using and plain colored UIImage with the width = 1/5 of the tabBar (if you have 5 items) and the height of the tabBar)
         UITabBar.appearance().selectionIndicatorImage = UIImage().makeImageWithColorAndSize(UIColor.init(Hex: 0x0FC2C4), size: CGSizeMake(tabBar.frame.width/5, tabBar.frame.height))

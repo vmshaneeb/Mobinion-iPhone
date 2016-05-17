@@ -31,7 +31,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
         
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1400)
         
-        //        print("in NewsFeedController")
+        
         
 //        StartLoader()
         
