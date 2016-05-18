@@ -23,15 +23,61 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var speical_textView: UITextView!
     @IBOutlet weak var expiryDate: IQDropDownTextField!
     @IBOutlet weak var tagstextView: UITextView!
+    
+    var imageNames = [String]()
 
     override func viewDidAppear(animated: Bool) 
+//    override func viewDidLoad()
     {
+//        super.viewDidLoad()
         super.viewDidAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
         
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1400)
         
+        choose_cat.isOptionalDropDown = false
         
+        optionsType.isOptionalDropDown = false
+        optionsType.itemList = ["Text Options",
+                                "Image Options"]
+        
+        expiryDate.isOptionalDropDown = false
+        expiryDate.dropDownMode = IQDropDownMode.DatePicker
+        
+        getinterestTopics()
+            { value, error in
+                
+                if value != nil
+                {
+                    let json = JSON(value!)
+//                    print(json)
+                    let titles = json["status"].stringValue
+                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
+                    {
+                        print("\(titles): \(messages)")
+                    }
+                    else
+                    {
+                        for i in 0 ..< json["data"]["interests"].count
+                        {
+                            if (!json["data"]["interests"][i]["imageUrl"].stringValue.isEmpty)
+                            {
+                                self.imageNames.append(json["data"]["interests"][i]["title"].stringValue)
+                                
+                                self.choose_cat.itemList = self.imageNames
+                            }
+                        }
+                        //                        print(self.imageURL)
+                    }
+                }
+                else
+                {
+                    print(error)
+                }
+        }
+
         
 //        StartLoader()
         
@@ -74,9 +120,9 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
     }
     
     //MARK:- Actions
-    @IBAction func checkBox(sender: AnyObject)
+    @IBAction func checkBox(sender: UIButton)
     {
-        
+        sender.selected = !sender.selected
     }
     
     @IBAction func createPoll(sender: AnyObject)
@@ -105,6 +151,33 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
         
         alertController.addAction(defaultAction)
         alertController.show()
+    }
+    
+    func getinterestTopics(completionHandler : (NSDictionary?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
+        
+        Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
+//        self.alamoFireManager.request(.POST, URL, headers: header, encoding: .JSON)
+        .responseJSON { response in
+            switch response.result
+            {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, error)
+            }
+        }
     }
     
     func sendCreatePoll(completionHandler : (NSDictionary?, NSError?) -> Void)
