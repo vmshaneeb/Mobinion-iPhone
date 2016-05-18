@@ -215,7 +215,6 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             
             cell.followAllBtn.hidden = false
             cell.followAllBtn.tag = section
-            //TODO:- check the erro for button tap
             cell.followAllBtn.addTarget(self, action: #selector(followAllBtnAPI(_:)), forControlEvents: .TouchUpInside)
         }
         else

@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
 
-class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var choose_cat: IQDropDownTextField!
@@ -23,6 +23,12 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var speical_textView: UITextView!
     @IBOutlet weak var expiryDate: IQDropDownTextField!
     @IBOutlet weak var tagstextView: UITextView!
+    @IBOutlet weak var charsRemaining: UILabel!
+    
+    @IBOutlet weak var imagePlaceholderView: UIView!
+    @IBOutlet weak var snapView: UIView!
+    @IBOutlet weak var chooseView: UIView!
+    
     
     var imageNames = [String]()
 
@@ -33,6 +39,15 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
         super.viewDidAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
         
+        tableView.registerClass(CreatePollTableViewCell.self, forCellReuseIdentifier: "CreatePollTableViewCell")
+        var nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollTableViewCell")
+        
+        tableView.registerClass(CreatePollTableViewFooterView.self, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
+        nib = UINib(nibName: "CreatePollTableViewFooterView", bundle: nil)
+        tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
+        
+        //CreatePollTableViewFooterView
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1400)
         
         choose_cat.isOptionalDropDown = false
@@ -44,72 +59,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
         expiryDate.isOptionalDropDown = false
         expiryDate.dropDownMode = IQDropDownMode.DatePicker
         
-        getinterestTopics()
-            { value, error in
-                
-                if value != nil
-                {
-                    let json = JSON(value!)
-//                    print(json)
-                    let titles = json["status"].stringValue
-                    let messages = json["message"].stringValue
-                    
-                    if titles == "error"
-                    {
-                        print("\(titles): \(messages)")
-                    }
-                    else
-                    {
-                        for i in 0 ..< json["data"]["interests"].count
-                        {
-                            if (!json["data"]["interests"][i]["imageUrl"].stringValue.isEmpty)
-                            {
-                                self.imageNames.append(json["data"]["interests"][i]["title"].stringValue)
-                                
-                                self.choose_cat.itemList = self.imageNames
-                            }
-                        }
-                        //                        print(self.imageURL)
-                    }
-                }
-                else
-                {
-                    print(error)
-                }
-        }
+        getIntTopics()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 54
 
-        
-//        StartLoader()
-        
-//        sendCreatePoll()
-//        { value, error in
-//                
-//            if value != nil
-//            {
-//                let json = JSON(value!)
-//                print(json)
-//                
-//                self.HideLoader()
-//                
-//                let titles = json["status"].stringValue
-//                let messages = json["message"].stringValue
-//                
-//                if titles == "error"
-//                {
-//                    self.doDBalertView(titles, msgs: messages)
-//                }
-//                else
-//                {
-//                    
-//                }
-//            }
-//            else
-//            {
-//                self.HideLoader()
-//                print(error)
-//                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
-//            }
-//        }
         
     }
     
@@ -119,15 +73,88 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- UITableViewDataSources
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell") as! CreatePollTableViewCell
+        
+//        tableView.registerClass(CreatePollTableViewCell.self, forCellReuseIdentifier: "pollcell")
+        
+        let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "pollcell")
+//
+        let cell = tableView.dequeueReusableCellWithIdentifier("pollcell", forIndexPath: indexPath) as! CreatePollTableViewCell
+        
+        return cell
+    }
+    
+    //MARK:- UITableViewDelegates
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+//        tableView.registerClass(CreatePollTableViewFooterView.self, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
+        
+        let nib:UINib = UINib(nibName: "CreatePollTableViewFooterView", bundle: nil)
+        tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
+        
+        let cell = tableView.dequeueReusableHeaderFooterViewWithIdentifier("CreatePollTableViewFooterView") as! CreatePollTableViewFooterView
+//        cell.
+        return cell
+    }
+    
     //MARK:- Actions
     @IBAction func checkBox(sender: UIButton)
     {
         sender.selected = !sender.selected
     }
     
+    @IBAction func notifyBtn(sender: AnyObject)
+    {
+        performSegueWithIdentifier("showNotificationFromCreate", sender: sender)
+    }
+    
     @IBAction func createPoll(sender: AnyObject)
     {
+        //        StartLoader()
         
+        //        sendCreatePoll()
+        //        { value, error in
+        //
+        //            if value != nil
+        //            {
+        //                let json = JSON(value!)
+        //                print(json)
+        //
+        //                self.HideLoader()
+        //
+        //                let titles = json["status"].stringValue
+        //                let messages = json["message"].stringValue
+        //
+        //                if titles == "error"
+        //                {
+        //                    self.doDBalertView(titles, msgs: messages)
+        //                }
+        //                else
+        //                {
+        //
+        //                }
+        //            }
+        //            else
+        //            {
+        //                self.HideLoader()
+        //                print(error)
+        //                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+        //            }
+        //        }
     }
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
@@ -211,6 +238,43 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate
                     
                 case .Failure(let error):
                     completionHandler(nil, error)
+            }
+        }
+    }
+    
+    func getIntTopics()
+    {
+        getinterestTopics()
+        { value, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                //                    print(json)
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    print("\(titles): \(messages)")
+                }
+                else
+                {
+                    for i in 0 ..< json["data"]["interests"].count
+                    {
+                        if (!json["data"]["interests"][i]["imageUrl"].stringValue.isEmpty)
+                        {
+                            self.imageNames.append(json["data"]["interests"][i]["title"].stringValue)
+                            
+                            self.choose_cat.itemList = self.imageNames
+                        }
+                    }
+                    //                        print(self.imageURL)
+                }
+            }
+            else
+            {
+                print(error)
             }
         }
     }
