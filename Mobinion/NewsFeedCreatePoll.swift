@@ -26,6 +26,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     @IBOutlet weak var charsRemaining: UILabel!
     
     @IBOutlet weak var imagePlaceholderView: UIView!
+    @IBOutlet weak var placeholderImageView: UIImageView!
     @IBOutlet weak var snapView: UIView!
     @IBOutlet weak var chooseView: UIView!
     
@@ -158,9 +159,9 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        // get image path
-        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-        let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
+////         get image path
+//        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+//        let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
         //        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imageName)
         
         //        print(imageURL)
@@ -172,26 +173,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        
 //        let result = selectedImage.writeAtPath(path)
 //        print(result)
-//        
-//        //        profilePicURL = localPath.absoluteString
-//        profilePicURL = String(path)
-//        
-//        print(profilePicURL)
-//        
-//        // for rounded profile pic
-//        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
-//        profilePic.clipsToBounds = true
-//        
-//        // for profile pic border
-//        profilePic.layer.borderWidth = 3.0
-//        profilePic.layer.borderColor = UIColor.whiteColor().CGColor
-//        
-//        //        print(profilePic.image?.size.height)
-//        //        print(profilePic.image?.size.width)
-//        
-//        //        profilePic.contentMode = .ScaleAspectFill
-//        
-//        profilePic.image = selectedImage
+//      //TODO:- check the delete button placement and pic fill style  
+        placeholderImageView.image = selectedImage
+        snapView.hidden = true
+        chooseView.hidden = true
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
