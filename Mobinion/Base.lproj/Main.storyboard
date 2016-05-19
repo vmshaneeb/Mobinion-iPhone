@@ -2433,6 +2433,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="p25-qq-Qih" appends="YES" id="aUc-Lv-Zu7"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YV-0W-0Vo">
                                                 <rect key="frame" x="286" y="0.0" width="286" height="128"/>
@@ -2468,6 +2471,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="V4w-sj-l9z" appends="YES" id="ecg-qG-CJl"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -2795,6 +2801,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSB-im-Txo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p25-qq-Qih">
+                    <connections>
+                        <action selector="tapSnapView:" destination="LY8-x9-gp8" id="eQS-1S-wXW"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="V4w-sj-l9z">
+                    <connections>
+                        <action selector="tapChooseView:" destination="LY8-x9-gp8" id="nVf-S0-FZk"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <view contentMode="scaleToFill" id="TX5-Cw-wgq">
                     <rect key="frame" x="0.0" y="0.0" width="572" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3230,9 +3246,9 @@
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="8Jd-ko-tMi"/>
                                                 <exclude reference="H01-yt-2il"/>
                                                 <exclude reference="arG-ZW-bqK"/>
-                                                <exclude reference="8Jd-ko-tMi"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -6631,10 +6647,10 @@
         <image name="viber" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1qJ-hb-56E"/>
         <segue reference="CUD-YG-SMp"/>
         <segue reference="evx-kh-O0x"/>
-        <segue reference="1qJ-hb-56E"/>
-        <segue reference="FeV-7c-TkY"/>
         <segue reference="wzF-pM-hsl"/>
+        <segue reference="FeV-7c-TkY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
 
-class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var choose_cat: IQDropDownTextField!
@@ -78,9 +78,13 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     override func viewDidLayoutSubviews()
     {
+        super.viewDidLayoutSubviews()
+        
         let ht = CGFloat(1200) + tableViewHeightConst.constant
         
-//        print(scrollView.contentSize)
+        print(scrollView.contentSize)
+//        scrollView.setNeedsLayout()
+//        scrollView.layoutIfNeeded()
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
     }
     
@@ -102,7 +106,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 
         let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell", forIndexPath: indexPath) as! CreatePollTableViewCell
         
-        
+//        cell.
         
         return cell
     }
@@ -118,6 +122,19 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         cell.addBtn.addTarget(self, action: #selector(addBtnResponder(_:)), forControlEvents: .TouchUpInside)
         cell.minusBtn.addTarget(self, action: #selector(minusBtnResponder(_:)), forControlEvents: .TouchUpInside)
         
+//        if rowCount == 1
+//        {
+//            cell.minusBtn.enabled = false
+//            cell.minusBtn.userInteractionEnabled = false
+//            cell.minusBtn.setBackgroundImage(UIImage.imageWithColor(UIColor.grayColor()), forState: .Normal)
+//        }
+//        else
+//        {
+//            cell.minusBtn.enabled = true
+//            cell.minusBtn.userInteractionEnabled = false
+////            cell.minusBtn.se
+//        }
+        
         return cell
     }
     
@@ -126,6 +143,53 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //    {
 //        
 //    }
+    
+    //MARK: - UIImagePickerControllerDelegates
+    func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // get image path
+        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+        let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
+        //        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imageName)
+        
+        //        print(imageURL)
+        //        print(imageName)
+        //        print(localPath)
+        
+//        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+//        path = (path as NSString).stringByAppendingPathComponent(imageName)
+//        
+//        let result = selectedImage.writeAtPath(path)
+//        print(result)
+//        
+//        //        profilePicURL = localPath.absoluteString
+//        profilePicURL = String(path)
+//        
+//        print(profilePicURL)
+//        
+//        // for rounded profile pic
+//        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
+//        profilePic.clipsToBounds = true
+//        
+//        // for profile pic border
+//        profilePic.layer.borderWidth = 3.0
+//        profilePic.layer.borderColor = UIColor.whiteColor().CGColor
+//        
+//        //        print(profilePic.image?.size.height)
+//        //        print(profilePic.image?.size.width)
+//        
+//        //        profilePic.contentMode = .ScaleAspectFill
+//        
+//        profilePic.image = selectedImage
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     //MARK:- Actions
     @IBAction func checkBox(sender: UIButton)
@@ -171,6 +235,34 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         //                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
         //            }
         //        }
+    }
+    @IBAction func tapSnapView(sender: UITapGestureRecognizer)
+    {
+//        print("snap view tapped!!")
+        self.view.endEditing(true)
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .Camera
+        
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+
+    }
+    @IBAction func tapChooseView(sender: UITapGestureRecognizer)
+    {
+//        print("choose view tapped!!")
+        self.view.endEditing(true)
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .PhotoLibrary
+        
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+
     }
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
@@ -301,17 +393,23 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         rowCount += 1
         
         tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+        print(tableViewHeightConst.constant)
         tableView.reloadData()
     }
     
     func minusBtnResponder(sender: UIButton)
     {
         //        print("minus button pressed!!")
-        rowCount -= 1
-        
-        //TODO:- check scroll size when deleting rows
-        tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
-        tableView.reloadData()
+        if rowCount > 1
+        {
+            rowCount -= 1
+            
+            //TODO:- check scroll size when deleting rows
+            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+            print(tableViewHeightConst.constant)
+            //        tableView.layoutIfNeeded()
+            tableView.reloadData()
+        }
     }
 
     

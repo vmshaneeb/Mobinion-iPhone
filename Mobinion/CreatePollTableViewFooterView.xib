@@ -27,12 +27,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf3-5u-Qgf">
-                    <rect key="frame" x="518" y="12" width="30" height="30"/>
+                    <rect key="frame" x="517" y="11" width="32" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="2b4-30-5Lt"/>
-                        <constraint firstAttribute="width" constant="30" id="m3y-1o-ET7"/>
+                        <constraint firstAttribute="height" constant="32" id="2b4-30-5Lt"/>
+                        <constraint firstAttribute="width" constant="32" id="m3y-1o-ET7"/>
                     </constraints>
-                    <state key="normal" image="plusbutton"/>
+                    <state key="normal" image="Add option"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xe7-4H-dpa">
                     <rect key="frame" x="562" y="12" width="30" height="30"/>
@@ -40,18 +40,18 @@
                         <constraint firstAttribute="height" constant="30" id="ONi-2V-xd5"/>
                         <constraint firstAttribute="width" constant="30" id="o7N-FV-9c3"/>
                     </constraints>
-                    <state key="normal" image="minusbutton"/>
+                    <state key="normal" image="Delete option"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nf3-5u-Qgf" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="12" id="782-vF-jb2"/>
-                <constraint firstItem="nf3-5u-Qgf" firstAttribute="trailing" secondItem="cq6-Yy-rgt" secondAttribute="trailingMargin" constant="-44" id="JPN-gV-VCL"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="11" id="782-vF-jb2"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="trailing" secondItem="cq6-Yy-rgt" secondAttribute="trailingMargin" constant="-43" id="JPN-gV-VCL"/>
                 <constraint firstItem="JvU-0v-1zR" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="16" id="Td1-4M-3iH"/>
                 <constraint firstItem="nf3-5u-Qgf" firstAttribute="centerY" secondItem="JvU-0v-1zR" secondAttribute="centerY" id="ThS-RJ-xq9"/>
                 <constraint firstItem="xe7-4H-dpa" firstAttribute="trailing" secondItem="cq6-Yy-rgt" secondAttribute="trailingMargin" id="WkM-wR-0sM"/>
                 <constraint firstItem="JvU-0v-1zR" firstAttribute="leading" secondItem="cq6-Yy-rgt" secondAttribute="leadingMargin" id="Zdn-7u-th0"/>
-                <constraint firstItem="xe7-4H-dpa" firstAttribute="top" secondItem="nf3-5u-Qgf" secondAttribute="top" id="jn8-GT-RdM"/>
+                <constraint firstItem="xe7-4H-dpa" firstAttribute="top" secondItem="nf3-5u-Qgf" secondAttribute="top" constant="1" id="jn8-GT-RdM"/>
                 <constraint firstItem="JvU-0v-1zR" firstAttribute="centerY" secondItem="cq6-Yy-rgt" secondAttribute="centerY" id="q7h-CH-yfd"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -65,7 +65,7 @@
         </view>
     </objects>
     <resources>
-        <image name="minusbutton" width="75" height="75"/>
-        <image name="plusbutton" width="63" height="63"/>
+        <image name="Add option" width="32" height="32"/>
+        <image name="Delete option" width="32" height="32"/>
     </resources>
 </document>
