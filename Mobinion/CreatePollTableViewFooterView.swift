@@ -13,6 +13,7 @@ class CreatePollTableViewFooterView: UITableViewHeaderFooterView
     
     @IBOutlet weak var optionsField: UILabel!
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var minusBtn: UIButton!
     
     /*
     // Only override drawRect: if you perform custom drawing.

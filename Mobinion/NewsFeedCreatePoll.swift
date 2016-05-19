@@ -29,8 +29,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     @IBOutlet weak var snapView: UIView!
     @IBOutlet weak var chooseView: UIView!
     
+    @IBOutlet weak var tableViewHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var textFieldTopSpacetoTableView: NSLayoutConstraint!
     
     var imageNames = [String]()
+    var rowCount = 3
 
     override func viewDidAppear(animated: Bool) 
 //    override func viewDidLoad()
@@ -48,7 +51,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
         
         //CreatePollTableViewFooterView
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1400)
+//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1200)
         
         choose_cat.isOptionalDropDown = false
         
@@ -73,6 +76,14 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews()
+    {
+        let ht = CGFloat(1200) + tableViewHeightConst.constant
+        
+//        print(scrollView.contentSize)
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
+    }
+    
     //MARK:- UITableViewDataSources
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -81,35 +92,40 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3
+        return rowCount
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell") as! CreatePollTableViewCell
-        
-//        tableView.registerClass(CreatePollTableViewCell.self, forCellReuseIdentifier: "pollcell")
-        
         let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "pollcell")
-//
-        let cell = tableView.dequeueReusableCellWithIdentifier("pollcell", forIndexPath: indexPath) as! CreatePollTableViewCell
+        tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollTableViewCell")
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell", forIndexPath: indexPath) as! CreatePollTableViewCell
+        
+        
         
         return cell
     }
     
     //MARK:- UITableViewDelegates
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
-    {
-//        tableView.registerClass(CreatePollTableViewFooterView.self, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
-        
+    {        
         let nib:UINib = UINib(nibName: "CreatePollTableViewFooterView", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
         
         let cell = tableView.dequeueReusableHeaderFooterViewWithIdentifier("CreatePollTableViewFooterView") as! CreatePollTableViewFooterView
-//        cell.
+        
+        cell.addBtn.addTarget(self, action: #selector(addBtnResponder(_:)), forControlEvents: .TouchUpInside)
+        cell.minusBtn.addTarget(self, action: #selector(minusBtnResponder(_:)), forControlEvents: .TouchUpInside)
+        
         return cell
     }
+    
+//    //MARK:- UIScrollViewDelegates
+//    func scrollViewWillBeginDragging(scrollView: UIScrollView)
+//    {
+//        
+//    }
     
     //MARK:- Actions
     @IBAction func checkBox(sender: UIButton)
@@ -278,6 +294,26 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             }
         }
     }
+    
+    func addBtnResponder(sender: UIButton)
+    {
+//        print("add button pressed!!")
+        rowCount += 1
+        
+        tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+        tableView.reloadData()
+    }
+    
+    func minusBtnResponder(sender: UIButton)
+    {
+        //        print("minus button pressed!!")
+        rowCount -= 1
+        
+        //TODO:- check scroll size when deleting rows
+        tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+        tableView.reloadData()
+    }
+
     
     // MARK: - Loader
     func StartLoader()

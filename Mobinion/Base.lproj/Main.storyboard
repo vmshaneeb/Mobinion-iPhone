@@ -2788,7 +2788,9 @@
                         <outlet property="snapView" destination="Pob-tf-vWo" id="WFH-7T-RYc"/>
                         <outlet property="speical_textView" destination="1dD-Aa-wo9" id="veq-XK-YHy"/>
                         <outlet property="tableView" destination="EU7-5G-DqF" id="e7z-eP-J9R"/>
+                        <outlet property="tableViewHeightConst" destination="qpK-HS-FR3" id="ZAO-gl-rcf"/>
                         <outlet property="tagstextView" destination="fSz-qt-wV7" id="8Fz-7r-35l"/>
+                        <outlet property="textFieldTopSpacetoTableView" destination="InB-Zs-v6t" id="0nE-Xm-THF"/>
                         <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromCreate" id="wzF-pM-hsl"/>
                     </connections>
                 </viewController>
