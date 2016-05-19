@@ -106,7 +106,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 
         let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell", forIndexPath: indexPath) as! CreatePollTableViewCell
         
-//        cell.
+        let formatter = NSNumberFormatter()
+        formatter.minimumIntegerDigits = 2
+        
+        cell.count.text = formatter.stringFromNumber(indexPath.row + 1)
+        cell.count.text = cell.count.text! + "."
         
         return cell
     }
