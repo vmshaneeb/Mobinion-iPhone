@@ -2260,7 +2260,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
-                                <rect key="frame" x="40" y="31" width="107" height="21"/>
+                                <rect key="frame" x="40" y="31" width="112" height="21"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2376,6 +2376,7 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tpF-DH-THo">
                                                 <rect key="frame" x="8" y="8" width="556" height="112"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="112" id="t47-qp-ZYR"/>
                                                 </constraints>
@@ -2490,7 +2491,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Options" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fft-1N-2ZR">
-                                        <rect key="frame" x="14" y="619" width="320" height="21"/>
+                                        <rect key="frame" x="14" y="619" width="274" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="o7b-jC-hJt"/>
                                         </constraints>
@@ -2499,7 +2500,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text Options" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8hu-sv-e2N" customClass="IQDropDownTextField">
-                                        <rect key="frame" x="359" y="615" width="227" height="30"/>
+                                        <rect key="frame" x="313" y="615" width="273" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="227" id="1g7-FK-sS1"/>
@@ -2512,6 +2513,9 @@
                                                 <exclude reference="1g7-FK-sS1"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="delegate" destination="LY8-x9-gp8" id="Fne-6o-ol3"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Down arrow" translatesAutoresizingMaskIntoConstraints="NO" id="I02-sk-xh4">
                                         <rect key="frame" x="567" y="624" width="14" height="11"/>
@@ -2521,7 +2525,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Options for Poll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnv-aP-M67">
-                                        <rect key="frame" x="14" y="669" width="442" height="21"/>
+                                        <rect key="frame" x="14" y="669" width="396" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ofH-7i-Pcc"/>
                                         </constraints>
@@ -2682,6 +2686,7 @@
                                     <constraint firstItem="ah8-FV-TfW" firstAttribute="trailing" secondItem="1dD-Aa-wo9" secondAttribute="trailing" id="BHD-3t-omT"/>
                                     <constraint firstItem="pQ4-p5-WHr" firstAttribute="top" secondItem="fSz-qt-wV7" secondAttribute="bottom" constant="17" id="BVI-XL-3eq"/>
                                     <constraint firstItem="Waz-wa-8uR" firstAttribute="leading" secondItem="pQ4-p5-WHr" secondAttribute="leading" constant="-54" id="C5S-Sm-7bA"/>
+                                    <constraint firstItem="fft-1N-2ZR" firstAttribute="width" secondItem="8hu-sv-e2N" secondAttribute="width" id="DFT-1b-TWZ"/>
                                     <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="8hu-sv-e2N" secondAttribute="bottom" constant="62" id="DWT-cg-0O8"/>
                                     <constraint firstItem="nD5-Aw-Q5z" firstAttribute="trailing" secondItem="JKj-vR-GhD" secondAttribute="trailing" id="DoE-5v-wle"/>
                                     <constraint firstItem="gn3-hH-TAl" firstAttribute="leading" secondItem="Ug6-2z-Nt8" secondAttribute="leading" id="GCr-3I-RMD"/>
@@ -2692,7 +2697,6 @@
                                     <constraint firstAttribute="trailing" secondItem="I02-sk-xh4" secondAttribute="trailing" constant="19" id="IGO-0M-sqs"/>
                                     <constraint firstItem="1dD-Aa-wo9" firstAttribute="trailing" secondItem="hrp-9r-ImR" secondAttribute="trailing" id="IiE-tq-hBb"/>
                                     <constraint firstItem="ah8-FV-TfW" firstAttribute="top" secondItem="EU7-5G-DqF" secondAttribute="bottom" constant="21" id="InB-Zs-v6t"/>
-                                    <constraint firstItem="nD5-Aw-Q5z" firstAttribute="trailing" secondItem="fft-1N-2ZR" secondAttribute="trailing" constant="252" id="JRo-Pk-6NB"/>
                                     <constraint firstItem="gn3-hH-TAl" firstAttribute="trailing" secondItem="Ug6-2z-Nt8" secondAttribute="trailing" id="K2l-9S-u8x"/>
                                     <constraint firstItem="fSz-qt-wV7" firstAttribute="trailing" secondItem="pQ4-p5-WHr" secondAttribute="trailing" id="Kfc-ku-bds"/>
                                     <constraint firstItem="nD5-Aw-Q5z" firstAttribute="top" secondItem="JKj-vR-GhD" secondAttribute="bottom" constant="32" id="LAy-3B-GaA"/>
@@ -2751,6 +2755,7 @@
                                     <constraint firstItem="hrp-9r-ImR" firstAttribute="centerY" secondItem="4a7-gf-avr" secondAttribute="centerY" constant="0.5" id="sOv-z1-Pco"/>
                                     <constraint firstItem="7rm-07-yap" firstAttribute="trailing" secondItem="8hu-sv-e2N" secondAttribute="trailing" id="tjD-pH-7EQ"/>
                                     <constraint firstItem="JKj-vR-GhD" firstAttribute="trailing" secondItem="EU7-5G-DqF" secondAttribute="trailing" id="tsg-o4-5Cx"/>
+                                    <constraint firstAttribute="trailing" secondItem="nD5-Aw-Q5z" secondAttribute="trailing" constant="14" id="uxf-ic-tJW"/>
                                     <constraint firstItem="aPv-5Y-mhv" firstAttribute="trailing" secondItem="dhE-52-1Q8" secondAttribute="trailing" constant="-5" id="vuk-qx-7V5"/>
                                     <constraint firstItem="hrp-9r-ImR" firstAttribute="top" secondItem="1dD-Aa-wo9" secondAttribute="bottom" constant="20" id="wAa-5A-DJH"/>
                                     <constraint firstItem="fSz-qt-wV7" firstAttribute="leading" secondItem="sTH-IU-Tur" secondAttribute="leading" id="xFa-uf-waM"/>
@@ -2803,6 +2808,7 @@
                         <outlet property="scrollView" destination="9dP-Le-NIY" id="FnI-Gk-xNz"/>
                         <outlet property="snapView" destination="Pob-tf-vWo" id="WFH-7T-RYc"/>
                         <outlet property="speical_textView" destination="1dD-Aa-wo9" id="veq-XK-YHy"/>
+                        <outlet property="stackView" destination="Ug6-2z-Nt8" id="CZ4-nP-UrG"/>
                         <outlet property="tableView" destination="EU7-5G-DqF" id="e7z-eP-J9R"/>
                         <outlet property="tableViewHeightConst" destination="qpK-HS-FR3" id="ZAO-gl-rcf"/>
                         <outlet property="tagstextView" destination="fSz-qt-wV7" id="8Fz-7r-35l"/>
