@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
 
-class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var choose_cat: IQDropDownTextField!
@@ -60,6 +60,13 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         optionsType.itemList = ["Text Options",
                                 "Image Options"]
         
+//        print("Before selction:- \(optionsType.selectedItem)")
+//
+//        optionsType.selectedItem = "Text Options"
+//        print("after set1 :- \(optionsType.selectedItem)")
+//        optionsType.setSelectedItem("Text Options", animated: false)
+//        print("after set2 :- \(optionsType.selectedItem)")
+        
         expiryDate.isOptionalDropDown = false
         expiryDate.dropDownMode = IQDropDownMode.DatePicker
         
@@ -77,17 +84,17 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidLayoutSubviews()
-    {
-        super.viewDidLayoutSubviews()
-        
-        let ht = CGFloat(1200) + tableViewHeightConst.constant
-        
-        print(scrollView.contentSize)
-//        scrollView.setNeedsLayout()
-//        scrollView.layoutIfNeeded()
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
-    }
+//    override func viewDidLayoutSubviews()
+//    {
+//        super.viewDidLayoutSubviews()
+//        
+//        let ht = CGFloat(1200) + tableViewHeightConst.constant
+//        
+//        print(scrollView.contentSize)
+////        scrollView.setNeedsLayout()
+////        scrollView.layoutIfNeeded()
+//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
+//    }
     
     //MARK:- UITableViewDataSources
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -102,18 +109,40 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollTableViewCell")
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell", forIndexPath: indexPath) as! CreatePollTableViewCell
-        
-        let formatter = NSNumberFormatter()
-        formatter.minimumIntegerDigits = 2
-        
-        cell.count.text = formatter.stringFromNumber(indexPath.row + 1)
-        cell.count.text = cell.count.text! + "."
-        
-        return cell
+//        print("Options:- \(optionsType.selectedItem)")
+//        print("Options:- \(self.optionsType.selectedItem)")
+        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
+        {
+            let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
+            tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollTableViewCell")
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollTableViewCell", forIndexPath: indexPath) as! CreatePollTableViewCell
+//            tableView.rowHeight = 54
+            
+            let formatter = NSNumberFormatter()
+            formatter.minimumIntegerDigits = 2
+            
+            cell.count.text = formatter.stringFromNumber(indexPath.row + 1)
+            cell.count.text = cell.count.text! + "."
+            
+            return cell
+        }
+        else
+        {
+            let nib:UINib = UINib(nibName: "CreatePollPicOptionCell", bundle: nil)
+            tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollPicOptionCell")
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollPicOptionCell", forIndexPath: indexPath) as! CreatePollPicOptionCell
+//            tableView.rowHeight = 180
+            
+            let formatter = NSNumberFormatter()
+            formatter.minimumIntegerDigits = 2
+            
+            cell.countField.text = formatter.stringFromNumber(indexPath.row + 1)
+            cell.countField.text = cell.countField.text! + "."
+            
+            return cell
+        }
     }
     
     //MARK:- UITableViewDelegates
@@ -143,11 +172,28 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         return cell
     }
     
-//    //MARK:- UIScrollViewDelegates
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+//    {
+//        return UITableViewAutomaticDimension
+//    }
+    
+    //MARK:- UIScrollViewDelegates
 //    func scrollViewWillBeginDragging(scrollView: UIScrollView)
 //    {
 //        
 //    }
+    //- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
+    //    {
+    //
+    //    }
+    func scrollViewDidScroll(scrollView: UIScrollView)
+    {
+        let ht = CGFloat(1200) + tableViewHeightConst.constant
+        
+        print(scrollView.contentSize)
+        
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
+    }
     
     //MARK: - UIImagePickerControllerDelegates
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
@@ -173,13 +219,23 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        
 //        let result = selectedImage.writeAtPath(path)
 //        print(result)
-//      //TODO:- check the delete button placement and pic fill style  
+//      //TODO:- check the delete button placement and pic fill style
         placeholderImageView.image = selectedImage
         snapView.hidden = true
         chooseView.hidden = true
         
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    //MARK:- UITextFieldDelegates
+    func textFieldDidEndEditing(textField: UITextField)
+    {
+        if textField == optionsType
+        {
+            tableView.reloadData()
+        }
+    }
+    
     
     //MARK:- Actions
     @IBAction func checkBox(sender: UIButton)
@@ -382,7 +438,14 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        print("add button pressed!!")
         rowCount += 1
         
-        tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+        if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
+        {
+            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+        }
+        else
+        {
+            tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
+        }
         print(tableViewHeightConst.constant)
         tableView.reloadData()
     }
@@ -395,7 +458,15 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             rowCount -= 1
             
             //TODO:- check scroll size when deleting rows
-            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+//            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+            if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
+            {
+                tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+            }
+            else
+            {
+                tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
+            }
             print(tableViewHeightConst.constant)
             //        tableView.layoutIfNeeded()
             tableView.reloadData()
