@@ -27,6 +27,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBOutlet weak var imagePlaceholderView: UIView!
     @IBOutlet weak var placeholderImageView: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var snapView: UIView!
     @IBOutlet weak var chooseView: UIView!
     
@@ -73,7 +74,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         getIntTopics()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 54
+//        tableView.estimatedRowHeight = 54
 
         
     }
@@ -110,7 +111,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
 //        print("Options:- \(optionsType.selectedItem)")
-//        print("Options:- \(self.optionsType.selectedItem)")
         if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
         {
             let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
@@ -172,20 +172,30 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         return cell
     }
     
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-//    {
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
 //        return UITableViewAutomaticDimension
-//    }
+        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
+        {
+            return 54
+        }
+        else
+        {
+            return 180
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        return 54
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
+    {
+        return 54
+    }
     
     //MARK:- UIScrollViewDelegates
-//    func scrollViewWillBeginDragging(scrollView: UIScrollView)
-//    {
-//        
-//    }
-    //- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
-    //    {
-    //
-    //    }
     func scrollViewDidScroll(scrollView: UIScrollView)
     {
         let ht = CGFloat(1200) + tableViewHeightConst.constant
@@ -221,8 +231,9 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        print(result)
 //      //TODO:- check the delete button placement and pic fill style
         placeholderImageView.image = selectedImage
-        snapView.hidden = true
-        chooseView.hidden = true
+//        snapView.hidden = true
+//        chooseView.hidden = true
+        stackView.hidden = true
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -232,6 +243,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     {
         if textField == optionsType
         {
+            rowCount = 3
             tableView.reloadData()
         }
     }
