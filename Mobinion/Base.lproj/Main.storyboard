@@ -2388,6 +2388,9 @@
                                                     <constraint firstAttribute="height" constant="20" id="gBp-Ih-xtd"/>
                                                 </constraints>
                                                 <state key="normal" image="Trash"/>
+                                                <connections>
+                                                    <action selector="delImageBtn:" destination="LY8-x9-gp8" eventType="touchUpInside" id="95s-pp-lKg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

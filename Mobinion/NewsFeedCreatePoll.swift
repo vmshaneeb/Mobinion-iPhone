@@ -53,21 +53,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         nib = UINib(nibName: "CreatePollTableViewFooterView", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePollTableViewFooterView")
         
-        //CreatePollTableViewFooterView
-//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1200)
-        
         choose_cat.isOptionalDropDown = false
         
         optionsType.isOptionalDropDown = false
         optionsType.itemList = ["Text Options",
                                 "Image Options"]
-        
-//        print("Before selction:- \(optionsType.selectedItem)")
-//
-//        optionsType.selectedItem = "Text Options"
-//        print("after set1 :- \(optionsType.selectedItem)")
-//        optionsType.setSelectedItem("Text Options", animated: false)
-//        print("after set2 :- \(optionsType.selectedItem)")
         
         expiryDate.isOptionalDropDown = false
         expiryDate.dropDownMode = IQDropDownMode.DatePicker
@@ -106,6 +96,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        //TODO:- fix issue when displaying the tableview initially
         if optionsType.selectedItem == nil
         {
             return 0
@@ -164,6 +155,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         cell.addBtn.addTarget(self, action: #selector(addBtnResponder(_:)), forControlEvents: .TouchUpInside)
         cell.minusBtn.addTarget(self, action: #selector(minusBtnResponder(_:)), forControlEvents: .TouchUpInside)
+//        cell.
         
 //        if rowCount == 1
 //        {
@@ -353,6 +345,13 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         presentViewController(imagePickerController, animated: true, completion: nil)
 
     }
+    
+    @IBAction func delImageBtn(sender: UIButton)
+    {
+        placeholderImageView.image = nil
+        
+        stackView.hidden = false
+    }
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
@@ -515,6 +514,10 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         }
     }
 
+    func delBtnResponder(sender: UIButton)
+    {
+        
+    }
     
     // MARK: - Loader
     func StartLoader()
