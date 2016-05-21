@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,45 +15,45 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="cq6-Yy-rgt" customClass="CreatePollTableViewFooterView" customModule="Mobinion" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add more option" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvU-0v-1zR">
                     <rect key="frame" x="8" y="16" width="168" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="168" id="RRt-dg-DR9"/>
+                        <constraint firstAttribute="width" constant="168" id="64F-30-4l5"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf3-5u-Qgf">
-                    <rect key="frame" x="517" y="11" width="32" height="32"/>
+                    <rect key="frame" x="507" y="6" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="2b4-30-5Lt"/>
-                        <constraint firstAttribute="width" constant="32" id="m3y-1o-ET7"/>
+                        <constraint firstAttribute="width" constant="40" id="iFy-6M-5j6"/>
                     </constraints>
                     <state key="normal" image="Add option"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xe7-4H-dpa">
-                    <rect key="frame" x="562" y="12" width="30" height="30"/>
+                    <rect key="frame" x="552" y="6" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ONi-2V-xd5"/>
-                        <constraint firstAttribute="width" constant="30" id="o7N-FV-9c3"/>
+                        <constraint firstAttribute="width" constant="40" id="Eoa-et-KI1"/>
                     </constraints>
                     <state key="normal" image="Delete option"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nf3-5u-Qgf" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="11" id="782-vF-jb2"/>
-                <constraint firstItem="nf3-5u-Qgf" firstAttribute="trailing" secondItem="cq6-Yy-rgt" secondAttribute="trailingMargin" constant="-43" id="JPN-gV-VCL"/>
-                <constraint firstItem="JvU-0v-1zR" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="16" id="Td1-4M-3iH"/>
-                <constraint firstItem="nf3-5u-Qgf" firstAttribute="centerY" secondItem="JvU-0v-1zR" secondAttribute="centerY" id="ThS-RJ-xq9"/>
-                <constraint firstItem="xe7-4H-dpa" firstAttribute="trailing" secondItem="cq6-Yy-rgt" secondAttribute="trailingMargin" id="WkM-wR-0sM"/>
-                <constraint firstItem="JvU-0v-1zR" firstAttribute="leading" secondItem="cq6-Yy-rgt" secondAttribute="leadingMargin" id="Zdn-7u-th0"/>
-                <constraint firstItem="xe7-4H-dpa" firstAttribute="top" secondItem="nf3-5u-Qgf" secondAttribute="top" constant="1" id="jn8-GT-RdM"/>
-                <constraint firstItem="JvU-0v-1zR" firstAttribute="centerY" secondItem="cq6-Yy-rgt" secondAttribute="centerY" id="q7h-CH-yfd"/>
+                <constraint firstItem="JvU-0v-1zR" firstAttribute="centerY" secondItem="nf3-5u-Qgf" secondAttribute="centerY" id="3F7-bA-A8Y"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="firstBaseline" secondItem="xe7-4H-dpa" secondAttribute="firstBaseline" id="4Ak-Q2-2x7"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="top" secondItem="xe7-4H-dpa" secondAttribute="top" id="6ag-dv-dIj"/>
+                <constraint firstItem="xe7-4H-dpa" firstAttribute="trailing" secondItem="cq6-Yy-rgt" secondAttribute="trailingMargin" id="BOp-tA-YGh"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="6" id="O99-Jy-QyF"/>
+                <constraint firstItem="JvU-0v-1zR" firstAttribute="leading" secondItem="cq6-Yy-rgt" secondAttribute="leadingMargin" id="YH1-Dt-PA9"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="baseline" secondItem="xe7-4H-dpa" secondAttribute="baseline" id="qJL-q3-vIb"/>
+                <constraint firstItem="JvU-0v-1zR" firstAttribute="top" secondItem="cq6-Yy-rgt" secondAttribute="top" constant="16" id="ttc-Hg-khr"/>
+                <constraint firstItem="xe7-4H-dpa" firstAttribute="leading" secondItem="nf3-5u-Qgf" secondAttribute="trailing" constant="5" id="uVq-8t-1HV"/>
+                <constraint firstItem="nf3-5u-Qgf" firstAttribute="centerY" secondItem="cq6-Yy-rgt" secondAttribute="centerY" id="xzg-hg-KOx"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -61,7 +62,7 @@
                 <outlet property="minusBtn" destination="xe7-4H-dpa" id="dcO-0c-LD4"/>
                 <outlet property="optionsField" destination="JvU-0v-1zR" id="caJ-ZB-Vnb"/>
             </connections>
-            <point key="canvasLocation" x="362" y="212"/>
+            <point key="canvasLocation" x="362" y="210.5"/>
         </view>
     </objects>
     <resources>

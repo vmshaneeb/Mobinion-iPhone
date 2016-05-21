@@ -75,7 +75,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         getIntTopics()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 54
+        tableView.estimatedRowHeight = 54
 
         
     }
@@ -106,13 +106,21 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return rowCount
+        if optionsType.selectedItem == nil
+        {
+            return 0
+        }
+        else
+        {
+            return rowCount
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
 //        print("Options:- \(optionsType.selectedItem)")
-        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
+//        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
+        if optionsType.selectedItem == "Text Options"
         {
             let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
             tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollTableViewCell")
@@ -171,6 +179,19 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        }
         
         return cell
+    }
+    
+//    func estimatedHeightForRowAtIndexPath
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
+        {
+            return 54
+        }
+        else
+        {
+            return 180
+        }
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
@@ -451,7 +472,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        print("add button pressed!!")
         rowCount += 1
         
-        if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
+        if optionsType.selectedItem == "Text Options"// || optionsType.selectedItem == nil
         {
             tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
         }
@@ -459,7 +480,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         {
             tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
         }
-        print(tableViewHeightConst.constant)
+//        print(tableViewHeightConst.constant)
         tableView.reloadData()
     }
     
@@ -472,7 +493,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             
             //TODO:- check scroll size when deleting rows
 //            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
-            if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
+            if optionsType.selectedItem == "Text Options"// || optionsType.selectedItem == nil
             {
                 tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
             }
@@ -480,7 +501,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             {
                 tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
             }
-            print(tableViewHeightConst.constant)
+//            print(tableViewHeightConst.constant)
             //        tableView.layoutIfNeeded()
             tableView.reloadData()
         }
