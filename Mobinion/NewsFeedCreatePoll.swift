@@ -251,7 +251,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        
 //        let result = selectedImage.writeAtPath(path)
 //        print(result)
-//      //TODO:- check the delete button placement and pic fill style
         placeholderImageView.image = selectedImage
 //        snapView.hidden = true
 //        chooseView.hidden = true
@@ -266,6 +265,16 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         if textField == optionsType
         {
             rowCount = 3
+            
+            if optionsType.selectedItem == "Text Options"// || optionsType.selectedItem == nil
+            {
+                tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+            }
+            else
+            {
+                tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
+            }
+            
             tableView.reloadData()
         }
     }
@@ -490,8 +499,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         if rowCount > 1
         {
             rowCount -= 1
-            
-            //TODO:- check scroll size when deleting rows
+
 //            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
             if optionsType.selectedItem == "Text Options"// || optionsType.selectedItem == nil
             {
