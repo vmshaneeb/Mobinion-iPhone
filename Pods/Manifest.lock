@@ -3,7 +3,7 @@ PODS:
   - Cloudinary (1.0.15)
   - DBAlertController (0.2.6)
   - DLRadioButton (1.4.8)
-  - DZNEmptyDataSet (1.8)
+  - DZNEmptyDataSet (1.8.1)
   - GoogleMaps (1.13.2)
   - IQDropDownTextField (1.1.0)
   - IQKeyboardManager (4.0.3)
@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
   DBAlertController: f6bc826127685e6e44b2d5003034d9ff1c952322
   DLRadioButton: 8fe4865b3ea8a5236e1d114dd283dd0884d3dc46
-  DZNEmptyDataSet: d2351b2e8daefa40433ef292e246e21f6be31a7b
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1

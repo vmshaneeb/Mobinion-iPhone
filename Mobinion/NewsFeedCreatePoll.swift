@@ -15,6 +15,7 @@ import IQDropDownTextField
 class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var choose_cat: IQDropDownTextField!
     @IBOutlet weak var quest_textView: UITextView!
     @IBOutlet weak var desc_Field: UITextField!
@@ -200,7 +201,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     {
         let ht = CGFloat(1200) + tableViewHeightConst.constant
         
-        print(scrollView.contentSize)
+//        print(scrollView.contentSize)
         
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
     }
