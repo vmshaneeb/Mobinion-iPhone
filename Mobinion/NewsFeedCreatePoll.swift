@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
 
-class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ImagePickerDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -135,11 +135,17 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             let cell = tableView.dequeueReusableCellWithIdentifier("CreatePollPicOptionCell", forIndexPath: indexPath) as! CreatePollPicOptionCell
 //            tableView.rowHeight = 180
             
+            cell.delegate = self
+            
             let formatter = NSNumberFormatter()
             formatter.minimumIntegerDigits = 2
             
             cell.countField.text = formatter.stringFromNumber(indexPath.row + 1)
             cell.countField.text = cell.countField.text! + "."
+            
+//            cell.takesnapBtn.addTarget(self, action: #selector(tapSnapViewinCell(_:)), forControlEvents: .TouchUpInside)
+//            cell.choosefileBtn.addTarget(self, action: #selector(tapChooseViewinCell(_:)), forControlEvents: .TouchUpInside)
+//            cell.deleteBtn.addTarget(self, action: #selector(delBtninCellResponder(_:)), forControlEvents: .TouchUpInside)
             
             return cell
         }
@@ -514,9 +520,31 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         }
     }
 
-    func delBtnResponder(sender: UIButton)
+    func delBtninCellResponder(sender: UIButton)
     {
         
+    }
+    
+    func tapSnapViewinCell(cell: CreatePollPicOptionCell)//(sender: UIButton)
+    {
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .Camera
+        
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func tapChooseViewinCell(cell: CreatePollPicOptionCell)//(sender: UIButton)
+    {
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .PhotoLibrary
+        
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
     // MARK: - Loader

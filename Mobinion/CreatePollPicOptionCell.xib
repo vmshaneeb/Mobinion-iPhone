@@ -31,6 +31,9 @@
                                     <constraint firstAttribute="width" constant="30" id="xBe-xh-32G"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="delete"/>
+                                <connections>
+                                    <action selector="delBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GU5-nf-pih"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-Cu-O7W">
                                 <rect key="frame" x="8" y="0.0" width="556" height="128"/>
@@ -57,13 +60,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-ly-eYs">
                                 <rect key="frame" x="0.0" y="0.0" width="286" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Take a snap" translatesAutoresizingMaskIntoConstraints="NO" id="ikf-RU-FD8">
-                                        <rect key="frame" x="118" y="27" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="6Ut-FE-98w"/>
-                                            <constraint firstAttribute="height" constant="50" id="weD-D6-cRK"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take New Snap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yW-Ct-PuQ">
                                         <rect key="frame" x="90" y="80" width="106" height="21"/>
                                         <constraints>
@@ -74,14 +70,25 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q35-3g-Mos">
+                                        <rect key="frame" x="118" y="22" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8rc-PR-VUy"/>
+                                            <constraint firstAttribute="width" constant="50" id="HCK-CT-C6J"/>
+                                        </constraints>
+                                        <state key="normal" image="Take a snap"/>
+                                        <connections>
+                                            <action selector="snapBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M3S-zD-tTt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ikf-RU-FD8" firstAttribute="top" secondItem="bgy-ly-eYs" secondAttribute="top" constant="27" id="2XR-Jh-tMC"/>
-                                    <constraint firstItem="5yW-Ct-PuQ" firstAttribute="top" secondItem="ikf-RU-FD8" secondAttribute="bottom" constant="3" id="3z8-7v-5qj"/>
-                                    <constraint firstItem="ikf-RU-FD8" firstAttribute="centerX" secondItem="5yW-Ct-PuQ" secondAttribute="centerX" id="CAH-qw-hE5"/>
                                     <constraint firstAttribute="height" constant="128" id="Cvu-Rl-vTC"/>
-                                    <constraint firstItem="ikf-RU-FD8" firstAttribute="centerX" secondItem="bgy-ly-eYs" secondAttribute="centerX" id="ZZA-ak-V2l"/>
+                                    <constraint firstItem="5yW-Ct-PuQ" firstAttribute="top" secondItem="Q35-3g-Mos" secondAttribute="bottom" constant="8" symbolic="YES" id="D7r-Uf-ybB"/>
+                                    <constraint firstItem="Q35-3g-Mos" firstAttribute="centerX" secondItem="5yW-Ct-PuQ" secondAttribute="centerX" id="SXI-oL-Uzh"/>
+                                    <constraint firstItem="Q35-3g-Mos" firstAttribute="top" secondItem="bgy-ly-eYs" secondAttribute="top" constant="22" id="TMn-Ge-veb"/>
+                                    <constraint firstItem="Q35-3g-Mos" firstAttribute="centerX" secondItem="bgy-ly-eYs" secondAttribute="centerX" id="c4c-wS-bSG"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -92,13 +99,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Olb-4X-AY9">
                                 <rect key="frame" x="286" y="0.0" width="286" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Choose from gallery" translatesAutoresizingMaskIntoConstraints="NO" id="qBW-cc-jxF">
-                                        <rect key="frame" x="118" y="27" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="cEf-PT-B4D"/>
-                                            <constraint firstAttribute="height" constant="50" id="xtc-PR-1v9"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUE-8n-QwX">
                                         <rect key="frame" x="90" y="80" width="106" height="21"/>
                                         <constraints>
@@ -109,14 +109,25 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqQ-Lh-2Ee">
+                                        <rect key="frame" x="118" y="22" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="CmH-NF-1vK"/>
+                                            <constraint firstAttribute="width" constant="50" id="P1t-Tw-VcL"/>
+                                        </constraints>
+                                        <state key="normal" image="Choose from gallery"/>
+                                        <connections>
+                                            <action selector="chooseBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4nf-PO-OMb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Cv4-T6-sRI"/>
-                                    <constraint firstItem="qBW-cc-jxF" firstAttribute="top" secondItem="Olb-4X-AY9" secondAttribute="top" constant="27" id="XWQ-58-S0P"/>
-                                    <constraint firstItem="qBW-cc-jxF" firstAttribute="centerX" secondItem="Olb-4X-AY9" secondAttribute="centerX" id="fRY-XT-n0i"/>
-                                    <constraint firstItem="rUE-8n-QwX" firstAttribute="top" secondItem="qBW-cc-jxF" secondAttribute="bottom" constant="3" id="hZK-jm-y7z"/>
-                                    <constraint firstItem="qBW-cc-jxF" firstAttribute="centerX" secondItem="rUE-8n-QwX" secondAttribute="centerX" id="pqn-f8-7Hx"/>
+                                    <constraint firstItem="jqQ-Lh-2Ee" firstAttribute="centerX" secondItem="rUE-8n-QwX" secondAttribute="centerX" id="Cyo-Hn-rAd"/>
+                                    <constraint firstItem="jqQ-Lh-2Ee" firstAttribute="centerX" secondItem="Olb-4X-AY9" secondAttribute="centerX" id="FUG-1G-Dk4"/>
+                                    <constraint firstItem="jqQ-Lh-2Ee" firstAttribute="top" secondItem="Olb-4X-AY9" secondAttribute="top" constant="22" id="fmx-lh-H7k"/>
+                                    <constraint firstItem="rUE-8n-QwX" firstAttribute="top" secondItem="jqQ-Lh-2Ee" secondAttribute="bottom" constant="8" symbolic="YES" id="iIy-r9-viz"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -155,13 +166,17 @@
                     <constraint firstItem="YWT-bg-QLT" firstAttribute="bottom" secondItem="hQr-3y-rFs" secondAttribute="bottom" id="uom-oq-tuA"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="chooseView" destination="Olb-4X-AY9" id="Qvt-xW-lYI"/>
+                <outlet property="choosefileBtn" destination="jqQ-Lh-2Ee" id="rhM-pk-ejp"/>
                 <outlet property="countField" destination="qcA-uK-S3w" id="IgJ-li-hgC"/>
                 <outlet property="deleteBtn" destination="cwa-0v-c3v" id="OYL-4F-esi"/>
                 <outlet property="imagePlaceHolderImageView" destination="h7H-Cu-O7W" id="DKP-5J-che"/>
                 <outlet property="imagePlaceHolderView" destination="YWT-bg-QLT" id="dx0-SV-SdQ"/>
                 <outlet property="snapView" destination="bgy-ly-eYs" id="FgB-jZ-iQ6"/>
+                <outlet property="stackView" destination="hQr-3y-rFs" id="DGQ-JV-jl3"/>
+                <outlet property="takesnapBtn" destination="Q35-3g-Mos" id="FV5-Px-bEz"/>
             </connections>
             <point key="canvasLocation" x="373" y="437"/>
         </tableViewCell>
