@@ -25,6 +25,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YWT-bg-QLT">
                         <rect key="frame" x="0.0" y="40" width="572" height="128"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-Cu-O7W">
+                                <rect key="frame" x="8" y="0.0" width="556" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="OK5-fj-dL9"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwa-0v-c3v">
                                 <rect key="frame" x="530" y="90" width="30" height="30"/>
                                 <constraints>
@@ -35,12 +41,6 @@
                                     <action selector="delBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GU5-nf-pih"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-Cu-O7W">
-                                <rect key="frame" x="8" y="0.0" width="556" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="OK5-fj-dL9"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
