@@ -37,6 +37,19 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     var imageNames = [String]()
     var rowCount = 3
+    
+    var cellImgPicker:Bool!
+    
+    struct imagesCell
+    {
+        //        var indexP: Int?
+        var image: UIImage?
+    }
+    
+//    var imagesInCell = [imagesCell]()
+    var imagesInCell = [Int: UIImage]()
+    
+    var lastSelectedIndex: NSIndexPath?
 
     override func viewDidAppear(animated: Bool) 
 //    override func viewDidLoad()
@@ -143,9 +156,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             cell.countField.text = formatter.stringFromNumber(indexPath.row + 1)
             cell.countField.text = cell.countField.text! + "."
             
-//            cell.takesnapBtn.addTarget(self, action: #selector(tapSnapViewinCell(_:)), forControlEvents: .TouchUpInside)
-//            cell.choosefileBtn.addTarget(self, action: #selector(tapChooseViewinCell(_:)), forControlEvents: .TouchUpInside)
-//            cell.deleteBtn.addTarget(self, action: #selector(delBtninCellResponder(_:)), forControlEvents: .TouchUpInside)
+            
+            if imagesInCell.indexForKey(indexPath.row) != nil
+            {
+                cell.imagePlaceHolderImageView.image = imagesInCell[indexPath.row]
+            }
             
             return cell
         }
@@ -179,7 +194,11 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         return cell
     }
     
-//    func estimatedHeightForRowAtIndexPath
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        lastSelectedIndex = indexPath
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
@@ -249,10 +268,21 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        
 //        let result = selectedImage.writeAtPath(path)
 //        print(result)
-        placeholderImageView.image = selectedImage
-//        snapView.hidden = true
-//        chooseView.hidden = true
-        stackView.hidden = true
+        print(cellImgPicker)
+        print(placeholderImageView.image)
+        print(selectedImage)
+        if (cellImgPicker == true || placeholderImageView.image != nil)
+        {
+            cellImgPicker = false
+//            imagesInCell[(lastSelectedIndex?.row)!].image = selectedImage
+            imagesInCell.updateValue(selectedImage, forKey: lastSelectedIndex!.row)
+            tableView.reloadData()
+        }
+        else
+        {
+            placeholderImageView.image = selectedImage
+            stackView.hidden = true
+        }
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -527,6 +557,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tapSnapViewinCell(cell: CreatePollPicOptionCell)//(sender: UIButton)
     {
+        cellImgPicker = true
+        
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.sourceType = .Camera
@@ -538,6 +570,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tapChooseViewinCell(cell: CreatePollPicOptionCell)//(sender: UIButton)
     {
+        cellImgPicker = true
+        
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.sourceType = .PhotoLibrary
