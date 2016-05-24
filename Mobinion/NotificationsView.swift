@@ -60,11 +60,16 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
+        let nib:UINib = UINib(nibName: "NotificationTableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "notifyCell")
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("notifyCell", forIndexPath: indexPath) as! NotificationTableViewCell
         
         // for rounded profile pic
         cell.profImage.layer.cornerRadius = cell.profImage.frame.size.width / 2
         cell.profImage.clipsToBounds = true
+        
+//        cell.pr
         
         if (!(notifyArray[indexPath.row]["actorImage"]!!.isKindOfClass(NSNull)))
         {

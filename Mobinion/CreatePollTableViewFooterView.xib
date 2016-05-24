@@ -42,7 +42,6 @@
                     <state key="normal" image="Delete option"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="JvU-0v-1zR" firstAttribute="centerY" secondItem="nf3-5u-Qgf" secondAttribute="centerY" id="3F7-bA-A8Y"/>
                 <constraint firstItem="nf3-5u-Qgf" firstAttribute="firstBaseline" secondItem="xe7-4H-dpa" secondAttribute="firstBaseline" id="4Ak-Q2-2x7"/>

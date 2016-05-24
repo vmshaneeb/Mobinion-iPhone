@@ -2374,20 +2374,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn3-hH-TAl">
                                         <rect key="frame" x="14" y="462" width="572" height="128"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tpF-DH-THo">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tpF-DH-THo">
                                                 <rect key="frame" x="8" y="8" width="556" height="112"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="112" id="t47-qp-ZYR"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdX-xa-gof">
-                                                <rect key="frame" x="537" y="92" width="20" height="20"/>
+                                                <rect key="frame" x="530" y="90" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="Ocb-Rj-pob"/>
-                                                    <constraint firstAttribute="height" constant="20" id="gBp-Ih-xtd"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Ocb-Rj-pob"/>
+                                                    <constraint firstAttribute="height" constant="30" id="gBp-Ih-xtd"/>
                                                 </constraints>
-                                                <state key="normal" image="Trash"/>
+                                                <state key="normal" image="delete"/>
                                                 <connections>
                                                     <action selector="delImageBtn:" destination="LY8-x9-gp8" eventType="touchUpInside" id="95s-pp-lKg"/>
                                                 </connections>
@@ -2396,14 +2395,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="BP3-wN-1Wm"/>
-                                            <constraint firstAttribute="bottom" secondItem="HdX-xa-gof" secondAttribute="bottom" constant="16" id="Cdt-rg-SuV"/>
+                                            <constraint firstAttribute="bottom" secondItem="HdX-xa-gof" secondAttribute="bottom" constant="8" id="Cdt-rg-SuV"/>
                                             <constraint firstItem="tpF-DH-THo" firstAttribute="trailing" secondItem="gn3-hH-TAl" secondAttribute="trailingMargin" id="Xvv-DX-9Kj"/>
-                                            <constraint firstItem="HdX-xa-gof" firstAttribute="top" secondItem="gn3-hH-TAl" secondAttribute="top" constant="92" id="ZEx-U5-Fbg"/>
+                                            <constraint firstItem="HdX-xa-gof" firstAttribute="top" secondItem="gn3-hH-TAl" secondAttribute="top" constant="90" id="ZEx-U5-Fbg"/>
                                             <constraint firstItem="tpF-DH-THo" firstAttribute="leading" secondItem="gn3-hH-TAl" secondAttribute="leadingMargin" id="fwc-Jq-0wD"/>
                                             <constraint firstItem="tpF-DH-THo" firstAttribute="bottom" secondItem="gn3-hH-TAl" secondAttribute="bottomMargin" id="gxq-LK-jbA"/>
                                             <constraint firstItem="tpF-DH-THo" firstAttribute="top" secondItem="gn3-hH-TAl" secondAttribute="topMargin" id="nnE-rQ-nr0"/>
-                                            <constraint firstItem="HdX-xa-gof" firstAttribute="top" secondItem="tpF-DH-THo" secondAttribute="bottom" constant="-28" id="otO-cA-Via"/>
-                                            <constraint firstAttribute="trailing" secondItem="HdX-xa-gof" secondAttribute="trailing" constant="15" id="yds-XX-nEP"/>
+                                            <constraint firstItem="HdX-xa-gof" firstAttribute="top" secondItem="tpF-DH-THo" secondAttribute="bottom" constant="-30" id="otO-cA-Via"/>
+                                            <constraint firstAttribute="trailing" secondItem="HdX-xa-gof" secondAttribute="trailing" constant="12" id="yds-XX-nEP"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ug6-2z-Nt8">
@@ -2806,7 +2805,7 @@
                         <outlet property="expiryDate" destination="hrp-9r-ImR" id="8l9-Rn-ctO"/>
                         <outlet property="imagePlaceholderView" destination="gn3-hH-TAl" id="BR6-hb-gfX"/>
                         <outlet property="optionsType" destination="8hu-sv-e2N" id="6Xw-IM-huo"/>
-                        <outlet property="placeholderImageView" destination="tpF-DH-THo" id="Abt-f4-H5F"/>
+                        <outlet property="placeholderImageView" destination="tpF-DH-THo" id="YhC-xH-LJH"/>
                         <outlet property="quest_textView" destination="dhE-52-1Q8" id="Qq5-Xf-1ab"/>
                         <outlet property="scrollView" destination="9dP-Le-NIY" id="FnI-Gk-xNz"/>
                         <outlet property="snapView" destination="Pob-tf-vWo" id="WFH-7T-RYc"/>
@@ -6736,6 +6735,7 @@
         <image name="addPhoto2" width="78" height="78"/>
         <image name="back arrow" width="32" height="32"/>
         <image name="date of birth" width="32" height="32"/>
+        <image name="delete" width="32" height="32"/>
         <image name="description" width="32" height="32"/>
         <image name="divider" width="290" height="1"/>
         <image name="down arrow white" width="32" height="32"/>
