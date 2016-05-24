@@ -167,9 +167,6 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-//       let result = UITableViewCell()
-        
-        
         debugPrint(newsFeed[indexPath.row])
         if (newsFeed[indexPath.row]["cardDetails"]!!.isKindOfClass(NSDictionary))
         {
@@ -177,6 +174,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             
             cell.text2.text = (newsFeed[indexPath.row]["cardDetails"]!!["text"]!! as! String)
             cell.text3.text = (newsFeed[indexPath.row]["cardDetails"]!!["conductedBy"]!! as! String)
+            
+            return cell
+        }
+        //Cards Type
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
             
             return cell
         }
@@ -1254,17 +1258,12 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
 
         }
-
-//        //Cards Type
-//        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
-//        {
-//        
-//        }
-            
 //        //Feedback Type
 //        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("feedback"))
 //        {
-//
+//            let cell = tableView.dequeueReusableCellWithIdentifier("NoFeeds") as! NewsFeedTableNoFeedsCell
+//            
+//            return cell
 //        }
 
         else
@@ -1286,6 +1285,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if (newsFeed[indexPath.row]["cardDetails"]!!.isKindOfClass(NSDictionary))
+        {
+            return 561.0
+        }
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
         {
             return 561.0
         }

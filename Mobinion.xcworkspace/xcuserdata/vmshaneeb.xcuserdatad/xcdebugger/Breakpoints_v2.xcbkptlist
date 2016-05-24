@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobinion/NewsFeedMyWall.swift"
-            timestampString = "485030543.97745"
+            timestampString = "485817316.182826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1480"
-            endingLineNumber = "1480"
+            startingLineNumber = "1483"
+            endingLineNumber = "1483"
             landmarkName = "domyWall()"
             landmarkType = "5">
          </BreakpointContent>

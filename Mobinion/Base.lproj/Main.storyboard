@@ -6764,10 +6764,10 @@
         <image name="viber" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1qJ-hb-56E"/>
         <segue reference="CUD-YG-SMp"/>
         <segue reference="evx-kh-O0x"/>
-        <segue reference="wzF-pM-hsl"/>
         <segue reference="FeV-7c-TkY"/>
+        <segue reference="1qJ-hb-56E"/>
+        <segue reference="6Kd-aA-gAn"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -27,37 +27,41 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J2m-Wc-H9r">
                         <rect key="frame" x="4" y="8" width="562" height="544"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add interest" translatesAutoresizingMaskIntoConstraints="NO" id="92l-P2-Rcl">
                         <rect key="frame" x="164" y="35" width="232" height="212"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="232" id="COf-YW-eQh"/>
-                            <constraint firstAttribute="height" constant="212" id="Hz3-Tc-SQ6"/>
+                            <constraint firstAttribute="width" constant="232" id="irq-nR-ZCb"/>
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Hey!! You didnt select any Topics to My Interests" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-To-yW6">
                         <rect key="frame" x="102" y="264" width="365" height="128"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="128" id="rds-UY-WdF"/>
+                            <constraint firstAttribute="height" constant="128" id="5Z7-YZ-sJJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQi-XL-Glo">
-                        <rect key="frame" x="442" y="522" width="119" height="30"/>
+                        <rect key="frame" x="455" y="522" width="106" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="R7P-9g-L8W"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                         <state key="normal" title="DISCARD CARD">
                             <color key="titleColor" red="0.16862745100000001" green="0.71372549019999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajO-B4-ibb">
-                        <rect key="frame" x="145" y="426" width="278" height="59"/>
+                        <rect key="frame" x="150" y="442" width="261" height="50"/>
                         <color key="backgroundColor" red="0.20784313730000001" green="0.63921568630000003" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ajO-B4-ibb" secondAttribute="height" multiplier="157:30" id="22i-hF-5T1"/>
-                            <constraint firstAttribute="height" constant="59" id="NeY-OS-HYC"/>
+                            <constraint firstAttribute="height" constant="50" id="7q2-0X-Cxm"/>
                             <constraint firstAttribute="width" constant="238" id="Nsc-wK-GfG"/>
+                            <constraint firstAttribute="width" constant="261" id="cw4-T3-I82"/>
                             <constraint firstAttribute="width" constant="238" id="y9a-ka-5TH"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
@@ -66,7 +70,7 @@
                         </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="30"/>
+                                <integer key="value" value="25"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
@@ -80,26 +84,20 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="PQi-XL-Glo" firstAttribute="top" secondItem="ajO-B4-ibb" secondAttribute="bottom" constant="37" id="0hT-LD-Pz3"/>
-                    <constraint firstItem="ajO-B4-ibb" firstAttribute="top" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="34" id="2N9-dR-VOF"/>
-                    <constraint firstItem="92l-P2-Rcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="6HH-77-wTc"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="centerX" secondItem="4pQ-To-yW6" secondAttribute="centerX" id="9Hb-YE-M9Y"/>
-                    <constraint firstItem="ajO-B4-ibb" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-138" id="Bu5-6a-B03"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-4" id="Mss-1g-6Dz"/>
-                    <constraint firstItem="PQi-XL-Glo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="434" id="Nm5-Er-hbT"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="94" id="P8D-Or-zyx"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="92l-P2-Rcl" secondAttribute="trailing" constant="165" id="PW6-9I-nHY"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="X1a-qe-FfS"/>
-                    <constraint firstItem="PQi-XL-Glo" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="XhP-Fh-clz"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="edN-vr-OHl"/>
-                    <constraint firstItem="ajO-B4-ibb" firstAttribute="top" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="34" id="en1-L0-KUr"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4pQ-To-yW6" secondAttribute="trailing" constant="94" id="jA1-vh-CjN"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jI2-He-kpj"/>
-                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="bottom" secondItem="PQi-XL-Glo" secondAttribute="bottom" id="pSW-ui-KqL"/>
-                    <constraint firstItem="ajO-B4-ibb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="137" id="seL-Qk-8XY"/>
-                    <constraint firstItem="PQi-XL-Glo" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="uGT-TL-Rdg"/>
-                    <constraint firstItem="92l-P2-Rcl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="156" id="vEf-RL-h4X"/>
-                    <constraint firstItem="PQi-XL-Glo" firstAttribute="top" secondItem="ajO-B4-ibb" secondAttribute="bottom" constant="37" id="veb-9n-gA5"/>
+                    <constraint firstItem="ajO-B4-ibb" firstAttribute="centerX" secondItem="4pQ-To-yW6" secondAttribute="centerX" constant="-4" id="5HP-8y-Li1"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-4" id="D1I-R4-Zb4"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ajO-B4-ibb" secondAttribute="bottom" constant="60" id="DFR-Im-ZLH"/>
+                    <constraint firstItem="ajO-B4-ibb" firstAttribute="top" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="50" id="Lcd-jX-BeX"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="centerX" secondItem="J2m-Wc-H9r" secondAttribute="centerX" id="OYK-rT-dNF"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="94" id="P9L-sb-2q7"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="Q2x-Iu-ad0"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="centerX" secondItem="92l-P2-Rcl" secondAttribute="centerX" constant="4.5" id="c9u-VI-cnd"/>
+                    <constraint firstItem="92l-P2-Rcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="iXP-e5-NFy"/>
+                    <constraint firstItem="92l-P2-Rcl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-4.5" id="kbm-LC-caM"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="bottom" secondItem="PQi-XL-Glo" secondAttribute="bottom" id="lxe-kC-JhR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PQi-XL-Glo" secondAttribute="bottom" id="mBw-X1-WEn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PQi-XL-Glo" secondAttribute="trailing" id="pVb-NX-gOa"/>
+                    <constraint firstItem="J2m-Wc-H9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="zrG-ev-YtM"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
