@@ -110,22 +110,22 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        //TODO:- fix issue when displaying the tableview initially
-        if optionsType.selectedItem == nil
-        {
-            return 0
-        }
-        else
-        {
+        ////TODO:- fix issue when displaying the tableview initially
+//        if optionsType.selectedItem == nil
+//        {
+//            return 0
+//        }
+//        else
+//        {
             return rowCount
-        }
+//        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
 //        print("Options:- \(optionsType.selectedItem)")
-//        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
-        if optionsType.selectedItem == "Text Options"
+        if optionsType.selectedItem == nil || optionsType.selectedItem == "Text Options"
+//        if optionsType.selectedItem == "Text Options"
         {
             let nib:UINib = UINib(nibName: "CreatePollTableViewCell", bundle: nil)
             tableView.registerNib(nib, forCellReuseIdentifier: "CreatePollTableViewCell")
@@ -228,6 +228,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
+        //TODO:- fix footer ht initially
         return 54
     }
     
@@ -528,7 +529,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        print("add button pressed!!")
         rowCount += 1
         
-        if optionsType.selectedItem == "Text Options"// || optionsType.selectedItem == nil
+        if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
         {
             tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
         }
@@ -548,7 +549,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             rowCount -= 1
 
 //            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
-            if optionsType.selectedItem == "Text Options"// || optionsType.selectedItem == nil
+            if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
             {
                 tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
             }
