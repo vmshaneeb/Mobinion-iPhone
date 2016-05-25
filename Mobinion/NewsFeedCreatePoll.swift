@@ -40,6 +40,10 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     var cellImgPicker:Bool!
     
+    let isiPhone5orLower = UIScreen.mainScreen().bounds.size.width == 320
+    let isiPhone6 = UIScreen.mainScreen().bounds.size.width == 375
+    let isiPhone6Plus = UIScreen.mainScreen().bounds.size.width == 414
+    
     struct imagesCell
     {
         //        var indexP: Int?
@@ -79,6 +83,19 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 54
+        
+
+        let ht = CGFloat(1200) + tableViewHeightConst.constant
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
+        
+        if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
+        {
+            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+        }
+        else
+        {
+            tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
+        }
         
 //        placeholderImageView.image = nil
         
@@ -241,10 +258,9 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     func scrollViewDidScroll(scrollView: UIScrollView)
     {
         let ht = CGFloat(1200) + tableViewHeightConst.constant
-        
-//        print(scrollView.contentSize)
-        
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
+       
+//        print(scrollView.contentSize)
     }
     
     //MARK: - UIImagePickerControllerDelegates
@@ -282,6 +298,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             imagesInCell.updateValue(selectedImage, forKey: lastSelectedIndex!.row)
             print(imagesInCell)
             tableView.reloadData()
+            
+         
         }
         else
         {
