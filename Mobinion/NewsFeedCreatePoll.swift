@@ -106,18 +106,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    override func viewDidLayoutSubviews()
-//    {
-//        super.viewDidLayoutSubviews()
-//        
-//        let ht = CGFloat(1200) + tableViewHeightConst.constant
-//        
-//        print(scrollView.contentSize)
-////        scrollView.setNeedsLayout()
-////        scrollView.layoutIfNeeded()
-//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
-//    }
+
     
     //MARK:- UITableViewDataSources
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -127,15 +116,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        ////TODO:- fix issue when displaying the tableview initially
-//        if optionsType.selectedItem == nil
-//        {
-//            return 0
-//        }
-//        else
-//        {
-            return rowCount
-//        }
+        return rowCount
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -245,7 +226,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
-        //TODO:- fix footer ht initially
         return 54
     }
     

@@ -2575,20 +2575,20 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pole expiry" translatesAutoresizingMaskIntoConstraints="NO" id="LLv-B9-wyf">
-                                        <rect key="frame" x="14" y="1057" width="15" height="15"/>
+                                        <rect key="frame" x="-26" y="1057" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Dvq-dZ-hfZ"/>
                                             <constraint firstAttribute="height" constant="15" id="QFi-8h-mzS"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-wa-8uR">
-                                        <rect key="frame" x="35" y="1057" width="75" height="18"/>
+                                        <rect key="frame" x="-5" y="1057" width="75" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrp-9r-ImR" customClass="IQDropDownTextField">
-                                        <rect key="frame" x="130" y="1050" width="456" height="30"/>
+                                        <rect key="frame" x="90" y="1050" width="496" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="XlQ-Qa-t9A"/>
@@ -2627,7 +2627,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I hearby accept the terms and policies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pQ4-p5-WHr">
-                                        <rect key="frame" x="89" y="1241" width="497" height="21"/>
+                                        <rect key="frame" x="49" y="1241" width="537" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2732,7 +2732,7 @@
                                     <constraint firstItem="8hu-sv-e2N" firstAttribute="centerY" secondItem="I02-sk-xh4" secondAttribute="centerY" id="dBz-Rb-yf2"/>
                                     <constraint firstAttribute="trailing" secondItem="FHx-mC-UYw" secondAttribute="trailing" constant="56" id="e6j-KA-oia"/>
                                     <constraint firstItem="7rm-07-yap" firstAttribute="top" secondItem="9xb-yK-2MA" secondAttribute="bottom" constant="30" id="ebj-72-z0K"/>
-                                    <constraint firstItem="pQ4-p5-WHr" firstAttribute="leading" secondItem="sTH-IU-Tur" secondAttribute="trailing" constant="60" id="exc-NI-IHp"/>
+                                    <constraint firstItem="pQ4-p5-WHr" firstAttribute="leading" secondItem="sTH-IU-Tur" secondAttribute="trailing" constant="20" id="exc-NI-IHp"/>
                                     <constraint firstItem="EU7-5G-DqF" firstAttribute="top" secondItem="I02-sk-xh4" secondAttribute="bottom" constant="72" id="fEo-ZL-Neh"/>
                                     <constraint firstItem="Hnv-aP-M67" firstAttribute="leading" secondItem="fft-1N-2ZR" secondAttribute="leading" id="fZA-A1-jBa"/>
                                     <constraint firstItem="EU7-5G-DqF" firstAttribute="trailing" secondItem="ah8-FV-TfW" secondAttribute="trailing" id="gl9-lf-pPE"/>
