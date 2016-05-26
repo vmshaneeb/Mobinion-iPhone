@@ -1121,7 +1121,7 @@
                                 <items>
                                     <navigationItem id="fzN-Tg-0j7">
                                         <barButtonItem key="backBarButtonItem" title=" " id="BCq-lI-5AN"/>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Sx6-ni-j4w">
+                                        <barButtonItem key="rightBarButtonItem" id="Sx6-ni-j4w">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zR4-hr-vaz">
                                                 <rect key="frame" x="542" y="7" width="38" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1215,7 +1215,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elz-rE-3kh">
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elz-rE-3kh">
                                 <rect key="frame" x="20" y="126" width="560" height="459"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -1229,7 +1229,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="CHOOSE INTERESTS" id="rwv-lB-BG6">
-                                        <barButtonItem key="leftBarButtonItem" image="back arrow" style="plain" id="ETA-qk-RLy">
+                                        <barButtonItem key="leftBarButtonItem" image="back arrow" id="ETA-qk-RLy">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9jQ-ta-PrV">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1239,7 +1239,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="7bh-CN-zKF">
+                                        <barButtonItem key="rightBarButtonItem" id="7bh-CN-zKF">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zz4-R9-JcX">
                                                 <rect key="frame" x="540" y="7" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1280,7 +1280,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="ifu-zB-RPI">
                                 <rect key="frame" x="35" y="71" width="490" height="47"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-RW-PjE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-RW-PjE">
                                 <rect key="frame" x="1" y="117" width="598" height="468"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="PXD-Zt-4Cx">
@@ -1364,7 +1364,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="FOLLOW FRIENDS" id="0zq-T5-m1X">
-                                        <barButtonItem key="leftBarButtonItem" image="back arrow" style="plain" id="Lo3-O0-Xsg">
+                                        <barButtonItem key="leftBarButtonItem" image="back arrow" id="Lo3-O0-Xsg">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OCt-Ra-dfX">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1374,7 +1374,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="SKIP" style="plain" id="hHJ-3T-hoY">
+                                        <barButtonItem key="rightBarButtonItem" title="SKIP" id="hHJ-3T-hoY">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="415-cp-gAB">
                                                 <rect key="frame" x="518" y="7" width="62" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1467,7 +1467,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="INVITE FRIENDS" id="Y56-3z-aMZ">
-                                        <barButtonItem key="leftBarButtonItem" image="back arrow" style="plain" id="Nd0-BL-gbU">
+                                        <barButtonItem key="leftBarButtonItem" image="back arrow" id="Nd0-BL-gbU">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="coZ-jo-xnU">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1477,7 +1477,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="SKIP" style="plain" id="zOG-Aj-1cg">
+                                        <barButtonItem key="rightBarButtonItem" title="SKIP" id="zOG-Aj-1cg">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cey-kI-tL3">
                                                 <rect key="frame" x="518" y="7" width="62" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1791,7 +1791,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="iOj-ks-v8P">
+                                            <barButtonItem image="Search white" id="iOj-ks-v8P">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zD8-Ip-7xV">
                                                     <rect key="frame" x="555" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1803,7 +1803,7 @@
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="dnQ-vu-IJ1">
+                                            <barButtonItem id="dnQ-vu-IJ1">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6mR-Sg-Obv">
                                                     <rect key="frame" x="522" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1949,7 +1949,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="74r-XM-I4I">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="8AU-J6-GGW">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="8AU-J6-GGW">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d9L-AY-O6b">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1960,7 +1960,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="HmD-sf-AdD">
+                                            <barButtonItem image="Search white" id="HmD-sf-AdD">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfW-IC-tQV">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1969,7 +1969,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="b8x-Zp-NXq">
+                                            <barButtonItem id="b8x-Zp-NXq">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FdJ-C1-KCs">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2093,7 +2093,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="oOp-8I-Ktv">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="Hf1-iG-7Hx">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="Hf1-iG-7Hx">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UEP-l3-jZs">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2105,7 +2105,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="BwE-ok-htZ">
+                                            <barButtonItem image="Search white" id="BwE-ok-htZ">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RbM-qt-Khi">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2114,7 +2114,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="UGz-FT-uxm">
+                                            <barButtonItem id="UGz-FT-uxm">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KOf-2E-x1a">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2229,7 +2229,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="uQC-Hl-oOl">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="Jby-7q-N92">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="Jby-7q-N92">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yPn-ry-8q0">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2237,7 +2237,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem style="plain" id="yW6-Ao-hWS">
+                                            <barButtonItem id="yW6-Ao-hWS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZx-HV-H9A">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2247,7 +2247,7 @@
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem image="Search white" style="plain" id="fNC-1J-DSW">
+                                            <barButtonItem image="Search white" id="fNC-1J-DSW">
                                                 <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MdR-gP-bEf">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2260,7 +2260,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
                                 <rect key="frame" x="40" y="31" width="112" height="21"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2903,7 +2903,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="264"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-Rf-TbV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-Rf-TbV">
                                 <rect key="frame" x="0.0" y="336" width="600" height="215"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2987,7 +2987,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="Qz8-fk-Mhy">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="6pa-Q3-0GS">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="6pa-Q3-0GS">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WIb-5h-I92">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2998,7 +2998,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="GNc-q4-etJ">
+                                            <barButtonItem image="Search white" id="GNc-q4-etJ">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vay-k4-ikH">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3007,7 +3007,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="l4I-PU-jKv">
+                                            <barButtonItem id="l4I-PU-jKv">
                                                 <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5PP-Km-jRf">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3152,7 +3152,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="csk-le-upM">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="dQg-8T-uvP">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="dQg-8T-uvP">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YDl-eh-sTe">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3163,7 +3163,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="FqG-U2-L2n">
+                                            <barButtonItem image="Search white" id="FqG-U2-L2n">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l8P-0K-hxV">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3172,7 +3172,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="LRC-n3-bT3">
+                                            <barButtonItem id="LRC-n3-bT3">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UiE-vM-WqQ">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3398,7 +3398,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="duU-Ll-gkc">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="wyf-Ka-jGY">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="wyf-Ka-jGY">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1nr-Hh-O9y">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3409,7 +3409,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="tu5-sV-bfJ">
+                                            <barButtonItem image="Search white" id="tu5-sV-bfJ">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Nn-Rs-TGf">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3418,7 +3418,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="rmz-1l-2Lk">
+                                            <barButtonItem id="rmz-1l-2Lk">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SwA-Fj-uhg">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3753,7 +3753,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="HRB-fh-pLY">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="3U3-XX-PVD">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="3U3-XX-PVD">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kBD-f5-eOY">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3764,7 +3764,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="Reo-Ma-rVi">
+                                            <barButtonItem image="Search white" id="Reo-Ma-rVi">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="viZ-cy-8sU">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3773,7 +3773,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="PSy-3N-okz">
+                                            <barButtonItem id="PSy-3N-okz">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Woy-5b-FSO">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4088,7 +4088,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="f6m-Xk-kGH">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="rwV-Ee-Il9">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="rwV-Ee-Il9">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sWe-Ki-Mqe">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4099,7 +4099,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="mPA-qs-3dr">
+                                            <barButtonItem image="Search white" id="mPA-qs-3dr">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jbr-nW-lpS">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4108,7 +4108,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="MfX-lJ-g1n">
+                                            <barButtonItem id="MfX-lJ-g1n">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0qG-uu-Aj3">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4256,7 +4256,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="l6S-jF-VlW">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="dQu-Dq-dhU">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="dQu-Dq-dhU">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OCp-eO-lhU">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4267,7 +4267,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="7v9-ze-T2a">
+                                            <barButtonItem image="Search white" id="7v9-ze-T2a">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zRm-Mf-zRq">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4276,7 +4276,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="e1J-9h-I5g">
+                                            <barButtonItem id="e1J-9h-I5g">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="x2j-6s-r49">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4472,7 +4472,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="kcz-Vg-d88">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="OTq-j6-srp">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="OTq-j6-srp">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yXf-m3-nF9">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4483,7 +4483,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="ef8-1w-RgG">
+                                            <barButtonItem image="Search white" id="ef8-1w-RgG">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lS7-mJ-vUq">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4492,7 +4492,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="Lbo-M1-IEg">
+                                            <barButtonItem id="Lbo-M1-IEg">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ANb-m7-YHF">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4645,7 +4645,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="pPw-XL-WzJ">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="uiu-2P-ZWd">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="uiu-2P-ZWd">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q0V-kk-Q2p">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4656,7 +4656,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="KMa-uI-bKg">
+                                            <barButtonItem image="Search white" id="KMa-uI-bKg">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DfR-F3-zlJ">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4665,7 +4665,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="2y9-Wj-LEi">
+                                            <barButtonItem id="2y9-Wj-LEi">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9WT-C3-WYg">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4813,7 +4813,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="585-ZP-u5Q">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="s22-wy-GZc">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="s22-wy-GZc">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4P6-Z6-2he">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4824,7 +4824,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="5qL-gY-VPI">
+                                            <barButtonItem image="Search white" id="5qL-gY-VPI">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZVi-mM-2L4">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4833,7 +4833,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="aZV-nL-E87">
+                                            <barButtonItem id="aZV-nL-E87">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pjH-zZ-e7j">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5011,7 +5011,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="cFi-Zo-iWZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="EPO-fu-kKP">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="EPO-fu-kKP">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fUm-2D-cua">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5022,7 +5022,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="fhY-El-hsS">
+                                            <barButtonItem image="Search white" id="fhY-El-hsS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t6t-eN-xc8">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5031,7 +5031,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="Fze-yd-Q3B">
+                                            <barButtonItem id="Fze-yd-Q3B">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dfk-k5-3Gs">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5194,7 +5194,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="xiE-dV-ZZu">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="bA4-Vf-Zih">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="bA4-Vf-Zih">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M7F-bX-M4R">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5205,7 +5205,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="VM3-0v-LiG">
+                                            <barButtonItem image="Search white" id="VM3-0v-LiG">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ddr-9V-Z5r">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5214,7 +5214,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="1pK-rQ-ugN">
+                                            <barButtonItem id="1pK-rQ-ugN">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="73D-gi-ibH">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5356,7 +5356,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="hZg-Kd-SAw">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="u3z-VW-AUu">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="u3z-VW-AUu">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ODt-Gm-3i7">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5367,7 +5367,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="6LZ-yW-C1k">
+                                            <barButtonItem image="Search white" id="6LZ-yW-C1k">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BBT-W7-F2l">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5376,7 +5376,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="Ji5-nc-DUK">
+                                            <barButtonItem id="Ji5-nc-DUK">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sH4-CW-ye8">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5516,7 +5516,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="NhS-ut-AVq">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="9E7-VW-9Lc">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="9E7-VW-9Lc">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wqd-Jo-W7m">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5527,7 +5527,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="2v3-sG-ifc">
+                                            <barButtonItem image="Search white" id="2v3-sG-ifc">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="o3U-cI-Srv">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5536,7 +5536,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="9Oj-em-0ME">
+                                            <barButtonItem id="9Oj-em-0ME">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tK8-vw-j3o">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5874,7 +5874,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="J20-Tb-7m6">
-                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" style="plain" id="GwP-IF-KGR">
+                                        <barButtonItem key="leftBarButtonItem" image="down arrow white" id="GwP-IF-KGR">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r5i-6Z-Mrh">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5882,7 +5882,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="eIw-wE-ASd">
+                                            <barButtonItem image="Search white" id="eIw-wE-ASd">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qce-ft-Bq4">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5891,7 +5891,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="yr8-bD-HzE">
+                                            <barButtonItem id="yr8-bD-HzE">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7bz-xt-KVy">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5980,7 +5980,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="ddE-wz-9b3">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="cfr-MJ-Rd7">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="cfr-MJ-Rd7">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zoP-eR-828">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5991,7 +5991,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="Search white" style="plain" id="pWW-wE-ScS">
+                                            <barButtonItem image="Search white" id="pWW-wE-ScS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iUr-aE-EoT">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6000,7 +6000,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="w01-XT-Qzx">
+                                            <barButtonItem id="w01-XT-Qzx">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gB0-15-z3r">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6163,7 +6163,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="3vF-R3-419">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="ZDE-rf-L7i">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="ZDE-rf-L7i">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Leg-bC-nx6">
                                                 <rect key="frame" x="20" y="14" width="15" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6174,7 +6174,7 @@
                                             </button>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem style="plain" id="ja1-qG-35J">
+                                            <barButtonItem id="ja1-qG-35J">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aKB-zN-FWJ">
                                                     <rect key="frame" x="565" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6188,7 +6188,7 @@
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem image="Search white" style="plain" id="xSD-Ul-SwX">
+                                            <barButtonItem image="Search white" id="xSD-Ul-SwX">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eRC-Oe-zay">
                                                     <rect key="frame" x="542" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6197,7 +6197,7 @@
                                                     </state>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" id="pJk-fT-i53">
+                                            <barButtonItem id="pJk-fT-i53">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gBI-R9-lRa">
                                                     <rect key="frame" x="519" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6770,6 +6770,6 @@
         <segue reference="evx-kh-O0x"/>
         <segue reference="FeV-7c-TkY"/>
         <segue reference="1qJ-hb-56E"/>
-        <segue reference="wzF-pM-hsl"/>
+        <segue reference="rwZ-01-9uh"/>
     </inferredMetricsTieBreakers>
 </document>
