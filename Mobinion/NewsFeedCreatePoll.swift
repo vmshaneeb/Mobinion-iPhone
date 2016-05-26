@@ -154,8 +154,9 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             
             cell.count.text = formatter.stringFromNumber(indexPath.row + 1)
             cell.count.text = cell.count.text! + "."
-            
-            options.updateValue(cell.optionsField.text!, forKey: indexPath.row)
+
+            cell.optionsField.delegate = self
+            cell.optionsField.tag = indexPath.row + 1
             
             return cell
         }
@@ -330,6 +331,12 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             
             tableView.reloadData()
         }
+        
+        if textField.tag > 0
+        {
+            options.updateValue(textField.text!, forKey: textField.tag - 1)
+            print(options)
+        }
     }
     
     //MARK:- UITextViewDelegates
@@ -363,18 +370,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         var imageName = ""
         
-//        print(publicID["original_filename"].stringValue)
-//        print(pollImageUploaded)
-        
         if (!pollImageURL.isEmpty && pollImageUploaded == false)
         {
-//            let imageURL = NSURL(string: pollImageURL)
-//            print(imageURL)
-//            
-//            imageName = ((imageURL?.path!)! as NSString).lastPathComponent
-//            imageName = imageName.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:".JPG"))
-//            print(imageName)
-            
             imageName = pollImageURL.lastPathComponent.stringByDeletingPathExtension
 //            print(imageName)
         }
@@ -710,13 +707,20 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
             {
                 tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
+                
+//                print("Before deletion:- \(options)")
+                options.removeValueForKey(rowCount)
+//                print("After deletion:- \(options)")
             }
             else
             {
                 tableViewHeightConst.constant = (CGFloat(rowCount) * 180) + 54
+                
+//                print("Before deletion:- \(imagesInCell)")
+                imagesInCell.removeValueForKey(rowCount - 1)
+//                print("After deletion:- \(imagesInCell)")
             }
 //            print(tableViewHeightConst.constant)
-            //        tableView.layoutIfNeeded()
             tableView.reloadData()
         }
     }
