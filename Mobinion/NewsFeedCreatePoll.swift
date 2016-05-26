@@ -87,6 +87,12 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         expiryDate.isOptionalDropDown = false
         expiryDate.dropDownMode = IQDropDownMode.DatePicker
         
+        let df = NSDateFormatter()
+        
+        df.dateFormat = "dd-MMM-yyyy"
+        expiryDate.dateFormatter = df
+        expiryDate.setSelectedItem(df.stringFromDate(NSDate()), animated: true)
+        
         getIntTopics()
         
         tableView.rowHeight = UITableViewAutomaticDimension
