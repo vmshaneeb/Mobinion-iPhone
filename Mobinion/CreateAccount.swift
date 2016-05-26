@@ -34,6 +34,8 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var termsLabel: UILabel!
     
+    @IBOutlet weak var checkBoxBtn: UIButton!
+    
     @IBOutlet var alltextFields: [UITextField]!
     
     var popDatePicker : PopDatePicker?
@@ -301,6 +303,11 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
                 print(count)
                 
             }
+        }
+        
+        if checkBoxBtn.selected != true
+        {
+            doalertView("Terms & Policies", msgs: "Please check the terms & policies checkbox")
         }
         
         if count > 0
