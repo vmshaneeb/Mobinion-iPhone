@@ -40,9 +40,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="128" id="5Z7-YZ-sJJ"/>
+                            <constraint firstAttribute="height" constant="128" id="GqL-1A-DmT"/>
+                            <constraint firstAttribute="width" constant="365" id="gPi-Re-u9s"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5Z7-YZ-sJJ"/>
+                                <exclude reference="gPi-Re-u9s"/>
+                            </mask>
+                        </variation>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQi-XL-Glo">
                         <rect key="frame" x="455" y="522" width="106" height="30"/>
@@ -89,8 +97,9 @@
                     <constraint firstAttribute="bottomMargin" secondItem="ajO-B4-ibb" secondAttribute="bottom" constant="60" id="DFR-Im-ZLH"/>
                     <constraint firstItem="ajO-B4-ibb" firstAttribute="top" secondItem="4pQ-To-yW6" secondAttribute="bottom" constant="50" id="Lcd-jX-BeX"/>
                     <constraint firstItem="4pQ-To-yW6" firstAttribute="centerX" secondItem="J2m-Wc-H9r" secondAttribute="centerX" id="OYK-rT-dNF"/>
-                    <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="94" id="P9L-sb-2q7"/>
                     <constraint firstItem="4pQ-To-yW6" firstAttribute="top" secondItem="92l-P2-Rcl" secondAttribute="bottom" constant="17" id="Q2x-Iu-ad0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4pQ-To-yW6" secondAttribute="trailing" constant="94" id="XHR-Cq-Mia"/>
+                    <constraint firstItem="4pQ-To-yW6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="94" id="aag-h0-OYI"/>
                     <constraint firstItem="4pQ-To-yW6" firstAttribute="centerX" secondItem="92l-P2-Rcl" secondAttribute="centerX" constant="4.5" id="c9u-VI-cnd"/>
                     <constraint firstItem="92l-P2-Rcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="iXP-e5-NFy"/>
                     <constraint firstItem="92l-P2-Rcl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-4.5" id="kbm-LC-caM"/>
