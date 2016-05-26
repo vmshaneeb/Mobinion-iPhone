@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import ImageIO
-import MobileCoreServices
-
 import Alamofire
 import SwiftyJSON
 import DBAlertController
@@ -32,8 +29,6 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     var profName = ""
     
     let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
-    
-    
     
     override func viewDidLoad()
     {
@@ -61,74 +56,9 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - UITextFieldDelegates
-//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
-//    {
-//        // Create a button bar for the number pad
-//        let keyboardDoneButtonView = UIToolbar()
-//        keyboardDoneButtonView.sizeToFit()
-//        
-//        // Setup the buttons to be put in the system.
-//        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(UpdateProfile.doneButton))
-//        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-//        
-//        let toolbarButtons = [flexibleSpaceButton, doneButton]
-//        
-//        //Put the buttons into the ToolBar and display the tool bar
-//        keyboardDoneButtonView.setItems(toolbarButtons, animated: false)
-//        textField.inputAccessoryView = keyboardDoneButtonView
-//        
-//        return true
-//    }
-    
-//    func doneButton()
-//    {
-//        self.view.endEditing(true)
-//    }
-    
-//    func textFieldDidBeginEditing(textField: UITextField)
-//    {
-//        animateViewMoving(true, moveValue: 150)
-//    }
-//    func textFieldDidEndEditing(textField: UITextField)
-//    {
-//        animateViewMoving(false, moveValue: 150)
-//    }
-
-    
-//    func textFieldShouldReturn(textField: UITextField) -> Bool
-//    {
-//        self.view.endEditing(true)
-//        
-//        //        if let nextTag = nextField[textField.tag]
-//        //        {
-//        //            if let nextResponder = textField.superview!.viewWithTag(nextTag)
-//        //            {
-//        //                // Have the next field become the first responder
-//        //                nextResponder.becomeFirstResponder()
-//        //            }
-//        //        }
-//        
-//        return false
-//    }
-    
-//    //move keyboard to show textfields
-//    func animateViewMoving (up:Bool, moveValue :CGFloat)
-//    {
-//        let movementDuration:NSTimeInterval = 0.3
-//        let movement:CGFloat = ( up ? -moveValue : moveValue)
-//        UIView.beginAnimations( "animateView", context: nil)
-//        UIView.setAnimationBeginsFromCurrentState(true)
-//        UIView.setAnimationDuration(movementDuration )
-//        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
-//        UIView.commitAnimations()
-//    }
-    
 //    MARK: - Actions
     @IBAction func updateBtn (sender: AnyObject)
     {
-        
-        
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
         
 //        self.StartLoader()
