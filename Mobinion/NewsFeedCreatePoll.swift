@@ -11,8 +11,9 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
+import Cloudinary
 
-class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ImagePickerDelegate
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ImagePickerDelegate, CLUploaderDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -38,23 +39,30 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     var imageNames = [String]()
     var rowCount = 3
     
-    var cellImgPicker:Bool!
+    var cellImgPicker: Bool!
     
     let isiPhone5orLower = UIScreen.mainScreen().bounds.size.width == 320
     let isiPhone6 = UIScreen.mainScreen().bounds.size.width == 375
     let isiPhone6Plus = UIScreen.mainScreen().bounds.size.width == 414
     
-    struct imagesCell
-    {
-        //        var indexP: Int?
-        var image: UIImage?
-    }
-    
-//    var imagesInCell = [imagesCell]()
+//    struct imagesCell
+//    {
+//        //        var indexP: Int?
+//        var image: UIImage?
+//    }
+//    
+////    var imagesInCell = [imagesCell]()
     var imagesInCell = [Int: UIImage]()
+    var URLsInCell = [Int: String]()
+    var uploadURLsInCell = [String]()
+    var pollImageURL = ""
+    var pollImageUploadURL = ""
+    var pollImageUploaded: Bool!
     
     var lastSelectedIndex: NSIndexPath?
 
+    let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
+    
     override func viewDidAppear(animated: Bool) 
 //    override func viewDidLoad()
     {
@@ -98,7 +106,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         }
         
 //        placeholderImageView.image = nil
-        
+        pollImageUploaded = false
     }
     
     override func didReceiveMemoryWarning()
@@ -253,38 +261,40 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-////         get image path
-//        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-//        let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
-        //        let localPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent(imageName)
-        
-        //        print(imageURL)
-        //        print(imageName)
-        //        print(localPath)
-        
-//        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-//        path = (path as NSString).stringByAppendingPathComponent(imageName)
-//        
-//        let result = selectedImage.writeAtPath(path)
-//        print(result)
-//        print(cellImgPicker)
-//        print(placeholderImageView.image)
-//        print(selectedImage)
         if ((cellImgPicker) != false)// || placeholderImageView.image != nil)
         {
-            print(lastSelectedIndex)
+//            print(lastSelectedIndex)
             cellImgPicker = false
-////            imagesInCell[(lastSelectedIndex?.row)!].image = selectedImage
             imagesInCell.updateValue(selectedImage, forKey: lastSelectedIndex!.row)
-            print(imagesInCell)
-            tableView.reloadData()
+//            print(imagesInCell)
+
+            var imageName:String = String(lastSelectedIndex!.row)
+            imageName.appendContentsOf(".JPG")
+//            print(imageName)
             
-         
+            var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            path = (path as NSString).stringByAppendingPathComponent(imageName)
+            URLsInCell.updateValue(path, forKey: lastSelectedIndex!.row)
+//            print(URLsInCell)
+            let result = selectedImage.writeAtPath(path)
+            print("File write status:- \(result)")
+            
+            tableView.reloadData()
         }
         else
         {
             placeholderImageView.image = selectedImage
             stackView.hidden = true
+            
+            let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+            let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
+            var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            path = (path as NSString).stringByAppendingPathComponent(imageName)
+            
+            let result = selectedImage.writeAtPath(path)
+            print("File write status:- \(result)")
+            
+            pollImageURL = path
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -310,6 +320,57 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         }
     }
     
+    //MARK:- CLUploaderDelegate
+    func uploaderSuccess(result: [NSObject : AnyObject]!, context: AnyObject!)
+    {
+        let publicID = JSON(result)
+        
+        print("Upload Sucess.. Public ID=\(publicID["public_id"])")
+        print("Full result=\(result)")
+        
+        var imageName = ""
+        
+//        print(publicID["original_filename"].stringValue)
+//        print(pollImageUploaded)
+        
+        if (!pollImageURL.isEmpty && pollImageUploaded == false)
+        {
+//            let imageURL = NSURL(string: pollImageURL)
+//            print(imageURL)
+//            
+//            imageName = ((imageURL?.path!)! as NSString).lastPathComponent
+//            imageName = imageName.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:".JPG"))
+//            print(imageName)
+            
+            imageName = pollImageURL.lastPathComponent.stringByDeletingPathExtension
+//            print(imageName)
+        }
+        
+        
+        
+        if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
+        {
+            pollImageUploadURL = publicID["url"].stringValue
+            pollImageUploaded = true
+            print("Poll Image:-\(pollImageUploadURL)")
+        }
+        else
+        {
+            uploadURLsInCell.append(publicID["url"].stringValue)
+            print("Cell Images:-\(uploadURLsInCell)")
+        }
+    }
+    
+    func uploaderError(result: String!, code: Int, context: AnyObject!)
+    {
+        print("Upload error: \(result), Code: \(code)")
+    }
+    
+    func uploaderProgress(bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int, context: AnyObject!)
+    {
+        print("Upload progress: \(totalBytesWritten)/\(totalBytesExpectedToWrite), +(\(bytesWritten))")
+    }
+    
     
     //MARK:- Actions
     @IBAction func checkBox(sender: UIButton)
@@ -324,6 +385,29 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBAction func createPoll(sender: AnyObject)
     {
+        let uploader = CLUploader.init(self.cloudinary, delegate: self)
+        
+//        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
+        
+        if !(pollImageURL.isEmpty)
+        {
+            uploader.upload(pollImageURL, options: ["sync": true])
+        }
+        
+        if !(URLsInCell.isEmpty)
+        {
+            for url in URLsInCell.values
+//            for (int, url) in URLsInCell
+            {
+//                print(url)
+                uploader.upload(url, options: ["sync": true])
+            }
+        }
+        
+        
+        
+//        HideLoader()
+        
         //        StartLoader()
         
         //        sendCreatePoll()
