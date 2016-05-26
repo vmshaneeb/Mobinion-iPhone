@@ -2799,6 +2799,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="charsRemaining" destination="vPf-Ls-xdc" id="cZw-cX-VLB"/>
+                        <outlet property="checkBoxBtn" destination="sTH-IU-Tur" id="h6v-KI-4es"/>
                         <outlet property="chooseView" destination="0YV-0W-0Vo" id="gsz-9p-FY1"/>
                         <outlet property="choose_cat" destination="7rm-07-yap" id="toB-Xa-czH"/>
                         <outlet property="desc_Field" destination="JKj-vR-GhD" id="7N1-Ji-iMI"/>

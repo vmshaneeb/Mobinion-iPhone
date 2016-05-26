@@ -33,6 +33,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     @IBOutlet weak var snapView: UIView!
     @IBOutlet weak var chooseView: UIView!
     
+    @IBOutlet weak var checkBoxBtn: UIButton!
+    
     @IBOutlet weak var tableViewHeightConst: NSLayoutConstraint!
     @IBOutlet weak var textFieldTopSpacetoTableView: NSLayoutConstraint!
     
@@ -58,6 +60,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     var pollImageURL = ""
     var pollImageUploadURL = ""
     var pollImageUploaded: Bool!
+    
+    var options = [Int: String]()
     
     var lastSelectedIndex: NSIndexPath?
 
@@ -150,6 +154,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             
             cell.count.text = formatter.stringFromNumber(indexPath.row + 1)
             cell.count.text = cell.count.text! + "."
+            
+            options.updateValue(cell.optionsField.text!, forKey: indexPath.row)
             
             return cell
         }
@@ -389,9 +395,16 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBAction func createPoll(sender: AnyObject)
     {
+        
+        if checkBoxBtn.selected != true
+        {
+            doalertView("Terms & Policies", msgs: "Please check the terms & policies checkbox")
+        }
+        
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
         
 //        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
+        
         
         if !(pollImageURL.isEmpty)
         {
@@ -407,41 +420,44 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             }
         }
         
-        
+        delay(5)
+        {
+            print("upload done")
+        }
         
 //        HideLoader()
         
-        //        StartLoader()
+        StartLoader()
         
-        //        sendCreatePoll()
-        //        { value, error in
-        //
-        //            if value != nil
-        //            {
-        //                let json = JSON(value!)
-        //                print(json)
-        //
-        //                self.HideLoader()
-        //
-        //                let titles = json["status"].stringValue
-        //                let messages = json["message"].stringValue
-        //
-        //                if titles == "error"
-        //                {
-        //                    self.doDBalertView(titles, msgs: messages)
-        //                }
-        //                else
-        //                {
-        //
-        //                }
-        //            }
-        //            else
-        //            {
-        //                self.HideLoader()
-        //                print(error)
-        //                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
-        //            }
-        //        }
+        sendCreatePoll()
+        { value, error in
+                
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+//                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+//                    self.doDBalertView(titles, msgs: messages)
+                }
+                else
+                {
+                    self.tabBarController?.selectedIndex = 2
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
     }
     @IBAction func tapSnapView(sender: UITapGestureRecognizer)
     {
@@ -547,14 +563,48 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         let URL = "http://vyooha.cloudapp.net:1337/createPoll"
         
-        let parameter = ["category": "",
-                         "questions": "",
-                         "description": "",
-                         "pollImage": "",
-                         "pollType": "",
-                         "regionalRes": "",
-                         "expDate": "",
-                         "Tags": ""]
+        var questions = [String: AnyObject]()
+        var opts = [String]()
+        var parameter = [String: AnyObject]()
+        
+        for opt in options.values
+        {
+            opts.append(opt)
+        }
+        
+        if optionsType.selectedItem == "Text Options"
+        {
+            questions = ["question": quest_textView.text,
+                         "options": opts]
+            
+            parameter = ["category": choose_cat.selectedItem!,
+                         "questions": questions,
+                         "pollLocation": "",
+                         "isRegionalRes": "false",
+                         "regionalRes": "Kerala",
+                         "description": desc_Field.text!,
+                         "pollImage": pollImageUploadURL,
+                         "pollType": optionsType.selectedItem!,
+                         "expDate": expiryDate.selectedItem!,
+                         "Tags": tagstextView.text]
+        }
+        else
+        {
+            questions = ["question": quest_textView.text,
+                         "options": uploadURLsInCell]
+            
+            parameter = ["category": choose_cat.selectedItem!,
+                         "questions": questions,
+                         "pollLocation": "",
+                         "isRegionalRes": "false",
+                         "regionalRes": "Kerala",
+                         "description": desc_Field.text!,
+                         "pollImage": pollImageUploadURL,
+                         "pollType": optionsType.selectedItem!,
+                         "expDate": expiryDate.selectedItem!,
+                         "Tags": tagstextView.text]
+        }
+        
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
         .responseJSON { response in
@@ -629,6 +679,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     func minusBtnResponder(sender: UIButton)
     {
         //        print("minus button pressed!!")
+        
+        //TODO:- remove items from array
         if rowCount > 1
         {
             rowCount -= 1
@@ -683,6 +735,16 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         imagePickerController.delegate = self
         
         presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func delay(delay:Double, closure:()->())
+    {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay) //* Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     // MARK: - Loader
