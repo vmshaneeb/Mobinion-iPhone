@@ -35,6 +35,9 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBOutlet weak var checkBoxBtn: UIButton!
     
+    @IBOutlet var allUITextViews: [UITextView]!
+    @IBOutlet var allUITextFields: [UITextField]!
+    
     @IBOutlet weak var tableViewHeightConst: NSLayoutConstraint!
     @IBOutlet weak var textFieldTopSpacetoTableView: NSLayoutConstraint!
     
@@ -47,13 +50,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     let isiPhone6 = UIScreen.mainScreen().bounds.size.width == 375
     let isiPhone6Plus = UIScreen.mainScreen().bounds.size.width == 414
     
-//    struct imagesCell
-//    {
-//        //        var indexP: Int?
-//        var image: UIImage?
-//    }
-//    
-////    var imagesInCell = [imagesCell]()
     var imagesInCell = [Int: UIImage]()
     var URLsInCell = [Int: String]()
     var uploadURLsInCell = [String]()
@@ -405,11 +401,34 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBAction func createPoll(sender: AnyObject)
     {
-        
         if checkBoxBtn.selected != true
         {
             doalertView("Terms & Policies", msgs: "Please check the terms & policies checkbox")
         }
+        
+//        var count = 0
+//        for textfield in allUITextFields
+//        {
+//            if (textfield.text!.isEmpty)
+//            {
+//                count += 1
+////                print(count)
+//            }
+//        }
+        
+//        for textview in allUITextViews
+//        {
+//            if (textview.text!.isEmpty)
+//            {
+//                count += 1
+////                print(count)
+//            }
+//        }
+//        
+//        if count > 0
+//        {
+//            doalertView("No Texts Entered", msgs: "Pls enter respective texts in the fields")
+//        }
         
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
         

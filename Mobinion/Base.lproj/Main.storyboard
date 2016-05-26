@@ -2326,7 +2326,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="240" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPf-Ls-xdc">
-                                                <rect key="frame" x="385" y="0.0" width="42" height="21"/>
+                                                <rect key="frame" x="389" y="0.0" width="42" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="42" id="RfL-lh-zEp"/>
                                                 </constraints>
@@ -2341,7 +2341,7 @@
                                             <constraint firstItem="vPf-Ls-xdc" firstAttribute="firstBaseline" secondItem="VZW-yI-lG7" secondAttribute="firstBaseline" constant="-1" id="72v-rj-uJo"/>
                                             <constraint firstAttribute="height" constant="21" id="BAD-pI-DKL"/>
                                             <constraint firstItem="vPf-Ls-xdc" firstAttribute="baseline" secondItem="VZW-yI-lG7" secondAttribute="baseline" id="NmF-MW-qKe"/>
-                                            <constraint firstAttribute="trailing" secondItem="vPf-Ls-xdc" secondAttribute="trailing" constant="145" id="OoN-hf-Q4e"/>
+                                            <constraint firstAttribute="trailing" secondItem="vPf-Ls-xdc" secondAttribute="trailing" constant="141" id="OoN-hf-Q4e"/>
                                             <constraint firstItem="vPf-Ls-xdc" firstAttribute="top" secondItem="ZZe-Wi-Pob" secondAttribute="top" id="P13-zP-rCk"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -2821,6 +2821,10 @@
                         <outlet property="tableViewHeightConst" destination="qpK-HS-FR3" id="ZAO-gl-rcf"/>
                         <outlet property="tagstextView" destination="fSz-qt-wV7" id="8Fz-7r-35l"/>
                         <outlet property="textFieldTopSpacetoTableView" destination="InB-Zs-v6t" id="0nE-Xm-THF"/>
+                        <outletCollection property="allUITextViews" destination="dhE-52-1Q8" collectionClass="NSMutableArray" id="UK3-gM-ogm"/>
+                        <outletCollection property="allUITextViews" destination="1dD-Aa-wo9" collectionClass="NSMutableArray" id="AfP-DZ-dpK"/>
+                        <outletCollection property="allUITextViews" destination="fSz-qt-wV7" collectionClass="NSMutableArray" id="Yn1-4Q-L9S"/>
+                        <outletCollection property="allUITextFields" destination="JKj-vR-GhD" collectionClass="NSMutableArray" id="Gdl-F3-WcY"/>
                         <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromCreate" id="wzF-pM-hsl"/>
                     </connections>
                 </viewController>
