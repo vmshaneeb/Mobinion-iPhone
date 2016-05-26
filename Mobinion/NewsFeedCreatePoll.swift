@@ -346,8 +346,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //            print(imageName)
         }
         
-        
-        
         if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
         {
             pollImageUploadURL = publicID["url"].stringValue
@@ -397,7 +395,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         if !(URLsInCell.isEmpty)
         {
             for url in URLsInCell.values
-//            for (int, url) in URLsInCell
             {
 //                print(url)
                 uploader.upload(url, options: ["sync": true])
