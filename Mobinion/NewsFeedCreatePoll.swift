@@ -13,7 +13,7 @@ import DBAlertController
 import IQDropDownTextField
 import Cloudinary
 
-class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ImagePickerDelegate, CLUploaderDelegate
+class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ImagePickerDelegate, CLUploaderDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -331,6 +331,27 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             tableView.reloadData()
         }
     }
+    
+    //MARK:- UITextViewDelegates
+    func textViewDidChange(textView: UITextView)
+    {
+        if textView == quest_textView
+        {
+            charsRemaining.text = "\(240 - textView.text.characters.count)"
+        }
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
+    {
+        if textView == quest_textView
+        {
+            return textView.text.characters.count + (text.characters.count - range.length) <= 240
+        }
+        
+        return false
+    }
+    
+//    shouldchangetext
     
     //MARK:- CLUploaderDelegate
     func uploaderSuccess(result: [NSObject : AnyObject]!, context: AnyObject!)
