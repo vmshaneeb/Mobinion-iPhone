@@ -197,7 +197,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         cell.addBtn.addTarget(self, action: #selector(addBtnResponder(_:)), forControlEvents: .TouchUpInside)
         cell.minusBtn.addTarget(self, action: #selector(minusBtnResponder(_:)), forControlEvents: .TouchUpInside)
-//        cell.
         
 //        if rowCount == 1
 //        {
@@ -214,11 +213,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         return cell
     }
-    
-//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
-//    {
-//        lastSelectedIndex = indexPath
-//    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
@@ -357,8 +351,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
         return false
     }
-    
-//    shouldchangetext
     
     //MARK:- CLUploaderDelegate
     func uploaderSuccess(result: [NSObject : AnyObject]!, context: AnyObject!)
@@ -555,7 +547,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         let URL = "http://vyooha.cloudapp.net:1337/interestTopics"
         
         Alamofire.request(.POST, URL, headers: header, encoding: .JSON)
-//        self.alamoFireManager.request(.POST, URL, headers: header, encoding: .JSON)
         .responseJSON { response in
             switch response.result
             {
@@ -697,13 +688,10 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     func minusBtnResponder(sender: UIButton)
     {
         //        print("minus button pressed!!")
-        
-        //TODO:- remove items from array
         if rowCount > 1
         {
             rowCount -= 1
 
-//            tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
             if optionsType.selectedItem == "Text Options" || optionsType.selectedItem == nil
             {
                 tableViewHeightConst.constant = (CGFloat(rowCount) * 54) + 54
@@ -724,13 +712,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             tableView.reloadData()
         }
     }
-
-    func delBtninCellResponder(sender: UIButton)
-    {
-        
-    }
     
-    func tapSnapViewinCell(cell: CreatePollPicOptionCell)//(sender: UIButton)
+    func tapSnapViewinCell(cell: CreatePollPicOptionCell)
     {
         cellImgPicker = true
         
@@ -745,11 +728,10 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
-    func tapChooseViewinCell(cell: CreatePollPicOptionCell)//(sender: UIButton)
+    func tapChooseViewinCell(cell: CreatePollPicOptionCell)
     {
         cellImgPicker = true
         
-//        cell.
         lastSelectedIndex = tableView.indexPathForCell(cell)
 //        print(lastSelectedIndex)
         
