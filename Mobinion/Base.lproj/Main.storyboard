@@ -4404,7 +4404,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="8WD-Ta-sCv">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="8WD-Ta-sCv">
                                 <rect key="frame" x="55" y="323" width="465" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib7-Mp-bfP">
@@ -4416,7 +4416,7 @@
                                         <state key="normal" image="star-for-feedback"/>
                                         <state key="selected" image="star-for-feedback-deselected"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-zU-kBm">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-zU-kBm">
                                         <rect key="frame" x="85" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="743-yQ-k0A"/>
@@ -4425,7 +4425,7 @@
                                         <state key="normal" image="star-for-feedback"/>
                                         <state key="selected" image="star-for-feedback-deselected"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-XX-rol">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-XX-rol">
                                         <rect key="frame" x="170" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="GdI-Pw-gNk"/>
@@ -4434,7 +4434,7 @@
                                         <state key="normal" image="star-for-feedback"/>
                                         <state key="selected" image="star-for-feedback-deselected"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1x-YM-9S2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1x-YM-9S2">
                                         <rect key="frame" x="255" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="CbO-jM-qjP"/>
@@ -4443,7 +4443,7 @@
                                         <state key="normal" image="star-for-feedback"/>
                                         <state key="selected" image="star-for-feedback-deselected"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEf-uS-gkc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEf-uS-gkc">
                                         <rect key="frame" x="340" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="iXg-X1-2o1"/>
@@ -4452,7 +4452,7 @@
                                         <state key="normal" image="star-for-feedback"/>
                                         <state key="selected" image="star-for-feedback-deselected"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-Yt-k8B">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-Yt-k8B">
                                         <rect key="frame" x="425" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="IK9-wY-FKX"/>
@@ -4622,7 +4622,7 @@
                             <constraint firstItem="PdX-bW-P4Y" firstAttribute="top" secondItem="y2D-22-Srf" secondAttribute="bottom" id="qSG-Zy-q4O"/>
                             <constraint firstItem="66g-B5-j63" firstAttribute="leading" secondItem="D0D-QW-gjr" secondAttribute="leadingMargin" constant="20" id="qVp-Ea-f5j"/>
                             <constraint firstItem="IKv-fY-1dd" firstAttribute="centerY" secondItem="D0D-QW-gjr" secondAttribute="centerY" id="shp-dO-TnL"/>
-                            <constraint firstItem="8WD-Ta-sCv" firstAttribute="centerX" secondItem="7sA-mI-T1F" secondAttribute="centerX" id="uqY-EO-IsI"/>
+                            <constraint firstItem="8WD-Ta-sCv" firstAttribute="centerX" secondItem="7sA-mI-T1F" secondAttribute="centerX" constant="-12.5" id="uqY-EO-IsI"/>
                             <constraint firstItem="7sA-mI-T1F" firstAttribute="top" secondItem="8WD-Ta-sCv" secondAttribute="bottom" constant="39" id="vIT-BM-R0l"/>
                             <constraint firstItem="GLL-eV-SCB" firstAttribute="top" secondItem="7sA-mI-T1F" secondAttribute="bottom" constant="16" id="xAv-Z4-d6r"/>
                             <constraint firstItem="IKv-fY-1dd" firstAttribute="top" secondItem="koa-Ja-5mW" secondAttribute="bottom" constant="23" id="yRD-MM-EHp"/>
@@ -6951,6 +6951,6 @@
         <segue reference="evx-kh-O0x"/>
         <segue reference="FeV-7c-TkY"/>
         <segue reference="1qJ-hb-56E"/>
-        <segue reference="wzF-pM-hsl"/>
+        <segue reference="rwZ-01-9uh"/>
     </inferredMetricsTieBreakers>
 </document>
