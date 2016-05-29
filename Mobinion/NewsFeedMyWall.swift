@@ -12,11 +12,14 @@ import SwiftyJSON
 import DBAlertController
 import SDWebImage
 import UIScrollView_InfiniteScroll
+import Spring
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var dropdownList: UIView!
+    @IBOutlet weak var dropdownList: SpringView!
+    @IBOutlet weak var tableviewTopConstraints: NSLayoutConstraint!
     
     var newsFeed = NSMutableArray()
     var searchFeed = NSMutableArray()
@@ -167,7 +170,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        debugPrint(newsFeed[indexPath.row])
+//        debugPrint(newsFeed[indexPath.row])
         if (newsFeed[indexPath.row]["cardDetails"]!!.isKindOfClass(NSDictionary))
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("Winner") as! NewsFeedTableViewCell6
@@ -175,12 +178,22 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.text2.text = (newsFeed[indexPath.row]["cardDetails"]!!["text"]!! as! String)
             cell.text3.text = (newsFeed[indexPath.row]["cardDetails"]!!["conductedBy"]!! as! String)
             
+            cell.bgImg.layer.masksToBounds = false
+            cell.bgImg.layer.cornerRadius = 5
+            cell.bgImg.layer.borderWidth = 2
+            cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
+            
             return cell
         }
         //Cards Type
         else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("ChooseTopics") as! NewsFeedTableViewCell3
+            
+            cell.bgImg.layer.masksToBounds = false
+            cell.bgImg.layer.cornerRadius = 5
+            cell.bgImg.layer.borderWidth = 2
+            cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
             
             return cell
         }
@@ -1290,7 +1303,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("card"))
         {
-            return 561.0
+            return 481.0
         }
         else
         {
@@ -1374,7 +1387,19 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK:- Actions
     @IBAction func showLists(sender: AnyObject)
     {
-        
+        //TODO:- put animation delay
+        if tableviewTopConstraints.constant == 0
+        {
+            tableviewTopConstraints.constant = 147
+            
+            dropdownList.animation = "fadeOut"
+            dropdownList.animate()
+
+        }
+        else
+        {
+            tableviewTopConstraints.constant = 0
+        }
     }
     
     @IBAction func notify(sender: AnyObject)
