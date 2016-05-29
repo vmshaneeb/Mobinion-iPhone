@@ -6521,31 +6521,31 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="147"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOWING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diA-88-44a">
-                                        <rect key="frame" x="8" y="8" width="78" height="21"/>
+                                        <rect key="frame" x="8" y="8" width="82" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeO-oX-bW9">
-                                        <rect key="frame" x="41" y="37" width="81" height="21"/>
+                                        <rect key="frame" x="41" y="37" width="82" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reality Show Voting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-SA-Jxw">
-                                        <rect key="frame" x="41" y="90" width="133" height="21"/>
+                                        <rect key="frame" x="41" y="90" width="134" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polls" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNB-vf-KzX">
-                                        <rect key="frame" x="41" y="63" width="81" height="21"/>
+                                        <rect key="frame" x="41" y="63" width="82" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contests / Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvf-ec-w8A">
-                                        <rect key="frame" x="41" y="117" width="121" height="21"/>
+                                        <rect key="frame" x="41" y="117" width="122" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -6572,16 +6572,63 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contest-new" translatesAutoresizingMaskIntoConstraints="NO" id="vXn-cg-Xzq">
                                         <rect key="frame" x="12" y="117" width="21" height="21"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeO-Kj-VXp" customClass="DLRadioButton">
+                                        <rect key="frame" x="562" y="28" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="dp2-N9-4Xh"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.17647058823529413" green="0.73333333333333328" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <outletCollection property="otherButtons" destination="8im-3D-d3u" id="bFI-Ge-p9G"/>
+                                            <outletCollection property="otherButtons" destination="oZO-uw-w7w" id="nWg-YG-Qvk"/>
+                                            <outletCollection property="otherButtons" destination="aHH-Pc-YeK" id="dVr-Nh-WtA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8im-3D-d3u" customClass="DLRadioButton">
+                                        <rect key="frame" x="562" y="54" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="4ze-Is-GaJ"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.1764705882" green="0.73333333329999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZO-uw-w7w" customClass="DLRadioButton">
+                                        <rect key="frame" x="562" y="80" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Wsa-hk-CUa"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.1764705882" green="0.73333333329999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Pc-YeK" customClass="DLRadioButton">
+                                        <rect key="frame" x="562" y="106" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="x3h-wc-ZuM"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.1764705882" green="0.73333333329999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="VeO-oX-bW9" firstAttribute="trailing" secondItem="CNB-vf-KzX" secondAttribute="trailing" id="3rc-TH-xi0"/>
                                     <constraint firstItem="VeO-oX-bW9" firstAttribute="leading" secondItem="LjR-T0-Had" secondAttribute="trailing" constant="8" symbolic="YES" id="6Xv-OL-tzx"/>
                                     <constraint firstItem="vXn-cg-Xzq" firstAttribute="bottom" secondItem="lvf-ec-w8A" secondAttribute="bottom" id="7Bs-6d-LLA"/>
+                                    <constraint firstItem="oZO-uw-w7w" firstAttribute="leading" secondItem="aHH-Pc-YeK" secondAttribute="leading" id="7r8-uA-35i"/>
                                     <constraint firstItem="LjR-T0-Had" firstAttribute="leading" secondItem="yxR-do-tRn" secondAttribute="leading" constant="12" id="7zv-bj-XjA"/>
                                     <constraint firstItem="CNB-vf-KzX" firstAttribute="leading" secondItem="v4a-SA-Jxw" secondAttribute="leading" id="82t-bK-l9N"/>
                                     <constraint firstItem="vXn-cg-Xzq" firstAttribute="top" secondItem="taH-N1-ZUQ" secondAttribute="bottom" constant="6" id="8IG-qs-5tT"/>
                                     <constraint firstItem="n4f-7U-WJf" firstAttribute="leading" secondItem="taH-N1-ZUQ" secondAttribute="leading" id="8vJ-nE-u58"/>
+                                    <constraint firstAttribute="bottom" secondItem="aHH-Pc-YeK" secondAttribute="bottom" constant="11" id="9GZ-Uj-suH"/>
                                     <constraint firstItem="n4f-7U-WJf" firstAttribute="top" secondItem="LjR-T0-Had" secondAttribute="bottom" constant="5" id="A5h-DK-gq3"/>
                                     <constraint firstItem="VeO-oX-bW9" firstAttribute="leading" secondItem="CNB-vf-KzX" secondAttribute="leading" id="C6d-ZE-CqG"/>
                                     <constraint firstItem="CNB-vf-KzX" firstAttribute="leading" secondItem="n4f-7U-WJf" secondAttribute="trailing" constant="8" symbolic="YES" id="CsH-XV-0l6"/>
@@ -6591,19 +6638,29 @@
                                     <constraint firstItem="LjR-T0-Had" firstAttribute="bottom" secondItem="VeO-oX-bW9" secondAttribute="bottom" id="GYf-w5-AgT"/>
                                     <constraint firstItem="diA-88-44a" firstAttribute="leading" secondItem="yxR-do-tRn" secondAttribute="leadingMargin" id="Gh3-p8-Azc"/>
                                     <constraint firstItem="v4a-SA-Jxw" firstAttribute="leading" secondItem="lvf-ec-w8A" secondAttribute="leading" id="HbF-9Y-Meb"/>
+                                    <constraint firstItem="8im-3D-d3u" firstAttribute="bottom" secondItem="CNB-vf-KzX" secondAttribute="bottom" id="KYT-9Z-RKw"/>
                                     <constraint firstItem="LjR-T0-Had" firstAttribute="top" secondItem="diA-88-44a" secondAttribute="bottom" constant="8" symbolic="YES" id="Kni-zh-38P"/>
+                                    <constraint firstItem="8im-3D-d3u" firstAttribute="leading" secondItem="PeO-Kj-VXp" secondAttribute="leading" id="NDa-fP-pHV"/>
                                     <constraint firstItem="taH-N1-ZUQ" firstAttribute="top" secondItem="n4f-7U-WJf" secondAttribute="bottom" constant="6" id="PsR-yN-TXT"/>
                                     <constraint firstAttribute="bottom" secondItem="vXn-cg-Xzq" secondAttribute="bottom" constant="9" id="R0h-bD-HCa"/>
+                                    <constraint firstAttribute="bottom" secondItem="oZO-uw-w7w" secondAttribute="bottom" constant="37" id="SKc-5d-GqR"/>
                                     <constraint firstItem="taH-N1-ZUQ" firstAttribute="bottom" secondItem="v4a-SA-Jxw" secondAttribute="bottom" id="Tyz-mC-GVg"/>
                                     <constraint firstItem="n4f-7U-WJf" firstAttribute="top" secondItem="CNB-vf-KzX" secondAttribute="top" id="UsP-bn-Izb"/>
+                                    <constraint firstItem="8im-3D-d3u" firstAttribute="leading" secondItem="oZO-uw-w7w" secondAttribute="leading" id="VIU-jh-r7y"/>
+                                    <constraint firstItem="8im-3D-d3u" firstAttribute="top" secondItem="yxR-do-tRn" secondAttribute="top" constant="54" id="WqB-Lv-NHk"/>
                                     <constraint firstItem="taH-N1-ZUQ" firstAttribute="leading" secondItem="vXn-cg-Xzq" secondAttribute="leading" id="aDA-lN-trb"/>
                                     <constraint firstItem="diA-88-44a" firstAttribute="top" secondItem="yxR-do-tRn" secondAttribute="topMargin" id="bse-6R-Q5T"/>
                                     <constraint firstItem="LjR-T0-Had" firstAttribute="leading" secondItem="n4f-7U-WJf" secondAttribute="leading" id="c58-Uv-659"/>
                                     <constraint firstItem="v4a-SA-Jxw" firstAttribute="leading" secondItem="taH-N1-ZUQ" secondAttribute="trailing" constant="8" symbolic="YES" id="dTA-yU-VoD"/>
+                                    <constraint firstItem="PeO-Kj-VXp" firstAttribute="top" secondItem="yxR-do-tRn" secondAttribute="top" constant="28" id="fy6-vC-V3d"/>
                                     <constraint firstItem="taH-N1-ZUQ" firstAttribute="top" secondItem="v4a-SA-Jxw" secondAttribute="top" id="gOd-Fb-mCE"/>
                                     <constraint firstAttribute="height" constant="147" id="jiv-YO-VEf"/>
+                                    <constraint firstItem="PeO-Kj-VXp" firstAttribute="trailing" secondItem="yxR-do-tRn" secondAttribute="trailingMargin" id="kLJ-ti-iFU"/>
+                                    <constraint firstItem="oZO-uw-w7w" firstAttribute="top" secondItem="PeO-Kj-VXp" secondAttribute="bottom" constant="22" id="lhh-iN-Pdi"/>
                                     <constraint firstItem="LjR-T0-Had" firstAttribute="top" secondItem="VeO-oX-bW9" secondAttribute="top" id="p57-P4-7U9"/>
+                                    <constraint firstAttribute="bottom" secondItem="PeO-Kj-VXp" secondAttribute="bottom" constant="89" id="sHp-eJ-ld1"/>
                                     <constraint firstItem="n4f-7U-WJf" firstAttribute="centerY" secondItem="yxR-do-tRn" secondAttribute="centerY" id="yYL-Wl-Ucg"/>
+                                    <constraint firstItem="aHH-Pc-YeK" firstAttribute="top" secondItem="8im-3D-d3u" secondAttribute="bottom" constant="22" id="ztx-i7-PWV"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-4v-Hu8">

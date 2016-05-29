@@ -1392,8 +1392,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             tableviewTopConstraints.constant = 147
             
-            dropdownList.animation = "fadeOut"
-            dropdownList.animate()
+//            dropdownList.animation = "fadeOut"
+//            dropdownList.animate()
 
         }
         else
