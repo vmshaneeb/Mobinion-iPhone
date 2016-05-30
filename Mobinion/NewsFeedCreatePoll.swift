@@ -54,6 +54,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     var URLsInCell = [Int: String]()
     var uploadURLsInCell = [String]()
     var pollImageURL = ""
+    var pollImageData: NSData!
     var pollImageUploadURL = ""
     var pollImageUploaded: Bool!
     
@@ -286,18 +287,27 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         }
         else
         {
-            placeholderImageView.image = selectedImage
-            stackView.hidden = true
             
-            let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-            let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
-            var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            path = (path as NSString).stringByAppendingPathComponent(imageName)
+//            placeholderImageView.image = nil
             
-            let result = selectedImage.writeAtPath(path)
-            print("File write status:- \(result)")
+            print(selectedImage)
+
+            self.placeholderImageView.image = selectedImage
+            self.stackView.hidden = true
             
-            pollImageURL = path
+//            let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+//            let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
+//            var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+//            path = (path as NSString).stringByAppendingPathComponent(imageName)
+//            
+//            let result = selectedImage.writeAtPath(path)
+//            print("File write status:- \(result)")
+//            
+//            pollImageURL = path
+            
+            pollImageData = UIImageJPEGRepresentation(selectedImage, 0.5)
+            
+            
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -356,15 +366,16 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         print("Upload Sucess.. Public ID=\(publicID["public_id"])")
         print("Full result=\(result)")
         
-        var imageName = ""
+//        var imageName = ""
         
-        if (!pollImageURL.isEmpty && pollImageUploaded == false)
-        {
-            imageName = pollImageURL.lastPathComponent.stringByDeletingPathExtension
-//            print(imageName)
-        }
+//        if (!pollImageURL.isEmpty && pollImageUploaded == false)
+//        {
+//            imageName = pollImageURL.lastPathComponent.stringByDeletingPathExtension
+////            print(imageName)
+//        }
         
-        if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
+//        if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
+        if pollImageData.length > 0 && pollImageUploaded != true
         {
             pollImageUploadURL = publicID["url"].stringValue
             pollImageUploaded = true
@@ -430,14 +441,22 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //            doalertView("No Texts Entered", msgs: "Pls enter respective texts in the fields")
 //        }
         
+//        StartLoader()
+        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
+        
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
         
 //        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
         
         
-        if !(pollImageURL.isEmpty)
+//        if !(pollImageURL.isEmpty)
+//        {
+//            uploader.upload(pollImageURL, options: ["sync": true])
+//        }
+        
+        if (pollImageData.length > 0)
         {
-            uploader.upload(pollImageURL, options: ["sync": true])
+            uploader.upload(pollImageData, options: ["sync": true])
         }
         
         if !(URLsInCell.isEmpty)
@@ -456,7 +475,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         
 //        HideLoader()
         
-        StartLoader()
+//        StartLoader()
         
         sendCreatePoll()
         { value, error in
@@ -502,6 +521,10 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         imagePickerController.sourceType = .Camera
         
         imagePickerController.delegate = self
+        
+//        imagePickerController.preferredContentSize = imagePickerController.view.frame.size
+//        imagePickerController.view.layoutIfNeeded()
+//        imagePickerController.modalPresentationStyle = .FullScreen
         
         presentViewController(imagePickerController, animated: true, completion: nil)
 
@@ -633,6 +656,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
                          "Tags": tagstextView.text]
         }
         
+        print(parameter)
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
         .responseJSON { response in
