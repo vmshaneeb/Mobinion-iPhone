@@ -28,6 +28,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     var rowno:Int = 1
     
     var feedType = "all"
+    var itemID = ""
     
 //    var jsondata:JSON = [:]
     
@@ -1303,6 +1304,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
                 {
+                    itemID = newsFeed[indexPath.row]["itemId"] as! String
+                    
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                     
@@ -1324,18 +1327,16 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     {
                         performSegueWithIdentifier("showFeedCurrentStatus", sender: self)
                     }
-                    
+                
                     //                print(datesString)
                     //                print(datesString.timeIntervalSinceNow)
                
-//                    cell.expiryDate.text = timeAgoSince(datesString)
                 }
-                else
-                {
-                    print("not poll!!")
-                }
-                
             }
+        }
+        else
+        {
+            print("not poll!!")
         }
     }
     
@@ -1530,6 +1531,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //        domyWall()
 //        print("After Removal:- \(newsFeed)")
 //        print(feedType)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        let secondVC = segue.destinationViewController as! FeedItemCurrentStand
+        //        print("for segue \(usrFullname.text!)")
+        secondVC.itemID = itemID
     }
     
     //MARK:- Custom Functions
