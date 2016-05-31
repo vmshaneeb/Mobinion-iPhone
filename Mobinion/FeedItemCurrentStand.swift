@@ -56,7 +56,8 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
-        
+//        self.tabBarController?.selectedIndex = 2
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     @IBAction func searchBtn(sender: AnyObject)
@@ -66,7 +67,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
     
     @IBAction func notifyBtn(sender: AnyObject)
     {
-        
+        performSegueWithIdentifier("showNotificationsfromCurrent", sender: sender)
     }
     
     //MARK:- Custom Functions
