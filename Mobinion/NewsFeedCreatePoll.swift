@@ -412,6 +412,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBAction func createPoll(sender: AnyObject)
     {
+        //TODO:- check button validation crash
         if checkBoxBtn.selected != true
         {
             doalertView("Terms & Policies", msgs: "Please check the terms & policies checkbox")
@@ -441,32 +442,39 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //            doalertView("No Texts Entered", msgs: "Pls enter respective texts in the fields")
 //        }
         
-//        StartLoader()
-        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
+        StartLoader()
         
-        let uploader = CLUploader.init(self.cloudinary, delegate: self)
-        
+        delay(0.3)
+        {
+            //print("upload done")
+            self.doUpload()
+        }
+//        performSelector(#selector(NewsFeedCreatePoll.doUpload()), withObject: nil, afterDelay: 0.3)
 //        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
         
-        
-//        if !(pollImageURL.isEmpty)
+//        let uploader = CLUploader.init(self.cloudinary, delegate: self)
+//        
+////        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
+//        
+//        
+////        if !(pollImageURL.isEmpty)
+////        {
+////            uploader.upload(pollImageURL, options: ["sync": true])
+////        }
+//        
+//        if (pollImageData.length > 0)
 //        {
-//            uploader.upload(pollImageURL, options: ["sync": true])
+//            uploader.upload(pollImageData, options: ["sync": true])
 //        }
-        
-        if (pollImageData.length > 0)
-        {
-            uploader.upload(pollImageData, options: ["sync": true])
-        }
-        
-        if !(URLsInCell.isEmpty)
-        {
-            for url in URLsInCell.values
-            {
-//                print(url)
-                uploader.upload(url, options: ["sync": true])
-            }
-        }
+//        
+//        if !(URLsInCell.isEmpty)
+//        {
+//            for url in URLsInCell.values
+//            {
+////                print(url)
+//                uploader.upload(url, options: ["sync": true])
+//            }
+//        }
         
         delay(5)
         {
@@ -626,18 +634,20 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         if optionsType.selectedItem == "Text Options"
         {
             questions = ["question": quest_textView.text,
-                         "options": opts]
+                         "options": [opts]]
             
             parameter = ["category": choose_cat.selectedItem!,
-                         "questions": questions,
-                         "pollLocation": "",
-                         "isRegionalRes": "false",
-                         "regionalRes": "Kerala",
+                         "questions": [questions],
+                         "pollLocation": ["city": "Cochin",
+                                          "lat": "10.0082783",
+                                          "lng": "76.3592398"],
+                         "isRegionalRes": "true",
+//                         "regionalRes": "Kerala",
                          "description": desc_Field.text!,
                          "pollImage": pollImageUploadURL,
                          "pollType": optionsType.selectedItem!,
                          "expDate": expiryDate.selectedItem!,
-                         "Tags": tagstextView.text]
+                         "tags": tagstextView.text]
         }
         else
         {
@@ -645,15 +655,17 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
                          "options": uploadURLsInCell]
             
             parameter = ["category": choose_cat.selectedItem!,
-                         "questions": questions,
-                         "pollLocation": "",
-                         "isRegionalRes": "false",
-                         "regionalRes": "Kerala",
+                         "questions": [questions],
+                         "pollLocation": ["city": "Cochin",
+                                          "lat": "10.0082783",
+                                          "lng": "76.3592398"],
+                         "isRegionalRes": "true",
+//                         "regionalRes": "Kerala",
                          "description": desc_Field.text!,
                          "pollImage": pollImageUploadURL,
                          "pollType": optionsType.selectedItem!,
                          "expDate": expiryDate.selectedItem!,
-                         "Tags": tagstextView.text]
+                         "tags": tagstextView.text]
         }
         
         print(parameter)
@@ -663,6 +675,15 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             switch response.result
             {
                 case .Success:
+//                    do
+//                    {
+//                        let para = try NSJSONSerialization.JSONObjectWithData(response.request!.HTTPBody!,options:[])
+//                        print(para)
+//                    }
+//                    catch
+//                    {
+//                        
+//                    }
                     if let value = response.result.value
                     {
                         completionHandler(value as? NSDictionary, nil)
@@ -795,6 +816,31 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
                 Int64(delay) //* Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), closure)
+    }
+    
+    func doUpload()
+    {
+        let uploader = CLUploader.init(self.cloudinary, delegate: self)
+
+        //        if !(pollImageURL.isEmpty)
+        //        {
+        //            uploader.upload(pollImageURL, options: ["sync": true])
+        //        }
+        
+        //TODO:- check null data crash
+        if (pollImageData.length > 0)
+        {
+            uploader.upload(pollImageData, options: ["sync": true])
+        }
+        
+        if !(URLsInCell.isEmpty)
+        {
+            for url in URLsInCell.values
+            {
+                //                print(url)
+                uploader.upload(url, options: ["sync": true])
+            }
+        }
     }
     
     // MARK: - Loader
