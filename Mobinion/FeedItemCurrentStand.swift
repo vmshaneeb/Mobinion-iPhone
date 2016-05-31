@@ -168,6 +168,18 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 //                            print(self.options)
 //                            print(self.votes)
                             
+                            self.pollHeader.text = json["data"]["item"]["itemText"].string!
+                            
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            let sdate = json["data"]["item"]["item_expiryDate"].string!
+//                            print(sdate)
+                            let datesString:NSDate = dateFormatter.dateFromString(sdate)!
+//                            print(datesString)
+                            dateFormatter.dateFormat = "dd MMM yyyy"
+//                            print(dateFormatter.stringFromDate(datesString))
+                            self.finalDate.text = dateFormatter.stringFromDate(datesString)
+                            
                             self.setChart(self.options, values: self.votes)
                         }
                         catch

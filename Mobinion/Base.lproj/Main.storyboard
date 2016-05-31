@@ -4109,7 +4109,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTx-25-pDO">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-Kw-cCa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-Kw-cCa">
                                                 <rect key="frame" x="20" y="25" width="562" height="42"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -4124,10 +4124,10 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdg-dj-djb">
-                                                <rect key="frame" x="141" y="301" width="42" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdg-dj-djb">
+                                                <rect key="frame" x="141" y="301" width="105" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="42" id="23v-BV-53T"/>
+                                                    <constraint firstAttribute="width" constant="105" id="23v-BV-53T"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -4155,6 +4155,7 @@
                                             <constraint firstItem="Zlh-th-sTv" firstAttribute="leading" secondItem="w4m-d5-CMx" secondAttribute="trailing" constant="8" symbolic="YES" id="2xE-Yd-bKM"/>
                                             <constraint firstItem="2Mb-vw-enf" firstAttribute="top" secondItem="Bqj-Kw-cCa" secondAttribute="bottom" constant="15" id="5GX-2r-Oee"/>
                                             <constraint firstItem="w4m-d5-CMx" firstAttribute="centerY" secondItem="Zlh-th-sTv" secondAttribute="centerY" id="5ZS-LQ-Rdn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bqj-Kw-cCa" secondAttribute="trailing" constant="18" id="5uj-cw-Wo4"/>
                                             <constraint firstAttribute="height" constant="330" id="QjV-rn-n6V"/>
                                             <constraint firstAttribute="bottom" secondItem="w4m-d5-CMx" secondAttribute="bottom" constant="11" id="WRO-0C-0gL"/>
                                             <constraint firstItem="Bqj-Kw-cCa" firstAttribute="top" secondItem="FTx-25-pDO" secondAttribute="top" constant="25" id="b8L-2h-MHP"/>
