@@ -375,7 +375,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        }
         
 //        if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
-        if pollImageData.length > 0 && pollImageUploaded != true
+//        if pollImageData.length > 0 && pollImageUploaded != true
+        if pollImageData != nil && pollImageUploaded != true
         {
             pollImageUploadURL = publicID["url"].stringValue
             pollImageUploaded = true
