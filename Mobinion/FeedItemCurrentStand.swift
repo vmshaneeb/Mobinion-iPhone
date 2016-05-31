@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import Charts
 
-class FeedItemCurrentStand: UIViewController
+class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 {
     @IBOutlet weak var pollHeader: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
@@ -33,13 +33,24 @@ class FeedItemCurrentStand: UIViewController
 //        print(itemID)
         getItemDetails()
         
-        setChart(options, values: votes)
+        
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    //MARK:- ChartViewDelegates
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight)
+    {
+        print("chartValueSelected")
+    }
+    
+    func chartValueNothingSelected(chartView: ChartViewBase)
+    {
+        print("chartValueNothingSelected")
     }
     
     //MARK:- Actions
@@ -140,20 +151,23 @@ class FeedItemCurrentStand: UIViewController
                             
                             print (self.itemDetails)
                             
-                            for i in 0 ..< json["data"]["questionDetails"].count
+                            for i in 0 ..< json["data"]["item"]["questionDetails"].count
                             {
-                                print(json["data"]["questionDetails"])
-                                self.questions.append(json["data"]["questionDetails"][i]["question"].string!)
+//                                print(json["data"]["item"]["questionDetails"])
+                                self.questions.append(json["data"]["item"]["questionDetails"][i]["question"].string!)
                             }
-                            print(self.questions)
+//                            print(self.questions)
                             
-                            for i in 0 ..< json["data"]["questionDetails"][0]["options"].count
+                            for i in 0 ..< json["data"]["item"]["questionDetails"][0]["options"].count
                             {
-                                self.options.append(json["data"]["questionDetails"][0]["options"][i]["content"].string!)
-                                self.votes.append(json["data"]["questionDetails"][0]["options"][i]["numberOfVotes"].double!)
+//                                print(json["data"]["item"]["questionDetails"][0]["options"][i]["content"])
+                                self.options.append(json["data"]["item"]["questionDetails"][0]["options"][i]["content"].string!)
+                                self.votes.append(json["data"]["item"]["questionDetails"][0]["options"][i]["numberOfVotes"].double!)
                             }
-                            print(self.options)
-                            print(self.votes)
+//                            print(self.options)
+//                            print(self.votes)
+                            
+                            self.setChart(self.options, values: self.votes)
                         }
                         catch
                         {
@@ -173,7 +187,18 @@ class FeedItemCurrentStand: UIViewController
     
     func setChart(dataPoints: [String], values: [Double])
     {
-        pieChart.noDataText = "You need to provide data for the chart."
+//        pieChart.setExtraOffsets(left: 20.0, top: 0.0, right: 20.0, bottom: 0.0)
+//        pieChart.noDataText = "You need to provide data for the chart."
+        pieChart.legend.enabled = false
+        pieChart.drawSliceTextEnabled = false
+        pieChart.centerText = "Entries"
+        pieChart.descriptionText = ""
+        
+        pieChart.delegate = self
+        
+        pieChart.animate(yAxisDuration: 1.4, easingOption: ChartEasingOption.EaseOutBack)
+        
+//        pieChart.
         
         var dataEntries: [ChartDataEntry] = []
         
@@ -184,9 +209,55 @@ class FeedItemCurrentStand: UIViewController
         }
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Votes")
+        
+        pieChartDataSet.sliceSpace = 2.0
+        
+//        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
+//        pieChartDataSet.valueLinePart1Length = 0.2
+//        pieChartDataSet.valueLinePart2Length = 0.4
+        //dataSet.xValuePosition = .OutsideSlice
+        pieChartDataSet.yValuePosition = .OutsideSlice
+
+        var colors: [UIColor] = []
+        
+        for i in 0..<dataPoints.count
+        {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            
+            colors.append(color)
+        }
+        
+        
+//        let colors = NSMutableArray()
+//        colors.addObjectsFromArray(ChartColorTemplates.vordiplom())
+//        colors.addObjectsFromArray(ChartColorTemplates.joyful())
+//        colors.addObjectsFromArray(ChartColorTemplates.colorful())
+//        colors.addObjectsFromArray(ChartColorTemplates.liberty())
+//        colors.addObjectsFromArray(ChartColorTemplates.pastel())
+//        colors.addObjectsFromArray(UIColor(red: 51/255.0, green: 181/255.0, blue: 229/255.0, alpha: 1.0))
+        
+        pieChartDataSet.colors = colors
+        
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         
+        let pFormatter = NSNumberFormatter()
+        pFormatter.numberStyle = .PercentStyle
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1.0
+        pFormatter.percentSymbol = "%"
+        
+        pieChartData.setValueFormatter(pFormatter)
+        pieChartData.setValueFont(UIFont(name: "Roboto-Medium", size: 13.0))
+        pieChartData.setValueTextColor(UIColor.whiteColor())
+        
+        pieChartData.highlightEnabled = false
+        
         pieChart.data = pieChartData
+        
     }
     
     //MARK: - Loader
