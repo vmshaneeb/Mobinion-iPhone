@@ -826,9 +826,8 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         //        {
         //            uploader.upload(pollImageURL, options: ["sync": true])
         //        }
-        
-        //TODO:- check null data crash
-        if (pollImageData.length > 0)
+//        if (pollImageData.length > 0)
+        if (pollImageData != nil)
         {
             uploader.upload(pollImageData, options: ["sync": true])
         }
