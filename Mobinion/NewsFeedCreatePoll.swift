@@ -412,7 +412,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     @IBAction func createPoll(sender: AnyObject)
     {
-        //TODO:- check button validation crash
+//        print(checkBoxBtn.selected)
         if checkBoxBtn.selected != true
         {
             doalertView("Terms & Policies", msgs: "Please check the terms & policies checkbox")
@@ -529,10 +529,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         imagePickerController.sourceType = .Camera
         
         imagePickerController.delegate = self
-        
-//        imagePickerController.preferredContentSize = imagePickerController.view.frame.size
-//        imagePickerController.view.layoutIfNeeded()
-//        imagePickerController.modalPresentationStyle = .FullScreen
         
         presentViewController(imagePickerController, animated: true, completion: nil)
 
@@ -668,7 +664,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
                          "tags": tagstextView.text]
         }
         
-        print(parameter)
+//        print(parameter)
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
         .responseJSON { response in
