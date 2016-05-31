@@ -16,6 +16,8 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 {
     @IBOutlet weak var pollHeader: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var pieInsideView: UIView!
+    @IBOutlet weak var totalParts: UILabel!
     @IBOutlet weak var finalDate: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,6 +35,9 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 //        print(itemID)
         getItemDetails()
         
+        // for rounded pieInsideView
+        pieInsideView.layer.cornerRadius = pieInsideView.frame.size.width / 2
+        pieInsideView.clipsToBounds = true
         
     }
     
@@ -180,6 +185,8 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 //                            print(dateFormatter.stringFromDate(datesString))
                             self.finalDate.text = dateFormatter.stringFromDate(datesString)
                             
+                            self.totalParts.text = String(json["data"]["item"]["participants"].int!)
+                            
                             self.setChart(self.options, values: self.votes)
                         }
                         catch
@@ -204,7 +211,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 //        pieChart.noDataText = "You need to provide data for the chart."
         pieChart.legend.enabled = false
         pieChart.drawSliceTextEnabled = false
-        pieChart.centerText = "Entries"
+        pieChart.centerText = " "
         pieChart.descriptionText = ""
         
         pieChart.delegate = self
