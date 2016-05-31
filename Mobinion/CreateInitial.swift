@@ -20,6 +20,13 @@ class CreateInitial: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+        
+        if !(toks.isEmpty)
+        {
+            performSegueWithIdentifier("showNewsFeedFromInitial", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning()
