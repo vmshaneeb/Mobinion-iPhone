@@ -18,4 +18,5 @@ target 'Mobinion' do
     pod 'DLRadioButton', '~> 1.4'
     pod 'TextAttributes'
     pod 'UIScrollView-InfiniteScroll'
+    pod 'AsyncSwift'
 end

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AsyncSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Cloudinary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,11 +82,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0365F9D95A096D545B26D9B340672DF0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>098058DB8AA265D704661FE96460EF62</key>
 		<dict>
 			<key>primary</key>
@@ -92,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E77053DA9F80A23D651AAABA971FEDF</key>
+		<key>3038F66BBF24E52DC9142302CB36F90F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,22 +102,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35A439A6E7E9584116E04EB680D4BBD5</key>
+		<key>405C55AFEE6E6C96C869AAE7703F6ED5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40C1CB3BCED12B2BC9CB76C2A7503BB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4242B3858AC403827EAB847BB5BCDACF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66EB935ED09393837F20FC9E0B0C67DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B5A9137409BB24C2A088458A5CA7378E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B61ACFF80AA2118D9137AF1BEBD58616</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EACA2084C2EF38A81AF2351A9D64BC36</key>
+		<key>D1DC35DB2C695031A72543555FB23729</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E60BAD53445BD5546C6A16BC064F356C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
