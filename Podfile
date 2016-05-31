@@ -19,4 +19,5 @@ target 'Mobinion' do
     pod 'TextAttributes'
     pod 'UIScrollView-InfiniteScroll'
     pod 'AsyncSwift'
+    pod 'Charts'
 end

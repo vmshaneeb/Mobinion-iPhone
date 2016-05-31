@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Cloudinary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,37 +97,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3038F66BBF24E52DC9142302CB36F90F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3511258FF1DED3401C4B456024D5FA41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>405C55AFEE6E6C96C869AAE7703F6ED5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>40C1CB3BCED12B2BC9CB76C2A7503BB9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4242B3858AC403827EAB847BB5BCDACF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>66EB935ED09393837F20FC9E0B0C67DF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85C7225CBFF747D56A6CA3B09B33FADF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>928C257EBDE502C36501CD401E488554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92A555BC1FE8BD44988B2692E8980918</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>951C79DEC29488CA76203114619F2969</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,17 +137,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D1DC35DB2C695031A72543555FB23729</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E60BAD53445BD5546C6A16BC064F356C</key>
+		<key>E93F2920B07A8C6E48ACE5E0DC07E403</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F3990E3EAC160D4E4F89177D966FC1E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4D95AECD704DA96F665FEF74EC56BA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

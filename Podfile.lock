@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (3.4.0)
   - AsyncSwift (1.7.2)
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
   - Cloudinary (1.0.15)
   - DBAlertController (0.2.6)
   - DLRadioButton (1.4.8)
@@ -20,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.3)
   - AsyncSwift
+  - Charts
   - Cloudinary
   - DBAlertController
   - DLRadioButton (~> 1.4)
@@ -52,6 +56,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
   DBAlertController: f6bc826127685e6e44b2d5003034d9ff1c952322
   DLRadioButton: 8fe4865b3ea8a5236e1d114dd283dd0884d3dc46
@@ -66,6 +71,6 @@ SPEC CHECKSUMS:
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
-PODFILE CHECKSUM: 9766b16ad90d55aa33df57e982d5bd0ede973b2f
+PODFILE CHECKSUM: a751f5a3a14db944a88bfd3cd0b4afd4a3e43383
 
 COCOAPODS: 1.0.0
