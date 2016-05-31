@@ -21,11 +21,15 @@ class CreateInitial: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
-        
-        if !(toks.isEmpty)
+        print(NSUserDefaults.standardUserDefaults().objectForKey("token"))
+        if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
         {
-            performSegueWithIdentifier("showNewsFeedFromInitial", sender: self)
+            let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+            print(toks)
+            if !(toks.isEmpty)
+            {
+                performSegueWithIdentifier("showNewsFeedFromInitial", sender: self)
+            }
         }
     }
     
