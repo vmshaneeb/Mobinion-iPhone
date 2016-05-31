@@ -12,6 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
 import Cloudinary
+import Async
 
 class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ImagePickerDelegate, CLUploaderDelegate
 {
@@ -443,46 +444,28 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //            doalertView("No Texts Entered", msgs: "Pls enter respective texts in the fields")
 //        }
         
-        StartLoader()
-        
-        delay(0.3)
+        //TODO:- check loader not issued error
+        Async.main(after: 0.5)
         {
-            //print("upload done")
+           self.StartLoader()
+        }
+        
+//        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
+//
+//        delay(0.3)
+//        {
+//            //print("upload done")
+//            self.doUpload()
+//        }
+        
+        let block = Async.background
+        {
+            // Do stuff
             self.doUpload()
         }
-//        performSelector(#selector(NewsFeedCreatePoll.doUpload()), withObject: nil, afterDelay: 0.3)
-//        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
         
-//        let uploader = CLUploader.init(self.cloudinary, delegate: self)
-//        
-////        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
-//        
-//        
-////        if !(pollImageURL.isEmpty)
-////        {
-////            uploader.upload(pollImageURL, options: ["sync": true])
-////        }
-//        
-//        if (pollImageData.length > 0)
-//        {
-//            uploader.upload(pollImageData, options: ["sync": true])
-//        }
-//        
-//        if !(URLsInCell.isEmpty)
-//        {
-//            for url in URLsInCell.values
-//            {
-////                print(url)
-//                uploader.upload(url, options: ["sync": true])
-//            }
-//        }
-        
-        delay(5)
-        {
-            print("upload done")
-        }
-        
-//        HideLoader()
+        block.wait()
+
         
 //        StartLoader()
         
@@ -819,11 +802,6 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     {
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
 
-        //        if !(pollImageURL.isEmpty)
-        //        {
-        //            uploader.upload(pollImageURL, options: ["sync": true])
-        //        }
-//        if (pollImageData.length > 0)
         if (pollImageData != nil)
         {
             uploader.upload(pollImageData, options: ["sync": true])
