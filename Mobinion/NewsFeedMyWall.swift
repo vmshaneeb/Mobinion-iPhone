@@ -1293,10 +1293,51 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-//    {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
 //        print("\(newsFeed[indexPath.row]["userName"] as! String) pressed")
-//    }
+        //showFeedCurrentStatus
+        if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
+        {
+            if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
+                {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(newsFeed[indexPath.row]["item_expiryDate"] as! String)!
+                    //                            print(datesString)
+                    
+                    print(datesString.timeIntervalSince1970)
+                    
+                    
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    let tdate = dateFormatter.stringFromDate(NSDate())
+//                    print(tdate)
+                    let date0:NSDate = dateFormatter.dateFromString(tdate)!
+//                    print(date0)
+                    print(date0.timeIntervalSince1970)
+                    
+                    if datesString < date0
+                    {
+                        performSegueWithIdentifier("showFeedCurrentStatus", sender: self)
+                    }
+                    
+                    //                print(datesString)
+                    //                print(datesString.timeIntervalSinceNow)
+               
+//                    cell.expiryDate.text = timeAgoSince(datesString)
+                }
+                else
+                {
+                    print("not poll!!")
+                }
+                
+            }
+        }
+    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
