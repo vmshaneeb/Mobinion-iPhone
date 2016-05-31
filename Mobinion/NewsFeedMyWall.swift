@@ -13,6 +13,7 @@ import DBAlertController
 import SDWebImage
 import UIScrollView_InfiniteScroll
 import Spring
+import DLRadioButton
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
@@ -25,6 +26,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     var searchFeed = NSMutableArray()
     var users = NSMutableArray()
     var rowno:Int = 1
+    
+    var feedType = "all"
     
 //    var jsondata:JSON = [:]
     
@@ -1455,6 +1458,39 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    
+    @IBAction func checkSelectedButton(sender: DLRadioButton)
+    {
+        for button in sender.selectedButtons()
+        {
+//            print(button.tag)
+            switch button.tag
+            {
+                case 1:
+                    feedType = "all"
+                case 2:
+                    feedType = "polls"
+                case 3:
+                    feedType = "votings"
+                case 4:
+                    feedType = "contests"
+    //            case 5:
+    //                feedType = "feedbacks"
+                default:
+                    break
+            }
+            
+        }
+        
+        tableviewTopConstraints.constant = 0
+        domyWallafterSelection()
+//        print("Before Removal:- \(newsFeed)")
+//        newsFeed.removeAllObjects()
+//        domyWall()
+//        print("After Removal:- \(newsFeed)")
+//        print(feedType)
+    }
+    
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
@@ -1520,6 +1556,55 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
+        }
+    }
+    
+    func domyWallafterSelection()
+    {
+        self.StartLoader()
+        
+        print("Before Removal:- \(newsFeed)")
+//        newsFeed.removeAllObjects()
+        
+        getFeeds()
+            { value, data, error in
+                if value != nil
+                {
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+//                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
+                    {
+//                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        do
+                        {
+                            let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                            self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+//                            print (self.newsFeed)
+                            print("After Removal:- \(self.newsFeed)")
+
+                        }
+                        catch
+                        {
+                            print("error in responseObject")
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+                else
+                {
+                    self.HideLoader()
+                    //                    print(error)
+//                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                }
         }
     }
     
@@ -1684,7 +1769,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"//?rowNumber=1&showingType=all"
         
-        let parameter = ["rowNumber": String(rowno), "showingType": "all"]
+        let parameter = ["rowNumber": String(rowno), "showingType": feedType]//"all"]
         
         Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .URL)
 //        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
