@@ -16,6 +16,17 @@
 		650835E21C95779600C6C280 /* MobinionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650835E11C95779600C6C280 /* MobinionUITests.swift */; };
 		650B879F1CE1119200C6A30F /* PollShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B879D1CE1119200C6A30F /* PollShared.swift */; };
 		650B87A01CE1119200C6A30F /* PollSharedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650B879E1CE1119200C6A30F /* PollSharedCell.xib */; };
+		651FA70E1CFD27380032005D /* FeedItemVoting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA70D1CFD27380032005D /* FeedItemVoting.swift */; };
+		651FA7101CFD27F40032005D /* FeedItemFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA70F1CFD27F40032005D /* FeedItemFeedback.swift */; };
+		651FA7121CFD28650032005D /* FeedItemDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA7111CFD28650032005D /* FeedItemDraw.swift */; };
+		651FA7141CFD28BC0032005D /* FeedItemResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA7131CFD28BC0032005D /* FeedItemResults.swift */; };
+		651FA7161CFD29250032005D /* FeedItemContest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA7151CFD29250032005D /* FeedItemContest.swift */; };
+		651FA7181CFD29930032005D /* FeedItemContest2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA7171CFD29930032005D /* FeedItemContest2.swift */; };
+		651FA71A1CFD2A080032005D /* FeedItemContest3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA7191CFD2A080032005D /* FeedItemContest3.swift */; };
+		651FA71C1CFD2A790032005D /* FeedItemContestSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA71B1CFD2A790032005D /* FeedItemContestSubmit.swift */; };
+		651FA71E1CFD2ADC0032005D /* FeedItemContestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA71D1CFD2ADC0032005D /* FeedItemContestImage.swift */; };
+		651FA7201CFD2B610032005D /* FeedItemContestUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA71F1CFD2B610032005D /* FeedItemContestUpload.swift */; };
+		651FA7221CFD2BD70032005D /* FeedItemCurrentStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FA7211CFD2BD70032005D /* FeedItemCurrentStand.swift */; };
 		652EF1921CA98C1C0048F33D /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */; };
 		652EF1931CA98C1C0048F33D /* InterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */; };
 		652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */; };
@@ -157,6 +168,17 @@
 		650835E31C95779600C6C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		650B879D1CE1119200C6A30F /* PollShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollShared.swift; sourceTree = "<group>"; };
 		650B879E1CE1119200C6A30F /* PollSharedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PollSharedCell.xib; sourceTree = "<group>"; };
+		651FA70D1CFD27380032005D /* FeedItemVoting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemVoting.swift; sourceTree = "<group>"; };
+		651FA70F1CFD27F40032005D /* FeedItemFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemFeedback.swift; sourceTree = "<group>"; };
+		651FA7111CFD28650032005D /* FeedItemDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemDraw.swift; sourceTree = "<group>"; };
+		651FA7131CFD28BC0032005D /* FeedItemResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemResults.swift; sourceTree = "<group>"; };
+		651FA7151CFD29250032005D /* FeedItemContest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemContest.swift; sourceTree = "<group>"; };
+		651FA7171CFD29930032005D /* FeedItemContest2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemContest2.swift; sourceTree = "<group>"; };
+		651FA7191CFD2A080032005D /* FeedItemContest3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemContest3.swift; sourceTree = "<group>"; };
+		651FA71B1CFD2A790032005D /* FeedItemContestSubmit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemContestSubmit.swift; sourceTree = "<group>"; };
+		651FA71D1CFD2ADC0032005D /* FeedItemContestImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemContestImage.swift; sourceTree = "<group>"; };
+		651FA71F1CFD2B610032005D /* FeedItemContestUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemContestUpload.swift; sourceTree = "<group>"; };
+		651FA7211CFD2BD70032005D /* FeedItemCurrentStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemCurrentStand.swift; sourceTree = "<group>"; };
 		652EF1901CA98C1C0048F33D /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCollectionViewCell.xib; sourceTree = "<group>"; };
 		652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -336,6 +358,17 @@
 		650835C01C95779600C6C280 /* Mobinion */ = {
 			isa = PBXGroup;
 			children = (
+				651FA70D1CFD27380032005D /* FeedItemVoting.swift */,
+				651FA70F1CFD27F40032005D /* FeedItemFeedback.swift */,
+				651FA7111CFD28650032005D /* FeedItemDraw.swift */,
+				651FA7131CFD28BC0032005D /* FeedItemResults.swift */,
+				651FA7151CFD29250032005D /* FeedItemContest.swift */,
+				651FA7171CFD29930032005D /* FeedItemContest2.swift */,
+				651FA7191CFD2A080032005D /* FeedItemContest3.swift */,
+				651FA71B1CFD2A790032005D /* FeedItemContestSubmit.swift */,
+				651FA71D1CFD2ADC0032005D /* FeedItemContestImage.swift */,
+				651FA71F1CFD2B610032005D /* FeedItemContestUpload.swift */,
+				651FA7211CFD2BD70032005D /* FeedItemCurrentStand.swift */,
 				65E3124C1CD8F69300F784DA /* PopDatePicker */,
 				65E311E21CD8B4F900F784DA /* RobotoTTF */,
 				653F52541CB1AA27001B494C /* CountryPicker */,
@@ -788,12 +821,14 @@
 			files = (
 				653F528D1CB1B013001B494C /* NBPhoneNumberDesc.m in Sources */,
 				65BAEC511CC9054200CCACA3 /* NewsFeedMyWall.swift in Sources */,
+				651FA7181CFD29930032005D /* FeedItemContest2.swift in Sources */,
 				65EEC7281CDE68BA00A2A81E /* AroundMeTableViewCell.swift in Sources */,
 				653F52871CB1B013001B494C /* NBMetadataHelper.m in Sources */,
 				65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */,
 				65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */,
 				653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */,
 				656CFE5C1CEB969F0088175A /* Extensions.swift in Sources */,
+				651FA7121CFD28650032005D /* FeedItemDraw.swift in Sources */,
 				653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */,
 				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
 				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
@@ -808,8 +843,10 @@
 				65DD84DE1CB3D756006B6655 /* Verify Mobile2.swift in Sources */,
 				653F52821CB1B013001B494C /* NBAsYouTypeFormatter.m in Sources */,
 				65BAEC4B1CC8F4D000CCACA3 /* NewsFeedController.swift in Sources */,
+				651FA7221CFD2BD70032005D /* FeedItemCurrentStand.swift in Sources */,
 				65BAEC4D1CC8F87200CCACA3 /* NewsFeedAroundMe.swift in Sources */,
 				65D01D771CA2AB4100A8A478 /* InviteFriends.swift in Sources */,
+				651FA7201CFD2B610032005D /* FeedItemContestUpload.swift in Sources */,
 				65D01D8A1CA3FA5500A8A478 /* NewsFeedTableViewCell3.swift in Sources */,
 				65D01D731CA2AACB00A8A478 /* ChooseInterests.swift in Sources */,
 				65EEC7241CDE5C3500A2A81E /* polls_TableViewCell.swift in Sources */,
@@ -822,13 +859,17 @@
 				65E641D81CDFE478005155EB /* NotificationsView.swift in Sources */,
 				65E1FD131C9C0D8700BA74E1 /* CreateAccount.swift in Sources */,
 				65BAEC531CC9057600CCACA3 /* NewsFeedCreatePoll.swift in Sources */,
+				651FA7141CFD28BC0032005D /* FeedItemResults.swift in Sources */,
+				651FA7161CFD29250032005D /* FeedItemContest.swift in Sources */,
 				65D01D801CA2B39300A8A478 /* NewsFeedTableViewCell.swift in Sources */,
 				65E1FD151C9C130D00BA74E1 /* VerifyMobile.swift in Sources */,
 				AC978CCB1CABB756001E1D7D /* MBProgressHUD.m in Sources */,
 				65D01D751CA2AAF800A8A478 /* FollowFriends.swift in Sources */,
 				65E312521CD8F69300F784DA /* PopDatePicker.swift in Sources */,
+				651FA71A1CFD2A080032005D /* FeedItemContest3.swift in Sources */,
 				6596F7801CDF7B3A00F97687 /* FollowSectionHeader.swift in Sources */,
 				653F52881CB1B013001B494C /* NBNumberFormat.m in Sources */,
+				651FA70E1CFD27380032005D /* FeedItemVoting.swift in Sources */,
 				65D01D791CA2ABAE00A8A478 /* NewsFeed.swift in Sources */,
 				653F52891CB1B013001B494C /* NBPhoneMetaData.m in Sources */,
 				653F52841CB1B013001B494C /* NBMetadataCoreMapper.m in Sources */,
@@ -837,6 +878,7 @@
 				6587D0281CEDF36D00F94E80 /* CreatePollPicOptionCell.swift in Sources */,
 				65BAEC4F1CC9050300CCACA3 /* NewsFeedQR.swift in Sources */,
 				65D01D861CA3F71E00A8A478 /* NewsFeedTableViewCell2.swift in Sources */,
+				651FA71C1CFD2A790032005D /* FeedItemContestSubmit.swift in Sources */,
 				653F524F1CB1A982001B494C /* CountryView.swift in Sources */,
 				65CFF56E1CED16080085D57E /* CreatePollTableViewCell.swift in Sources */,
 				AC2BD2641CAC2B51009C24CD /* ServerRequests.m in Sources */,
@@ -844,6 +886,8 @@
 				65D01D7C1CA2AD6600A8A478 /* FollowTableViewCell.swift in Sources */,
 				650B879F1CE1119200C6A30F /* PollShared.swift in Sources */,
 				653F528C1CB1B013001B494C /* NBPhoneNumberDefines.m in Sources */,
+				651FA71E1CFD2ADC0032005D /* FeedItemContestImage.swift in Sources */,
+				651FA7101CFD27F40032005D /* FeedItemFeedback.swift in Sources */,
 				653F528F1CB1B013001B494C /* NBPhoneNumberUtil.m in Sources */,
 				650835C21C95779600C6C280 /* AppDelegate.swift in Sources */,
 			);
