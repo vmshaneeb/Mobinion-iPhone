@@ -3591,13 +3591,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXG-j5-iiu">
                                         <rect key="frame" x="10" y="13" width="50" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0E-YT-8FA">
                                         <rect key="frame" x="68" y="13" width="76" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider" translatesAutoresizingMaskIntoConstraints="NO" id="Mmz-qT-3Ul">
@@ -3606,7 +3606,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report an Issue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz6-ev-gSv">
                                         <rect key="frame" x="10" y="66" width="119" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -3655,7 +3655,7 @@
                                             <constraint firstAttribute="width" constant="95" id="5rU-x8-epO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -3922,13 +3922,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQq-yh-Kc5">
                                         <rect key="frame" x="176" y="72" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrZ-E8-623">
                                         <rect key="frame" x="38" y="135" width="319" height="89"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-M7-xnI">
@@ -4035,10 +4035,10 @@
             </objects>
             <point key="canvasLocation" x="8234" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Current Stand-->
         <scene sceneID="VCf-1A-MN3">
             <objects>
-                <viewController id="RH6-Dq-7Ci" sceneMemberID="viewController">
+                <viewController id="RH6-Dq-7Ci" customClass="FeedItemCurrentStand" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wey-Ek-EIh"/>
                         <viewControllerLayoutGuide type="bottom" id="28X-8E-bni"/>
@@ -4144,12 +4144,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="277-Lo-dE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9046" y="935"/>
+            <point key="canvasLocation" x="8234" y="941"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Voting-->
         <scene sceneID="jc2-tO-Csl">
             <objects>
-                <viewController id="hHP-XM-0zL" sceneMemberID="viewController">
+                <viewController id="hHP-XM-0zL" customClass="FeedItemVoting" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="smE-G3-GOf"/>
                         <viewControllerLayoutGuide type="bottom" id="wv5-A0-aDl"/>
@@ -4337,10 +4337,10 @@
             </objects>
             <point key="canvasLocation" x="8877" y="-442"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Feedback-->
         <scene sceneID="KL2-rm-Hd6">
             <objects>
-                <viewController id="94A-uc-WBm" sceneMemberID="viewController">
+                <viewController id="94A-uc-WBm" customClass="FeedItemFeedback" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y2D-22-Srf"/>
                         <viewControllerLayoutGuide type="bottom" id="UMO-ge-fNV"/>
@@ -4646,10 +4646,10 @@
             </objects>
             <point key="canvasLocation" x="9530" y="-442"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Draw-->
         <scene sceneID="CDp-wU-8Cf">
             <objects>
-                <viewController id="UBm-e6-2L9" sceneMemberID="viewController">
+                <viewController id="UBm-e6-2L9" customClass="FeedItemDraw" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hyv-rR-ejW"/>
                         <viewControllerLayoutGuide type="bottom" id="xQZ-j0-Vfa"/>
@@ -4854,10 +4854,10 @@
             </objects>
             <point key="canvasLocation" x="10165" y="-442"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Results-->
         <scene sceneID="qRF-ci-WGh">
             <objects>
-                <viewController id="lr0-Yt-oMc" sceneMemberID="viewController">
+                <viewController id="lr0-Yt-oMc" customClass="FeedItemResults" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Xn-ut-GVa"/>
                         <viewControllerLayoutGuide type="bottom" id="Vbo-B5-7T9"/>
@@ -5062,10 +5062,10 @@
             </objects>
             <point key="canvasLocation" x="10827" y="-442"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Contest Upload-->
         <scene sceneID="eny-EO-jb2">
             <objects>
-                <viewController id="4R9-TO-QgB" sceneMemberID="viewController">
+                <viewController id="4R9-TO-QgB" customClass="FeedItemContestUpload" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KUj-x8-D58"/>
                         <viewControllerLayoutGuide type="bottom" id="gFL-9K-pPN"/>
@@ -5341,10 +5341,10 @@
             </objects>
             <point key="canvasLocation" x="11476" y="-442"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Contest Submit-->
         <scene sceneID="clm-dR-4H6">
             <objects>
-                <viewController id="HlC-tL-bIK" sceneMemberID="viewController">
+                <viewController id="HlC-tL-bIK" customClass="FeedItemContestSubmit" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PTS-f2-87Z"/>
                         <viewControllerLayoutGuide type="bottom" id="QNM-NZ-Z0z"/>
@@ -5576,10 +5576,10 @@
             </objects>
             <point key="canvasLocation" x="11476" y="227"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Contest Image-->
         <scene sceneID="3z7-8e-FGI">
             <objects>
-                <viewController id="mrn-5n-y2N" sceneMemberID="viewController">
+                <viewController id="mrn-5n-y2N" customClass="FeedItemContestImage" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oli-Ku-jBa"/>
                         <viewControllerLayoutGuide type="bottom" id="0hm-bb-K1s"/>
@@ -5777,10 +5777,10 @@
             </objects>
             <point key="canvasLocation" x="11476" y="930"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Contest-->
         <scene sceneID="PlE-or-a5I">
             <objects>
-                <viewController id="wGI-vn-CRn" sceneMemberID="viewController">
+                <viewController id="wGI-vn-CRn" customClass="FeedItemContest" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4P4-W2-iQm"/>
                         <viewControllerLayoutGuide type="bottom" id="yiu-Yy-lZ1"/>
@@ -5973,10 +5973,10 @@
             </objects>
             <point key="canvasLocation" x="11476" y="1626"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Contest2-->
         <scene sceneID="5hM-jZ-vmC">
             <objects>
-                <viewController id="I51-cy-PgR" sceneMemberID="viewController">
+                <viewController id="I51-cy-PgR" customClass="FeedItemContest2" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SnO-Ry-gZb"/>
                         <viewControllerLayoutGuide type="bottom" id="QMW-Uo-Dpb"/>
@@ -6221,10 +6221,10 @@
             </objects>
             <point key="canvasLocation" x="11476" y="-1111"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Item Contest3-->
         <scene sceneID="Fef-SB-pft">
             <objects>
-                <viewController id="PvU-he-Onq" sceneMemberID="viewController">
+                <viewController id="PvU-he-Onq" customClass="FeedItemContest3" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qUb-p5-hCe"/>
                         <viewControllerLayoutGuide type="bottom" id="mwr-EB-pot"/>
@@ -6520,34 +6520,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxR-do-tRn" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="0.0" y="64" width="600" height="147"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOWING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diA-88-44a">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SHOWING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diA-88-44a">
                                         <rect key="frame" x="8" y="8" width="82" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeO-oX-bW9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="All Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeO-oX-bW9">
                                         <rect key="frame" x="41" y="37" width="82" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reality Show Voting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-SA-Jxw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reality Show Voting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-SA-Jxw">
                                         <rect key="frame" x="41" y="90" width="134" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polls" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNB-vf-KzX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Polls" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNB-vf-KzX">
                                         <rect key="frame" x="41" y="63" width="82" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contests / Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvf-ec-w8A">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Contests / Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvf-ec-w8A">
                                         <rect key="frame" x="41" y="117" width="122" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="All-category-new" translatesAutoresizingMaskIntoConstraints="NO" id="LjR-T0-Had">
@@ -6572,7 +6572,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contest-new" translatesAutoresizingMaskIntoConstraints="NO" id="vXn-cg-Xzq">
                                         <rect key="frame" x="12" y="117" width="21" height="21"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeO-Kj-VXp" customClass="DLRadioButton">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeO-Kj-VXp" customClass="DLRadioButton">
                                         <rect key="frame" x="562" y="28" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="dp2-N9-4Xh"/>
@@ -6582,12 +6582,13 @@
                                             <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="checkSelectedButton:" destination="zMC-dI-42f" eventType="touchUpInside" id="o4o-wq-Dk1"/>
                                             <outletCollection property="otherButtons" destination="8im-3D-d3u" id="bFI-Ge-p9G"/>
                                             <outletCollection property="otherButtons" destination="oZO-uw-w7w" id="nWg-YG-Qvk"/>
                                             <outletCollection property="otherButtons" destination="aHH-Pc-YeK" id="dVr-Nh-WtA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8im-3D-d3u" customClass="DLRadioButton">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8im-3D-d3u" customClass="DLRadioButton">
                                         <rect key="frame" x="562" y="54" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="4ze-Is-GaJ"/>
@@ -6596,8 +6597,11 @@
                                             <color key="titleColor" red="0.1764705882" green="0.73333333329999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkSelectedButton:" destination="zMC-dI-42f" eventType="touchUpInside" id="MvT-v8-EOD"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZO-uw-w7w" customClass="DLRadioButton">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZO-uw-w7w" customClass="DLRadioButton">
                                         <rect key="frame" x="562" y="80" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="Wsa-hk-CUa"/>
@@ -6606,8 +6610,11 @@
                                             <color key="titleColor" red="0.1764705882" green="0.73333333329999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkSelectedButton:" destination="zMC-dI-42f" eventType="touchUpInside" id="i9b-QX-WEH"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Pc-YeK" customClass="DLRadioButton">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Pc-YeK" customClass="DLRadioButton">
                                         <rect key="frame" x="562" y="106" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="x3h-wc-ZuM"/>
@@ -6616,6 +6623,9 @@
                                             <color key="titleColor" red="0.1764705882" green="0.73333333329999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.83696007849999998" green="0.83696007849999998" blue="0.83696007849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkSelectedButton:" destination="zMC-dI-42f" eventType="touchUpInside" id="5ja-FJ-LhM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
