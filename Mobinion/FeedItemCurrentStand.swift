@@ -32,7 +32,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        print(itemID)
+        print(itemID)
         getItemDetails()
         
         // for rounded pieInsideView
@@ -187,6 +187,8 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
                             
                             self.totalParts.text = String(json["data"]["item"]["participants"].int!)
                             
+                            self.pieInsideView.hidden = false
+                            
                             self.setChart(self.options, values: self.votes)
                         }
                         catch
@@ -211,6 +213,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 //        pieChart.noDataText = "You need to provide data for the chart."
         pieChart.legend.enabled = false
         pieChart.drawSliceTextEnabled = false
+//        pieChart.highlightPerTapEnabled = false
         pieChart.centerText = " "
         pieChart.descriptionText = ""
         
@@ -235,7 +238,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
 //        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
 //        pieChartDataSet.valueLinePart1Length = 0.2
 //        pieChartDataSet.valueLinePart2Length = 0.4
-        //dataSet.xValuePosition = .OutsideSlice
+//        //dataSet.xValuePosition = .OutsideSlice
         pieChartDataSet.yValuePosition = .OutsideSlice
 
         var colors: [UIColor] = []
@@ -274,7 +277,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
         pieChartData.setValueFont(UIFont(name: "Roboto-Medium", size: 13.0))
         pieChartData.setValueTextColor(UIColor.whiteColor())
         
-        pieChartData.highlightEnabled = false
+        pieChartData.highlightEnabled = true
         
         pieChart.data = pieChartData
         

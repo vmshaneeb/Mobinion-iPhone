@@ -4143,7 +4143,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mb-vw-enf" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="193" y="82" width="224" height="204"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QED-Jg-aV0">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QED-Jg-aV0">
                                                         <rect key="frame" x="71" y="61" width="82" height="82"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="total pols till now" translatesAutoresizingMaskIntoConstraints="NO" id="QMV-EJ-oEx">
@@ -7657,7 +7657,7 @@
         <image name="voting-new" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rwZ-01-9uh"/>
+        <segue reference="9e1-gG-WU1"/>
         <segue reference="MrT-0w-Xh0"/>
         <segue reference="FtU-gx-msM"/>
         <segue reference="1qJ-hb-56E"/>
