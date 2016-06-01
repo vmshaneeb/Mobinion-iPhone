@@ -32,10 +32,11 @@
                         <rect key="frame" x="3" y="8" width="563" height="414"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DwE-M9-gJ3">
-                        <rect key="frame" x="9" y="17" width="72" height="62"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DwE-M9-gJ3">
+                        <rect key="frame" x="9" y="17" width="62" height="62"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="72" id="mQj-3Z-5XG"/>
+                            <constraint firstAttribute="height" constant="62" id="7vY-6P-YN6"/>
+                            <constraint firstAttribute="width" constant="62" id="mQj-3Z-5XG"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -145,7 +146,7 @@
                     <constraint firstItem="tMv-AP-7qe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="Sa2-yN-LNx"/>
                     <constraint firstItem="x24-6A-MLl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="Szf-41-0RV"/>
                     <constraint firstItem="wnC-7V-K8Q" firstAttribute="centerY" secondItem="8Ui-LF-MWN" secondAttribute="centerY" id="T6Y-wf-FiU"/>
-                    <constraint firstItem="XfW-QJ-FJi" firstAttribute="leading" secondItem="DwE-M9-gJ3" secondAttribute="trailing" constant="8" symbolic="YES" id="Z2D-k9-zzR"/>
+                    <constraint firstItem="XfW-QJ-FJi" firstAttribute="leading" secondItem="DwE-M9-gJ3" secondAttribute="trailing" constant="18" id="Z2D-k9-zzR"/>
                     <constraint firstItem="12b-Yn-HbJ" firstAttribute="leading" secondItem="kB7-22-wUp" secondAttribute="trailing" constant="8" symbolic="YES" id="ZjA-tX-ycG"/>
                     <constraint firstItem="tMv-AP-7qe" firstAttribute="top" secondItem="Ol9-LY-WW6" secondAttribute="bottom" constant="18" id="a07-3W-1J1"/>
                     <constraint firstItem="Ol9-LY-WW6" firstAttribute="top" secondItem="XfW-QJ-FJi" secondAttribute="bottom" id="aPY-aa-SRB"/>

@@ -285,6 +285,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         //                print(url)
                         
                         cell.profPic.sd_setImageWithURL(url!)
+                        
+                        // for rounded profile pic
+                        cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2
+                        cell.profPic.clipsToBounds = true
                     }
                     else
                     {
@@ -509,6 +513,11 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
                         
                         cell.profilePic.sd_setImageWithURL(url!)
+                        
+                        // for rounded profile pic
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
+                        cell.profilePic.clipsToBounds = true
+
                     }
                     else
                     {
@@ -719,6 +728,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                         let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
                         
                         cell.profilePic.sd_setImageWithURL(url!)
+                        
+                        // for rounded profile pic
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
+                        cell.profilePic.clipsToBounds = true
                     }
                     else
                     {
@@ -865,6 +878,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     //                print(url)
                     
                     cell.profPic.sd_setImageWithURL(url!)
+                    
+                    // for rounded profile pic
+                    cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2
+                    cell.profPic.clipsToBounds = true
                 }
                 else
                 {
@@ -1010,6 +1027,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
 
                     cell.profPic.sd_setImageWithURL(url!)
+                    
+                    // for rounded profile pic
+                    cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2
+                    cell.profPic.clipsToBounds = true
                 }
                 else
                 {
@@ -1155,6 +1176,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 {
                     let url = NSURL(string: newsFeed[indexPath.row]["userImage"] as! String)
                     cell.profPic.sd_setImageWithURL(url!)
+                    
+                    // for rounded profile pic
+                    cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2
+                    cell.profPic.clipsToBounds = true
                 }
                 else
                 {
@@ -1323,10 +1348,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    print(date0)
                     print(date0.timeIntervalSince1970)
                     
-                    if datesString < date0
-                    {
+//                    if datesString < date0
+//                    {
                         performSegueWithIdentifier("showFeedCurrentStatus", sender: self)
-                    }
+//                    }
                 
                     //                print(datesString)
                     //                print(datesString.timeIntervalSinceNow)
@@ -1535,9 +1560,12 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        let secondVC = segue.destinationViewController as! FeedItemCurrentStand
-        //        print("for segue \(usrFullname.text!)")
-        secondVC.itemID = itemID
+        if segue == "showFeedCurrentStatus"
+        {
+            let secondVC = segue.destinationViewController as! FeedItemCurrentStand
+            //        print("for segue \(usrFullname.text!)")
+            secondVC.itemID = itemID
+        }
     }
     
     //MARK:- Custom Functions

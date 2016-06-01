@@ -43,11 +43,11 @@
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-hY-Nod">
-                        <rect key="frame" x="20" y="418" width="81" height="82"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-hY-Nod">
+                        <rect key="frame" x="20" y="418" width="82" height="82"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="82" id="uyE-st-d41"/>
-                            <constraint firstAttribute="width" constant="81" id="wer-J2-Lsu"/>
+                            <constraint firstAttribute="width" constant="82" id="wer-J2-Lsu"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shreya Goshal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-Zp-K6Y">
@@ -112,11 +112,11 @@
                     <constraint firstItem="0BS-po-NfP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="g72-HQ-0mO"/>
                     <constraint firstItem="c85-aR-fGk" firstAttribute="top" secondItem="gfR-Zp-K6Y" secondAttribute="bottom" constant="3" id="hal-93-2HP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1uG-3m-QI6" secondAttribute="trailing" constant="15" id="jrd-gD-cBA"/>
-                    <constraint firstItem="c85-aR-fGk" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="8" id="kdQ-Oo-8h8"/>
-                    <constraint firstItem="gfR-Zp-K6Y" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="8" id="kwT-5H-22w"/>
+                    <constraint firstItem="c85-aR-fGk" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="7" id="kdQ-Oo-8h8"/>
+                    <constraint firstItem="gfR-Zp-K6Y" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="7" id="kwT-5H-22w"/>
                     <constraint firstItem="1uG-3m-QI6" firstAttribute="leading" secondItem="gfR-Zp-K6Y" secondAttribute="trailing" constant="247" id="lyA-tU-4TW"/>
                     <constraint firstItem="pKL-7M-lj9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="421" id="siD-NV-3Ya"/>
-                    <constraint firstItem="c85-aR-fGk" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="8" id="u9z-9k-gU7"/>
+                    <constraint firstItem="c85-aR-fGk" firstAttribute="leading" secondItem="bCn-hY-Nod" secondAttribute="trailing" constant="7" id="u9z-9k-gU7"/>
                     <constraint firstItem="pKL-7M-lj9" firstAttribute="top" secondItem="1uG-3m-QI6" secondAttribute="bottom" constant="42" id="yNa-hb-lV2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="pKL-7M-lj9" secondAttribute="trailing" constant="15" id="zx8-5s-CDJ"/>
                 </constraints>

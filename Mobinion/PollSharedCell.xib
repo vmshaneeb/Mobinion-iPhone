@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -37,10 +37,11 @@
                         <rect key="frame" x="3" y="8" width="562" height="274"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-IM-IgR">
-                        <rect key="frame" x="8" y="67" width="72" height="62"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-IM-IgR">
+                        <rect key="frame" x="8" y="67" width="62" height="62"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="72" id="Gvp-O4-bQu"/>
+                            <constraint firstAttribute="width" constant="62" id="Gvp-O4-bQu"/>
+                            <constraint firstAttribute="height" constant="62" id="Sta-NX-b42"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -193,7 +194,7 @@
                     <constraint firstItem="NQx-CU-JFd" firstAttribute="top" secondItem="qVB-uJ-ovm" secondAttribute="bottom" constant="18" id="uls-Am-Jfy"/>
                     <constraint firstItem="ofz-fo-sb9" firstAttribute="leading" secondItem="Tcs-Y1-bKe" secondAttribute="trailing" constant="70" id="vVM-2b-02y"/>
                     <constraint firstItem="9TT-83-vOr" firstAttribute="centerY" secondItem="mhX-Ft-18v" secondAttribute="centerY" id="wnm-pU-5yk"/>
-                    <constraint firstItem="lWv-T0-te1" firstAttribute="leading" secondItem="Cdd-IM-IgR" secondAttribute="trailing" constant="8" symbolic="YES" id="xtw-iU-p0c"/>
+                    <constraint firstItem="lWv-T0-te1" firstAttribute="leading" secondItem="Cdd-IM-IgR" secondAttribute="trailing" constant="18" id="xtw-iU-p0c"/>
                     <constraint firstItem="8Rr-0c-kEN" firstAttribute="leading" secondItem="j4R-zP-eCi" secondAttribute="leading" id="yGb-x4-oRn"/>
                     <constraint firstItem="Tcs-Y1-bKe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="z55-ql-90i"/>
                 </constraints>

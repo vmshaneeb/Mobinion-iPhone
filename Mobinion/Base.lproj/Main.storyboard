@@ -1222,7 +1222,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elz-rE-3kh">
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elz-rE-3kh">
                                 <rect key="frame" x="20" y="126" width="560" height="459"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -1287,7 +1287,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="ifu-zB-RPI">
                                 <rect key="frame" x="35" y="71" width="490" height="47"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-RW-PjE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-RW-PjE">
                                 <rect key="frame" x="1" y="117" width="598" height="468"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="PXD-Zt-4Cx">
@@ -7657,10 +7657,10 @@
         <image name="voting-new" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9e1-gG-WU1"/>
+        <segue reference="rwZ-01-9uh"/>
         <segue reference="MrT-0w-Xh0"/>
+        <segue reference="FtU-gx-msM"/>
         <segue reference="1qJ-hb-56E"/>
         <segue reference="evx-kh-O0x"/>
-        <segue reference="FeV-7c-TkY"/>
     </inferredMetricsTieBreakers>
 </document>

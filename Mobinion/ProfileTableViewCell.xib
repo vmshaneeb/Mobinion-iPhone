@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="21" id="ZjL-qE-9ys"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B59-Zx-lZh">
