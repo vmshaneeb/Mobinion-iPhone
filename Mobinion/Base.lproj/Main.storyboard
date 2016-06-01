@@ -7469,7 +7469,7 @@
         <!--News Feed Controller-->
         <scene sceneID="swR-cP-S9w">
             <objects>
-                <tabBarController id="hu0-Xc-Vos" customClass="NewsFeedController" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NewsFeedController" id="hu0-Xc-Vos" customClass="NewsFeedController" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QSw-YF-P6r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

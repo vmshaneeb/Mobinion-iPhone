@@ -25,6 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         GMSServices.provideAPIKey("AIzaSyCZh2o4lsPP0GtVoQOHeWfvzQ71wQGHvVM")
         
+        print(NSUserDefaults.standardUserDefaults().objectForKey("token"))
+        if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
+        {
+            let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+            print(toks)
+            if !(toks.isEmpty)
+            {
+                // Access the storyboard and fetch an instance of the view controller
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewControllerWithIdentifier("NewsFeedController") as! NewsFeedController
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        
         return true
     }
 
