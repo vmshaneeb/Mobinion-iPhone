@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrentStandCell" rowHeight="55" id="KGk-i7-Jjw" customClass="CurrentStandCell" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-yd-wLw">
+                        <rect key="frame" x="8" y="8" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="4uB-rY-6qc"/>
+                            <constraint firstAttribute="width" constant="25" id="ksa-zO-S7N"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P05-CD-wzu">
+                        <rect key="frame" x="36" y="10" width="506" height="21"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8L-Ag-6si">
+                        <rect key="frame" x="550" y="10" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="0L7-Rq-orZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rjn-yd-wLw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Dmm-D3-NcF"/>
+                    <constraint firstItem="P05-CD-wzu" firstAttribute="firstBaseline" secondItem="V8L-Ag-6si" secondAttribute="firstBaseline" id="J1I-e8-0P2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Rjn-yd-wLw" secondAttribute="bottom" constant="13" id="STs-R2-SVY"/>
+                    <constraint firstItem="P05-CD-wzu" firstAttribute="baseline" secondItem="V8L-Ag-6si" secondAttribute="baseline" id="UEs-lR-teg"/>
+                    <constraint firstItem="P05-CD-wzu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="UWO-hW-m8d"/>
+                    <constraint firstItem="Rjn-yd-wLw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="XfH-gc-aq5"/>
+                    <constraint firstItem="Rjn-yd-wLw" firstAttribute="centerY" secondItem="P05-CD-wzu" secondAttribute="centerY" id="Z03-od-Bwc"/>
+                    <constraint firstItem="V8L-Ag-6si" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="sOP-zN-2tf"/>
+                    <constraint firstItem="V8L-Ag-6si" firstAttribute="leading" secondItem="P05-CD-wzu" secondAttribute="trailing" constant="8" symbolic="YES" id="xEc-NA-g1L"/>
+                    <constraint firstItem="P05-CD-wzu" firstAttribute="leading" secondItem="Rjn-yd-wLw" secondAttribute="trailing" constant="3" id="y7N-My-ps6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="options" destination="P05-CD-wzu" id="tds-X0-tcL"/>
+                <outlet property="pollPieColor" destination="Rjn-yd-wLw" id="Zkk-Pn-xN0"/>
+                <outlet property="totVotes" destination="V8L-Ag-6si" id="wA0-of-7LT"/>
+            </connections>
+            <point key="canvasLocation" x="373" y="362.5"/>
+        </tableViewCell>
+    </objects>
+</document>

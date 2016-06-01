@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import Charts
 
-class FeedItemCurrentStand: UIViewController, ChartViewDelegate
+class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet weak var pollHeader: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
@@ -27,13 +27,21 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
     var options = [String]()
     var votes = [Double]()
     
+    var totPart: Int?
+//    var totPartstr = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let nib:UINib = UINib(nibName: "CurrentStandCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "CurrentStandCell")
+        
         print(itemID)
         getItemDetails()
+        
+//        totPart = 0
         
         // for rounded pieInsideView
         pieInsideView.layer.cornerRadius = pieInsideView.frame.size.width / 2
@@ -50,12 +58,36 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
     //MARK:- ChartViewDelegates
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight)
     {
-        print("chartValueSelected")
+//        print("chartValueSelected")
     }
     
     func chartValueNothingSelected(chartView: ChartViewBase)
     {
-        print("chartValueNothingSelected")
+//        print("chartValueNothingSelected")
+    }
+    
+    //MARK:- UITableViewDelegates
+    
+    //MARK:- UITableViewDataSources
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return options.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell", forIndexPath: indexPath) as! CurrentStandCell
+        
+        cell.options.text = options[indexPath.row]
+//        cell.pollPieColor.image =
+        cell.totVotes.text = String(votes[indexPath.row])
+        
+        return cell
     }
     
     //MARK:- Actions
@@ -171,7 +203,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
                                 self.votes.append(json["data"]["item"]["questionDetails"][0]["options"][i]["numberOfVotes"].double!)
                             }
 //                            print(self.options)
-//                            print(self.votes)
+                            print(self.votes)
                             
                             self.pollHeader.text = json["data"]["item"]["itemText"].string!
                             
@@ -186,7 +218,9 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
                             self.finalDate.text = dateFormatter.stringFromDate(datesString)
                             
                             self.totalParts.text = String(json["data"]["item"]["participants"].int!)
-                            
+//                            self.totPartstr = self.totalParts.text!
+                            self.totPart = json["data"]["item"]["participants"].int!
+//                            print("Total:- \(self.totPart)")
                             self.pieInsideView.hidden = false
                             
                             self.setChart(self.options, values: self.votes)
@@ -195,7 +229,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate
                         {
                             print("error in responseObject")
                         }
-//                        self.tableView.reloadData()
+                        self.tableView.reloadData()
                     }
                 }
                 else

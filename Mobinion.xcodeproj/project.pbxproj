@@ -58,6 +58,8 @@
 		6569E6F51CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569E6F31CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift */; };
 		6569E6F61CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */; };
 		656CFE5C1CEB969F0088175A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CFE5B1CEB969F0088175A /* Extensions.swift */; };
+		657D1F951CFF6DBB00B85B64 /* CurrentStandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657D1F931CFF6DBB00B85B64 /* CurrentStandCell.swift */; };
+		657D1F961CFF6DBB00B85B64 /* CurrentStandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657D1F941CFF6DBB00B85B64 /* CurrentStandCell.xib */; };
 		657F5B181CD2E9C400A1C3FF /* ManualCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F5B171CD2E9C400A1C3FF /* ManualCode.swift */; };
 		6587D0281CEDF36D00F94E80 /* CreatePollPicOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6587D0261CEDF36D00F94E80 /* CreatePollPicOptionCell.swift */; };
 		6587D0291CEDF36D00F94E80 /* CreatePollPicOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587D0271CEDF36D00F94E80 /* CreatePollPicOptionCell.xib */; };
@@ -224,6 +226,8 @@
 		6569E6F31CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableNoFeedsCell.swift; sourceTree = "<group>"; };
 		6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableNoFeedsCell.xib; sourceTree = "<group>"; };
 		656CFE5B1CEB969F0088175A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		657D1F931CFF6DBB00B85B64 /* CurrentStandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentStandCell.swift; sourceTree = "<group>"; };
+		657D1F941CFF6DBB00B85B64 /* CurrentStandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentStandCell.xib; sourceTree = "<group>"; };
 		657F5B171CD2E9C400A1C3FF /* ManualCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualCode.swift; sourceTree = "<group>"; };
 		6587D0261CEDF36D00F94E80 /* CreatePollPicOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePollPicOptionCell.swift; sourceTree = "<group>"; };
 		6587D0271CEDF36D00F94E80 /* CreatePollPicOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePollPicOptionCell.xib; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 		650835C01C95779600C6C280 /* Mobinion */ = {
 			isa = PBXGroup;
 			children = (
+				657D1F931CFF6DBB00B85B64 /* CurrentStandCell.swift */,
+				657D1F941CFF6DBB00B85B64 /* CurrentStandCell.xib */,
 				651FA70D1CFD27380032005D /* FeedItemVoting.swift */,
 				651FA70F1CFD27F40032005D /* FeedItemFeedback.swift */,
 				651FA7111CFD28650032005D /* FeedItemDraw.swift */,
@@ -718,6 +724,7 @@
 				65D01D931CA42ECA00A8A478 /* NewsFeedTableViewCell5.xib in Resources */,
 				65E311FE1CD8B4F900F784DA /* Roboto-Regular.ttf in Resources */,
 				65E311F91CD8B4F900F784DA /* Roboto-Italic.ttf in Resources */,
+				657D1F961CFF6DBB00B85B64 /* CurrentStandCell.xib in Resources */,
 				65E311F51CD8B4F900F784DA /* Roboto-Black.ttf in Resources */,
 				65E311FB1CD8B4F900F784DA /* Roboto-LightItalic.ttf in Resources */,
 				653F527E1CB1B013001B494C /* Default@2x.png in Resources */,
@@ -833,6 +840,7 @@
 				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
 				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
 				65CFF5711CED1A7A0085D57E /* CreatePollTableViewFooterView.swift in Sources */,
+				657D1F951CFF6DBB00B85B64 /* CurrentStandCell.swift in Sources */,
 				65EEC7201CDE384700A2A81E /* ProfileTableViewCell.swift in Sources */,
 				65BAEC551CC905E200CCACA3 /* NewsFeedMyProfile.swift in Sources */,
 				652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */,
