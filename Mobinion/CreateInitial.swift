@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Async
 
 class CreateInitial: UIViewController
 {
@@ -28,7 +29,10 @@ class CreateInitial: UIViewController
             print(toks)
             if !(toks.isEmpty)
             {
-                performSegueWithIdentifier("showNewsFeedFromInitial", sender: self)
+                Async.main
+                {
+                    self.performSegueWithIdentifier("showNewsFeedFromInitial", sender: self)
+                }
             }
         }
     }
