@@ -1560,7 +1560,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue == "showFeedCurrentStatus"
+        print(segue.identifier)
+        if segue.identifier == "showFeedCurrentStatus"
         {
             let secondVC = segue.destinationViewController as! FeedItemCurrentStand
             //        print("for segue \(usrFullname.text!)")
