@@ -54,6 +54,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     var URLsInCell = [Int: String]()
     var uploadURLsInCell = [String]()
     var pollImageURL = ""
+    var pollImageData: NSData!
     var pollImageUploadURL = ""
     var pollImageUploaded: Bool!
     
@@ -288,16 +289,20 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         {
             placeholderImageView.image = selectedImage
             stackView.hidden = true
+//
+//            let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+//            let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
+//            
+//            
+//            var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+//            path = (path as NSString).stringByAppendingPathComponent(imageName)
+////
+//            let result = selectedImage.writeAtPath(path)
+//            print("File write status:- \(result)")
+//            
+//            pollImageURL = path
             
-            let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-            let imageName = (imageURL.path! as NSString).lastPathComponent //get file name
-            var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            path = (path as NSString).stringByAppendingPathComponent(imageName)
-            
-            let result = selectedImage.writeAtPath(path)
-            print("File write status:- \(result)")
-            
-            pollImageURL = path
+            pollImageData = UIImageJPEGRepresentation(selectedImage, 0.5)!
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -356,15 +361,21 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         print("Upload Sucess.. Public ID=\(publicID["public_id"])")
         print("Full result=\(result)")
         
-        var imageName = ""
+//        var imageName = ""
         
-        if (!pollImageURL.isEmpty && pollImageUploaded == false)
-        {
-            imageName = pollImageURL.lastPathComponent.stringByDeletingPathExtension
-//            print(imageName)
-        }
-        
-        if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
+//        if (!pollImageURL.isEmpty && pollImageUploaded == false)
+//        {
+//            imageName = pollImageURL.lastPathComponent.stringByDeletingPathExtension
+////            print(imageName)
+//        }
+//        
+//        if (publicID["original_filename"].stringValue == imageName && pollImageUploaded == false)
+//        {
+//            pollImageUploadURL = publicID["url"].stringValue
+//            pollImageUploaded = true
+//            print("Poll Image:-\(pollImageUploadURL)")
+//        }
+        if pollImageUploaded != true
         {
             pollImageUploadURL = publicID["url"].stringValue
             pollImageUploaded = true
@@ -435,7 +446,12 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
         
         
-        if !(pollImageURL.isEmpty)
+//        if !(pollImageURL.isEmpty)
+//        {
+//            uploader.upload(pollImageURL, options: ["sync": true])
+//        }
+        
+        if (pollImageData.length > 0)
         {
             uploader.upload(pollImageURL, options: ["sync": true])
         }

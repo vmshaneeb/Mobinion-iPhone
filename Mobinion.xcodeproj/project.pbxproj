@@ -504,7 +504,7 @@
 				65E311F41CD8B4F900F784DA /* RobotoCondensed-Regular.ttf */,
 			);
 			name = RobotoTTF;
-			path = ../../RobotoTTF;
+			path = ../RobotoTTF;
 			sourceTree = "<group>";
 		};
 		65E3124C1CD8F69300F784DA /* PopDatePicker */ = {

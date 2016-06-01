@@ -1,0 +1,28 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C3F4F679-7869-4A71-A410-E9AAF355AE94",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Mobinion",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Mobinion.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vmshaneeb\/Mobinion-iPhone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vmshaneeb\/Mobinion-iPhone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A752DF3C6A77A20D12D39DE2E74AE6738EB6ACF9"
+    }
+  ]
+}
