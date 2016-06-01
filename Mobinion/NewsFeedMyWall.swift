@@ -13,6 +13,7 @@ import DBAlertController
 import SDWebImage
 import UIScrollView_InfiniteScroll
 import Spring
+import DLRadioButton
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
@@ -21,10 +22,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var dropdownList: SpringView!
     @IBOutlet weak var tableviewTopConstraints: NSLayoutConstraint!
     
+    
     var newsFeed = NSMutableArray()
     var searchFeed = NSMutableArray()
     var users = NSMutableArray()
     var rowno:Int = 1
+    var ItemSelctdId = ""
+    var feedType = "all"
     
 //    var jsondata:JSON = [:]
     
@@ -168,6 +172,22 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         return self.newsFeed.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if  (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
+        {
+            ItemSelctdId = newsFeed[indexPath.row]["itemId"]!! as! String
+            performSegueWithIdentifier("Showpolldetailsfromfeed", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        let secondVC = segue.destinationViewController as! PollScreen1ViewController
+        secondVC.ItemId = ItemSelctdId
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
 //        debugPrint(newsFeed[indexPath.row])
@@ -183,6 +203,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.borderWidth = 2
             cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
             
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         //Cards Type
@@ -194,7 +215,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.cornerRadius = 5
             cell.bgImg.layer.borderWidth = 2
             cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         //Shared Type
@@ -419,7 +440,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.totalNos.text = "0"
                 }
                 
-                
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             }
                 
@@ -629,7 +650,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 {
                     cell.totalPoles.text = "0"
                 }
-                
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             }
                 
@@ -838,7 +859,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.totalPoles.text = "0"
                 }
                 //            }
-                
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 return cell
             }
         }
@@ -981,7 +1002,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 cell.totalNos.text = ""
             }
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
          
@@ -1129,7 +1150,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                  cell.totalNos.text = "0"
             }
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
             
@@ -1267,7 +1288,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 cell.totalNos.text = "0"
             }
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
 
         }
@@ -1282,7 +1303,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         else
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("NoFeeds") as! NewsFeedTableNoFeedsCell
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         
@@ -1455,6 +1476,39 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    
+    @IBAction func checkSelectedButton(sender: DLRadioButton)
+    {
+        for button in sender.selectedButtons()
+        {
+//            print(button.tag)
+            switch button.tag
+            {
+                case 1:
+                    feedType = "all"
+                case 2:
+                    feedType = "polls"
+                case 3:
+                    feedType = "votings"
+                case 4:
+                    feedType = "contests"
+    //            case 5:
+    //                feedType = "feedbacks"
+                default:
+                    break
+            }
+            
+        }
+        
+        tableviewTopConstraints.constant = 0
+        domyWallafterSelection()
+//        print("Before Removal:- \(newsFeed)")
+//        newsFeed.removeAllObjects()
+//        domyWall()
+//        print("After Removal:- \(newsFeed)")
+//        print(feedType)
+    }
+    
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
     {
@@ -1520,6 +1574,55 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
+        }
+    }
+    
+    func domyWallafterSelection()
+    {
+        self.StartLoader()
+        
+        print("Before Removal:- \(newsFeed)")
+//        newsFeed.removeAllObjects()
+        
+        getFeeds()
+            { value, data, error in
+                if value != nil
+                {
+                    let json = JSON(value!)
+                    print(json)
+                    
+                    self.HideLoader()
+                    
+                    let titles = json["status"].stringValue
+//                    let messages = json["message"].stringValue
+                    
+                    if titles == "error"
+                    {
+//                        self.doDBalertView(titles, msgs: messages)
+                    }
+                    else
+                    {
+                        do
+                        {
+                            let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                            self.newsFeed = responseObject["data"]!["newsFeed"]!!.mutableCopy() as! NSMutableArray
+//                            print (self.newsFeed)
+                            print("After Removal:- \(self.newsFeed)")
+
+                        }
+                        catch
+                        {
+                            print("error in responseObject")
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+                else
+                {
+                    self.HideLoader()
+                    //                    print(error)
+//                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                }
         }
     }
     
@@ -1684,7 +1787,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let URL = "http://vyooha.cloudapp.net:1337/mobileNewsFeed"//?rowNumber=1&showingType=all"
         
-        let parameter = ["rowNumber": String(rowno), "showingType": "all"]
+        let parameter = ["rowNumber": String(rowno), "showingType": feedType]//"all"]
         
         Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .URL)
 //        Alamofire.request(.GET, URL, headers: header, encoding: .JSON)
