@@ -4243,7 +4243,7 @@
                                             <constraint firstItem="cdg-dj-djb" firstAttribute="leading" secondItem="Zlh-th-sTv" secondAttribute="trailing" constant="3" id="wUX-jn-5og"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="29w-Ch-BNv">
+                                    <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="29w-Ch-BNv">
                                         <rect key="frame" x="0.0" y="330" width="600" height="206"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -4253,7 +4253,7 @@
                                             <outlet property="dataSource" destination="RH6-Dq-7Ci" id="Db5-z9-NyV"/>
                                         </connections>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-b6-aCq">
+                                    <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-b6-aCq">
                                         <rect key="frame" x="0.0" y="580" width="600" height="206"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -4297,6 +4297,7 @@
                         <outlet property="pieInsideView" destination="QED-Jg-aV0" id="N7s-bG-8mp"/>
                         <outlet property="pollHeader" destination="Bqj-Kw-cCa" id="m6C-il-8e9"/>
                         <outlet property="tableView" destination="29w-Ch-BNv" id="tQ7-tp-it9"/>
+                        <outlet property="tableViewComments" destination="NT3-b6-aCq" id="1MV-Qh-Bh5"/>
                         <outlet property="totalParts" destination="ggO-8v-z6X" id="mhu-6u-u1h"/>
                         <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationsfromCurrent" id="9e1-gG-WU1"/>
                     </connections>
@@ -8831,6 +8832,6 @@
         <segue reference="FeV-7c-TkY"/>
         <segue reference="1qJ-hb-56E"/>
         <segue reference="evx-kh-O0x"/>
-        <segue reference="rwZ-01-9uh"/>
+        <segue reference="9e1-gG-WU1"/>
     </inferredMetricsTieBreakers>
 </document>

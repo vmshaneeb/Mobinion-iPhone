@@ -58,6 +58,8 @@
 		654B4C1D1D0022490041B45D /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654B4C1A1D0022490041B45D /* ItemDetail.swift */; };
 		654B4C1E1D0022490041B45D /* ItemDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654B4C1B1D0022490041B45D /* ItemDetail.xib */; };
 		654B4C1F1D0022490041B45D /* PollScreen1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654B4C1C1D0022490041B45D /* PollScreen1ViewController.swift */; };
+		654B4C221D00AA560041B45D /* CurrentStandImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654B4C201D00AA560041B45D /* CurrentStandImgCell.swift */; };
+		654B4C231D00AA560041B45D /* CurrentStandImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654B4C211D00AA560041B45D /* CurrentStandImgCell.xib */; };
 		6569E6F51CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569E6F31CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift */; };
 		6569E6F61CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */; };
 		656CFE5C1CEB969F0088175A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CFE5B1CEB969F0088175A /* Extensions.swift */; };
@@ -229,6 +231,8 @@
 		654B4C1A1D0022490041B45D /* ItemDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		654B4C1B1D0022490041B45D /* ItemDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetail.xib; sourceTree = "<group>"; };
 		654B4C1C1D0022490041B45D /* PollScreen1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollScreen1ViewController.swift; sourceTree = "<group>"; };
+		654B4C201D00AA560041B45D /* CurrentStandImgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentStandImgCell.swift; sourceTree = "<group>"; };
+		654B4C211D00AA560041B45D /* CurrentStandImgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentStandImgCell.xib; sourceTree = "<group>"; };
 		6569E6F31CE6983700478F2F /* NewsFeedTableNoFeedsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableNoFeedsCell.swift; sourceTree = "<group>"; };
 		6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableNoFeedsCell.xib; sourceTree = "<group>"; };
 		656CFE5B1CEB969F0088175A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 				6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */,
 				657D1F931CFF6DBB00B85B64 /* CurrentStandCell.swift */,
 				657D1F941CFF6DBB00B85B64 /* CurrentStandCell.xib */,
+				654B4C201D00AA560041B45D /* CurrentStandImgCell.swift */,
+				654B4C211D00AA560041B45D /* CurrentStandImgCell.xib */,
 				654B4C1C1D0022490041B45D /* PollScreen1ViewController.swift */,
 				654B4C1A1D0022490041B45D /* ItemDetail.swift */,
 				654B4C1B1D0022490041B45D /* ItemDetail.xib */,
@@ -750,6 +756,7 @@
 				650835C91C95779600C6C280 /* Assets.xcassets in Resources */,
 				65E312061CD8B4F900F784DA /* RobotoCondensed-Regular.ttf in Resources */,
 				65EEC7211CDE384700A2A81E /* ProfileTableViewCell.xib in Resources */,
+				654B4C231D00AA560041B45D /* CurrentStandImgCell.xib in Resources */,
 				6587D0291CEDF36D00F94E80 /* CreatePollPicOptionCell.xib in Resources */,
 				65CFF56F1CED16080085D57E /* CreatePollTableViewCell.xib in Resources */,
 				65E311F81CD8B4F900F784DA /* Roboto-BoldItalic.ttf in Resources */,
@@ -845,6 +852,7 @@
 				653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */,
 				656CFE5C1CEB969F0088175A /* Extensions.swift in Sources */,
 				651FA7121CFD28650032005D /* FeedItemDraw.swift in Sources */,
+				654B4C221D00AA560041B45D /* CurrentStandImgCell.swift in Sources */,
 				653F52831CB1B013001B494C /* NBMetadataCore.m in Sources */,
 				65D01D831CA32BC900A8A478 /* CreateInitial.swift in Sources */,
 				653F52851CB1B013001B494C /* NBMetadataCoreTest.m in Sources */,
