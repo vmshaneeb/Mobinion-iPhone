@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ItemDetail" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemDetail" id="a7d-os-aeC" customClass="ItemDetail" customModule="Mobinion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a7d-os-aeC" id="dau-7p-Z9h">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C2F-xy-9MU">
+                        <rect key="frame" x="0.0" y="1" width="320" height="42"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Quaker white oats  Quaker white oats Quaker white oats " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwX-us-f3G">
+                        <rect key="frame" x="5" y="0.0" width="237" height="44"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGD-zm-tXt">
+                        <rect key="frame" x="250" y="3" width="62" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="T2Z-Lg-TQ7"/>
+                            <constraint firstAttribute="width" constant="82" id="f9m-iE-OC3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" image="vote-not-selected-button-w-txt">
+                            <color key="titleColor" red="0.19215686274509802" green="0.792156862745098" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" red="0.19215686274509802" green="0.792156862745098" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="f9m-iE-OC3"/>
+                            </mask>
+                        </variation>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="C2F-xy-9MU" firstAttribute="top" secondItem="dau-7p-Z9h" secondAttribute="topMargin" constant="-7" id="80z-yi-obi"/>
+                    <constraint firstItem="OwX-us-f3G" firstAttribute="leading" secondItem="dau-7p-Z9h" secondAttribute="leadingMargin" constant="-3" id="AtA-GB-byC"/>
+                    <constraint firstItem="GGD-zm-tXt" firstAttribute="centerY" secondItem="OwX-us-f3G" secondAttribute="centerY" id="CzT-P5-JiY"/>
+                    <constraint firstItem="C2F-xy-9MU" firstAttribute="leading" secondItem="dau-7p-Z9h" secondAttribute="leadingMargin" constant="-8" id="H8e-Dg-IgV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="OwX-us-f3G" secondAttribute="bottom" constant="-9" id="IMA-lP-lGM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="C2F-xy-9MU" secondAttribute="trailing" constant="-8" id="IU5-Zc-zyr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GGD-zm-tXt" secondAttribute="trailing" constant="-4" id="JhV-Ym-5GZ"/>
+                    <constraint firstItem="GGD-zm-tXt" firstAttribute="leading" secondItem="OwX-us-f3G" secondAttribute="trailing" constant="11" id="Uqr-qg-WxT"/>
+                    <constraint firstItem="OwX-us-f3G" firstAttribute="top" secondItem="dau-7p-Z9h" secondAttribute="topMargin" constant="-8" id="dtG-rY-GML"/>
+                    <constraint firstItem="GGD-zm-tXt" firstAttribute="leading" secondItem="OwX-us-f3G" secondAttribute="trailing" constant="8" id="kGM-Fb-ybY"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="C2F-xy-9MU" secondAttribute="bottom" constant="-8" id="mWc-ME-NSU"/>
+                    <constraint firstItem="OwX-us-f3G" firstAttribute="centerX" secondItem="dau-7p-Z9h" secondAttribute="centerX" id="oWL-OD-Rdv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GGD-zm-tXt" secondAttribute="trailing" id="xgG-cl-mdq"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="oWL-OD-Rdv"/>
+                        <exclude reference="JhV-Ym-5GZ"/>
+                        <exclude reference="Uqr-qg-WxT"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="ChckBtn" destination="GGD-zm-tXt" id="CMN-Oo-fkM"/>
+                <outlet property="ItemImg" destination="C2F-xy-9MU" id="egg-MX-sPr"/>
+                <outlet property="PrdctDescp" destination="OwX-us-f3G" id="vgM-Ze-bVm"/>
+            </connections>
+            <point key="canvasLocation" x="152" y="106"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="vote-not-selected-button-w-txt" width="62" height="32"/>
+    </resources>
+</document>
