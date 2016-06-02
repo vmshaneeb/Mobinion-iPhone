@@ -29,6 +29,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var feedType = "all"
     var itemID = ""
+//    var ItemSelctdId = ""
     
 //    var jsondata:JSON = [:]
     
@@ -159,7 +160,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK:UITableViewDelegate
+    //MARK:- UITableViewDataSources
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
@@ -187,6 +188,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.borderWidth = 2
             cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
             
+            cell.selectionStyle = .None//UITableViewCellSelectionStyle.None
+            
             return cell
         }
         //Cards Type
@@ -198,6 +201,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.bgImg.layer.cornerRadius = 5
             cell.bgImg.layer.borderWidth = 2
             cell.bgImg.layer.borderColor = UIColor.clearColor().CGColor
+            
+            cell.selectionStyle = .None
             
             return cell
         }
@@ -427,6 +432,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.totalNos.text = "0"
                 }
                 
+                cell.selectionStyle = .None
                 
                 return cell
             }
@@ -643,6 +649,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     cell.totalPoles.text = "0"
                 }
                 
+                cell.selectionStyle = .None
+                
                 return cell
             }
                 
@@ -856,6 +864,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 //            }
                 
+                cell.selectionStyle = .None
+                
                 return cell
             }
         }
@@ -1002,6 +1012,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 cell.totalNos.text = ""
             }
+            
+            cell.selectionStyle = .None
             
             return cell
         }
@@ -1155,6 +1167,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                  cell.totalNos.text = "0"
             }
             
+            cell.selectionStyle = .None
+            
             return cell
         }
             
@@ -1297,6 +1311,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell.totalNos.text = "0"
             }
             
+            cell.selectionStyle = .None
+            
             return cell
 
         }
@@ -1312,17 +1328,18 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("NoFeeds") as! NewsFeedTableNoFeedsCell
             
+            cell.selectionStyle = .None
+            
             return cell
         }
         
 //        return result
         }
     
-    
+    //MARK:UITableViewDelegates
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
 //        print("\(newsFeed[indexPath.row]["userName"] as! String) pressed")
-        //showFeedCurrentStatus
         if (newsFeed[indexPath.row]["type"]!!.isEqualToString("poll"))
         {
             if (newsFeed[indexPath.row].valueForKey("item_expiryDate")?.isKindOfClass(NSNull) != nil)
@@ -1348,10 +1365,14 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    print(date0)
                     print(date0.timeIntervalSince1970)
                     
-//                    if datesString < date0
-//                    {
+                    if datesString < date0
+                    {
                         performSegueWithIdentifier("showFeedCurrentStatus", sender: self)
-//                    }
+                    }
+                    else
+                    {
+                        performSegueWithIdentifier("Showpolldetailsfromfeed", sender: self)
+                    }
                 
                     //                print(datesString)
                     //                print(datesString.timeIntervalSinceNow)
@@ -1558,14 +1579,19 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //        print(feedType)
     }
     
+    //MARK:- Overrides
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        print(segue.identifier)
+//        print(segue.identifier)
         if segue.identifier == "showFeedCurrentStatus"
         {
             let secondVC = segue.destinationViewController as! FeedItemCurrentStand
-            //        print("for segue \(usrFullname.text!)")
             secondVC.itemID = itemID
+        }
+        else if segue.identifier == "Showpolldetailsfromfeed"
+        {
+            let secondVC = segue.destinationViewController as! PollScreen1ViewController
+            secondVC.ItemId = itemID
         }
     }
     
