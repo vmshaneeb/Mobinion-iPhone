@@ -625,7 +625,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //                         "regionalRes": "Kerala",
                          "description": desc_Field.text!,
                          "pollImage": pollImageUploadURL,
-                         "pollType": optionsType.selectedItem!,
+                         "pollType": "ques_poll",//optionsType.selectedItem!,
                          "expDate": expiryDate.selectedItem!,
                          "tags": tagstextView.text]
         }
@@ -643,7 +643,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
 //                         "regionalRes": "Kerala",
                          "description": desc_Field.text!,
                          "pollImage": pollImageUploadURL,
-                         "pollType": optionsType.selectedItem!,
+                         "pollType": "img_poll",//optionsType.selectedItem!,
                          "expDate": expiryDate.selectedItem!,
                          "tags": tagstextView.text]
         }
