@@ -29,6 +29,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var feedType = "all"
     var itemID = ""
+    var feedID = ""
 //    var ItemSelctdId = ""
     
 //    var jsondata:JSON = [:]
@@ -1347,6 +1348,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 if (!(newsFeed[indexPath.row]["item_expiryDate"]!!.isKindOfClass(NSNull)))
                 {
                     itemID = newsFeed[indexPath.row]["itemId"] as! String
+                    feedID = newsFeed[indexPath.row]["feedId"] as! String
                     
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -1365,14 +1367,14 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    print(date0)
                     print(date0.timeIntervalSince1970)
                     
-                    if datesString < date0
-                    {
+//                    if datesString < date0
+//                    {
                         performSegueWithIdentifier("showFeedCurrentStatus", sender: self)
-                    }
-                    else
-                    {
-                        performSegueWithIdentifier("Showpolldetailsfromfeed", sender: self)
-                    }
+//                    }
+//                    else
+//                    {
+//                        performSegueWithIdentifier("Showpolldetailsfromfeed", sender: self)
+//                    }
                 
                     //                print(datesString)
                     //                print(datesString.timeIntervalSinceNow)
@@ -1587,6 +1589,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             let secondVC = segue.destinationViewController as! FeedItemCurrentStand
             secondVC.itemID = itemID
+            secondVC.feedID = feedID
         }
         else if segue.identifier == "Showpolldetailsfromfeed"
         {
