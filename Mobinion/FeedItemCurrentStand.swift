@@ -22,7 +22,11 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
     @IBOutlet weak var tableView: UITableView!
     
     var itemID = ""
+    var feedID = ""
+    
     var itemDetails = NSMutableDictionary()
+    var comments = NSMutableArray()
+    
     var questions = [String]()
     var options = [String]()
     var votes = [Double]()
@@ -38,8 +42,11 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
         let nib:UINib = UINib(nibName: "CurrentStandCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "CurrentStandCell")
         
-        print(itemID)
+        print("ItemID:- \(itemID)")
         getItemDetails()
+        
+        print("FeedID:- \(feedID)")
+        getCommentDetails()
         
 //        totPart = 0
         
@@ -159,87 +166,162 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
         }
     }
     
+    func getlistOfComments(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/listOfComments"
+        
+        let parameter = ["postId": itemID]
+        
+        Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .URL)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, nil, error)
+                }
+        }
+    }
+    
     func getItemDetails()
     {
         self.StartLoader()
         
         getCurrentStand()
         { value, data, error in
-                if value != nil
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
                 {
-                    let json = JSON(value!)
-                    print(json)
-                    
-                    self.HideLoader()
-                    
-                    let titles = json["status"].stringValue
-                    let messages = json["message"].stringValue
-                    
-                    if titles == "error"
-                    {
-                        self.doDBalertView(titles, msgs: messages)
-                    }
-                    else
-                    {
-                        do
-                        {
-                            let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
-                            
-                            self.itemDetails = responseObject.objectForKey("data")?.mutableCopy() as! NSMutableDictionary
-                            
-                            print (self.itemDetails)
-                            
-                            for i in 0 ..< json["data"]["item"]["questionDetails"].count
-                            {
-//                                print(json["data"]["item"]["questionDetails"])
-                                self.questions.append(json["data"]["item"]["questionDetails"][i]["question"].string!)
-                            }
-//                            print(self.questions)
-                            
-                            for i in 0 ..< json["data"]["item"]["questionDetails"][0]["options"].count
-                            {
-//                                print(json["data"]["item"]["questionDetails"][0]["options"][i]["content"])
-                                self.options.append(json["data"]["item"]["questionDetails"][0]["options"][i]["content"].string!)
-                                self.votes.append(json["data"]["item"]["questionDetails"][0]["options"][i]["numberOfVotes"].double!)
-                            }
-//                            print(self.options)
-                            print(self.votes)
-                            
-                            self.pollHeader.text = json["data"]["item"]["itemText"].string!
-                            
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                            let sdate = json["data"]["item"]["item_expiryDate"].string!
-//                            print(sdate)
-                            let datesString:NSDate = dateFormatter.dateFromString(sdate)!
-//                            print(datesString)
-                            dateFormatter.dateFormat = "dd MMM yyyy"
-//                            print(dateFormatter.stringFromDate(datesString))
-                            self.finalDate.text = dateFormatter.stringFromDate(datesString)
-                            
-                            self.totalParts.text = String(json["data"]["item"]["participants"].int!)
-//                            self.totPartstr = self.totalParts.text!
-                            self.totPart = json["data"]["item"]["participants"].int!
-//                            print("Total:- \(self.totPart)")
-                            self.pieInsideView.hidden = false
-                            
-                            self.setChart(self.options, values: self.votes)
-                        }
-                        catch
-                        {
-                            print("error in responseObject")
-                        }
-                        self.tableView.reloadData()
-                    }
+                    self.doDBalertView(titles, msgs: messages)
                 }
                 else
                 {
-                    self.HideLoader()
-                    //                    print(error)
-                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
+                        
+                        self.itemDetails = responseObject.objectForKey("data")?.mutableCopy() as! NSMutableDictionary
+                        
+                        print (self.itemDetails)
+                        
+                        for i in 0 ..< json["data"]["item"]["questionDetails"].count
+                        {
+//                                print(json["data"]["item"]["questionDetails"])
+                            self.questions.append(json["data"]["item"]["questionDetails"][i]["question"].string!)
+                        }
+//                            print(self.questions)
+                        
+                        for i in 0 ..< json["data"]["item"]["questionDetails"][0]["options"].count
+                        {
+//                                print(json["data"]["item"]["questionDetails"][0]["options"][i]["content"])
+                            self.options.append(json["data"]["item"]["questionDetails"][0]["options"][i]["content"].string!)
+                            self.votes.append(json["data"]["item"]["questionDetails"][0]["options"][i]["numberOfVotes"].double!)
+                        }
+//                            print(self.options)
+                        print(self.votes)
+                        
+                        self.pollHeader.text = json["data"]["item"]["itemText"].string!
+                        
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        let sdate = json["data"]["item"]["item_expiryDate"].string!
+//                            print(sdate)
+                        let datesString:NSDate = dateFormatter.dateFromString(sdate)!
+//                            print(datesString)
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+//                            print(dateFormatter.stringFromDate(datesString))
+                        self.finalDate.text = dateFormatter.stringFromDate(datesString)
+                        
+                        self.totalParts.text = String(json["data"]["item"]["participants"].int!)
+//                            self.totPartstr = self.totalParts.text!
+                        self.totPart = json["data"]["item"]["participants"].int!
+//                            print("Total:- \(self.totPart)")
+                        self.pieInsideView.hidden = false
+                        
+                        self.setChart(self.options, values: self.votes)
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    self.tableView.reloadData()
                 }
+            }
+            else
+            {
+                self.HideLoader()
+                //                    print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
         }
     }
+    
+    func getCommentDetails()
+    {
+        self.StartLoader()
+        
+        getlistOfComments()
+        { value, data, error in
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    self.doDBalertView(titles, msgs: messages)
+                }
+                else
+                {
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+                        
+                        self.comments = responseObject["data"]!["comments"]!!.mutableCopy() as! NSMutableArray
+                        print (self.comments)
+                    
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+//                    self.tableView.reloadData()
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                //                    print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
+    }
+
     
     func setChart(dataPoints: [String], values: [Double])
     {

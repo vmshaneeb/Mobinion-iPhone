@@ -57,7 +57,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
         doPollDetails()
         Count=0
         
-        [PollANswersCollCtionView.registerClass(InterestsCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")]
+        PollANswersCollCtionView.registerClass(InterestsCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         let nib1:UINib = UINib(nibName: "InterestsCollectionViewCell", bundle: nil)
         PollANswersCollCtionView.registerNib(nib1, forCellWithReuseIdentifier: "Cell")
 //        self.FollowReportView.hidden=true
