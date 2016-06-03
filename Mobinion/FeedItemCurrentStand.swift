@@ -51,10 +51,15 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         nib = UINib(nibName: "CurrentStandImgCell", bundle: nil)
         tableViewComments.registerNib(nib, forCellReuseIdentifier: "CurrentStandImgCell")
         
+        nib = UINib(nibName: "CurrentStandImgCellHeader", bundle: nil)
+        tableViewComments.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CurrentStandImgCellHeader")
+        
+//        tableViewComments.
+        
         print("ItemID:- \(itemID)")
         getItemDetails()
         
-        print("FeedID:- \(feedID)")
+//        print("FeedID:- \(feedID)")
         getCommentDetails()
         HideLoader()
         
@@ -81,8 +86,6 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     {
 //        print("chartValueNothingSelected")
     }
-    
-    ////MARK:- UITableViewDelegates
     
     //MARK:- UITableViewDataSources
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -202,16 +205,48 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     }
     
     //MARK:- UITableViewDelegates
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {   
+        let cell = tableViewComments.dequeueReusableHeaderFooterViewWithIdentifier("CurrentStandImgCellHeader") as! CurrentStandImgCellHeader
+        
+        cell.addBtn.addTarget(self, action: #selector(addCommentBtn(_:)), forControlEvents: .TouchUpInside)
+        
+        if tableView.tag == 1
+        {
+            cell.commentsLabel.hidden = true
+            cell.addBtn.hidden = true
+        }
+        
+        return cell
+    }
+    
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         return UITableViewAutomaticDimension
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        if tableView.tag == 1
+        {
+            return 0.0
+        }
+        else
+        {
+            return 50.0
+        }
+    }
+    
+//    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
+//    {
+//        return 50.0//UITableViewAutomaticDimension
+//    }
+    
     //MARK:- UIScrollViewDelegates
     func scrollViewDidScroll(scrollView: UIScrollView)
     {   //536 330
         tableViewHt.constant = CGFloat(options.count) * 55
-        tableViewCommentsHt.constant = CGFloat(comments.count) * 82
+        tableViewCommentsHt.constant = (CGFloat(comments.count) * 82) + 50
         
         let ht = CGFloat(450) + tableViewHt.constant + tableViewCommentsHt.constant
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
@@ -519,6 +554,11 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         
         pieChart.data = pieChartData
         
+    }
+    
+    func addCommentBtn(sender: UIButton)
+    {
+        print("add btn pressed")
     }
     
     //MARK: - Loader
