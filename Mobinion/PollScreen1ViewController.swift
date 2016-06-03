@@ -16,6 +16,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
 {
     var ItemId = ""
     var itemType = ""
+    var userId = ""
     
     var PollAnswers: NSMutableArray!
     var Count: Int!
@@ -203,7 +204,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
         let header = ["Authorization": toks as! String]
         let URL = "http://vyooha.cloudapp.net:1337/reportAbuse"//?rowNumber=1&showingType=all"
         
-        let parameter = ["followFriend": Dict["userId"] as! String, "isFollowing": "true"]//"all"]
+        let parameter = ["followFriend": userId, "isFollowing": "true"]//"all"]
         
         Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .URL)
             .responseJSON
@@ -279,11 +280,11 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
         let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
         
         let header = ["Authorization": toks as! String]
-        let URL = "http://vyooha.cloudapp.net:1337/followFriends"//?rowNumber=1&showingType=all"
+        let URL = "http://vyooha.cloudapp.net:1337/followFriends"
         
-        let parameter = ["followFriend": Dict["userId"] as! String, "isFollowing": "true"]//"all"]
+        let parameter = ["followFriend": userId, "isFollowing": "true"]//"all"]
         
-        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .URL)
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
             .responseJSON
             { response in
                 switch response.result
@@ -459,6 +460,15 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                             self.Dict = responseObject["data"]!["item"]!!.mutableCopy() as! NSMutableDictionary
                             
                             print(self.Dict)
+                            if (self.Dict.valueForKey("userName")?.isKindOfClass(NSNull) != nil)
+                            {
+//                                if (!(self.Dict["userName"]!!.isKindOfClass(NSNull)))
+//                                {
+                                self.userId = (self.Dict.valueForKey("userId")! as? String)!
+                                print(self.userId)
+//                                }
+                            }
+                            
                             let str: String? = self.Dict.valueForKey("itemImage")! as? String
                             let url:NSURL? = NSURL(string: "\(str)")
                             self.PolImg.sd_setImageWithURL(url)
