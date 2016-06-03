@@ -637,7 +637,8 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell:ItemDetail = self.PollANswersTbl.dequeueReusableCellWithIdentifier("ItemDetail" , forIndexPath: indexPath)as! ItemDetail
-        cell.PrdctDescp.text = "Option\(indexPath.row+1):\(self.PollAnswers[indexPath.row]["content"]! as! String)"
+//        cell.PrdctDescp.text = "Option\(indexPath.row+1):\(self.PollAnswers[indexPath.row]["content"]! as! String)"
+        cell.PrdctDescp.text = "\(indexPath.row+1): \(self.PollAnswers[indexPath.row]["content"]! as! String)"
         cell.ChckBtn.tag = indexPath.row
         cell.ChckBtn .addTarget(self, action: #selector(VoteBtn(_:)), forControlEvents:.TouchUpInside)
         
@@ -655,7 +656,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
     {
         sender.setImage(UIImage(named: "vote-selected-button-w-txt.png"), forState: UIControlState.Normal)
         AreUSureView.hidden = false
-        SelectdTextView.text = "Option\(sender.tag+1):\(self.PollAnswers [sender.tag]["content"]! as! String)"
+        SelectdTextView.text = "Option \(sender.tag+1): \(self.PollAnswers [sender.tag]["content"]! as! String)"
     }
     
     //MARK:- UICollectionViewDataSources
