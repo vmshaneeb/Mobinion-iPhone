@@ -120,7 +120,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         if tableView.tag == 1
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell", forIndexPath: indexPath) as! CurrentStandCell
-            
+//            cell.pollPieColor
             cell.options.text = options[indexPath.row]
     //        cell.pollPieColor.image =
             cell.totVotes.text = String(votes[indexPath.row])

@@ -31,6 +31,8 @@
 		652EF1931CA98C1C0048F33D /* InterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */; };
 		652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */; };
 		652EF1971CA9DA530048F33D /* InterestsCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EF1951CA9DA530048F33D /* InterestsCollectionReusableView.xib */; };
+		653B9F8F1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653B9F8D1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.swift */; };
+		653B9F901D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653B9F8E1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib */; };
 		653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F524C1CB1A982001B494C /* CountryPicker.swift */; };
 		653F524F1CB1A982001B494C /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F524D1CB1A982001B494C /* CountryView.swift */; };
 		653F52511CB1A997001B494C /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653F52501CB1A997001B494C /* Flags.xcassets */; };
@@ -192,6 +194,8 @@
 		652EF1911CA98C1C0048F33D /* InterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCollectionViewCell.xib; sourceTree = "<group>"; };
 		652EF1941CA9DA530048F33D /* InterestsCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionReusableView.swift; sourceTree = "<group>"; };
 		652EF1951CA9DA530048F33D /* InterestsCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCollectionReusableView.xib; sourceTree = "<group>"; };
+		653B9F8D1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentStandCell4ImagePoll.swift; sourceTree = "<group>"; };
+		653B9F8E1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentStandCell4ImagePoll.xib; sourceTree = "<group>"; };
 		653F524C1CB1A982001B494C /* CountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
 		653F524D1CB1A982001B494C /* CountryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		653F52501CB1A997001B494C /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Flags.xcassets; path = ../Flags.xcassets; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				6569E6F41CE6983700478F2F /* NewsFeedTableNoFeedsCell.xib */,
 				657D1F931CFF6DBB00B85B64 /* CurrentStandCell.swift */,
 				657D1F941CFF6DBB00B85B64 /* CurrentStandCell.xib */,
+				653B9F8D1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.swift */,
+				653B9F8E1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib */,
 				654B4C201D00AA560041B45D /* CurrentStandImgCell.swift */,
 				654B4C211D00AA560041B45D /* CurrentStandImgCell.xib */,
 				65799E731D01AA0300D645B6 /* CurrentStandImgCellHeader.swift */,
@@ -726,6 +732,7 @@
 			files = (
 				65D01D8B1CA3FA5500A8A478 /* NewsFeedTableViewCell3.xib in Resources */,
 				653F52801CB1B013001B494C /* libPhoneNumber-Info.plist in Resources */,
+				653B9F901D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib in Resources */,
 				65EEC7291CDE68BA00A2A81E /* AroundMeTableViewCell.xib in Resources */,
 				65E311F71CD8B4F900F784DA /* Roboto-Bold.ttf in Resources */,
 				65CFF5731CED1AA20085D57E /* CreatePollTableViewFooterView.xib in Resources */,
@@ -867,6 +874,7 @@
 				657D1F951CFF6DBB00B85B64 /* CurrentStandCell.swift in Sources */,
 				65EEC7201CDE384700A2A81E /* ProfileTableViewCell.swift in Sources */,
 				65BAEC551CC905E200CCACA3 /* NewsFeedMyProfile.swift in Sources */,
+				653B9F8F1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.swift in Sources */,
 				652EF1961CA9DA530048F33D /* InterestsCollectionReusableView.swift in Sources */,
 				65D01D8E1CA428E700A8A478 /* NewsFeedTableViewCell4.swift in Sources */,
 				657F5B181CD2E9C400A1C3FF /* ManualCode.swift in Sources */,
