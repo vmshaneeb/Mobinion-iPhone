@@ -33,6 +33,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     var itemID = ""
     var feedID = ""
+    var itemType = ""
     
     var itemDetails = NSMutableDictionary()
     var comments = NSMutableArray()
@@ -281,8 +282,19 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     @IBAction func addCmntBtn(sender: AnyObject)
     {
-        print("add btn pressed in view")
+//        print("add btn pressed in view")
         addCommentView.hidden = true
+        if !commentTextView.text.isEmpty
+        {
+            addCommentDetails()
+            //TODO:- refresh the comments tableview
+            getCommentDetails()
+            HideLoader()
+        }
+        else
+        {
+            doalertView("Error", msgs: "Pls add a comment")
+        }
     }
     
     
@@ -351,6 +363,36 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         let parameter = ["postId": itemID]
         
         Alamofire.request(.GET, URL, headers: header, parameters: parameter, encoding: .URL)
+            .responseJSON { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                    
+                case .Failure(let error):
+                    completionHandler(nil, nil, error)
+                }
+        }
+    }
+    
+    func addComments(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/addComment"
+        
+        let parameter = ["postId": itemID,
+                         "postType": itemType,
+                         "comment": commentTextView.text!]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
             .responseJSON { response in
                 switch response.result
                 {
@@ -493,6 +535,48 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
             }
         }
     }
+    
+    func addCommentDetails()
+    {
+        self.StartLoader()
+        
+        addComments()
+        { value, data, error in
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    self.doDBalertView(titles, msgs: messages)
+                    print(messages)
+                }
+                else
+                {
+//                    do
+//                    {
+//                        
+//                    }
+//                    catch
+//                    {
+//                        print("error in responseObject")
+//                    }
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                //                    print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+    }
+    }
 
     
     func setChart(dataPoints: [String], values: [Double])
@@ -573,7 +657,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     func addCommentBtn(sender: UIButton)
     {
-        print("add btn pressed")
+//        print("add btn pressed")
         addCommentView.hidden = false
     }
     
