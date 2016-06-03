@@ -52,6 +52,9 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         
         var nib:UINib = UINib(nibName: "CurrentStandCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "CurrentStandCell")
+
+        nib = UINib(nibName: "CurrentStandCell4ImagePoll", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "CurrentStandCell4ImagePoll")
         
         nib = UINib(nibName: "CurrentStandImgCell", bundle: nil)
         tableViewComments.registerNib(nib, forCellReuseIdentifier: "CurrentStandImgCell")
@@ -119,13 +122,36 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
 //        HideLoader()
         if tableView.tag == 1
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell", forIndexPath: indexPath) as! CurrentStandCell
-//            cell.pollPieColor
-            cell.options.text = options[indexPath.row]
-    //        cell.pollPieColor.image =
-            cell.totVotes.text = String(votes[indexPath.row])
-            
-            return cell
+            if itemType == "ques_poll"
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell", forIndexPath: indexPath) as! CurrentStandCell
+                //TODO:- get pollPieColor
+                //            cell.pollPieColor
+                cell.options.text = options[indexPath.row]
+                //        cell.pollPieColor.image =
+                cell.totVotes.text = String(votes[indexPath.row])
+                
+                return cell
+            }
+            else
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell4ImagePoll", forIndexPath: indexPath) as! CurrentStandCell4ImagePoll
+                //            cell.pollPieColor
+
+                //        cell.pollPieColor.image =
+                cell.totVotes.text = String(votes[indexPath.row])
+                
+                if !options[indexPath.row].isEmpty
+                {
+                    let url = NSURL(string: options[indexPath.row])
+                    cell.pollImg.sd_setImageWithURL(url!)
+                }
+                else
+                {
+                    cell.pollImg.image = nil
+                }
+                return cell
+            }
         }
         else
         {
@@ -231,7 +257,22 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        return UITableViewAutomaticDimension
+//        return UITableViewAutomaticDimension
+        if tableView.tag == 1
+        {
+            if itemType == "ques_poll"
+            {
+                return 55.0
+            }
+            else
+            {
+                return 126.0
+            }
+        }
+        else
+        {
+            return UITableViewAutomaticDimension
+        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
@@ -254,7 +295,15 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     //MARK:- UIScrollViewDelegates
     func scrollViewDidScroll(scrollView: UIScrollView)
     {   //536 330
-        tableViewHt.constant = CGFloat(options.count) * 55
+        if itemType == "ques_poll"
+        {
+            tableViewHt.constant = CGFloat(options.count) * 55
+        }
+        else
+        {
+            tableViewHt.constant = CGFloat(options.count) * 126
+        }
+        
         tableViewCommentsHt.constant = (CGFloat(comments.count) * 82) + 50
         
         let ht = CGFloat(450) + tableViewHt.constant + tableViewCommentsHt.constant

@@ -20,11 +20,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSB-8z-dZl">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSB-8z-dZl">
                         <rect key="frame" x="183" y="8" width="234" height="109"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="234" id="fFe-WF-FOa"/>
-                            <constraint firstAttribute="height" constant="109" id="xJo-ab-F2g"/>
+                            <constraint firstAttribute="width" constant="234" id="EUy-p4-P8F"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJC-qU-kkM">
@@ -45,12 +44,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OSB-8z-dZl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="02G-B0-WvB"/>
-                    <constraint firstItem="OSB-8z-dZl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="LJY-g2-q6l"/>
+                    <constraint firstItem="OSB-8z-dZl" firstAttribute="centerY" secondItem="8iq-6u-AOG" secondAttribute="centerY" id="5P8-uQ-duA"/>
+                    <constraint firstItem="OSB-8z-dZl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="OfZ-Vx-sZN"/>
                     <constraint firstItem="8iq-6u-AOG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="44" id="VqN-8X-2nW"/>
-                    <constraint firstItem="OSB-8z-dZl" firstAttribute="centerY" secondItem="8iq-6u-AOG" secondAttribute="centerY" id="Yh8-uy-9Nu"/>
                     <constraint firstItem="aJC-qU-kkM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="YnU-ZP-zm8"/>
-                    <constraint firstItem="aJC-qU-kkM" firstAttribute="centerY" secondItem="OSB-8z-dZl" secondAttribute="centerY" id="kxW-o9-PBk"/>
+                    <constraint firstItem="OSB-8z-dZl" firstAttribute="centerY" secondItem="aJC-qU-kkM" secondAttribute="centerY" id="kOq-HI-Rfz"/>
+                    <constraint firstItem="OSB-8z-dZl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="lPq-sZ-U7y"/>
+                    <constraint firstItem="OSB-8z-dZl" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="tEV-Tx-paA"/>
                     <constraint firstItem="8iq-6u-AOG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tjG-Sj-dUb"/>
                 </constraints>
             </tableViewCellContentView>
