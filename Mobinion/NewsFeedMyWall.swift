@@ -30,6 +30,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     var feedType = "all"
     var itemID = ""
     var feedID = ""
+    var itemType = ""
 //    var ItemSelctdId = ""
     
 //    var jsondata:JSON = [:]
@@ -1349,6 +1350,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 {
                     itemID = newsFeed[indexPath.row]["itemId"] as! String
                     feedID = newsFeed[indexPath.row]["feedId"] as! String
+                    itemType = newsFeed[indexPath.row]["itemType"] as! String
                     
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -1590,6 +1592,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             let secondVC = segue.destinationViewController as! FeedItemCurrentStand
             secondVC.itemID = itemID
             secondVC.feedID = feedID
+            secondVC.itemType = itemType
         }
         else if segue.identifier == "Showpolldetailsfromfeed"
         {
