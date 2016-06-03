@@ -654,6 +654,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Votes")
         
+        //TODO:- check slice space arrown n text colors
         pieChartDataSet.sliceSpace = 2.0
         
 //        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8

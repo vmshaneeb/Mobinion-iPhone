@@ -8516,6 +8516,7 @@
                         <outlet property="UserName" destination="rm3-bg-oRf" id="Qtb-cs-CT0"/>
                         <outlet property="UserName1123" destination="TSY-gh-0id" id="36M-jR-zcb"/>
                         <outlet property="bandImg" destination="agy-nW-aDG" id="D6R-Fl-7XY"/>
+                        <outlet property="infoButton" destination="oGj-Qh-bSZ" id="L0G-ly-smH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KA2-PP-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>

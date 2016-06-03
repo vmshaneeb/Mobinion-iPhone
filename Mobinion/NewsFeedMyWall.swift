@@ -1369,14 +1369,14 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    print(date0)
                     print(date0.timeIntervalSince1970)
                     
-//                    if datesString < date0
-//                    {
+                    if datesString < date0
+                    {
                         performSegueWithIdentifier("showFeedCurrentStatus", sender: self)
-//                    }
-//                    else
-//                    {
-//                        performSegueWithIdentifier("Showpolldetailsfromfeed", sender: self)
-//                    }
+                    }
+                    else
+                    {
+                        performSegueWithIdentifier("Showpolldetailsfromfeed", sender: self)
+                    }
                 
                     //                print(datesString)
                     //                print(datesString.timeIntervalSinceNow)

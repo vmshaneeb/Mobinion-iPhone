@@ -46,6 +46,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var PopImage: UIImageView!
     @IBOutlet weak var ImagePolPopView: UIView!
     
+    @IBOutlet weak var infoButton: UIButton!
     var Dict = NSMutableDictionary()
     
     override func viewDidLoad()
@@ -402,17 +403,20 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                                 self.bandImg.layer.cornerRadius=10.0
                                 self.bandImg.backgroundColor=UIColor (colorLiteralRed: 63.0/255.0, green: 175/255.0, blue: 89.0/255.0, alpha: 1.0)
                                 self.bandImg.alpha=1.0
+                                
+                                self.infoButton.hidden = true
                             }
                             
                             if  ((self.Dict["itemType"]!.isEqualToString("img_poll")))
                             {
                                 self.PollANswersCollCtionView.reloadData()
-                                self.PollANswersTbl .hidden=true
+                                self.PollANswersTbl.hidden = true
+//                                self.infoButton.hidden = true
                             }
                             else
                             {
                                 self.PollANswersTbl .reloadData()
-                                self.PollANswersCollCtionView.hidden=true
+                                self.PollANswersCollCtionView.hidden = true
                             }
                             
                         }
