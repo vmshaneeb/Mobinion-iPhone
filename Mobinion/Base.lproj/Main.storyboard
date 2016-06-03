@@ -4251,6 +4251,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="RH6-Dq-7Ci" id="Db5-z9-NyV"/>
+                                            <outlet property="delegate" destination="RH6-Dq-7Ci" id="0u8-XW-moB"/>
                                         </connections>
                                     </tableView>
                                     <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-b6-aCq">
@@ -4259,6 +4260,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="206" id="aCA-sh-xVc"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="RH6-Dq-7Ci" id="VMi-Y8-6BG"/>
+                                            <outlet property="delegate" destination="RH6-Dq-7Ci" id="mLV-Al-KYj"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -4274,6 +4279,9 @@
                                     <constraint firstItem="FTx-25-pDO" firstAttribute="centerX" secondItem="2Ci-R5-LwO" secondAttribute="centerX" id="y5I-1O-sfE"/>
                                     <constraint firstItem="29w-Ch-BNv" firstAttribute="trailing" secondItem="NT3-b6-aCq" secondAttribute="trailing" id="yLk-lL-I8P"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="RH6-Dq-7Ci" id="IrN-RH-4uR"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4298,6 +4306,8 @@
                         <outlet property="pollHeader" destination="Bqj-Kw-cCa" id="m6C-il-8e9"/>
                         <outlet property="tableView" destination="29w-Ch-BNv" id="tQ7-tp-it9"/>
                         <outlet property="tableViewComments" destination="NT3-b6-aCq" id="1MV-Qh-Bh5"/>
+                        <outlet property="tableViewCommentsHt" destination="aCA-sh-xVc" id="sss-F0-geg"/>
+                        <outlet property="tableViewHt" destination="8pY-T8-4xy" id="Nfp-dX-AS3"/>
                         <outlet property="totalParts" destination="ggO-8v-z6X" id="mhu-6u-u1h"/>
                         <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationsfromCurrent" id="9e1-gG-WU1"/>
                     </connections>
@@ -8014,7 +8024,7 @@
                                             <constraint firstAttribute="height" constant="299" id="VqG-Z9-oRI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -8059,9 +8069,9 @@
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="pYZ-86-Zln"/>
                                                 <exclude reference="AGh-k9-0Xm"/>
                                                 <exclude reference="gfe-PH-5aF"/>
+                                                <exclude reference="pYZ-86-Zln"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -8136,7 +8146,7 @@
                                             <constraint firstAttribute="height" constant="162" id="C4r-4o-Ize"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQd-c2-Ebo">
@@ -8250,9 +8260,9 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="tbc-re-72m"/>
                                                         <exclude reference="Fkc-Dy-tXv"/>
                                                         <exclude reference="Pln-Oc-OPz"/>
+                                                        <exclude reference="tbc-re-72m"/>
                                                     </mask>
                                                 </variation>
                                                 <connections>
@@ -8397,8 +8407,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="NgO-Rr-qAJ"/>
                                 <exclude reference="1J6-ez-UxX"/>
+                                <exclude reference="NgO-Rr-qAJ"/>
                                 <exclude reference="oYF-Er-msG"/>
                                 <exclude reference="pta-59-1wT"/>
                                 <exclude reference="utV-G0-EKl"/>
@@ -8662,8 +8672,8 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="2sT-Eq-2CU"/>
-                                                <exclude reference="Dts-hj-Z0t"/>
                                                 <exclude reference="9TJ-2M-vWh"/>
+                                                <exclude reference="Dts-hj-Z0t"/>
                                             </mask>
                                         </variation>
                                     </button>

@@ -11,8 +11,9 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import Charts
+import SDWebImage
 
-class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDelegate, UITableViewDataSource
+class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
     @IBOutlet weak var pollHeader: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
@@ -20,6 +21,11 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
     @IBOutlet weak var totalParts: UILabel!
     @IBOutlet weak var finalDate: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewComments: UITableView!
+    
+    @IBOutlet weak var tableViewHt: NSLayoutConstraint!
+    @IBOutlet weak var tableViewCommentsHt: NSLayoutConstraint!
+    
     
     var itemID = ""
     var feedID = ""
@@ -39,21 +45,24 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let nib:UINib = UINib(nibName: "CurrentStandCell", bundle: nil)
+        var nib:UINib = UINib(nibName: "CurrentStandCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "CurrentStandCell")
+        
+        nib = UINib(nibName: "CurrentStandImgCell", bundle: nil)
+        tableViewComments.registerNib(nib, forCellReuseIdentifier: "CurrentStandImgCell")
         
         print("ItemID:- \(itemID)")
         getItemDetails()
         
         print("FeedID:- \(feedID)")
         getCommentDetails()
+        HideLoader()
         
 //        totPart = 0
         
         // for rounded pieInsideView
         pieInsideView.layer.cornerRadius = pieInsideView.frame.size.width / 2
         pieInsideView.clipsToBounds = true
-        
     }
     
     override func didReceiveMemoryWarning()
@@ -73,12 +82,19 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
 //        print("chartValueNothingSelected")
     }
     
-    //MARK:- UITableViewDelegates
+    ////MARK:- UITableViewDelegates
     
     //MARK:- UITableViewDataSources
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return options.count
+        if tableView.tag == 1
+        {
+            return options.count
+        }
+        else 
+        {
+            return comments.count
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -88,13 +104,119 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell", forIndexPath: indexPath) as! CurrentStandCell
+//        HideLoader()
+        if tableView.tag == 1
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandCell", forIndexPath: indexPath) as! CurrentStandCell
+            
+            cell.options.text = options[indexPath.row]
+    //        cell.pollPieColor.image =
+            cell.totVotes.text = String(votes[indexPath.row])
+            
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CurrentStandImgCell", forIndexPath: indexPath) as! CurrentStandImgCell
+            
+            if (comments[indexPath.row].valueForKey("name")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(comments[indexPath.row]["name"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.userName.text = (comments[indexPath.row]["name"] as! String)
+                }
+                else
+                {
+                    cell.userName.text = ""
+                }
+            }
+            else
+            {
+                cell.userName.text = ""
+            }
+            
+            if (comments[indexPath.row].valueForKey("profilePic")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(comments[indexPath.row]["profilePic"]!!.isKindOfClass(NSNull)))
+                {
+                    let url = NSURL(string: comments[indexPath.row]["profilePic"] as! String)
+                    //                print(url)
+                    
+                    cell.profImg.sd_setImageWithURL(url!)
+
+                    // for rounded profile pic
+                    cell.profImg.layer.cornerRadius = cell.profImg.frame.size.width / 2
+                    cell.profImg.clipsToBounds = true
+                }
+                else
+                {
+                    cell.profImg.image = nil
+                }
+            }
+            else
+            {
+                cell.profImg.image = nil
+            }
+            
+            if (comments[indexPath.row].valueForKey("comment")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(comments[indexPath.row]["comment"]!!.isKindOfClass(NSNull)))
+                {
+                    cell.commentLabel.text = (comments[indexPath.row]["comment"] as! String)
+                }
+                else
+                {
+                    cell.commentLabel.text = ""
+                }
+            }
+            else
+            {
+                cell.commentLabel.text = ""
+            }
+            
+            if (comments[indexPath.row].valueForKey("commentTime")?.isKindOfClass(NSNull) != nil)
+            {
+                if (!(comments[indexPath.row]["commentTime"]!!.isKindOfClass(NSNull)))
+                {
+
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(comments[indexPath.row]["commentTime"] as! String)!
+                    dateFormatter.dateFormat = "dd MMM yyyy"
+                    
+                    cell.dateLabel.text = dateFormatter.stringFromDate(datesString)
+                }
+                else
+                {
+                    cell.dateLabel.text = ""
+                }
+            }
+            else
+            {
+                cell.dateLabel.text = ""
+            }
+            
+            return cell
+        }
+    }
+    
+    //MARK:- UITableViewDelegates
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return UITableViewAutomaticDimension
+    }
+    
+    //MARK:- UIScrollViewDelegates
+    func scrollViewDidScroll(scrollView: UIScrollView)
+    {   //536 330
+        tableViewHt.constant = CGFloat(options.count) * 55
+        tableViewCommentsHt.constant = CGFloat(comments.count) * 82
         
-        cell.options.text = options[indexPath.row]
-//        cell.pollPieColor.image =
-        cell.totVotes.text = String(votes[indexPath.row])
+        let ht = CGFloat(450) + tableViewHt.constant + tableViewCommentsHt.constant
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
         
-        return cell
+        //        print(scrollView.contentSize)
     }
     
     //MARK:- Actions
@@ -310,7 +432,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDele
                     {
                         print("error in responseObject")
                     }
-//                    self.tableView.reloadData()
+                    self.tableViewComments.reloadData()
                 }
             }
             else

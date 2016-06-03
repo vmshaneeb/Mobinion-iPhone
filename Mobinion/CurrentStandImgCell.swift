@@ -10,7 +10,11 @@ import UIKit
 
 class CurrentStandImgCell: UITableViewCell
 {
-
+    @IBOutlet weak var profImg: UIImageView!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()

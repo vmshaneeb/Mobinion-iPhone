@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -36,7 +37,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpM-eS-r2U">
                         <rect key="frame" x="66" y="8" width="526" height="21"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="St7-Sp-n3Q">
@@ -46,17 +47,23 @@
                             <constraint firstAttribute="width" constant="156" id="xfB-aN-pes"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBu-P5-CjH">
-                        <rect key="frame" x="249" y="52" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBu-P5-CjH">
+                        <rect key="frame" x="498" y="53" width="94" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="42" id="NHy-ca-Q4T"/>
+                            <constraint firstAttribute="width" constant="94" id="AOW-GE-DrF"/>
+                            <constraint firstAttribute="width" constant="42" id="FSz-41-TRS"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FSz-41-TRS"/>
+                            </mask>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -64,15 +71,27 @@
                     <constraint firstItem="xpM-eS-r2U" firstAttribute="leading" secondItem="L84-C1-lQC" secondAttribute="trailing" constant="8" symbolic="YES" id="2XW-wc-y3B"/>
                     <constraint firstItem="L84-C1-lQC" firstAttribute="top" secondItem="xpM-eS-r2U" secondAttribute="top" id="A2n-jp-DYg"/>
                     <constraint firstItem="St7-Sp-n3Q" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="GBI-UV-q2Y"/>
-                    <constraint firstItem="CBu-P5-CjH" firstAttribute="leading" secondItem="St7-Sp-n3Q" secondAttribute="trailing" constant="27" id="Qhj-TW-bFh"/>
                     <constraint firstItem="L84-C1-lQC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RfK-EL-cXP"/>
-                    <constraint firstItem="St7-Sp-n3Q" firstAttribute="baseline" secondItem="CBu-P5-CjH" secondAttribute="baseline" id="aAp-kG-MsX"/>
+                    <constraint firstItem="CBu-P5-CjH" firstAttribute="firstBaseline" secondItem="St7-Sp-n3Q" secondAttribute="firstBaseline" id="RrN-Yh-Eff"/>
                     <constraint firstItem="xpM-eS-r2U" firstAttribute="leading" secondItem="St7-Sp-n3Q" secondAttribute="leading" id="aJM-KH-Nwu"/>
                     <constraint firstItem="St7-Sp-n3Q" firstAttribute="top" secondItem="xpM-eS-r2U" secondAttribute="bottom" constant="23" id="cYe-o5-2i9"/>
                     <constraint firstItem="xpM-eS-r2U" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fJ7-Zp-YWj"/>
-                    <constraint firstItem="St7-Sp-n3Q" firstAttribute="top" secondItem="CBu-P5-CjH" secondAttribute="top" id="uyt-tI-h0A"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CBu-P5-CjH" secondAttribute="bottom" constant="-1" id="luw-Jy-QiX"/>
+                    <constraint firstItem="CBu-P5-CjH" firstAttribute="firstBaseline" secondItem="St7-Sp-n3Q" secondAttribute="firstBaseline" constant="-1" id="n7T-iw-Sg7"/>
+                    <constraint firstItem="CBu-P5-CjH" firstAttribute="trailing" secondItem="xpM-eS-r2U" secondAttribute="trailing" id="sfp-WQ-tJ2"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="RrN-Yh-Eff"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="commentLabel" destination="xpM-eS-r2U" id="gka-As-A0r"/>
+                <outlet property="dateLabel" destination="CBu-P5-CjH" id="CIq-Ps-FqV"/>
+                <outlet property="profImg" destination="L84-C1-lQC" id="5eh-vC-yhL"/>
+                <outlet property="userName" destination="St7-Sp-n3Q" id="s1F-Pk-Ee5"/>
+            </connections>
             <point key="canvasLocation" x="373" y="376"/>
         </tableViewCell>
     </objects>
