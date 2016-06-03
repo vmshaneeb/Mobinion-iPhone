@@ -1598,6 +1598,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             let secondVC = segue.destinationViewController as! PollScreen1ViewController
             secondVC.ItemId = itemID
+            secondVC.itemType = itemType
         }
     }
     
