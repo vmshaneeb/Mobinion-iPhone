@@ -123,6 +123,7 @@
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
@@ -4283,12 +4284,79 @@
                                     <outlet property="delegate" destination="RH6-Dq-7Ci" id="IrN-RH-4uR"/>
                                 </connections>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5a-Bz-4dw">
+                                <rect key="frame" x="188" y="198" width="224" height="224"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Comment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zP-q1-dhd">
+                                        <rect key="frame" x="56" y="15" width="112" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="L6s-Ez-qcS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D1t-r7-Hz7">
+                                        <rect key="frame" x="8" y="44" width="208" height="125"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDs-qI-5Wk">
+                                        <rect key="frame" x="48" y="177" width="128" height="39"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.68627450980000004" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="AZu-Uu-zN4"/>
+                                            <constraint firstAttribute="width" constant="238" id="IZb-U5-0wS"/>
+                                            <constraint firstAttribute="width" constant="238" id="gyG-Fw-gYq"/>
+                                            <constraint firstAttribute="width" secondItem="zDs-qI-5Wk" secondAttribute="height" multiplier="157:30" id="nyI-dx-UEJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                        <state key="normal" title="ADD">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="IZb-U5-0wS"/>
+                                                <exclude reference="gyG-Fw-gYq"/>
+                                                <exclude reference="nyI-dx-UEJ"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="addCmntBtn:" destination="RH6-Dq-7Ci" eventType="touchUpInside" id="BOA-PN-UZr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="4wG-Ja-lOO"/>
+                                    <constraint firstItem="1zP-q1-dhd" firstAttribute="top" secondItem="A5a-Bz-4dw" secondAttribute="top" constant="15" id="AvA-Y5-4Be"/>
+                                    <constraint firstItem="zDs-qI-5Wk" firstAttribute="top" secondItem="D1t-r7-Hz7" secondAttribute="bottom" constant="8" symbolic="YES" id="CtE-3U-WQ1"/>
+                                    <constraint firstAttribute="bottom" secondItem="zDs-qI-5Wk" secondAttribute="bottom" constant="8" id="IPX-N0-enO"/>
+                                    <constraint firstItem="D1t-r7-Hz7" firstAttribute="leading" secondItem="A5a-Bz-4dw" secondAttribute="leadingMargin" id="UJf-cM-v4S"/>
+                                    <constraint firstItem="D1t-r7-Hz7" firstAttribute="centerX" secondItem="zDs-qI-5Wk" secondAttribute="centerX" id="UO1-j9-ffv"/>
+                                    <constraint firstItem="1zP-q1-dhd" firstAttribute="leading" secondItem="A5a-Bz-4dw" secondAttribute="leading" constant="56" id="bcB-Gs-3B4"/>
+                                    <constraint firstItem="D1t-r7-Hz7" firstAttribute="trailing" secondItem="A5a-Bz-4dw" secondAttribute="trailingMargin" id="e6v-wG-Pec"/>
+                                    <constraint firstItem="1zP-q1-dhd" firstAttribute="centerX" secondItem="D1t-r7-Hz7" secondAttribute="centerX" id="mf9-cl-zqD"/>
+                                    <constraint firstItem="zDs-qI-5Wk" firstAttribute="leading" secondItem="A5a-Bz-4dw" secondAttribute="leading" constant="48" id="mw4-fO-qD2"/>
+                                    <constraint firstItem="D1t-r7-Hz7" firstAttribute="top" secondItem="1zP-q1-dhd" secondAttribute="bottom" constant="8" symbolic="YES" id="o3M-oL-chL"/>
+                                    <constraint firstAttribute="width" constant="224" id="pOR-r2-BGr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="28X-8E-bni" firstAttribute="top" secondItem="A5a-Bz-4dw" secondAttribute="bottom" constant="129" id="3LS-Nw-8eD"/>
                             <constraint firstItem="ZUZ-xs-xjA" firstAttribute="centerY" secondItem="5Y8-M6-LnO" secondAttribute="centerY" id="6Y7-Ka-2Fe"/>
+                            <constraint firstItem="A5a-Bz-4dw" firstAttribute="centerY" secondItem="eCq-N7-4hs" secondAttribute="centerY" constant="10" id="8TA-Xe-5EO"/>
                             <constraint firstItem="5Y8-M6-LnO" firstAttribute="top" secondItem="wey-Ek-EIh" secondAttribute="bottom" constant="11" id="CkZ-jy-DEb"/>
                             <constraint firstItem="ZUZ-xs-xjA" firstAttribute="leading" secondItem="eCq-N7-4hs" secondAttribute="leading" id="EOD-Rn-xgL"/>
+                            <constraint firstItem="A5a-Bz-4dw" firstAttribute="centerX" secondItem="ZUZ-xs-xjA" secondAttribute="centerX" id="MA8-Vl-mjh"/>
                             <constraint firstItem="2Mb-vw-enf" firstAttribute="centerX" secondItem="eCq-N7-4hs" secondAttribute="centerX" constant="5" id="P01-ve-TZz"/>
                             <constraint firstAttribute="bottom" secondItem="2Ci-R5-LwO" secondAttribute="bottom" id="PTg-LI-0TA"/>
                             <constraint firstItem="2Ci-R5-LwO" firstAttribute="top" secondItem="ZUZ-xs-xjA" secondAttribute="bottom" id="b4b-zr-reT"/>
@@ -4296,10 +4364,19 @@
                             <constraint firstItem="ZUZ-xs-xjA" firstAttribute="trailing" secondItem="2Ci-R5-LwO" secondAttribute="trailing" id="ib5-o8-qVv"/>
                             <constraint firstItem="ZUZ-xs-xjA" firstAttribute="leading" secondItem="2Ci-R5-LwO" secondAttribute="leading" id="n8N-Ql-NEP"/>
                             <constraint firstItem="5Y8-M6-LnO" firstAttribute="leading" secondItem="eCq-N7-4hs" secondAttribute="leadingMargin" constant="20" id="oKE-eZ-8av"/>
+                            <constraint firstItem="A5a-Bz-4dw" firstAttribute="leading" secondItem="eCq-N7-4hs" secondAttribute="leading" constant="188" id="sJV-z3-TsN"/>
                             <constraint firstItem="ZUZ-xs-xjA" firstAttribute="top" secondItem="wey-Ek-EIh" secondAttribute="bottom" id="z8G-56-NeF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="sJV-z3-TsN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="addCommentLabel" destination="1zP-q1-dhd" id="pmK-lE-Hao"/>
+                        <outlet property="addCommentView" destination="A5a-Bz-4dw" id="iZ0-vK-mMr"/>
+                        <outlet property="commentTextView" destination="D1t-r7-Hz7" id="9lB-oM-t3L"/>
                         <outlet property="finalDate" destination="cdg-dj-djb" id="8JX-h6-AHb"/>
                         <outlet property="pieChart" destination="2Mb-vw-enf" id="3kq-WC-TCr"/>
                         <outlet property="pieInsideView" destination="QED-Jg-aV0" id="N7s-bG-8mp"/>

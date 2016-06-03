@@ -23,6 +23,10 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewComments: UITableView!
     
+    @IBOutlet weak var addCommentView: UIView!
+    @IBOutlet weak var addCommentLabel: UILabel!
+    @IBOutlet weak var commentTextView: UITextView!
+    
     @IBOutlet weak var tableViewHt: NSLayoutConstraint!
     @IBOutlet weak var tableViewCommentsHt: NSLayoutConstraint!
     
@@ -68,6 +72,10 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
         // for rounded pieInsideView
         pieInsideView.layer.cornerRadius = pieInsideView.frame.size.width / 2
         pieInsideView.clipsToBounds = true
+        
+        addCommentView.layer.borderWidth = 3.0
+        addCommentView.layer.cornerRadius = 25
+        addCommentView.layer.borderColor = UIColor.grayColor().CGColor
     }
     
     override func didReceiveMemoryWarning()
@@ -206,7 +214,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     //MARK:- UITableViewDelegates
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {   
+    {
         let cell = tableViewComments.dequeueReusableHeaderFooterViewWithIdentifier("CurrentStandImgCellHeader") as! CurrentStandImgCellHeader
         
         cell.addBtn.addTarget(self, action: #selector(addCommentBtn(_:)), forControlEvents: .TouchUpInside)
@@ -270,6 +278,13 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     {
         performSegueWithIdentifier("showNotificationsfromCurrent", sender: sender)
     }
+    
+    @IBAction func addCmntBtn(sender: AnyObject)
+    {
+        print("add btn pressed in view")
+        addCommentView.hidden = true
+    }
+    
     
     //MARK:- Custom Functions
     func doalertView (tit: String, msgs: String)
@@ -559,6 +574,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     func addCommentBtn(sender: UIButton)
     {
         print("add btn pressed")
+        addCommentView.hidden = false
     }
     
     //MARK: - Loader
