@@ -15,6 +15,8 @@ import DBAlertController
 class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource
 {
     var ItemId = ""
+    var itemType = ""
+    
     var PollAnswers: NSMutableArray!
     var Count: Int!
     var ImagePolCount :Int!
@@ -124,6 +126,11 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
             let url = NSURL(string: (self.PollAnswers[ImagePolCount]["content"]! as? String)!)
             self.PopImage.sd_setImageWithURL(url)
         }
+    }
+    
+    @IBAction func shareBtn(sender: AnyObject)
+    {
+        shareitem()
     }
     
     @IBAction func FollowBtn()
@@ -291,6 +298,91 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
         }
     }
+    
+    func shareItemAPI(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        
+        let header = ["Authorization": toks as! String]
+        
+        let URL = "http://vyooha.cloudapp.net:1337/shareItem"
+        
+        print("ItemID:- \(ItemId)")
+        print("ItemID:- \(itemType)")
+        
+        let parameter = ["itemId": ItemId,
+                         "itemType": itemType]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
+        .responseJSON
+            { response in
+                switch response.result
+                {
+                case .Success:
+                    if let value = response.result.value
+                    {
+                        completionHandler(value as? NSDictionary, response.data, nil)
+                    }
+                case .Failure(let error):
+                    completionHandler(nil,nil, error)
+                }
+            }
+    }
+    
+    func shareitem()
+    {
+        StartLoader()
+        shareItemAPI()
+        { value, data, error in
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    self.doDBalertView(titles, msgs: messages)
+                }
+                else
+                {
+                    self.doDBalertView("Success", msgs: "You successfully shared this item")
+//                    do
+//                    {
+//                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
+//                        
+//                        //                            let Dict:NSMutableDictionary = responseObject["status"]!["item"]!!.mutableCopy() as! NSMutableDictionary
+//                        if  (responseObject["status"]!.isEqualToString("success"))
+//                        {
+//                            let alertController = UIAlertController(title: "Success", message: "You are following \(self.Dict["userName"]! as! NSString).", preferredStyle: .Alert)
+//                            let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+//                                alertController .removeFromParentViewController()
+//                            }
+//                            alertController.addAction(okAction)
+//                            self.presentViewController(alertController, animated: true, completion: nil)
+//                        }
+//                        
+//                    }
+//                    catch
+//                    {
+//                        print("error in responseObject")
+//                    }
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                //                    print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
+
+    }
+    
     
     
     @IBAction func CloseInfo()

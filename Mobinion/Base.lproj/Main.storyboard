@@ -7910,6 +7910,9 @@
                                 <state key="normal" title="Share This">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareBtn:" destination="fgb-Ez-FoT" eventType="touchUpInside" id="IXO-dm-aJ1"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Options" translatesAutoresizingMaskIntoConstraints="NO" id="LsE-84-djd">
                                 <rect key="frame" x="341" y="255" width="15" height="15"/>
