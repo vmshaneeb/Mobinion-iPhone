@@ -31,6 +31,8 @@ class FeedItemVoting: UIViewController
     var feedID = ""
     var itemType = ""
     
+    var itemDetails = NSMutableDictionary()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -42,6 +44,8 @@ class FeedItemVoting: UIViewController
 //            print(submitBtn.titleLabel?.text)
             submitBtn.titleLabel?.text = "SUBMIT YOUR MARKS"
         }
+        
+        getVotes()
     }
     
     override func didReceiveMemoryWarning()
@@ -86,6 +90,36 @@ class FeedItemVoting: UIViewController
         alertController.show()
     }
     
+    func getVoteDetails(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
+    {
+        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
+        //print(toks)
+        
+        let header = ["Authorization": toks as! String]
+        //print(header)
+        
+        let URL = "http://vyooha.cloudapp.net:1337/itemDetails"
+        
+        let parameter = ["itemType": "voting",
+                         "itemId": itemID,
+                         "notificationId": ""]
+        
+        Alamofire.request(.POST, URL, headers: header, parameters: parameter, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result
+                {
+                    case .Success:
+                        if let value = response.result.value
+                        {
+                            completionHandler(value as? NSDictionary, response.data, nil)
+                        }
+                        
+                    case .Failure(let error):
+                        completionHandler(nil, nil, error)
+                }
+        }
+    }
+    
     func submitVoteAPI(completionHandler : (NSDictionary?, NSData?, NSError?) -> Void)
     {
         let toks = NSUserDefaults.standardUserDefaults().objectForKey("token")
@@ -125,7 +159,58 @@ class FeedItemVoting: UIViewController
         }
     }
     
-    func addCommentDetails()
+    func getVotes()
+    {
+        self.StartLoader()
+        
+        getVoteDetails()
+        { value, data, error in
+            if value != nil
+            {
+                let json = JSON(value!)
+                print(json)
+                
+                self.HideLoader()
+                
+                let titles = json["status"].stringValue
+                let messages = json["message"].stringValue
+                
+                if titles == "error"
+                {
+                    self.doDBalertView(titles, msgs: messages)
+                    print(messages)
+                }
+                else
+                {
+                    do
+                    {
+                        let responseObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
+                        
+                        self.itemDetails = responseObject.objectForKey("data")?.mutableCopy() as! NSMutableDictionary
+                        
+                        print (self.itemDetails)
+                        
+                        
+                        
+                    }
+                    catch
+                    {
+                        print("error in responseObject")
+                    }
+                    
+                    self.tableView.reloadData()
+                }
+            }
+            else
+            {
+                self.HideLoader()
+                //                    print(error)
+                self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
+            }
+        }
+    }
+    
+    func submitVote()
     {
         self.StartLoader()
         
@@ -164,7 +249,7 @@ class FeedItemVoting: UIViewController
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
-    }
+        }
     }
     
     // MARK: - Loader
