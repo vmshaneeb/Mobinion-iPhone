@@ -24,6 +24,9 @@ class FeedItemVoting: UIViewController
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitBtn: UIButton!
     
+    @IBOutlet weak var votingImageHt: NSLayoutConstraint!
+    @IBOutlet weak var tableViewHt: NSLayoutConstraint!
+    
     var itemID = ""
     var feedID = ""
     var itemType = ""
@@ -32,12 +35,31 @@ class FeedItemVoting: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        print(itemType)
+        if itemType == "mark"
+        {
+            print(submitBtn.titleLabel?.text)
+            submitBtn.titleLabel?.text = "SUBMIT YOUR MARKS"
+        }
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK:- Actions
+    @IBAction func backBtn(sender: AnyObject)
+    {
+        //        self.tabBarController?.selectedIndex = 2
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func submitBtnAction(sender: AnyObject)
+    {
+        
     }
 }
 
