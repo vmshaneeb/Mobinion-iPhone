@@ -1386,6 +1386,10 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
         {
+            itemID = newsFeed[indexPath.row]["itemId"] as! String
+//            feedID = newsFeed[indexPath.row]["feedId"] as! String
+            itemType = newsFeed[indexPath.row]["itemType"] as! String
+            
             performSegueWithIdentifier("showVotingfromFeed", sender: self)
         }
     }
