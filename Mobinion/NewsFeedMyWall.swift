@@ -1600,6 +1600,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             secondVC.ItemId = itemID
             secondVC.itemType = itemType
         }
+        else if segue.identifier == "showVotingfromFeed"
+        {
+            let secondVC = segue.destinationViewController as! FeedItemVoting
+            secondVC.itemID = itemID
+            secondVC.feedID = feedID
+            secondVC.itemType = itemType
+        }
     }
     
     //MARK:- Custom Functions

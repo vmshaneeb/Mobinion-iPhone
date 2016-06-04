@@ -24,6 +24,10 @@ class FeedItemVoting: UIViewController
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitBtn: UIButton!
     
+    var itemID = ""
+    var feedID = ""
+    var itemType = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
