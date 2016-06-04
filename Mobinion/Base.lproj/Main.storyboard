@@ -4579,6 +4579,17 @@
                             <constraint firstItem="8nU-5c-k6J" firstAttribute="leading" secondItem="JaN-sN-sJZ" secondAttribute="leading" id="xmM-5p-nox"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="created" destination="Z3o-Jb-SiA" id="6XI-nR-1pa"/>
+                        <outlet property="expiry" destination="cul-Tc-tFc" id="1bf-ze-7Ah"/>
+                        <outlet property="infoView" destination="8nU-5c-k6J" id="1ar-5g-la6"/>
+                        <outlet property="profImg" destination="712-Pj-bQR" id="ckY-gT-Dnt"/>
+                        <outlet property="profName" destination="KiT-7k-e81" id="jGj-bg-Og3"/>
+                        <outlet property="submitBtn" destination="6E9-hu-p2H" id="Ry1-mh-d49"/>
+                        <outlet property="tableView" destination="JaN-sN-sJZ" id="8Ui-2W-iWV"/>
+                        <outlet property="voteQuestn" destination="NMS-UL-nAd" id="CtZ-6Z-TkK"/>
+                        <outlet property="votingImage" destination="uTS-YX-g2a" id="gDw-Fh-c01"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7X-23-43l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6961,6 +6972,7 @@
                         <segue destination="ITF-O6-7pw" kind="show" identifier="showNotificationFromFeed" id="rwZ-01-9uh"/>
                         <segue destination="RH6-Dq-7Ci" kind="show" identifier="showFeedCurrentStatus" id="X9g-SZ-ZIi"/>
                         <segue destination="fgb-Ez-FoT" kind="show" identifier="Showpolldetailsfromfeed" id="Gc0-dy-r7A"/>
+                        <segue destination="hHP-XM-0zL" kind="show" identifier="showVotingfromFeed" id="zdI-Pf-sXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zn6-pk-XMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8920,9 +8932,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MrT-0w-Xh0"/>
+        <segue reference="evx-kh-O0x"/>
         <segue reference="FeV-7c-TkY"/>
         <segue reference="1qJ-hb-56E"/>
-        <segue reference="evx-kh-O0x"/>
-        <segue reference="9e1-gG-WU1"/>
+        <segue reference="rwZ-01-9uh"/>
     </inferredMetricsTieBreakers>
 </document>

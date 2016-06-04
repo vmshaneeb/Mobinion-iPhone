@@ -1384,9 +1384,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
         }
-        else
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("voting"))
         {
-            print("not poll!!")
+            performSegueWithIdentifier("showVotingfromFeed", sender: self)
         }
     }
     

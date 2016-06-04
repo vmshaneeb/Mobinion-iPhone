@@ -7,9 +7,23 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import DBAlertController
+import SDWebImage
 
 class FeedItemVoting: UIViewController
 {
+    @IBOutlet weak var votingImage: UIImageView!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var profImg: UIImageView!
+    @IBOutlet weak var profName: UILabel!
+    @IBOutlet weak var created: UILabel!
+    @IBOutlet weak var expiry: UILabel!
+    @IBOutlet weak var voteQuestn: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var submitBtn: UIButton!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
