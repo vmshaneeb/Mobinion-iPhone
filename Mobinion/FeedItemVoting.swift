@@ -41,6 +41,9 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
         var nib:UINib = UINib(nibName: "FeedItemVotingMarkCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "FeedItemVotingMarkCell")
         
+        nib = UINib(nibName: "FeedItemVotingNonMarkCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "FeedItemVotingNonMarkCell")
+        
 //        print(itemType)
         if itemType == "mark"
         {
@@ -70,9 +73,18 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FeedItemVotingMarkCell", forIndexPath: indexPath) as! FeedItemVotingMarkCell
-        
-        return cell
+        if itemType == "mark"
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("FeedItemVotingMarkCell", forIndexPath: indexPath) as! FeedItemVotingMarkCell
+            
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("FeedItemVotingNonMarkCell", forIndexPath: indexPath) as! FeedItemVotingNonMarkCell
+            
+            return cell
+        }
     }
     
     //MARK:- UITableViewDelegates
