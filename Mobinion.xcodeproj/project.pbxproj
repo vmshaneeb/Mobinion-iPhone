@@ -35,6 +35,8 @@
 		653B9F901D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653B9F8E1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib */; };
 		653B9F931D02877E00CE7C75 /* FeedItemVotingMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653B9F911D02877E00CE7C75 /* FeedItemVotingMarkCell.swift */; };
 		653B9F941D02877E00CE7C75 /* FeedItemVotingMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653B9F921D02877E00CE7C75 /* FeedItemVotingMarkCell.xib */; };
+		653B9F971D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653B9F951D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.swift */; };
+		653B9F981D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653B9F961D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.xib */; };
 		653F524E1CB1A982001B494C /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F524C1CB1A982001B494C /* CountryPicker.swift */; };
 		653F524F1CB1A982001B494C /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F524D1CB1A982001B494C /* CountryView.swift */; };
 		653F52511CB1A997001B494C /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653F52501CB1A997001B494C /* Flags.xcassets */; };
@@ -200,6 +202,8 @@
 		653B9F8E1D0225EA00CE7C75 /* CurrentStandCell4ImagePoll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentStandCell4ImagePoll.xib; sourceTree = "<group>"; };
 		653B9F911D02877E00CE7C75 /* FeedItemVotingMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemVotingMarkCell.swift; sourceTree = "<group>"; };
 		653B9F921D02877E00CE7C75 /* FeedItemVotingMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedItemVotingMarkCell.xib; sourceTree = "<group>"; };
+		653B9F951D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemVotingNonMarkCell.swift; sourceTree = "<group>"; };
+		653B9F961D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedItemVotingNonMarkCell.xib; sourceTree = "<group>"; };
 		653F524C1CB1A982001B494C /* CountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
 		653F524D1CB1A982001B494C /* CountryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		653F52501CB1A997001B494C /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Flags.xcassets; path = ../Flags.xcassets; sourceTree = "<group>"; };
@@ -461,6 +465,8 @@
 				651FA70D1CFD27380032005D /* FeedItemVoting.swift */,
 				653B9F911D02877E00CE7C75 /* FeedItemVotingMarkCell.swift */,
 				653B9F921D02877E00CE7C75 /* FeedItemVotingMarkCell.xib */,
+				653B9F951D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.swift */,
+				653B9F961D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.xib */,
 				651FA70F1CFD27F40032005D /* FeedItemFeedback.swift */,
 				651FA7111CFD28650032005D /* FeedItemDraw.swift */,
 				651FA7131CFD28BC0032005D /* FeedItemResults.swift */,
@@ -750,6 +756,7 @@
 				653F52511CB1A997001B494C /* Flags.xcassets in Resources */,
 				650B87A01CE1119200C6A30F /* PollSharedCell.xib in Resources */,
 				65D01D971CA431EB00A8A478 /* NewsFeedTableViewCell6.xib in Resources */,
+				653B9F981D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.xib in Resources */,
 				65E312041CD8B4F900F784DA /* RobotoCondensed-Light.ttf in Resources */,
 				65EEC7251CDE5C3500A2A81E /* polls_TableViewCell.xib in Resources */,
 				653F527F1CB1B013001B494C /* InfoPlist.strings in Resources */,
@@ -868,6 +875,7 @@
 				651FA7181CFD29930032005D /* FeedItemContest2.swift in Sources */,
 				65EEC7281CDE68BA00A2A81E /* AroundMeTableViewCell.swift in Sources */,
 				653F52871CB1B013001B494C /* NBMetadataHelper.m in Sources */,
+				653B9F971D028C6D00CE7C75 /* FeedItemVotingNonMarkCell.swift in Sources */,
 				65D01D961CA431EB00A8A478 /* NewsFeedTableViewCell6.swift in Sources */,
 				653B9F931D02877E00CE7C75 /* FeedItemVotingMarkCell.swift in Sources */,
 				65D01D921CA42ECA00A8A478 /* NewsFeedTableViewCell5.swift in Sources */,
