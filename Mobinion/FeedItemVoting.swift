@@ -12,7 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import SDWebImage
 
-class FeedItemVoting: UIViewController
+class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
     @IBOutlet weak var votingImage: UIImageView!
     @IBOutlet weak var infoView: UIView!
@@ -38,6 +38,9 @@ class FeedItemVoting: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var nib:UINib = UINib(nibName: "FeedItemVotingMarkCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "FeedItemVotingMarkCell")
+        
 //        print(itemType)
         if itemType == "mark"
         {
@@ -54,6 +57,38 @@ class FeedItemVoting: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- UITableViewDataSources
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FeedItemVotingMarkCell", forIndexPath: indexPath) as! FeedItemVotingMarkCell
+        
+        return cell
+    }
+    
+    //MARK:- UITableViewDelegates
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return UITableViewAutomaticDimension
+    }
+    
+    //MARK:- UIScrollViewDelegates
+    func scrollViewDidScroll(scrollView: UIScrollView)
+    {
+        //tableViewHt.constant = CGFloat(options.count) * 50
+        let ht = CGFloat(450) + tableViewHt.constant
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: ht)
+    }
+    
     //MARK:- Actions
     @IBAction func backBtn(sender: AnyObject)
     {
@@ -63,7 +98,7 @@ class FeedItemVoting: UIViewController
     
     @IBAction func submitBtnAction(sender: AnyObject)
     {
-        
+
     }
     
     //MARK:- Custom Functions

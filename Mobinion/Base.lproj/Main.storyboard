@@ -4524,6 +4524,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="155" id="FRJ-tC-yyH"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="hHP-XM-0zL" id="MLj-SL-amX"/>
+                                            <outlet property="delegate" destination="hHP-XM-0zL" id="pcZ-C5-15I"/>
+                                        </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6E9-hu-p2H">
                                         <rect key="frame" x="170" y="478" width="261" height="50"/>
@@ -4579,6 +4583,9 @@
                                     <constraint firstItem="8nU-5c-k6J" firstAttribute="leading" secondItem="FxE-rd-3Oe" secondAttribute="leading" constant="9" id="ukd-eD-iCQ"/>
                                     <constraint firstItem="8nU-5c-k6J" firstAttribute="centerX" secondItem="FxE-rd-3Oe" secondAttribute="centerX" id="xVc-1e-v3Q"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="hHP-XM-0zL" id="Khn-nz-b74"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
