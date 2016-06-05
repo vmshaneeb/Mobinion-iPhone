@@ -16,6 +16,7 @@ PODS:
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - Spring (1.0.3)
+  - SVProgressHUD (2.0.3)
   - SwiftyJSON (2.3.2)
   - TextAttributes (0.3.1)
   - UIScrollView-InfiniteScroll (0.7.3)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - PhoneNumberKit (~> 0.7)
   - SDWebImage (~> 3.7)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - SVProgressHUD
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TextAttributes
   - UIScrollView-InfiniteScroll
@@ -67,10 +69,11 @@ SPEC CHECKSUMS:
   PhoneNumberKit: ec93d8c5e4614ecfc1ef333eb89f7eaadedcaa17
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
-PODFILE CHECKSUM: a751f5a3a14db944a88bfd3cd0b4afd4a3e43383
+PODFILE CHECKSUM: 8821fac210e1efbaa5a3d650768eea7f4d3aed57
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

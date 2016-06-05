@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,7 +102,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>28BA4341CB441118E43DB992DECBF2D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3511258FF1DED3401C4B456024D5FA41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57DDE5DCD72DFBF0A49D7D6C8A980415</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>619D508707C8377D14E482D65560D0B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +127,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85C7225CBFF747D56A6CA3B09B33FADF</key>
+		<key>8BDBBB51A17452588F624494C196A95C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928C257EBDE502C36501CD401E488554</key>
+		<key>9CE65D1F94E2A32DFC9976EE1221782F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92A555BC1FE8BD44988B2692E8980918</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>951C79DEC29488CA76203114619F2969</key>
+		<key>A4D25EEC3F76094EAF68F64262BACD5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,22 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E93F2920B07A8C6E48ACE5E0DC07E403</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>F3990E3EAC160D4E4F89177D966FC1E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4D95AECD704DA96F665FEF74EC56BA5</key>
+		<key>FBBEF6AA8E8483FE9C432B16A32B8362</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FBBEF6AA8E8483FE9C432B16A32B8362</key>
+		<key>FF2CD8B785FC41AF6804ACF78DB7DC35</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F4D95AECD704DA96F665FEF74EC56BA5'
+               BlueprintIdentifier = 'FF2CD8B785FC41AF6804ACF78DB7DC35'
                BlueprintName = 'TextAttributes'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'TextAttributes.framework'>

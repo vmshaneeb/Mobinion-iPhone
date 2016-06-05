@@ -20,4 +20,5 @@ target 'Mobinion' do
     pod 'UIScrollView-InfiniteScroll'
     pod 'AsyncSwift'
     pod 'Charts'
+    pod 'SVProgressHUD'
 end
