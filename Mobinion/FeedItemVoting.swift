@@ -77,11 +77,15 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("FeedItemVotingMarkCell", forIndexPath: indexPath) as! FeedItemVotingMarkCell
             
+            cell.sno.text = "\(indexPath.row + 1)."
+            
             return cell
         }
         else
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("FeedItemVotingNonMarkCell", forIndexPath: indexPath) as! FeedItemVotingNonMarkCell
+            
+            cell.sno.text = "\(indexPath.row + 1)."
             
             return cell
         }
