@@ -173,7 +173,8 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         fetchpolls()
-        stopLoader()
+//        stopLoader()
+        SVProgressHUD.dismiss()
         
         
     }
@@ -185,7 +186,6 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     //MARK: UITableViewDataSource
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
@@ -198,84 +198,190 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let result = UITableViewCell()
-        
+        //TODO:- fix autolayout issues
         if(tabArray[indexPath.row].containsObject("pollType"))
         {
 //            print("is poll")
-            let cell = tableView.dequeueReusableCellWithIdentifier("pollstablecell") as! polls_TableViewCell
+//            let cell = tableView.dequeueReusableCellWithIdentifier("pollstablecell") as! polls_TableViewCell
             
-            if (!(tabArray[indexPath.row]["type"]!!.isEqualToString("")))
+            let cell = tableView.dequeueReusableCellWithIdentifier("pollstablecell", forIndexPath: indexPath) as! polls_TableViewCell
+//            cell.pol
+            if (tabArray[indexPath.row].valueForKey("type")?.isKindOfClass(NSNull) != nil)
             {
-                cell.expType.text = (tabArray[indexPath.row]["type"] as! String)
+                if (!(tabArray[indexPath.row]["type"]!!.isKindOfClass(NSNull)))
+                {
+                    //            if (!(tabArray[indexPath.row]["type"]!!.isEqualToString("")))
+                    //            {
+                    cell.expType.text = (tabArray[indexPath.row]["type"] as! String)
+                    print(cell.expType.text)
+                }
+                else
+                {
+                    cell.expType.text = ""
+                }
+            }
+            else
+            {
+                cell.expType.text = ""
             }
             
-            if (!(tabArray[indexPath.row]["content"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("content")?.isKindOfClass(NSNull) != nil)
             {
-                cell.pollContent.text = (tabArray[indexPath.row]["content"] as! String)
+                if (!(tabArray[indexPath.row]["content"]!!.isKindOfClass(NSNull)))
+                {
+                    
+                    //            if (!(tabArray[indexPath.row]["content"]!!.isEqualToString("")))
+                    //            {
+                    cell.pollContent.text = (tabArray[indexPath.row]["content"] as! String)
+                    print(cell.pollContent.text)
+                }
+                else
+                {
+                    cell.pollContent.text = ""
+                }
+            }
+            else
+            {
+                cell.pollContent.text = ""
             }
             
-            if (!(tabArray[indexPath.row]["pollType"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("pollType")?.isKindOfClass(NSNull) != nil)
             {
-                cell.pollType.text = (tabArray[indexPath.row]["pollType"] as! String)
+                if (!(tabArray[indexPath.row]["pollType"]!!.isKindOfClass(NSNull)))
+                {
+                    //            if (!(tabArray[indexPath.row]["pollType"]!!.isEqualToString("")))
+                    //            {
+                    cell.pollType.text = (tabArray[indexPath.row]["pollType"] as! String)
+                    print(cell.pollType.text)
+                }
+                else
+                {
+                    cell.pollType.text = ""
+                }
+            }
+            else
+            {
+                cell.pollType.text = ""
             }
             
-            if (!(tabArray[indexPath.row]["createdAt"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("createdAt")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                
-                let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-                cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+                if (!(tabArray[indexPath.row]["createdAt"]!!.isKindOfClass(NSNull)))
+                {
+                    //            if (!(tabArray[indexPath.row]["createdAt"]!!.isEqualToString("")))
+                    //            {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    cell.pollCreated.text = dateFormatter.stringFromDate(datesString)
+                    print(cell.pollCreated.text)
+                }
+                else
+                {
+                    cell.pollCreated.text = ""
+                }
+            }
+            else
+            {
+                cell.pollCreated.text = ""
             }
             
             return cell
         }
-        else if(tabArray[indexPath.row].containsObject("authorName"))
+        else// if(tabArray[indexPath.row].containsObject("authorName"))
         {
 //            print("is parts")
-            let cell = tableView.dequeueReusableCellWithIdentifier("partstablecell") as! ProfileTableViewCell
+//            let cell = tableView.dequeueReusableCellWithIdentifier("partstablecell") as! ProfileTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("partstablecell", forIndexPath: indexPath) as! ProfileTableViewCell
             
             // for rounded profile pic
             
-            
-            if (!(tabArray[indexPath.row]["authorImage"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("authorImage")?.isKindOfClass(NSNull) != nil)
             {
-                cell.authorImage.layer.cornerRadius = cell.authorImage.frame.size.width / 2
-                cell.authorImage.clipsToBounds = true
-                
-                let url = NSURL(string: tabArray[indexPath.row]["authorImage"] as! String)
-                cell.authorImage.sd_setImageWithURL(url!)
+                if (!(tabArray[indexPath.row]["authorImage"]!!.isKindOfClass(NSNull)))
+                {
+                    
+                    //            if (!(tabArray[indexPath.row]["authorImage"]!!.isEqualToString("")))
+                    //            {
+                    cell.authorImage.layer.cornerRadius = cell.authorImage.frame.size.width / 2
+                    cell.authorImage.clipsToBounds = true
+                    
+                    let url = NSURL(string: tabArray[indexPath.row]["authorImage"] as! String)
+                    cell.authorImage.sd_setImageWithURL(url!)
+                }
+                else
+                {
+                    cell.authorImage.image = nil
+                }
+            }
+            else
+            {
+                cell.authorImage.image = nil
             }
             
-            if (!(tabArray[indexPath.row]["authorName"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("authorName")?.isKindOfClass(NSNull) != nil)
             {
-                cell.authorName.text = (tabArray[indexPath.row]["authorName"] as! String)
+                if (!(tabArray[indexPath.row]["authorName"]!!.isKindOfClass(NSNull)))
+                {
+                    //            if (!(tabArray[indexPath.row]["authorName"]!!.isEqualToString("")))
+                    //            {
+                    cell.authorName.text = (tabArray[indexPath.row]["authorName"] as! String)
+                }
+                else
+                {
+                    cell.authorName.text = ""
+                }
+            }
+            else
+            {
+                cell.authorName.text = ""
             }
             
-            if (!(tabArray[indexPath.row]["text"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("text")?.isKindOfClass(NSNull) != nil)
             {
-                cell.textView.text = (tabArray[indexPath.row]["text"] as! String)
+                if (!(tabArray[indexPath.row]["text"]!!.isKindOfClass(NSNull)))
+                {
+                    //            if (!(tabArray[indexPath.row]["text"]!!.isEqualToString("")))
+                    //            {
+                    cell.textView.text = (tabArray[indexPath.row]["text"] as! String)
+                }
+                else
+                {
+                    cell.textView.text = ""
+                }
+            }
+            else
+            {
+                cell.textView.text = ""
             }
             
-            if (!(tabArray[indexPath.row]["createdAt"]!!.isEqualToString("")))
+            if (tabArray[indexPath.row].valueForKey("createdAt")?.isKindOfClass(NSNull) != nil)
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                
-                let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
-                dateFormatter.dateFormat = "dd-MMM-yyyy"
-                
-                cell.createdDate.text = dateFormatter.stringFromDate(datesString)
+                if (!(tabArray[indexPath.row]["createdAt"]!!.isKindOfClass(NSNull)))
+                {
+                    //            if (!(tabArray[indexPath.row]["createdAt"]!!.isEqualToString("")))
+                    //            {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    let datesString:NSDate = dateFormatter.dateFromString(tabArray[indexPath.row]["createdAt"] as! String)!
+                    dateFormatter.dateFormat = "dd-MMM-yyyy"
+                    
+                    cell.createdDate.text = dateFormatter.stringFromDate(datesString)
+                }
             }
             return cell
         }
-        
-        return result
     }
     
+    //MARK:- UITableViewDelegates
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return UITableViewAutomaticDimension
+    }
   
     //MARK:- DZNEmptyDataSetDelegate
 //    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString!

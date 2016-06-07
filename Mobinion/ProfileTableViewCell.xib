@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,33 +26,27 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Np5-VO-acf">
                         <rect key="frame" x="8" y="8" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Np5-VO-acf" secondAttribute="height" multiplier="1:1" id="G6s-nC-atp"/>
+                            <constraint firstAttribute="height" constant="50" id="Pxq-fO-0bQ"/>
+                            <constraint firstAttribute="width" constant="50" id="Z7X-ZB-lqw"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reliance Fresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aux-aa-4gz">
-                        <rect key="frame" x="66" y="8" width="112" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="ZjL-qE-9ys"/>
-                        </constraints>
+                        <rect key="frame" x="66" y="8" width="112" height="20"/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B59-Zx-lZh">
-                        <rect key="frame" x="66" y="37" width="526" height="117"/>
+                        <rect key="frame" x="66" y="36" width="526" height="118"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="526" id="UlI-pi-CsV"/>
-                        </constraints>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 Oct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es5-Ed-cXh">
-                        <rect key="frame" x="514" y="7" width="110" height="21"/>
+                        <rect key="frame" x="482" y="7" width="110" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Rqj-30-52w"/>
-                            <constraint firstAttribute="width" constant="110" id="e1X-7a-Gj0"/>
+                            <constraint firstAttribute="width" constant="110" id="UQc-Ff-dEK"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,16 +54,17 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="topMargin" secondItem="Np5-VO-acf" secondAttribute="top" id="1xc-eW-iBd"/>
-                    <constraint firstItem="Es5-Ed-cXh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="32" id="3wb-W4-Vlx"/>
-                    <constraint firstItem="aux-aa-4gz" firstAttribute="leading" secondItem="Np5-VO-acf" secondAttribute="trailing" constant="8" id="9yY-Op-sUf"/>
-                    <constraint firstItem="B59-Zx-lZh" firstAttribute="top" secondItem="aux-aa-4gz" secondAttribute="bottom" constant="8" symbolic="YES" id="Ap2-PI-Ned"/>
-                    <constraint firstItem="Np5-VO-acf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Aya-gB-Zvd"/>
-                    <constraint firstItem="B59-Zx-lZh" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="I7l-ET-TuO"/>
-                    <constraint firstItem="Es5-Ed-cXh" firstAttribute="leading" secondItem="aux-aa-4gz" secondAttribute="trailing" constant="336" id="Iag-Fv-FMP"/>
-                    <constraint firstItem="aux-aa-4gz" firstAttribute="baseline" secondItem="Es5-Ed-cXh" secondAttribute="baseline" constant="1" id="ZsQ-dP-2QW"/>
-                    <constraint firstItem="Np5-VO-acf" firstAttribute="top" secondItem="aux-aa-4gz" secondAttribute="top" id="i9V-Mb-L7t"/>
-                    <constraint firstItem="aux-aa-4gz" firstAttribute="leading" secondItem="B59-Zx-lZh" secondAttribute="leading" id="wbh-c1-lUE"/>
+                    <constraint firstItem="Es5-Ed-cXh" firstAttribute="trailing" secondItem="B59-Zx-lZh" secondAttribute="trailing" id="8oy-iC-WW7"/>
+                    <constraint firstItem="B59-Zx-lZh" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="I38-LE-tt9"/>
+                    <constraint firstItem="B59-Zx-lZh" firstAttribute="top" secondItem="Es5-Ed-cXh" secondAttribute="bottom" constant="9" id="J8O-f1-BC7"/>
+                    <constraint firstItem="Np5-VO-acf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Rgq-q8-MDY"/>
+                    <constraint firstItem="Np5-VO-acf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Uj1-HN-mrA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Np5-VO-acf" secondAttribute="bottom" constant="96" id="gh0-P7-SWJ"/>
+                    <constraint firstItem="Es5-Ed-cXh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="h4z-zH-6qI"/>
+                    <constraint firstItem="Np5-VO-acf" firstAttribute="top" secondItem="aux-aa-4gz" secondAttribute="top" id="inT-mZ-kVh"/>
+                    <constraint firstItem="aux-aa-4gz" firstAttribute="leading" secondItem="Np5-VO-acf" secondAttribute="trailing" constant="8" symbolic="YES" id="jvX-tC-s52"/>
+                    <constraint firstItem="B59-Zx-lZh" firstAttribute="top" secondItem="aux-aa-4gz" secondAttribute="bottom" constant="8" symbolic="YES" id="kPV-6x-cHJ"/>
+                    <constraint firstItem="aux-aa-4gz" firstAttribute="leading" secondItem="B59-Zx-lZh" secondAttribute="leading" id="y0G-Zs-5e9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
