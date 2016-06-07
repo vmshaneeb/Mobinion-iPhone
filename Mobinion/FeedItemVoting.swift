@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import SDWebImage
+import SVProgressHUD
 
 class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
@@ -212,7 +213,7 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func getVotes()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         getVoteDetails()
         { value, data, error in
@@ -221,7 +222,7 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -254,7 +255,7 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -263,7 +264,7 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func submitVote()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         submitVoteAPI()
         { value, data, error in
@@ -272,7 +273,7 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -296,7 +297,7 @@ class FeedItemVoting: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

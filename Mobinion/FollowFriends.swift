@@ -13,6 +13,7 @@ import SwiftyJSON
 import DBAlertController
 import PhoneNumberKit
 import DZNEmptyDataSet
+import SVProgressHUD
 
 class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource
 {
@@ -48,9 +49,9 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         nib = UINib(nibName: "FollowSectionHeader", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "FollowSectionHeader")
         
-        self.StartLoader()
+        SVProgressHUD.show()
         self.getContacts()
-        self.HideLoader()
+        SVProgressHUD.dismiss()
         
         if !nos.isEmpty
         {
@@ -59,7 +60,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
         
 //        self.doDBalertView("warning", msgs: "importing contacts will take some time....")
         
-        self.StartLoader()
+        SVProgressHUD.show()
         for contact in contacts
         {
             if (contact.isKeyAvailable(CNContactPhoneNumbersKey))
@@ -83,10 +84,10 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
         }
         
-        self.HideLoader()
+        SVProgressHUD.dismiss()
         print(nos.count)
         
-        self.StartLoader()
+        SVProgressHUD.show()
         
         getFriendLists()
         { value, data, error in
@@ -96,7 +97,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -137,7 +138,7 @@ class FollowFriends: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

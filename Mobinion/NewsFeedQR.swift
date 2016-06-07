@@ -11,6 +11,7 @@ import AVFoundation
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import SVProgressHUD
 
 class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 {
@@ -208,7 +209,7 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         
         let URL = "http://vyooha.cloudapp.net:1337/itemDetails"
         
-        self.StartLoader()
+        SVProgressHUD.show()
         
         Alamofire.request(.POST, URL,headers: header, parameters: ["qr": code], encoding: .JSON)
             .responseJSON { response in
@@ -220,7 +221,7 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                         let json = JSON(value)
                         print(json)
                         
-                        self.HideLoader()
+                        SVProgressHUD.dismiss()
                         
                         let titles = json["status"].stringValue
                         let messages = json["message"].stringValue
@@ -236,7 +237,7 @@ class NewsFeedQR: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                         }
                     }
                 case .Failure(let error):
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     print(error)
                     self.doDBalertView("Error", msgs: (error.localizedDescription))
                     self.captureSession.startRunning()

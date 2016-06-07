@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import Cloudinary
+import SVProgressHUD
 
 class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLUploaderDelegate
 {
@@ -35,9 +36,6 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        
-        
         profileName.text = profName
         
         // for rounded profile pic
@@ -61,15 +59,16 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     {
         let uploader = CLUploader.init(self.cloudinary, delegate: self)
         
-//        self.StartLoader()
+//        SVProgressHUD.show()
         if (!profilePicURL.isEmpty)
         {
-            self .performSelector(#selector(UpdateProfile.StartLoader), withObject: nil, afterDelay: 0.1)
+//            self.performSelector(#selector(UpdateProfile.StartLoader), withObject: nil, afterDelay: 0.1)
+            self.performSelector(#selector(SVProgressHUD.show), withObject: nil, afterDelay: 0.1)
             uploader.upload(self.profilePicURL, options: ["sync": true])
-            self.HideLoader()
+            SVProgressHUD.dismiss()
         }
         
-        self.StartLoader()
+        SVProgressHUD.show()
         self.sendupdateProfile()
         { value, error in
                 
@@ -78,7 +77,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -107,7 +106,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

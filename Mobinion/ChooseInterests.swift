@@ -13,6 +13,7 @@ import Cloudinary
 import DBAlertController
 import SDWebImage
 import DZNEmptyDataSet
+import SVProgressHUD
 
 class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource
 {
@@ -89,7 +90,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
 //        print(self.imageURL)
         
         
-        self.StartLoader()
+        SVProgressHUD.show()
         
         getinterestTopics()
         { value, error in
@@ -99,7 +100,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -132,7 +133,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -149,14 +150,14 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
 //        print(imageURL.count)
-//        self.StartLoader()
+//        SVProgressHUD.show()
 //        print(imageURL)
         return imageURL.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-//        self.HideLoader()
+//        SVProgressHUD.dismiss()
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! InterestsCollectionViewCell
         
         let url = NSURL(string: self.imageURL[indexPath.row])
@@ -311,9 +312,11 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                 imageURL.append(url)
             }
             
-            StartLoader()
+//            StartLoader()
+            SVProgressHUD.show()
             collectionView.reloadData()
-            HideLoader()
+//            HideLoader()
+            SVProgressHUD.dismiss()
         }
         
         return true
@@ -539,9 +542,11 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                         }
                     }
                     
-                    StartLoader()
+//                    StartLoader()
+                    SVProgressHUD.show()
                     collectionView.reloadData()
-                    HideLoader()
+//                    HideLoader()
+                    SVProgressHUD.dismiss()
                 }
                 else
                 {
@@ -569,7 +574,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
         }
         else
         {
-            self.StartLoader()
+            SVProgressHUD.show()
             setinterestTopics()
             { value, error in
                     
@@ -578,7 +583,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -607,7 +612,7 @@ class ChooseInterests: UIViewController, UICollectionViewDelegate, UICollectionV
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     print(error)
 //                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                     

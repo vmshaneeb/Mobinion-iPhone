@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 import DBAlertController
+import SVProgressHUD
 
 class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource
 {
@@ -66,6 +67,8 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
         PollANswersCollCtionView.registerNib(nib1, forCellWithReuseIdentifier: "Cell")
 //        self.FollowReportView.hidden=true
         // Do any additional setup after loading the view.
+        
+//        SVProgressHUD.setDefaultStyle(.Dark)
     }
     
 
@@ -155,7 +158,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -188,7 +191,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     //                    print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -231,7 +234,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -266,7 +269,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     //                    print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -332,7 +335,8 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func shareitem()
     {
-        StartLoader()
+//        StartLoader()
+        SVProgressHUD.show()
         shareItemAPI()
         { value, data, error in
             if value != nil
@@ -340,7 +344,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -376,7 +380,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -434,7 +438,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func doPollDetails()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         GetPollDetails()
             { value, data, error in
@@ -443,7 +447,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -530,7 +534,7 @@ class PollScreen1ViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     //                    print(error)
 //                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }

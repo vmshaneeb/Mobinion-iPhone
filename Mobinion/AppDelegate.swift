@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManager
 import GoogleMaps
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -40,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                 self.window?.makeKeyAndVisible()
             }
         }
+        
+        SVProgressHUD.setDefaultStyle(.Dark)
         
         return true
     }

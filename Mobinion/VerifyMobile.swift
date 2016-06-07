@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import PhoneNumberKit
+import SVProgressHUD
 
 class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFieldDelegate
 {
@@ -63,7 +64,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
         }
         else
         {
-            self.StartLoader()
+            SVProgressHUD.show()
 
             sendMobileNo()
             { value, error in
@@ -73,7 +74,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -102,7 +103,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -122,7 +123,7 @@ class VerifyMobile: UIViewController, CountryPhoneCodePickerDelegate, UITextFiel
 //        let Postdata : NSString = NSString(string: "\(Functionname),{\"mobile\":\()\"}")
 //        print(Postdata)
 ////        let myCell = ServerRequests()
-//        self.StartLoader()
+//        SVProgressHUD.show()
 //        let ocObject = ServerRequests()
 //        let theDelegate=ocObject.delegate
 //        theDelegate.self

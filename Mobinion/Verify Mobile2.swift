@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import PhoneNumberKit
+import SVProgressHUD
 
 class VerifyMobile2: UIViewController, UITextFieldDelegate
 {
@@ -65,7 +66,7 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
         }
         else
         {
-            self.StartLoader()
+            SVProgressHUD.show()
             
             sendOTP()
             { value, error in
@@ -87,7 +88,7 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
                     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "token")
                     NSUserDefaults.standardUserDefaults().synchronize()
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -124,7 +125,7 @@ class VerifyMobile2: UIViewController, UITextFieldDelegate
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }

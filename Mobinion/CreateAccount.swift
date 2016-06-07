@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import DBAlertController
 import IQDropDownTextField
+import SVProgressHUD
 
 class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate
 {
@@ -335,7 +336,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         print(zipCode.text)
 //        print(dobField.text)
         
-        self.StartLoader ()
+        SVProgressHUD.show()
             
         sendcheckUsernameAvail()
         { value, error in
@@ -345,7 +346,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -366,7 +367,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
                                 let json = JSON(value!)
                                 print(json)
                                 
-                                self.HideLoader()
+                                SVProgressHUD.dismiss()
                                 
                                 let titles = json["status"].stringValue
                                 let messages = json["message"].stringValue
@@ -397,7 +398,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
                             }
                             else
                             {
-                                self.HideLoader()
+                                SVProgressHUD.dismiss()
                                 print(error)
                                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                             }
@@ -406,7 +407,7 @@ class CreateAccount: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

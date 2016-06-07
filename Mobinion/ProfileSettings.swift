@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DBAlertController
+import SVProgressHUD
 
 class ProfileSettings: UIViewController
 {
@@ -124,7 +125,7 @@ class ProfileSettings: UIViewController
                 switch action.style
                 {
                 case .Destructive:
-                    self.StartLoader()
+                    SVProgressHUD.show()
                     self.deleteAC()
                     { value, data, error in
                         if value != nil
@@ -132,7 +133,7 @@ class ProfileSettings: UIViewController
                             let json = JSON(value!)
                             print(json)
                             
-                            self.HideLoader()
+                            SVProgressHUD.dismiss()
                             
                             let titles = json["status"].stringValue
                             let messages = json["message"].stringValue
@@ -150,7 +151,7 @@ class ProfileSettings: UIViewController
                         }
                         else
                         {
-                            self.HideLoader()
+                            SVProgressHUD.dismiss()
                             //                    print(error)
                             self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                         }

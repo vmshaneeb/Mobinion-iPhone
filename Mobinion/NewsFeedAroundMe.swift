@@ -13,6 +13,7 @@ import SwiftyJSON
 import DBAlertController
 import GoogleMaps
 import DZNEmptyDataSet
+import SVProgressHUD
 
 class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource
 {
@@ -64,7 +65,8 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             mapView.settings.setAllGesturesEnabled(true)
         }
         
-        StartLoader()
+//        StartLoader()
+        SVProgressHUD.show()
         getAroundme()
         { value, data, error in
                 
@@ -73,7 +75,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -101,7 +103,7 @@ class NewsFeedAroundMe: UIViewController, CLLocationManagerDelegate, UITableView
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

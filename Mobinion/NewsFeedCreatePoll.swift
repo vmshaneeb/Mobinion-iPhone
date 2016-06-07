@@ -13,6 +13,7 @@ import DBAlertController
 import IQDropDownTextField
 import Cloudinary
 import Async
+import SVProgressHUD
 
 class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ImagePickerDelegate, CLUploaderDelegate
 {
@@ -447,7 +448,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
         //TODO:- check loader not issued error
         Async.main(after: 0.5)
         {
-           self.StartLoader()
+           SVProgressHUD.show()
         }
         
 //        performSelector(#selector(StartLoader), withObject: nil, afterDelay: 0.1)
@@ -477,7 +478,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
 //                let messages = json["message"].stringValue
@@ -493,7 +494,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

@@ -12,6 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import Charts
 import SDWebImage
+import SVProgressHUD
 
 class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
@@ -459,7 +460,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     func getItemDetails()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         getCurrentStand()
         { value, data, error in
@@ -468,7 +469,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -532,7 +533,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -541,7 +542,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     func getCommentDetails()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         getlistOfComments()
         { value, data, error in
@@ -550,7 +551,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -578,7 +579,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -587,7 +588,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
     
     func addCommentDetails()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         addComments()
         { value, data, error in
@@ -596,7 +597,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -620,7 +621,7 @@ class FeedItemCurrentStand: UIViewController, ChartViewDelegate, UITableViewData
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

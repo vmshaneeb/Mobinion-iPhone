@@ -13,7 +13,7 @@ import DBAlertController
 import SDWebImage
 import DZNEmptyDataSet
 import Spring
-
+import SVProgressHUD
 
 
 class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UIPopoverPresentationControllerDelegate
@@ -89,7 +89,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         nib = UINib(nibName: "polls_TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "pollstablecell")
         
-        StartLoader()
+        SVProgressHUD.show()
         getmyAccount()
         { value, data, error in
                 
@@ -98,7 +98,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -166,7 +166,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -589,7 +589,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func fetchpolls()
     {
-        StartLoader()
+        SVProgressHUD.show()
         getmyPolls()
         { value, data, error in
                 
@@ -598,7 +598,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -632,7 +632,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -641,7 +641,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
 
     func fetchparts()
     {
-        StartLoader()
+        SVProgressHUD.show()
         getmyParts()
         { value, data, error in
                 
@@ -650,7 +650,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -679,7 +679,7 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }

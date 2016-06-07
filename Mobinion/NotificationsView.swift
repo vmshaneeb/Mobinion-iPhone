@@ -13,6 +13,7 @@ import DBAlertController
 import SDWebImage
 import TextAttributes
 import DZNEmptyDataSet
+import SVProgressHUD
 
 class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
@@ -230,7 +231,8 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func doNotify()
     {
-        StartLoader()
+//        StartLoader()
+        SVProgressHUD.show()
         getNotification()
             { value, data, error in
                 
@@ -239,7 +241,7 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
                     let messages = json["message"].stringValue
@@ -265,7 +267,7 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     print(error)
                     self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }

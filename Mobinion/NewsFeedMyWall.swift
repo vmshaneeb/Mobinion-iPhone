@@ -14,6 +14,7 @@ import SDWebImage
 import UIScrollView_InfiniteScroll
 import Spring
 import DLRadioButton
+import SVProgressHUD
 
 class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate
 {
@@ -98,7 +99,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     let json = JSON(value!)
                     print(json)
                     
-                    //                        self.HideLoader()
+                    //                        SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
 //                    let messages = json["message"].stringValue
@@ -133,7 +134,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 else
                 {
-                    //                        self.HideLoader()
+                    //                        SVProgressHUD.dismiss()
                     //                    print(error)
                     //                        self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
@@ -170,7 +171,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-//        self.StartLoader()
+//        SVProgressHUD.show()
         print(newsFeed.count)
         return self.newsFeed.count
     }
@@ -1427,7 +1428,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                        let json = JSON(value!)
 //                        print(json)
 //                        
-////                        self.HideLoader()
+////                        SVProgressHUD.dismiss()
 //                        
 //                        let titles = json["status"].stringValue
 //                        let messages = json["message"].stringValue
@@ -1454,7 +1455,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
 //                    }
 //                    else
 //                    {
-////                        self.HideLoader()
+////                        SVProgressHUD.dismiss()
 //                        //                    print(error)
 ////                        self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
 //                    }
@@ -1520,7 +1521,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 let json = JSON(value!)
 //                print(json)
                 
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -1547,7 +1548,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             else
             {
-                self.HideLoader()
+                SVProgressHUD.dismiss()
                 print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -1639,8 +1640,9 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func domyWall()
     {   
-        self.StartLoader()
-        
+//        SVProgressHUD.show()
+        SVProgressHUD.show()
+
         getFeeds()
         { value, data, error in
             if value != nil
@@ -1648,7 +1650,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 let json = JSON(value!)
                 print(json)
                 
-                self.HideLoader()
+//                SVProgressHUD.dismiss()
+                SVProgressHUD.dismiss()
                 
                 let titles = json["status"].stringValue
                 let messages = json["message"].stringValue
@@ -1674,7 +1677,8 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             else
             {
-                self.HideLoader()
+//                SVProgressHUD.dismiss()
+                SVProgressHUD.dismiss()
 //                    print(error)
                 self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
             }
@@ -1683,7 +1687,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func domyWallafterSelection()
     {
-        self.StartLoader()
+        SVProgressHUD.show()
         
         print("Before Removal:- \(newsFeed)")
 //        newsFeed.removeAllObjects()
@@ -1695,7 +1699,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                     let json = JSON(value!)
                     print(json)
                     
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     
                     let titles = json["status"].stringValue
 //                    let messages = json["message"].stringValue
@@ -1723,7 +1727,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 else
                 {
-                    self.HideLoader()
+                    SVProgressHUD.dismiss()
                     //                    print(error)
 //                    self.doDBalertView("Error", msgs: (error?.localizedDescription)!)
                 }
