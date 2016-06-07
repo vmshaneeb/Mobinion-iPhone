@@ -31,12 +31,14 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioI-co-JXp">
-                        <rect key="frame" x="567" y="12" width="25" height="25"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioI-co-JXp">
+                        <rect key="frame" x="538" y="9" width="62" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="AMK-LY-V8j"/>
-                            <constraint firstAttribute="height" constant="25" id="gJZ-px-TzG"/>
+                            <constraint firstAttribute="width" constant="62" id="AMK-LY-V8j"/>
+                            <constraint firstAttribute="height" constant="32" id="gJZ-px-TzG"/>
                         </constraints>
+                        <state key="normal" image="vote-unselected-button-1"/>
+                        <state key="selected" image="vote-selected-button-1"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -46,10 +48,10 @@
                     <constraint firstItem="tdE-am-EbK" firstAttribute="leading" secondItem="aaI-SY-hvV" secondAttribute="trailing" constant="8" symbolic="YES" id="XQC-s5-CvC"/>
                     <constraint firstItem="ioI-co-JXp" firstAttribute="centerY" secondItem="tdE-am-EbK" secondAttribute="centerY" id="jh5-Hh-T5z"/>
                     <constraint firstItem="aaI-SY-hvV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jve-AL-UiB"/>
-                    <constraint firstItem="ioI-co-JXp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="mL9-RM-CMB"/>
-                    <constraint firstItem="ioI-co-JXp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="sMD-Zy-P4L"/>
+                    <constraint firstItem="ioI-co-JXp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="mL9-RM-CMB"/>
+                    <constraint firstItem="ioI-co-JXp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="sMD-Zy-P4L"/>
                     <constraint firstItem="aaI-SY-hvV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="sX7-Ga-OI0"/>
-                    <constraint firstItem="ioI-co-JXp" firstAttribute="leading" secondItem="tdE-am-EbK" secondAttribute="trailing" constant="45" id="zfP-Bm-f0V"/>
+                    <constraint firstItem="ioI-co-JXp" firstAttribute="leading" secondItem="tdE-am-EbK" secondAttribute="trailing" constant="16" id="zfP-Bm-f0V"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -59,4 +61,8 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="vote-selected-button-1" width="41" height="40"/>
+        <image name="vote-unselected-button-1" width="41" height="40"/>
+    </resources>
 </document>
