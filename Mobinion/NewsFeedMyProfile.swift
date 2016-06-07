@@ -15,7 +15,6 @@ import DZNEmptyDataSet
 import Spring
 import SVProgressHUD
 
-
 class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UIPopoverPresentationControllerDelegate
 {
     
@@ -863,8 +862,6 @@ class NewsFeedMyProfile: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
 
-    
-    
     // MARK: - Loader
     func StartLoader()
     {

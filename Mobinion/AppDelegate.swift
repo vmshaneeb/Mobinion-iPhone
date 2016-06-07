@@ -11,6 +11,15 @@ import IQKeyboardManager
 import GoogleMaps
 import SVProgressHUD
 
+enum Shortcut: String
+{
+    case aroundMe = "AroundMe"
+    case qrCode = "QRCode"
+//    case myWall = "MyWall"
+    case createPoll = "CreatePoll"
+    case myProfile = "MyProfile"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
@@ -46,7 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         return true
     }
-
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void)
+    {
+        completionHandler(handleQuickAction(shortcutItem))
+    }
+    
     func applicationWillResignActive(application: UIApplication)
     {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -73,7 +87,118 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    //MARK:- QuickActions
+    func handleQuickAction(shortcutItem: UIApplicationShortcutItem) -> Bool
+    {
+        var quickActionHandled = false
+        let type = shortcutItem.type.componentsSeparatedByString(".").last!
+        if let shortcutType = Shortcut.init(rawValue: type)
+        {
+            switch shortcutType
+            {
+                case .aroundMe:
+                    if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
+                    {
+                        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+                        print(toks)
+                        if !(toks.isEmpty)
+                        {
+                            // Access the storyboard and fetch an instance of the view controller
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("NewsFeedController") as! NewsFeedController
+                            
+                            initialViewController.selectedIndex = 0
+                            
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                    quickActionHandled = true
+                
+                case .qrCode:
+                    if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
+                    {
+                        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+                        print(toks)
+                        if !(toks.isEmpty)
+                        {
+                            // Access the storyboard and fetch an instance of the view controller
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("NewsFeedController") as! NewsFeedController
+                            
+                            initialViewController.selectedIndex = 1
+                            
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                    quickActionHandled = true
+                
+//                case .myWall:
+//                    if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
+//                    {
+//                        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+//                        print(toks)
+//                        if !(toks.isEmpty)
+//                        {
+//                            // Access the storyboard and fetch an instance of the view controller
+//                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("NewsFeedController") as! NewsFeedController
+//                            
+//                            initialViewController.selectedIndex = 2
+//                            
+//                            self.window?.rootViewController = initialViewController
+//                            self.window?.makeKeyAndVisible()
+//                        }
+//                    }
+//                    quickActionHandled = true
+                
+                case .createPoll:
+                    if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
+                    {
+                        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+                        print(toks)
+                        if !(toks.isEmpty)
+                        {
+                            // Access the storyboard and fetch an instance of the view controller
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("NewsFeedController") as! NewsFeedController
+                            
+                            initialViewController.selectedIndex = 3
+                            
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                    quickActionHandled = true
+                
+                case .myProfile:
+                    if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil
+                    {
+                        let toks = NSUserDefaults.standardUserDefaults().objectForKey("token") as! String
+                        print(toks)
+                        if !(toks.isEmpty)
+                        {
+                            // Access the storyboard and fetch an instance of the view controller
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("NewsFeedController") as! NewsFeedController
+                            
+                            initialViewController.selectedIndex = 4
+                            
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                    quickActionHandled = true
+                
+                default:
+                break
+            }
+        }
+        
+        return quickActionHandled
+    }
 
 }
 

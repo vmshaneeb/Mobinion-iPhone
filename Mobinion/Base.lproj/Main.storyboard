@@ -1967,7 +1967,7 @@
         <!--News FeedQR-->
         <scene sceneID="fVU-1p-F3m">
             <objects>
-                <viewController id="QFw-rT-C8d" customClass="NewsFeedQR" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRContr" id="QFw-rT-C8d" customClass="NewsFeedQR" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Chf-j7-vFg"/>
                         <viewControllerLayoutGuide type="bottom" id="QQA-l5-uSq"/>
@@ -2247,7 +2247,7 @@
         <!--News Feed Create Poll-->
         <scene sceneID="8Gc-jV-FPT">
             <objects>
-                <viewController id="LY8-x9-gp8" customClass="NewsFeedCreatePoll" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createPollContr" id="LY8-x9-gp8" customClass="NewsFeedCreatePoll" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EUZ-iZ-k7L"/>
                         <viewControllerLayoutGuide type="bottom" id="mRt-yS-pvd"/>
@@ -2295,7 +2295,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE POLL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-FT-jCX">
                                 <rect key="frame" x="40" y="31" width="112" height="21"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2884,7 +2884,7 @@
         <!--News Feed Around Me-->
         <scene sceneID="62j-YM-jwS">
             <objects>
-                <viewController id="cDL-lY-mU8" customClass="NewsFeedAroundMe" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aroundMeContr" id="cDL-lY-mU8" customClass="NewsFeedAroundMe" customModule="Mobinion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="67Q-oo-aaP"/>
                         <viewControllerLayoutGuide type="bottom" id="LL5-Ra-kT6"/>
@@ -8956,9 +8956,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MrT-0w-Xh0"/>
+        <segue reference="wzF-pM-hsl"/>
         <segue reference="evx-kh-O0x"/>
         <segue reference="FeV-7c-TkY"/>
         <segue reference="1qJ-hb-56E"/>
-        <segue reference="fgp-ei-JqZ"/>
     </inferredMetricsTieBreakers>
 </document>
