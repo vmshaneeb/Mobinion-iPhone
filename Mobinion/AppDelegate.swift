@@ -192,8 +192,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                     }
                     quickActionHandled = true
                 
-                default:
-                break
+//                default:
+//                break
             }
         }
         
