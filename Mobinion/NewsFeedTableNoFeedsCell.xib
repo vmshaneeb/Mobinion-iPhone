@@ -30,7 +30,7 @@
                             <constraint firstAttribute="width" constant="232" id="avM-32-O0m"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="No feeds are available to show     On your wall...." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-To-yW6">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="No feeds are available to show     On your wall...." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-To-yW6">
                         <rect key="frame" x="101" y="242" width="365" height="128"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
