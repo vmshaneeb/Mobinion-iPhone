@@ -12,9 +12,9 @@ PODS:
   - IQDropDownTextField (1.1.0)
   - IQKeyboardManager (4.0.3)
   - PhoneNumberKit (0.8.4)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
   - Spring (1.0.3)
   - SVProgressHUD (2.0.3)
   - SwiftyJSON (2.3.2)
@@ -67,7 +67,7 @@ SPEC CHECKSUMS:
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1
   PhoneNumberKit: ec93d8c5e4614ecfc1ef333eb89f7eaadedcaa17
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a

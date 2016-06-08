@@ -15,9 +15,10 @@
 		0479B57D06AC292B64ECBDA2BAB707CF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A1ADECA99908EF521A1B59EC46B30 /* SVProgressHUD.bundle */; };
 		063E735104D23A2AF99217209EB1CCFE /* KeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BF7E962EAAE121A107C3E544E3575D16 /* KeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		095406039B4D371E48D08B38A2975AC8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C066CDCC4D8EDD3BC4D3C9DCC7B060 /* Error.swift */; };
-		0C083ED01D615AEE39DC44ACFE88571E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E6B7C8B9AF0214B16C8C9051CFD999 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0A0B5D1AE39E6FA9ECBC7AE8D72B2EFD /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEC76D3FC23F613EFCBB5914F7F0B6 /* NSData+ImageContentType.m */; };
 		10DA9C9D58BDE4AEBC101C70A645E315 /* PieChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E92E2700EC5C04B6E27BEF132ADDF3 /* PieChartDataSet.swift */; };
 		124D0BAABE6160B5E0B6ADC527C58418 /* ChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65084623A60E5223D0804BA4AFE2B3 /* ChartDataSet.swift */; };
+		1255DCDDE3DF0785555677FC51E7904C /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE28A9AB971D654082A38E52674BC6BA /* SDWebImageManager.m */; };
 		126169B8BF7430D89BB990B97C36D75F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD998ACD4695D0A640183E736C7875 /* Async.swift */; };
 		1268FBA2F4CEE4DC3577E8DD52D25975 /* ChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E39137255B5557587E92C5BD9A7298 /* ChartDataEntry.swift */; };
 		127AB4661AC9A5832C3D5A4077C1A58C /* PieRadarChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325695EA7F5BFE5A13AA55A19614274B /* PieRadarChartViewBase.swift */; };
@@ -30,7 +31,6 @@
 		1677FAD2A148DA1DDE73736B4848878B /* ChartYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673531B5912E97E272734897798697C7 /* ChartYAxis.swift */; };
 		16D235F431BE17C972CB8DD3A86B392E /* CLUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F232CD2759A2D8C7214529D8BA44B13 /* CLUploader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1711226039A0CD668F7DBEEE45D9E238 /* ChartXAxisRendererBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245210D3CD6CB347551E2E5CC84743 /* ChartXAxisRendererBarChart.swift */; };
-		175B1AEEA659DE403AB26C7F05E2DE90 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEC76D3FC23F613EFCBB5914F7F0B6 /* NSData+ImageContentType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1792949332E845FCE9745F455932668C /* LineScatterCandleRadarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFF34D3B7ED02234CA490E1EEF208A /* LineScatterCandleRadarChartDataSet.swift */; };
 		17B595F1DA275E5F503FA9578C01CCFA /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEAAE023F1187ABFDDA82C00BBE5057 /* IQUIView+Hierarchy.m */; };
 		17E8ECFF7879DDE903F47869DEBAA874 /* ChartDataRendererBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB86DA829DC908F7FB07DC50E20E3DA /* ChartDataRendererBase.swift */; };
@@ -67,14 +67,15 @@
 		2F903EAED6109D3BF3F180DDFD24D62A /* AsyncSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 12BA9148D1BB7D79156CC83BD24A6820 /* AsyncSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30092F63FB79CD827CB85D797464FB40 /* ChartViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF6BAFB3B4F1107222E3B075776C6CC /* ChartViewPortHandler.swift */; };
 		3054F13449B74364043A9ADBA4E4DDC1 /* PhoneNumberKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D63D8E288EAF18D1DA73D0DC15F368A /* PhoneNumberKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		30BEA72AA293FE1C6E88E88E21CB27B4 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE524F12BB664E4973A37B282478908 /* SDWebImage-dummy.m */; };
 		317A3E7B043018C7BD7F857B76FE1462 /* ChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED83257811FDC1B4B75AAE1A53F981F /* ChartViewBase.swift */; };
+		3220106DA950FEEC0B335CC6282745BB /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB3E3F1A72C00921A0E576F0A5D4E5 /* UIImageView+WebCache.m */; };
 		34993B09829D16D56EFA88F6AC55DC60 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FDDC0EF758361281ED79E8C76C75BB /* SpringButton.swift */; };
 		34CCDCA848A701466256BC2927DA8856 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E61AFAE33A3F6B7840CC96B122788A /* NetworkReachabilityManager.swift */; };
 		3519CBA7EE38A591227561F3B974D709 /* ICandleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8658CD8563AD7C41026E4BB2A82402 /* ICandleChartDataSet.swift */; };
 		352EF1AF94125D67FEAA040F32449B24 /* BarLineChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BE5A9073085F978A385518EEA76F10 /* BarLineChartViewBase.swift */; };
 		361CB8CE5FB0F7E9DADD6D243BA09A05 /* Charts-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5188C52A185C5790DC769444E96D50EE /* Charts-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		371FCB701E2FA5156BA218C0C95A1C5E /* ChartSelectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C1FC2908533A9F848E11FA4EDC4C0D /* ChartSelectionDetail.swift */; };
+		372468417D61BC0FE5B8B82302CC8EDA /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C27CFDE9F1F2A0E608D96C19E3F4C2A8 /* SDWebImagePrefetcher.m */; };
 		37E433452F9AEE4A0B51CCDA404B53EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
 		38482CD39B3757452D67AE22C1DA5F29 /* ChartXAxisRendererHorizontalBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66E5881269B92199EC598A833B3316D /* ChartXAxisRendererHorizontalBarChart.swift */; };
 		38E5AE8278D6C47639BB70049876C110 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFBC5DF2544EDF99F361E2CD54953F /* ChartData.swift */; };
@@ -110,8 +111,6 @@
 		4EEF9EF82DBD9FA2F25E1ABDE291AC02 /* BarChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B104CC1C94CCF4E639CC83E9E5FCD03A /* BarChartData.swift */; };
 		5085B47F91DD6E5B3352CDB3EAC731DB /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACC5A297E921C5E3FACE687FC4A3F3 /* AsyncImageView.swift */; };
 		50AE3A2D24BA4DE093FC4BD2657AC1FB /* ChartTransformerHorizontalBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E4151997781AC31D9839C9EEC98300 /* ChartTransformerHorizontalBarChart.swift */; };
-		511B05301428E0AB66A6B1C8F70CB203 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAB3E3F1A72C00921A0E576F0A5D4E5 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		51D956DF0DCF8153636F7764782A9533 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A230E58FD243811BD04E27868B197 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		52E66639E431CA760DE6048234544BEB /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D689D372AB804B0C3F7875D96DBF4EEF /* SwiftyJSON-dummy.m */; };
 		545A3333A816322691BB3928D464361B /* CLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4213FF7CA53DE831A8F94DF23CBF0EB7 /* CLLayer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		5487C8A272104FBCCBEB2F54E9737BF1 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571E9E19D388C13BC02F4126CEDECF1 /* ParseManager.swift */; };
@@ -129,7 +128,9 @@
 		5CB05FBCB32D21E194B5ECF680CB6AE0 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1F13F9333CAF484E35B8E96D9F33B /* Download.swift */; };
 		5E2E37E8B2BBA213F42FFE5E775CD37F /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF395FCE8ED425D9218D25B6CBC7A8 /* MetadataTypes.swift */; };
 		5F5B910D306CC0849640D0372E2ADB43 /* DLRadioButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E3F296E92B3DCDB6CBBE76B849AEB0A /* DLRadioButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		601C7C12B7037907D0E7F721996C7652 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BF01DE29E30F0D02871FA21186AD86 /* SDWebImageCompat.m */; };
 		604D5A1EF4ABD6E0ACB3B5C820C9F841 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2060247D7A3726FEF2342B757B880 /* LineChartView.swift */; };
+		6199A79F6CF828CF03FF2D655268F5AF /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E6B7C8B9AF0214B16C8C9051CFD999 /* SDImageCache.m */; };
 		620860DD966F93A5BB284ECA65E3FF68 /* BarLineScatterCandleBubbleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD31DB95B08B0161C3AEAA87223DC51 /* BarLineScatterCandleBubbleChartDataSet.swift */; };
 		62E8346F03C03E7F4D631361F325689E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF690D87B3F510144BE94A50E545C825 /* Response.swift */; };
 		631BAC0B955DDA472F2092F853D8624D /* LineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD93CC6E39F43B2E1F7F48FC2B6CF0 /* LineChartData.swift */; };
@@ -149,14 +150,12 @@
 		704C42FC4C77B83C9B6DE9FE2C9BF6F5 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FE1853D34BD8CE094AD80DB2DD142C3 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70E9D6D8B5C50E08B5A6A0DBDEEF15EF /* DBAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5CEFF2E624831F444D7329418E6B2F /* DBAlertController-dummy.m */; };
 		729F9E9B68A861150F91F93D765BD254 /* IBarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB931AFCEA9AFF33DD2291540C0B43E9 /* IBarChartDataSet.swift */; };
-		72AE9684F173B5C5E3C6444F830EB485 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82055A050BED7C8129474C11A1DA10BA /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		72AF4B2C80FEC78EF240DE277F573285 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC982FE64E37C2BF93EFE8CAA90EB185 /* IQUIWindow+Hierarchy.m */; };
+		7340FABAA7A0D4CD06CFC66FEC1653CE /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E62B331F6E6E6591EA44342D9D87 /* UIView+WebCacheOperation.m */; };
 		755F20B51B929F2A86E1BC4D25E50838 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC49156E2B76DB02817BEA36FB09AC8 /* KeyboardLayoutConstraint.swift */; };
-		77019D13BE655A7B9EA098CE7B9A1CB3 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3A0BC2793854F3B3AE4E8999783406 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		770318C2100C2A9A4D14D224B041B0E5 /* CombinedChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5FE87B441837348905C1A6840D784 /* CombinedChartData.swift */; };
 		77415869E0594714B065073CADD89B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
 		778126769FD6E223F9574C2E19DD5453 /* ChartLegendRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E734AC9A13469EF7CAD75FF938FA1BF2 /* ChartLegendRenderer.swift */; };
-		77BAECDCBCAB3C0206E7C954FB6625E3 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD6703FC381C0E61E2F4A1DCA1392 /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		780F9EE18BB762F6AF0C775FC7EE40F0 /* CLCloudinary.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F9D6F415D3EA9B764EA517A2769E4BD /* CLCloudinary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		783C44EF16D4C79ADC985C8C86C458D5 /* ChartTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7FF9654B9BC609D0A8E6AD7D6D8002 /* ChartTransformer.swift */; };
 		791830CC86882EDBABEF95D8E3BFA733 /* IQKeyboardManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4DEDBDDF4D9371A304212CCC929709 /* IQKeyboardManager-dummy.m */; };
@@ -185,7 +184,6 @@
 		8C5A9B14335A48A783DC2B0DC176A9CD /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E81DA3BDABE5A27DF3685A69D4F608 /* IQUIViewController+Additions.m */; };
 		8EB11202167FCDDF1257AAAB1D1FB244 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE9F9A935A7D6D0A23DD30B972063C /* Alamofire.swift */; };
 		8F4BB859042D9C93C10A8FAD57420E5C /* Cloudinary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCD928C1405A868296651CFB22AAC1 /* Cloudinary-dummy.m */; };
-		8FA27409930E1504F157E841DE43C289 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BF01DE29E30F0D02871FA21186AD86 /* SDWebImageCompat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		908DFAD15EAECCC7704BF6B08E0B34E2 /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A4A43412162DC66FBB443B46B87703EA /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90B0D135D54D1A84155B308FCDF2F883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
 		9181C57B0D5E511D518D6ED675AC30A6 /* IChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD3B57B6496D172E2388A8D8A928F7 /* IChartDataSet.swift */; };
@@ -199,7 +197,6 @@
 		971753DE0ACAF4C9F1CCE754C2096964 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0EA63856A6C63C8558C432374FE2B7 /* QuartzCore.framework */; };
 		97845FB28DDC603CCE7D3F439132C87B /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201BBD343B7FD57DD57D99653CA39DDA /* ParseOperation.swift */; };
 		97D4DFE19536DB8636007003C39AC2F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
-		980155CCBEFF978A896FEA36F2FD2F12 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = D573B52BFF080441AE8548518446D9AD /* UIImage+GIF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		9838C7578BE14F947489DA4D1C595898 /* BubbleChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D889B2D7AED699C64E96B8A44C83BE0 /* BubbleChartDataEntry.swift */; };
 		9870321FE62A86A38EF06818AB723E90 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 395C6219565E044FEE1B3D754B9BD6C2 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9927F549986D46D5A68563FB9BA14573 /* CLEagerTransformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E016E18EFCB4A227CFBE5613B58DF9A /* CLEagerTransformation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -208,7 +205,6 @@
 		99E5AC9BB357813EEF58725679E4F54C /* UIScrollView+InfiniteScroll.h in Headers */ = {isa = PBXBuildFile; fileRef = 31CFB396F41B4C08C389E3D4431877A2 /* UIScrollView+InfiniteScroll.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AFEF497C0BBF27E5014EF84E914150F /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 79267F6E7489492F7E9715C9038CCE26 /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B4322D8D323695239855B30F23A9764 /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D45EAFD2464A5392CF074E4314144DD /* IQPreviousNextView.m */; };
-		9B505C815FF9AC681ABF6B60749BA827 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9E62B331F6E6E6591EA44342D9D87 /* UIView+WebCacheOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		9BBB90314EEDCAA33FB3160A02862010 /* ChartAnimationEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97B2BB47439E1A68A023B74075AF71 /* ChartAnimationEasing.swift */; };
 		9DA5BEA3017B3153EE2521C4168AC4E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F361D34800D408FF199EFCF6C5DEF70 /* CoreGraphics.framework */; };
 		9DD2A8006D79DC4469F9BD2FFB55F071 /* BubbleChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2E809CE3753EF809A263DD5A7F0C1F /* BubbleChartRenderer.swift */; };
@@ -225,8 +221,8 @@
 		A38EFBCD5397F421834C5AF4B230E663 /* DBAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9F247808A0D22DC84EEF16D6EFB3B3D /* DBAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A48B96C6FBB609A286F182ED83923097 /* HorizontalBarChartHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BB6173C63E8C731D3455EA85E10E4 /* HorizontalBarChartHighlighter.swift */; };
 		A525E68A31198AD8B3B5CAC519F1A43E /* ChartDefaultXAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4140B4253BAB5789506CF81F8D64D67C /* ChartDefaultXAxisValueFormatter.swift */; };
-		A57C723716FFF11674C4AEB69B65B761 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE28A9AB971D654082A38E52674BC6BA /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A5F486B6DA397786F31EB6A27CBA10F5 /* ChartXAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0197900524F044D82B4047772E11444 /* ChartXAxisValueFormatter.swift */; };
+		A6B9C10D04C76FD714FD86B9A5A2F200 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82055A050BED7C8129474C11A1DA10BA /* SDWebImageDecoder.m */; };
 		A808AE4EBFE37F90FE49C2715FB330F2 /* CandleChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437F54AA4006175AFC89255E852F252 /* CandleChartData.swift */; };
 		A8379C9B3FEC75DC708E8E4F6DBA2988 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
 		A8F8946A6F64129C417D88F89A2BAEB0 /* IQDropDownTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8B459C180E6FCFCA87FB2CB47DE0EF /* IQDropDownTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -254,13 +250,13 @@
 		B9764BA1C1B4139220BE15EBBCD6CECE /* ILineScatterCandleRadarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC229C6DF842ABF1C7B87E4347CF7F4 /* ILineScatterCandleRadarChartDataSet.swift */; };
 		B989FA425B95F03144D35FEDBE0E031E /* UIScrollView-InfiniteScroll-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E71C30A87EEE1A02C19A4E5E7AB1E1B /* UIScrollView-InfiniteScroll-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B997FA2ACEF14307CEF1B4439B081639 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F178957A9A5F15A7F724A4FD75A6305F /* SpringAnimation.swift */; };
+		BB0476C99E02B280939842B9DDE5EA80 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE524F12BB664E4973A37B282478908 /* SDWebImage-dummy.m */; };
 		BB2387DBAD234505FB61C31FE8C6F02B /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = BD2EF019A4DFC673479858F3F046246B /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB3A8D7FC41ED300CAA4DF3D0527DEAE /* ScatterChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BD6072C444A2C57AFC4C8E5BEF5B4 /* ScatterChartDataSet.swift */; };
 		BBCCB33035E0DCFE918E763DCD4A7945 /* IQDropDownTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D25243A159DD844E181DBBA7DAD5A4D /* IQDropDownTextField-dummy.m */; };
 		BCB05E750CD7C4C51E98BAFD617AEC2F /* CLCloudinary.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B5D14C95AFE67B689F99455AF090E3 /* CLCloudinary.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		BCD5071CB4E5FAEE7FC51746F4B17B62 /* IBarLineScatterCandleBubbleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F4A488E799F1CEB1F76AE90282E6 /* IBarLineScatterCandleBubbleChartDataSet.swift */; };
 		BCE2AD8FD0634BABB95312B58D370602 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B89F4F8BCA7ECD83E04CE454B16381 /* IQNSArray+Sort.m */; };
-		BD1A4E6E2686C49AE8BCC7EA1F9C3761 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C27CFDE9F1F2A0E608D96C19E3F4C2A8 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		BE41196F6A3903E59C3306FE3F8B43FE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6CD31B65611C0B1D07C1FAAA065430 /* Notifications.swift */; };
 		BE6738C0C0FD368B7299C7037B773694 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
 		BE9F89AF424C8FB7D1FB34D4D0DDECFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
@@ -282,11 +278,9 @@
 		C89A56E617144FEA3136394B712452A5 /* ScatterChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D1251DA43C3D9B1491BEC9B2AB867 /* ScatterChartRenderer.swift */; };
 		C8F048F025F20412CD027FB1C3691536 /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E1EB65DE8439D064E4E4254399D2389F /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAF376017EBFBA7E45A281BB2C1B3B75 /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AFAE3C0C75447B2F1BB368A67A4B273 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CD439B09F37E63AFBED6D7E2DBAF17F3 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 220218E24C8CE7141084D3C1A299656D /* UIImageView+HighlightedWebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		CEBB2FD70283D5A17132F1B8566E0D2E /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED3A86022FFD95332985053088D6486 /* PieChartView.swift */; };
 		CED9BD2AC9878BECDFB0F58958623B72 /* IQKeyboardManagerConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = ED4BA3C0DDBA4448D8A1ED40337910FD /* IQKeyboardManagerConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFBB075A1FBE0A9FB00D1559A119B719 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE2B521ED04E2FEFBDFDB44E067A18 /* DesignableTextField.swift */; };
-		D02BEF35F2BEF5750835C3F7A4713533 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F79AF7A7F21095124063E2DCB5BD527 /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D0B4B13E42D4F9E212EA8964B1496D65 /* IQKeyboardReturnKeyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE067FF091075A65C5248DF5B4BF2C2 /* IQKeyboardReturnKeyHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D138673E24CFF806E18406AA9031C95D /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D2EAD47CA468C59BAC631E41F05FED1 /* IQKeyboardManager.bundle */; };
 		D1F1695E20DD0A70DA19C6226F3E6BEF /* ChartXAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF96D2C6D8C82F8B348E309C28CD79 /* ChartXAxis.swift */; };
@@ -304,6 +298,7 @@
 		DA3D92E9DC28CBC45047F2C2F9384FE4 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1235DBF57FD61796B7D28F10E4ADDB73 /* Spring.swift */; };
 		DD580D63E4D76F53372817544FDB8882 /* AnimatedMoveViewJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34A2C774C613262A7CA9C71CC95858 /* AnimatedMoveViewJob.swift */; };
 		DE042C08F7F3A2A3B4546F8EADFCDEC5 /* ChartXAxisRendererRadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEE3B29BB66DF8F8446645645E006AC /* ChartXAxisRendererRadarChart.swift */; };
+		DF94688D403FFA864D0177D180AD36CD /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 220218E24C8CE7141084D3C1A299656D /* UIImageView+HighlightedWebCache.m */; };
 		E14B01B2BDDA7C86AC2EBC45FCFEF52E /* UIScrollView+EmptyDataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 834E8BB6B686635CE2FDCBAD0D62797C /* UIScrollView+EmptyDataSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E15BB936763363C277F629F1178CE470 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA3BBB8A4D976D207FCE652CCF77FC /* SpringTextField.swift */; };
 		E1BAD342EFFB5E062959C14B5E07DC68 /* ChartViewPortJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA3AE3F941E4754B782CC11EF08337 /* ChartViewPortJob.swift */; };
@@ -315,6 +310,7 @@
 		E4C14907B0ABAF947438E43C98C0303E /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF672AF3A64915CCEA732231EA7FAED /* IQUITextFieldView+Additions.m */; };
 		E4CBBBB237193B21C8D279F476687B03 /* PhoneNumberKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C3B073C1A5D621F1D8B0284655B1C6EF /* PhoneNumberKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5058A4F1DE0728468C6EF0835C61486 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075EF8B2D697E30353D8C221BF397E45 /* ImageIO.framework */; };
+		E5E5295CD2688AB5251465E5E5045FEB /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F79AF7A7F21095124063E2DCB5BD527 /* SDWebImageDownloaderOperation.m */; };
 		E90141BF332560ED9C3BA829889E51CD /* ZoomChartViewJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950555A936FDAADA7F5F561C0ABCEBA1 /* ZoomChartViewJob.swift */; };
 		EA7C46C90D4BD93957BADD2534257958 /* IQBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B9F4EE35A114E6A2E15480BAF7EE03A8 /* IQBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA9C47223BD936ED7FCC5DA1BA24F34F /* IQUIScrollView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BF6947742765C4117C35D72604B026D /* IQUIScrollView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -328,14 +324,18 @@
 		F51D0F2B63F52972A8918F47F1AB7E74 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F32C9741E9CEAC839DE44E229269653 /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5E3C1C8028335F05B2DAB4FF60856DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
 		F73A3B5F23552B8B53C7FD259AE997B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33163AD55E2C4502AEA99D6A9558D5A5 /* Foundation.framework */; };
+		F7915343F4BC90A0FCB8BB608A3DC18A /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = D573B52BFF080441AE8548518446D9AD /* UIImage+GIF.m */; };
 		F9E9A2403A8E8D7D3509ABF2A40A5CD7 /* PieChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FC9ED6A1B6353A9066B47502AE97B /* PieChartRenderer.swift */; };
 		FAF95D9CF354B750CC46337AA5DA514E /* CLLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F747A79E9D91CF0BA18CA4F6635E4F9 /* CLLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB1F623038DC5658AD26B9589681D05E /* IQUIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 942881834029AA48CCFF3CC3AB369CD0 /* IQUIView+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB636E0813EAD484814216E092E05042 /* TextAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = DF624BA9DF0B53F04FB6015A90441D9D /* TextAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB754078C1B335C25802F0854FFC9756 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A230E58FD243811BD04E27868B197 /* SDWebImageDownloader.m */; };
 		FC34E76E2F5CB664B627A6F1192888FA /* CandleChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6DCE71A8D9A308F4290181424768ED /* CandleChartDataEntry.swift */; };
 		FC8A29D1F192FF1FDA3BB7D0935A1B3F /* AnimatedZoomViewJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353D27655BDEC1F5CF540469B46BC2A6 /* AnimatedZoomViewJob.swift */; };
+		FD3054736C6C98FD957C7457CB0F8E3A /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3A0BC2793854F3B3AE4E8999783406 /* UIButton+WebCache.m */; };
 		FE4699C76F5138C287C9448DDFE4AB8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F1352E5940BCF3A06AD2C5910CF8DE /* UIKit.framework */; };
 		FEAAEDF7FAFA3134CA836F1AB6E0FDF5 /* IScatterChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC96AB8F90FDAAD2599554BFC097A9F /* IScatterChartDataSet.swift */; };
+		FEB684D16A568392D1B582FC305E5779 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD6703FC381C0E61E2F4A1DCA1392 /* UIImage+MultiFormat.m */; };
 		FF383AB25605A99106208E2F7CBC811E /* LineScatterCandleRadarChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E4C3234E0A56ECDDDC1605571E89F5 /* LineScatterCandleRadarChartRenderer.swift */; };
 		FF8AC9066203E3ADFE6508A4594ADB3E /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F4FD8F11C656AEA403AEC960EAFBBF9 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -2046,7 +2046,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F7E650E31BDFA14EA17EDBEE702388B /* Build configuration list for PBXNativeTarget "SDWebImage" */;
 			buildPhases = (
-				453674D84BCF64CEBD73344088423313 /* Sources */,
+				91327AE84D756B3A5EEB530587980179 /* Sources */,
 				769C5DAE5AB1392A8CA45E718B5CEFCC /* Frameworks */,
 				552FDF53B12071EF2873C817CCB3CC01 /* Headers */,
 			);
@@ -2440,28 +2440,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		453674D84BCF64CEBD73344088423313 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				175B1AEEA659DE403AB26C7F05E2DE90 /* NSData+ImageContentType.m in Sources */,
-				0C083ED01D615AEE39DC44ACFE88571E /* SDImageCache.m in Sources */,
-				30BEA72AA293FE1C6E88E88E21CB27B4 /* SDWebImage-dummy.m in Sources */,
-				8FA27409930E1504F157E841DE43C289 /* SDWebImageCompat.m in Sources */,
-				72AE9684F173B5C5E3C6444F830EB485 /* SDWebImageDecoder.m in Sources */,
-				51D956DF0DCF8153636F7764782A9533 /* SDWebImageDownloader.m in Sources */,
-				D02BEF35F2BEF5750835C3F7A4713533 /* SDWebImageDownloaderOperation.m in Sources */,
-				A57C723716FFF11674C4AEB69B65B761 /* SDWebImageManager.m in Sources */,
-				BD1A4E6E2686C49AE8BCC7EA1F9C3761 /* SDWebImagePrefetcher.m in Sources */,
-				77019D13BE655A7B9EA098CE7B9A1CB3 /* UIButton+WebCache.m in Sources */,
-				980155CCBEFF978A896FEA36F2FD2F12 /* UIImage+GIF.m in Sources */,
-				77BAECDCBCAB3C0206E7C954FB6625E3 /* UIImage+MultiFormat.m in Sources */,
-				CD439B09F37E63AFBED6D7E2DBAF17F3 /* UIImageView+HighlightedWebCache.m in Sources */,
-				511B05301428E0AB66A6B1C8F70CB203 /* UIImageView+WebCache.m in Sources */,
-				9B505C815FF9AC681ABF6B60749BA827 /* UIView+WebCacheOperation.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		573AC1DB1C2B304767531705E7D6CF1E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2522,6 +2500,28 @@
 			files = (
 				126169B8BF7430D89BB990B97C36D75F /* Async.swift in Sources */,
 				2754C4E95E265639D7CFC90BA8264476 /* AsyncSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91327AE84D756B3A5EEB530587980179 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A0B5D1AE39E6FA9ECBC7AE8D72B2EFD /* NSData+ImageContentType.m in Sources */,
+				6199A79F6CF828CF03FF2D655268F5AF /* SDImageCache.m in Sources */,
+				BB0476C99E02B280939842B9DDE5EA80 /* SDWebImage-dummy.m in Sources */,
+				601C7C12B7037907D0E7F721996C7652 /* SDWebImageCompat.m in Sources */,
+				A6B9C10D04C76FD714FD86B9A5A2F200 /* SDWebImageDecoder.m in Sources */,
+				FB754078C1B335C25802F0854FFC9756 /* SDWebImageDownloader.m in Sources */,
+				E5E5295CD2688AB5251465E5E5045FEB /* SDWebImageDownloaderOperation.m in Sources */,
+				1255DCDDE3DF0785555677FC51E7904C /* SDWebImageManager.m in Sources */,
+				372468417D61BC0FE5B8B82302CC8EDA /* SDWebImagePrefetcher.m in Sources */,
+				FD3054736C6C98FD957C7457CB0F8E3A /* UIButton+WebCache.m in Sources */,
+				F7915343F4BC90A0FCB8BB608A3DC18A /* UIImage+GIF.m in Sources */,
+				FEB684D16A568392D1B582FC305E5779 /* UIImage+MultiFormat.m in Sources */,
+				DF94688D403FFA864D0177D180AD36CD /* UIImageView+HighlightedWebCache.m in Sources */,
+				3220106DA950FEEC0B335CC6282745BB /* UIImageView+WebCache.m in Sources */,
+				7340FABAA7A0D4CD06CFC66FEC1653CE /* UIView+WebCacheOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
