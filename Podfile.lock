@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.4.0)
+  - Alamofire (3.4.1)
   - AsyncSwift (1.7.2)
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
@@ -56,7 +56,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   Cloudinary: f80af4565ec08c521d5e58cb56d9fbe1e4595e40
@@ -74,6 +74,6 @@ SPEC CHECKSUMS:
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
-PODFILE CHECKSUM: 8821fac210e1efbaa5a3d650768eea7f4d3aed57
+PODFILE CHECKSUM: 9eaec267dd686b8d536c20dfbcddbcf29af1ff74
 
 COCOAPODS: 1.0.1
