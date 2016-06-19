@@ -19,7 +19,7 @@ PODS:
   - SVProgressHUD (2.0.3)
   - SwiftyJSON (2.3.2)
   - TextAttributes (0.3.1)
-  - UIScrollView-InfiniteScroll (0.7.3)
+  - UIScrollView-InfiniteScroll (0.8.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
@@ -52,7 +52,7 @@ CHECKOUT OPTIONS:
     :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
     :git: https://github.com/MengTo/Spring.git
   SwiftyJSON:
-    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
@@ -72,7 +72,7 @@ SPEC CHECKSUMS:
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
-  UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
+  UIScrollView-InfiniteScroll: afd22fc0e230436a27c5b8b44c0857cb5bd3716a
 
 PODFILE CHECKSUM: 9eaec267dd686b8d536c20dfbcddbcf29af1ff74
 
