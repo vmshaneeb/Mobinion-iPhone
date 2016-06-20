@@ -85,7 +85,7 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
         // Add infinite scroll handler
         tableView.addInfiniteScrollWithHandler
         { (scrollView) -> Void in
-            let tableView = scrollView as! UITableView
+            let tableView = scrollView 
             
             
              //fetch your data here, can be async operation,
