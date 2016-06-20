@@ -1393,6 +1393,13 @@ class NewsFeedMyWall: UIViewController, UITableViewDataSource, UITableViewDelega
             
             performSegueWithIdentifier("showVotingfromFeed", sender: self)
         }
+        else if (newsFeed[indexPath.row]["type"]!!.isEqualToString("contest"))
+        {
+            itemID = newsFeed[indexPath.row]["itemId"] as! String
+//            feedID = newsFeed[indexPath.row]["feedId"] as! String
+            itemType = newsFeed[indexPath.row]["itemType"] as! String
+
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat

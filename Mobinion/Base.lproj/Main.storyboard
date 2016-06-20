@@ -3090,6 +3090,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3DV-bp-QND"/>
                     <connections>
+                        <outlet property="notifyBtn" destination="l4I-PU-jKv" id="5fA-pD-8lr"/>
                         <outlet property="tableView" destination="NJs-1H-Ylf" id="250-id-ti3"/>
                     </connections>
                 </viewController>
@@ -4293,7 +4294,7 @@
                                             <constraint firstAttribute="height" constant="21" id="L6s-Ez-qcS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1t-r7-Hz7">

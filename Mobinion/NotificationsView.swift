@@ -14,12 +14,15 @@ import SDWebImage
 import TextAttributes
 import DZNEmptyDataSet
 import SVProgressHUD
+import RKNotificationHub
 
 class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notifyBtn: UIBarButtonItem!
     
     var notifyArray = NSMutableArray()
+    var hub = RKNotificationHub()
     
     override func viewDidLoad()
     {
@@ -27,6 +30,9 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
         // Do any additional setup after loading the view, typically from a nib.
         
 //        self.tabBarController?.tabBar.hidden = true
+        
+        hub = RKNotificationHub.init(barButtonItem: notifyBtn)
+        hub.setCircleAtFrame(CGRect(x: 8, y: -10, width: 20, height: 20))
         
         tableView.registerClass(NotificationTableViewCell.self, forCellReuseIdentifier: "notifyCell")
         let nib:UINib = UINib(nibName: "NotificationTableViewCell", bundle: nil)
@@ -263,6 +269,8 @@ class NotificationsView: UIViewController, UITableViewDelegate, UITableViewDataS
                             print("error in responseObject")
                         }
                         self.tableView.reloadData()
+                        self.hub.count = UInt(self.notifyArray.count)
+                        self.hub.pop()
                     }
                 }
                 else
