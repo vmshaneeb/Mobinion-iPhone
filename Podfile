@@ -22,3 +22,10 @@ target 'Mobinion' do
     pod 'SVProgressHUD'
     pod 'RKNotificationHub'
 end
+
+plugin 'cocoapods-keys',
+{
+    :project => "Mobinion.xcodeproj",
+    :keys => ["GoogleMapAPIKey",
+              "CloudinaryURLKey"]
+}
