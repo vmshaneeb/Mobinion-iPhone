@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManager
 import GoogleMaps
 import SVProgressHUD
+import Keys
 
 enum Shortcut: String
 {
@@ -33,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         IQKeyboardManager.sharedManager().enable = true
         
-        GMSServices.provideAPIKey("AIzaSyCZh2o4lsPP0GtVoQOHeWfvzQ71wQGHvVM")
+        let keys = MobinionxcodeprojKeys()
+
+        GMSServices.provideAPIKey(keys.googleMapAPIKey())
         
         print(NSUserDefaults.standardUserDefaults().objectForKey("token"))
         if NSUserDefaults.standardUserDefaults().objectForKey("token") != nil

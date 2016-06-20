@@ -12,6 +12,7 @@ import SwiftyJSON
 import DBAlertController
 import Cloudinary
 import SVProgressHUD
+import Keys
 
 class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLUploaderDelegate
 {
@@ -29,7 +30,7 @@ class UpdateProfile: UIViewController, UIImagePickerControllerDelegate, UINaviga
     var uploadedURL = ""
     var profName = ""
     
-    let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
+    let cloudinary = CLCloudinary(url: MobinionxcodeprojKeys().cloudinaryURLKey())
     
     override func viewDidLoad()
     {

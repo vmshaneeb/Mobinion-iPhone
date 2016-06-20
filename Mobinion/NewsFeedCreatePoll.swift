@@ -14,6 +14,7 @@ import IQDropDownTextField
 import Cloudinary
 import Async
 import SVProgressHUD
+import Keys
 
 class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ImagePickerDelegate, CLUploaderDelegate
 {
@@ -64,7 +65,7 @@ class NewsFeedCreatePoll: UIViewController, UIScrollViewDelegate, UITableViewDat
     
     var lastSelectedIndex: NSIndexPath?
 
-    let cloudinary = CLCloudinary(url: "cloudinary://661939659813751:CG78z-JdF6pUl7r6HYTBhbjpxJo@epi")
+    let cloudinary = CLCloudinary(url: MobinionxcodeprojKeys().cloudinaryURLKey())
     
     override func viewDidAppear(animated: Bool) 
 //    override func viewDidLoad()
