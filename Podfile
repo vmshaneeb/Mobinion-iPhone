@@ -20,4 +20,5 @@ target 'Mobinion' do
     pod 'AsyncSwift'
     pod 'Charts'
     pod 'SVProgressHUD'
+    pod 'RKNotificationHub'
 end

@@ -12,6 +12,7 @@ PODS:
   - IQDropDownTextField (1.1.0)
   - IQKeyboardManager (4.0.3)
   - PhoneNumberKit (0.8.4)
+  - RKNotificationHub (2.0.1)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - IQDropDownTextField
   - IQKeyboardManager
   - PhoneNumberKit (~> 0.7)
+  - RKNotificationHub
   - SDWebImage (~> 3.7)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SVProgressHUD
@@ -67,6 +69,7 @@ SPEC CHECKSUMS:
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1
   PhoneNumberKit: ec93d8c5e4614ecfc1ef333eb89f7eaadedcaa17
+  RKNotificationHub: d80905a948c79c11673345f807133a0bfd17e320
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   TextAttributes: b43233c6356a72f1c1e483d5bda694535432a4be
   UIScrollView-InfiniteScroll: afd22fc0e230436a27c5b8b44c0857cb5bd3716a
 
-PODFILE CHECKSUM: 9eaec267dd686b8d536c20dfbcddbcf29af1ff74
+PODFILE CHECKSUM: 3cab33b5613126e33d9dd0272548d85406fae228
 
 COCOAPODS: 1.0.1
