@@ -21,6 +21,7 @@ target 'Mobinion' do
     pod 'Charts'
     pod 'SVProgressHUD'
     pod 'RKNotificationHub'
+#    pod 'Cosmos', '~> 2.0'
 end
 
 plugin 'cocoapods-keys',
